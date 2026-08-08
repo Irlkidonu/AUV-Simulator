@@ -153,40 +153,52 @@ to contradict the paper; it does not.
 
 ## 4. Known discrepancies, stated rather than left to be found
 
-### 4.1 The freeze record does not verify against the published tree
+### 4.1 `freeze.py --verify` exits 1, and what that does and does not mean
 
-`python3 scripts/freeze.py --verify` exits 1 and reports 20 differences against
-the published tree. This is expected and its scope is bounded:
+**The campaign source verifies exactly.** The import closure of `campaign.py` is
+twelve modules — `acoustics`, `availability`, `campaign`, `comparators`,
+`environment`, `estimator`, `imaging`, `manager`, `mission`, `modes`, `optics`,
+`sensors` — and **all twelve match the freeze record byte for byte**.
 
-**Campaign-critical modules** — the import closure of `campaign.py` is twelve
-modules: `acoustics`, `availability`, `campaign`, `comparators`, `environment`,
-`estimator`, `imaging`, `manager`, `mission`, `modes`, `optics`, `sensors`.
+Two of them briefly did not. When this repository was extracted from the
+development workspace, one docstring line in `modes.py` and one in `optics.py`
+were rewritten from `projects/paper2/method/...` to `method/...`, the path where
+the specifications sit here. Both lines have been restored to the frozen bytes.
+The docstrings therefore reference the development-workspace path; that is the
+provenance path, and it is preserved in preference to a tidier one because the
+digest is the point.
 
-- **10 of 12 match the freeze record byte for byte.**
-- `modes.py` and `optics.py` differ **on one line each**, inside the module
-  docstring:
+**`scripts/freeze.py --verify` still exits 1**, reporting 18 differences. Every
+one is a demonstrator, packaging or scenery file added or changed after the
+freeze: `launch/*`, `nodes/*` (control panel, teleop, fish school, scenario
+director, status display, vehicle, water column), `worlds/mode_aware_survey.sdf`,
+`scripts/make_rocks.py`, `make_scenery.py`, `make_seabed.py`,
+`capture_demonstrator_figure.py`, `test/test_demonstrator_scene.py`,
+`seabed.py`, `setup.py`, `package.xml`. **None is in the campaign import
+closure**; `seabed.py` is reached only from `scripts/make_seabed.py` and a
+demonstrator test.
 
-  ```
-  -Reference implementation of ``projects/paper2/method/MODE_MANAGER_SPEC.md``
-  +Reference implementation of ``method/MODE_MANAGER_SPEC.md``
-  ```
+The campaigns were run at commit `16a091a`, before any of that work existed. The
+published tree additionally carries the interactive demonstrator, which the paper
+reports produces no quantitative result. Restoring those files to the frozen
+state would mean deleting the demonstrator, so they are left as they are and
+listed here instead.
 
-  The specification path was rewritten when this repository was extracted from
-  the development workspace, where the specs sit under `projects/paper2/method/`.
-  Line 3 of both files is inside the module docstring. No executable statement,
-  constant or default differs. `diff` output for both files is exactly the one
-  line shown.
+To check the claim the manuscript actually makes, verify the closure:
 
-**Everything else** — the remaining 18 differences are demonstrator, packaging
-and scenery files added or changed after the freeze: `launch/*`, `package.xml`,
-`setup.py`, `nodes/*`, `worlds/mode_aware_survey.sdf`, `scripts/make_*.py`,
-`scripts/capture_demonstrator_figure.py`, `test/test_demonstrator_scene.py`,
-`seabed.py`. **None is in the campaign import closure.** `seabed.py` is reached
-only from `scripts/make_seabed.py` and a demonstrator test.
-
-The campaigns were run at commit `16a091a`, before any of this. The published
-tree carries the interactive demonstrator, which the paper reports produces no
-quantitative result.
+```bash
+python3 - <<'PY'
+import json, hashlib, pathlib
+CRIT = ['acoustics','availability','campaign','comparators','environment',
+        'estimator','imaging','manager','mission','modes','optics','sensors']
+rec = json.load(open('freeze_record.json'))['digests']
+bad = [m for m in CRIT
+       if hashlib.sha256(pathlib.Path(f'uuv_mode_aware_navigation/{m}.py')
+                         .read_bytes()).hexdigest()
+       != rec[f'uuv_mode_aware_navigation/{m}.py']]
+print(f'{len(CRIT)-len(bad)}/{len(CRIT)} campaign modules match' + (f'  DIFFER: {bad}' if bad else ''))
+PY
+```
 
 ### 4.2 The 254× figure is computed from rounded values
 
