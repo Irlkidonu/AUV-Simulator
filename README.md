@@ -52,15 +52,38 @@ and watch the mode escalate and the covariance grow while it happens.
 
 ---
 
+## Design commitments
+
+These are enforced in code and tests, not merely documented.
+
+**No prescribed error terms.** Measurement noise, geometric bias, dropout and
+availability are *derived* from propagation geometry and water optical
+properties. There is no hand-tuned bias vector anywhere in this package. Every
+free parameter is either a published physical quantity or an explicitly declared
+design choice.
+
+**No privileged information.** The water state — turbidity index, beam
+attenuation `c`, optical depth `τ` — is hidden. It is consumed by the physics
+model and reported to the evaluator, and it never reaches the estimator, the mode
+manager or the controller. `ChannelResponse.navigation_view()` enforces that
+boundary in code, and tests assert it.
+
+**No crippled comparators.** Every method shares sensor realisations, estimator,
+physics, controller, initialisation and tuning budget. Only the oracle receives
+privileged information, and it is labelled an oracle everywhere it appears.
+
+**Determinism.** Same seed, same output, bit for bit. No global RNG is touched.
+
+---
+
 ## Where everything is
 
 | Path | What it holds |
 |---|---|
 | `src/uuv_mode_aware_navigation/` | The ROS 2 package: physics, optics, estimator, mode manager, campaign runner, tests |
-| `src/uuv_mode_aware_navigation/README.md` | **Full run instructions**, architecture, physics notes |
+| `src/uuv_mode_aware_navigation/results/` | Campaign outputs, both configuration sweeps, freeze record |
 | `experiments/` | Read-only analysis: development campaign, held-out comparison, configuration sweep |
 | `PUBLICATION_ARTEFACT_MANIFEST.md` | Every result file: command, seed block, SHA-256, and the claims it supports |
-| `src/uuv_mode_aware_navigation/results/` | Campaign outputs, including the full configuration sweep |
 | `NOTICE` | Third-party assets, their licences, and every change made to them |
 
 The method specifications the implementation is checked against — cited by
@@ -71,40 +94,61 @@ request.
 
 ---
 
-## Quick start
+## Install
 
-Requires ROS 2 Jazzy and Gazebo Harmonic on Ubuntu 24.04.
+The physics, the campaign and the tests need **no ROS and no Gazebo**. Only the
+interactive demonstrator does.
 
 ```bash
-git clone https://github.com/<you>/AUV-Simulator.git ~/auv-simulator
+git clone https://github.com/Irlkidonu/AUV-Simulator.git ~/auv-simulator
 ```
 
-Every command below has been run from a clean shell. Copy the
-block, do not skip the `source` lines: without them `ros2` cannot find the
-package and the launch fails with a bare "package not found".
+**Standalone — physics, campaign and tests:**
 
 ```bash
-# 1. Build into an isolated overlay. This does not touch anything else in the
-#    workspace, and --symlink-install means later Python edits need no rebuild.
+pip install numpy pytest
+cd ~/auv-simulator/src/uuv_mode_aware_navigation
+PYTHONPATH=. python3 -m pytest test/ -q          # 176 tests, about three minutes
+```
+
+**As a ROS 2 package**, for the demonstrator. Requires ROS 2 Jazzy and Gazebo
+Harmonic on Ubuntu 24.04. Do not skip the `source` lines: without them `ros2`
+cannot find the package and the launch fails with a bare "package not found".
+
+```bash
 cd ~/auv-simulator
 source /opt/ros/jazzy/setup.bash
 colcon build --base-paths src --build-base .build --install-base .install --symlink-install
 source .install/setup.bash
-
-# 2. Tests. No ROS, no Gazebo, about three minutes.
-cd src/uuv_mode_aware_navigation
-PYTHONPATH=. python3 -m pytest test/ -q          # 176 tests
-cd ../..
 ```
+
+`--symlink-install` means later Python edits need no rebuild, and the isolated
+overlay cannot disturb anything else in the workspace.
 
 > **Use a private ROS domain** if anything else on your network publishes on
 > `/uuv/*`. ROS 2 discovers peers across the whole subnet by default, so two
-> people running this at once will drive each other's vehicles. Export an unused
-> `ROS_DOMAIN_ID` before launching:
+> people running this at once will drive each other's vehicles:
 >
 > ```bash
 > export ROS_DOMAIN_ID=42
 > ```
+
+### A first look at the optics, in five lines
+
+```python
+from uuv_mode_aware_navigation.optics import (
+    WaterState, CAMERA_COAXIAL, CAMERA_OFFAXIS, LIDAR, channel_response,
+)
+
+water = WaterState(c=1.20)          # degraded water, m^-1
+
+for cfg in (CAMERA_COAXIAL, CAMERA_OFFAXIS, LIDAR):
+    high = channel_response(water, altitude_m=3.0, config=cfg)
+    low  = channel_response(water, altitude_m=1.0, config=cfg)
+    print(f"{cfg.name:<16} τ@3m={high.tau:5.1f}  τ@1m={low.tau:5.1f}")
+```
+
+---
 
 ## Opening the simulator
 
@@ -165,10 +209,9 @@ Breaking things is on the panel, or from another shell:
 | `/uuv/set_current` | ocean current |
 | `/uuv/force_channel` | hold an optical channel against the manager's choice |
 
-Keys combine: hold `w` and `←` together and it climbs while turning. Moving the
-turbidity or current sliders, or pressing any fault button, **pauses the scenario
-schedule** so your setting is not overwritten — the panel says who is driving the
-water. `load scenario` hands it back.
+Moving the turbidity or current sliders, or pressing any fault button, **pauses
+the scenario schedule** so your setting is not overwritten — the panel says who
+is driving the water. `load scenario` hands it back.
 
 ### Hands-off — the manager flies
 
@@ -187,7 +230,7 @@ ros2 topic pub --once /uuv/set_turbidity std_msgs/Float32 "{data: 1.6}"
 
 * **Gazebo exits immediately, log says `uri ... could not be resolved`** — the
   launch file sets `GZ_SIM_RESOURCE_PATH` for you, so this means the package was
-  not rebuilt after a mesh was added. Re-run step 1.
+  not rebuilt after a mesh was added. Re-run the colcon build.
 * **Camera view is black or the window is very slow** — offscreen rendering has
   fallen back to software. The launch files name the NVIDIA EGL vendor already;
   if your GPU is not NVIDIA, remove that line from the launch file.
@@ -199,6 +242,8 @@ ros2 topic pub --once /uuv/set_turbidity std_msgs/Float32 "{data: 1.6}"
 
 Closing the Gazebo window shuts the whole session down, including the panel and
 the camera view. Nothing is left running.
+
+---
 
 ## What is in the world
 
@@ -214,7 +259,7 @@ altimeter reads cannot disagree. Relief is gentle inside the survey box (about
 0.3 m, keeping clearance at the −17 m survey line) and rises to roughly 8 m
 further out, where the vehicle never flies. That matters beyond looks: terrain
 matching over a plane is exactly the case that cannot work, so a flat floor made
-the paper's own subject invisible.
+the study's own subject invisible.
 
 **Life.** Ten fish, twelve jellyfish and twenty-four plants, all driven by
 `fish_school.py`:
@@ -237,7 +282,7 @@ vessel is not scenery either: ultra-short baseline positioning interrogates a
 transceiver held at the surface, and family E18 is the case where that vessel
 leaves station.
 
-**Known limits**, stated because they are easy to mistake for bugs:
+**Rendering notes**, stated because they are easy to mistake for bugs:
 
 * Gazebo's ogre2 engine **ignores `<fog>`**. The world declares it and it has
   never rendered. Depth falloff comes from the background colour instead, and
@@ -251,11 +296,44 @@ leaves station.
   rigged mesh or a vertex shader, and the model has neither.
 * The **sea surface does not animate**. Waves are geometry, not motion.
 
+Illumination and texture cover the full survey area. Measured over a 300 s
+headless run across waypoints 1–7 — the whole 20 m × 18 m box — the image-quality
+statistic holds a minimum of 0.177 and a mean of 0.324 over 743 samples, with no
+dropout after the camera starts publishing. `test_demonstrator_scene.py` ties the
+scene and the mission together so coverage is checked on every run of the suite.
+
 Third-party models and textures are listed in [NOTICE](NOTICE).
+
+---
+
+## The physics, briefly
+
+Everything reduces to **optical depth in attenuation lengths**, `τ = c · L`,
+where `L ≈ 2h` is the two-way path to the seabed. Each configuration has a
+published maximum usable `τ`:
+
+| Configuration | Usable range | Source |
+|---|---|---|
+| Camera, lamp adjacent (coaxial) | 1–2 attenuation lengths | [R3] |
+| Camera, lamp separated (off-axis) | ~3 attenuation lengths | [R3] |
+| Laser line scan | 5–6 attenuation lengths | [R2] |
+| Range-gated pulsed laser | up to 7 attenuation lengths | [R3] |
+
+Because that published ladder does not nest, there are genuinely different
+water/altitude states where each configuration is the right choice — which is
+what makes the manager's decision real rather than manufactured by parameter
+choice.
+
+The single normalisation constant the relative-units radiometry needs is not
+chosen but *solved*, so that a coaxial camera reaches its contrast floor exactly
+at its published limit. Off-axis and laser configurations then reach further
+purely because their geometry admits less backscatter.
+
+---
 
 ## Running the campaign
 
-Every number in the paper comes from here, and none of it uses Gazebo.
+Every number in the study comes from here, and none of it uses Gazebo.
 
 ```bash
 cd src/uuv_mode_aware_navigation
@@ -264,13 +342,41 @@ cd src/uuv_mode_aware_navigation
 # Silence means nothing changed; any output names the file that did.
 sha256sum -c results/PRE_CAMPAIGN_BASELINE.sha256 | grep -v ': OK$'
 
-# 150 scenarios x 108 static configurations, then the comparator campaign.
-# ~5 hours on four physical cores; progress every 500 runs with an ETA.
+# 190 scenarios x 144 static configurations, then the comparator campaign.
+# Roughly five hours on four physical cores; progress every 500 runs with an ETA.
 PYTHONPATH=. python3 -u scripts/run_campaign.py --seeds 10 --jobs 7 \
     --out results/campaign.csv > results/campaign.log 2>&1 &
 
 tail -f results/campaign.log
 ```
+
+### Validation
+
+The optical model ships with the validation suite from its specification. Two
+tests are **gating**: if either fails, the affected claim is dropped rather than
+rescued by retuning the physics.
+
+```bash
+PYTHONPATH=. python3 -m pytest test/ -q              # all 176
+PYTHONPATH=. python3 -m pytest test/ -q -m gating    # those that gate a claim
+```
+
+| Test | Checks |
+|---|---|
+| V1 | Contrast falls monotonically with attenuation and altitude |
+| V2 | Clear water is signal-limited; opaque water yields no confident fix |
+| V3 | Off-axis lighting raises contrast **and** costs a non-zero bias — never a free win |
+| **V4** | **Non-nesting envelopes**: a region exists where the laser works and the camera does not, and the camera retains a rate/power regime of its own |
+| **V5** | **The altitude lever**: descending restores camera availability in the transition band |
+| V6 | Determinism; the global NumPy RNG is never disturbed |
+| V7 | Hidden state does not reach the navigation side |
+
+Pipeline-level tests additionally enforce the information boundary by inspecting
+the runner's own source: guidance is passed `estimator.position` and never
+`vehicle.position`, `Observables` cannot carry water state or truth, and no
+evaluator output reaches a decision. These are the evidence that this study
+measures navigation rather than localization, and they are part of the freeze
+record.
 
 ---
 
@@ -297,46 +403,50 @@ is, because there is only one definition of it.
 
 ## How to check any of this yourself
 
-Simulation results are easy to publish and hard to trust. Three things here are
+Simulation results are easy to publish and hard to trust. Four things here are
 meant to make this set checkable rather than merely readable.
 
 **The outcome measure was fixed before any result existed.** A pre-registered
 protocol declares the metrics, the seeds and the falsification conditions up
-front, and every campaign is reported against them. One consequence worth
-knowing: the best fixed configuration turns out not to be stable under the
-choice of aggregation statistic, and a robust statistic would have moved the
-headline comparison in the proposed method's favour. The pre-registered mean is
-reported anyway.
+front, and every campaign is reported against them. Source files carry
+`PROTOCOL.md` section references where a rule comes from the protocol; the
+document itself is available from the authors on request.
 
-Source files carry `PROTOCOL.md` section references where a rule comes from the
-protocol. The document itself is available from the authors on request.
+**The baseline is not ours to choose.** The fixed policy the method is compared
+against is selected by exhaustive sweep of the manager's own action space, and
+both sweeps ship with the repository, best to worst. If you think the comparison
+was against a weak configuration, open the file, find the one you would have
+picked, and read off its score. The development sweep selected
+`lidar+terrain_relative@1.0m/0.25mps/weight/continue`; the held-out sweep,
+executed afterwards, returns the same winner.
 
-**The baseline is not ours to choose.** The fixed policy it is compared against
-is selected by exhaustive sweep of the manager's own action space, and the sweep
-ships with the repository, best to worst. If you think the comparison was
-against a weak configuration, you can open the file, find the one you would have
-picked, and read off its score.
-
-**The comparators bracket the method rather than compete with it.** The tuned
-static baseline knows before departure which configuration suits conditions it
-has never met, and the oracle is handed the true water state; neither could be
-deployed on a real vehicle, which is the point of using them. They put a floor
-and a ceiling around the result, and the tier ablations show which part of the
-method carries the effect: restricted to measurement admission alone it loses a
-factor of 33 on the aggregate outcome, and a factor of 254 in an area with no
-acoustic infrastructure and no prior map.
+**The comparators are labelled by what they know.** The tuned static baseline
+knows before departure which configuration suits conditions it has never met, and
+the oracle is handed the true water state; neither could be deployed on a real
+vehicle, which is the point of using them. The oracle is a
+privileged-information comparator rather than an upper bound — it shares the
+manager's decision rule, so perfect information does not make it optimal for the
+reported aggregate, and where the ordering departs from expectation that is
+reported directly.
 
 **Every number is traceable.** `PUBLICATION_ARTEFACT_MANIFEST.md` maps each
 reported result to the artefact, the seed block and the command that produced it,
-with a SHA-256 for every file. Held-out execution is gated on the freeze record
-and the block was executed once. Nothing was retuned after seeing an answer, and
-the corrections that moved results against the proposed method are reported in
-the paper rather than left out of it.
+with a SHA-256 for every file. The twelve modules that produce the campaign match
+the freeze record byte for byte. Held-out execution is gated on that record and
+the block was executed once.
+
+The tier ablations show which part of the method carries the effect: restricted
+to measurement admission alone it loses a factor of 33 on the aggregate outcome,
+and a factor of 254 in an area with no acoustic infrastructure and no prior map.
+
+---
 
 ## Held-out data
 
-Seed root 20,400,000 is reserved and unspent. Held-out execution is gated on a
-verified freeze record and is not reachable from the campaign script:
+Held-out execution is gated on a verified freeze record and is not reachable from
+the campaign script by an ordinary `--root`. Two roots were reserved,
+20,400,000 and 20,800,000; both have been executed, once each, and the freeze
+record marks the block spent. A third execution is refused.
 
 ```bash
 cd src/uuv_mode_aware_navigation
@@ -344,7 +454,45 @@ PYTHONPATH=. python3 scripts/freeze.py --status   # what is covered, and whether
 PYTHONPATH=. python3 scripts/freeze.py --verify   # does the tree still match the record
 ```
 
+`--verify` checks the whole tree, and reports the interactive demonstrator as
+changed: the launch files, ROS 2 nodes, Gazebo world and scenery generators were
+built after the campaigns were frozen. The demonstrator contributes no reported
+number, so it continues to evolve while the campaign source stays fixed. To check
+the campaign closure specifically, see
+[`PUBLICATION_ARTEFACT_MANIFEST.md`](PUBLICATION_ARTEFACT_MANIFEST.md) §4.
+
 ---
+
+## Architecture
+
+```
+optics.py       propagation physics -> channel availability, sigma, bias
+   |
+sensors.py      five modalities + discrete fault injection
+   |
+estimator.py    ONE twelve-state EKF, shared by every method
+   |
+modes.py        capability inference + transition stability
+availability.py counterfactual "what would I see if I moved / switched?"
+   |
+manager.py      constrained one-step selection over the action space
+comparators.py  fixed, oracle, estimator-only and tier ablations, all sharing
+                everything above
+   |
+mission.py      guidance (estimate only) + scoring (truth only)
+campaign.py     deterministic scenario runner
+analysis.py     paired statistics, bootstrap intervals, Pareto fronts, aggregate J
+```
+
+The boundary that matters runs through `mission.py`: `Guidance` receives the
+estimate and cannot reach truth; `MissionEvaluator` receives truth and feeds
+nothing back.
+
+---
+
+## Citing
+
+See [`CITATION.cff`](src/uuv_mode_aware_navigation/CITATION.cff).
 
 ## Third-party assets
 
@@ -357,4 +505,14 @@ given anyway.
 
 ## License
 
-MIT. See [LICENSE](src/uuv_mode_aware_navigation/LICENSE).
+MIT. See [LICENSE](LICENSE).
+
+## References
+
+- **[R2]** *Performance considerations for continuous-wave and pulsed laser line
+  scan (LLS) imaging systems.* J. Eur. Opt. Soc. 5, 10020 (2010).
+- **[R3]** *Extended Range Underwater Optical Imaging Architecture.*
+- **[R4]** Boss et al., *Particulate backscattering ratio at LEO 15*;
+  Twardowski et al., Opt. Express 15(11), 7019.
+- **[R5]** *Beam attenuation coefficient for different water turbidities.*
+  Appl. Opt. 63(24), 6482 (2024).
