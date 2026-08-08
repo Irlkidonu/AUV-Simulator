@@ -17,6 +17,20 @@ escalate. Take the surface vessel away and watch the vehicle fall back on
 terrain. Hold a camera the manager wanted to abandon, and watch its position
 estimate come apart in front of you.
 
+### Looking for the data?
+
+Campaign CSVs, execution logs, both 144-configuration sweeps, the freeze record
+and the checksums are in
+**[`src/uuv_mode_aware_navigation/results/`](src/uuv_mode_aware_navigation/results/)**.
+
+**[`RESULTS.md`](RESULTS.md)** is the index: for every file, the command that
+produced it, its campaign, seed block, SHA-256, and the reported claims it
+supports. Check them all in one line:
+
+```bash
+cd src/uuv_mode_aware_navigation/results && sha256sum -c ARTEFACT_SHA256SUMS
+```
+
 ---
 
 ## What is in the box
@@ -83,7 +97,7 @@ privileged information, and it is labelled an oracle everywhere it appears.
 | `src/uuv_mode_aware_navigation/` | The ROS 2 package: physics, optics, estimator, mode manager, campaign runner, tests |
 | `src/uuv_mode_aware_navigation/results/` | Campaign outputs, both configuration sweeps, freeze record |
 | `experiments/` | Read-only analysis: development campaign, held-out comparison, configuration sweep |
-| `PUBLICATION_ARTEFACT_MANIFEST.md` | Every result file: command, seed block, SHA-256, and the claims it supports |
+| `RESULTS.md` | Every result file: command, seed block, SHA-256, and the claims it supports |
 | `NOTICE` | Third-party assets, their licences, and every change made to them |
 
 The method specifications the implementation is checked against — cited by
@@ -429,7 +443,7 @@ manager's decision rule, so perfect information does not make it optimal for the
 reported aggregate, and where the ordering departs from expectation that is
 reported directly.
 
-**Every number is traceable.** `PUBLICATION_ARTEFACT_MANIFEST.md` maps each
+**Every number is traceable.** `RESULTS.md` maps each
 reported result to the artefact, the seed block and the command that produced it,
 with a SHA-256 for every file. The twelve modules that produce the campaign match
 the freeze record byte for byte. Held-out execution is gated on that record and
@@ -459,7 +473,7 @@ changed: the launch files, ROS 2 nodes, Gazebo world and scenery generators were
 built after the campaigns were frozen. The demonstrator contributes no reported
 number, so it continues to evolve while the campaign source stays fixed. To check
 the campaign closure specifically, see
-[`PUBLICATION_ARTEFACT_MANIFEST.md`](PUBLICATION_ARTEFACT_MANIFEST.md) §4.
+[`RESULTS.md`](RESULTS.md) §4.
 
 ---
 

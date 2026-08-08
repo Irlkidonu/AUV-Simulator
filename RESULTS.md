@@ -1,8 +1,14 @@
-# Publication artefact manifest
+# Results and data
 
-Every result artefact supporting the manuscript, with its provenance and the
-claims it carries. Every hash and every number below was recomputed from a
-**clean clone** of this branch, not from a working tree.
+Every result artefact supporting the study, with its provenance and the claims it
+carries. Every hash and every number below was recomputed from a **clean clone**,
+not from a working tree.
+
+> **The data files live in
+> [`src/uuv_mode_aware_navigation/results/`](src/uuv_mode_aware_navigation/results/)** —
+> campaign CSVs, execution logs, both configuration sweeps, the freeze record and
+> the checksums. They sit inside the package because the campaign runner, the
+> freeze record and the reproduction commands all address that path.
 
 Source commit for the published tree: `8db709d`
 Freeze record commit (the source that produced the Study 2 campaigns):
