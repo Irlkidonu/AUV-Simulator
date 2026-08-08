@@ -243,9 +243,10 @@ leaves station.
   never rendered. Depth falloff comes from the background colour instead, and
   the genuinely underwater view is the vehicle's camera, which the propagation
   model degrades properly.
-* The **rendered vehicle does not translate vertically** — the velocity-control
-  plugin does not drive that axis. The simulated vehicle does, so altitude,
-  slant range and every decision depending on them respond correctly.
+* The vehicle is **posed from the simulated state** rather than driven by
+  Gazebo's velocity-control plugin, which moves only the horizontal axes. One
+  motion model therefore serves both the demonstrator and the campaign, and the
+  rendered vehicle tracks altitude and attitude exactly.
 * Weed **bends from its base**, whole-plant. Moving only the fronds needs a
   rigged mesh or a vertex shader, and the model has neither.
 * The **sea surface does not animate**. Waves are geometry, not motion.

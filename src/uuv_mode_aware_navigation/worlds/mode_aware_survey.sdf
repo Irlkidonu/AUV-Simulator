@@ -64,8 +64,8 @@
     </plugin>
     <plugin filename="gz-sim-imu-system"               name="gz::sim::systems::Imu"/>
     <!-- Buoyancy is deliberately NOT enabled.
-         The vehicle is driven kinematically by VelocityControl, which sets the
-         model's velocity directly; that is the fidelity this study needs, since
+         The vehicle is posed directly from the simulated state, so its motion is
+         prescribed rather than dynamic; that is the fidelity this study needs, since
          the questions are about sensing and decision-making rather than about
          vehicle dynamics. Simulating a buoyant force on top of a commanded
          velocity is contradictory, and the two fight: with the buoyancy system

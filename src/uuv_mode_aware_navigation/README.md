@@ -266,25 +266,27 @@ If `/camera/image_raw` is silent the bridge is not running. If it publishes but
 optical quality stays at `0.000`, the rendered frame has no contrast — which
 happens wherever the survey area is unlit.
 
-### Known limitations of the demonstrator
+### How the demonstrator moves the vehicle
 
-- **Vertical motion is not driven by the Gazebo plugin.** `VelocityControl`
-  applies horizontal velocity to this model and holds the vertical axis at zero:
-  commanding `{x: 0.2, z: 0.3}` over gz transport yields `x = 0.19999999999953`
-  and `z = 0.0` exactly. The vehicle node therefore integrates its own motion
-  with the same kinematics the campaign uses, and Gazebo renders the result.
-  That also removed a class of boundary defect — frame conventions, spawn
-  offsets, differentiation intervals — which produced three separate bugs while
-  the node graph was first being brought up.
-- ~~Scene lighting does not cover the whole survey area.~~ **Withdrawn — it does.**
-  This was observed while the vehicle spawned at the world origin instead of at
-  the mission's first waypoint, so the frames that read zero were taken from
-  outside the survey area, not from an unlit part of it. Measured after the
-  spawn fix, over a 300 s headless run covering waypoints 1--7 (the full
-  20 m x 18 m area): 743 quality samples after the first frame arrived, minimum
-  **0.177**, mean 0.324, and no zero. The only zeros are the ten frames before
-  the camera publishes anything. `test_demonstrator_scene.py` now holds the
-  scene and the mission together so the original defect cannot return.
+Motion is integrated by the vehicle node using **the same kinematics the campaign
+uses**, and Gazebo renders the result. Gazebo's `VelocityControl` plugin drives
+only the horizontal axes — commanding `{x: 0.2, z: 0.3}` returns
+`x = 0.19999999999953` and `z = 0.0` exactly — so depth would otherwise be
+unavailable. Integrating in one place keeps the demonstrator and the campaign on
+a single motion model, and removes a whole class of boundary mismatch between
+them: frame conventions, spawn offsets and differentiation intervals.
+
+The demonstrator is for seeing and steering the environment. It reports no
+number in the paper; every published result comes from the headless campaign.
+
+### Scene coverage
+
+Illumination and texture cover the full survey area. Measured over a 300 s
+headless run across waypoints 1–7 — the whole 20 m × 18 m box — the image-quality
+statistic holds a **minimum of 0.177** and a mean of 0.324 over 743 samples, with
+no dropout after the camera starts publishing.
+`test_demonstrator_scene.py` ties the scene and the mission together so coverage
+is checked on every run of the suite.
 
 ## Running the campaign
 

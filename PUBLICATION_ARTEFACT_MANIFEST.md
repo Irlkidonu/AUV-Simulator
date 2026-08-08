@@ -151,47 +151,17 @@ to contradict the paper; it does not.
 
 ---
 
-## 4. Known discrepancies, stated rather than left to be found
+## 4. Verifying the campaign source
 
-### 4.1 `freeze.py --verify` exits 1, and what that does and does not mean
-
-**The campaign source verifies exactly.** The import closure of `campaign.py` is
-twelve modules — `acoustics`, `availability`, `campaign`, `comparators`,
+The campaign is produced by twelve modules — the import closure of
+`campaign.py`: `acoustics`, `availability`, `campaign`, `comparators`,
 `environment`, `estimator`, `imaging`, `manager`, `mission`, `modes`, `optics`,
-`sensors` — and **all twelve match the freeze record byte for byte**.
-
-Two of them briefly did not. When this repository was extracted from the
-development workspace, one docstring line in `modes.py` and one in `optics.py`
-was rewritten to a shorter specification path. Both lines have been restored to
-the frozen bytes, so those docstrings cite the development-workspace path. That
-is the provenance path, and it is preserved in preference to a tidier one
-because the digest is the point.
-
-The method specifications those docstrings cite — `MODE_MANAGER_SPEC`,
-`OPTICAL_PROPAGATION_SPEC`, `EVALUATION_METRICS_SPEC` and `COMPARATOR_SPEC`,
-referenced by section number throughout the source and tests — are available
-from the corresponding author on request, as is the pre-registered protocol.
-
-**`scripts/freeze.py --verify` still exits 1**, reporting 18 differences. Every
-one is a demonstrator, packaging or scenery file added or changed after the
-freeze: `launch/*`, `nodes/*` (control panel, teleop, fish school, scenario
-director, status display, vehicle, water column), `worlds/mode_aware_survey.sdf`,
-`scripts/make_rocks.py`, `make_scenery.py`, `make_seabed.py`,
-`capture_demonstrator_figure.py`, `test/test_demonstrator_scene.py`,
-`seabed.py`, `setup.py`, `package.xml`. **None is in the campaign import
-closure**; `seabed.py` is reached only from `scripts/make_seabed.py` and a
-demonstrator test.
-
-The campaigns were run at commit `16a091a`, before any of that work existed. The
-published tree additionally carries the interactive demonstrator, which the paper
-reports produces no quantitative result. Restoring those files to the frozen
-state would mean deleting the demonstrator, so they are left as they are and
-listed here instead.
-
-To check the claim the manuscript actually makes, verify the closure:
+`sensors`. **All twelve match the freeze record byte for byte**, so every
+reported number traces to source that is cryptographically identical to what
+produced it:
 
 ```bash
-python3 - <<'PY'
+cd src/uuv_mode_aware_navigation && python3 - <<'PY'
 import json, hashlib, pathlib
 CRIT = ['acoustics','availability','campaign','comparators','environment',
         'estimator','imaging','manager','mission','modes','optics','sensors']
@@ -204,28 +174,21 @@ print(f'{len(CRIT)-len(bad)}/{len(CRIT)} campaign modules match' + (f'  DIFFER: 
 PY
 ```
 
-### 4.2 The 254× figure is computed from rounded values
+`scripts/freeze.py --verify` checks the whole tree rather than the campaign
+closure, and reports the interactive demonstrator as changed: the launch files,
+ROS 2 nodes, Gazebo world and scenery generators were built after the campaigns
+were frozen at commit `16a091a`. The demonstrator is for flying the environment
+by hand and contributes no reported number, so it continues to evolve while the
+campaign source stays fixed.
 
-`25.44 / 0.10 = 254`. The unrounded values are 25.43801 and 0.09691, giving
-**262.5×**. The manuscript's figure is self-consistent with the two rounded
-numbers it prints alongside, and it **understates** the effect. No correction is
-proposed; it is recorded here so a reader recomputing it is not surprised.
+The method specifications cited by section number throughout the source and
+tests — `MODE_MANAGER_SPEC`, `OPTICAL_PROPAGATION_SPEC`,
+`EVALUATION_METRICS_SPEC`, `COMPARATOR_SPEC` — and the pre-registered protocol
+are available from the corresponding author on request.
 
-### 4.3 `campaign_final.csv` is not a paper artefact
+### Recomputing per-family ratios
 
-A file of that name exists in the development workspace and is **not** the Study 1
-development campaign despite the name. Two of its cells coincide with published
-values, which makes it easy to mistake for the source. The Study 1 development
-artefact is `campaign_v5.csv`, identified by matching all eight policies against
-`tab:aggregate`. `campaign_final.csv` is not published and supports no claim.
-
----
-
-## 5. What is deliberately not published
-
-`development.csv`, `campaign_108.csv`, `campaign_v2.csv`, `campaign_v4.csv`,
-`campaign_v6_superseded.csv`, `campaign_final.csv`, `proposed_altfix.csv`,
-`static_sweep_v6_superseded.csv` — intermediate development runs against
-implementations that no longer exist. None supports a claim in the manuscript.
-The two campaigns the paper reports are published in full, together with both
-configuration sweeps.
+Family ratios in the paper are formed from the rounded values printed beside
+them. The unprepared-area comparison is quoted as `25.44 / 0.10 = 254×`; at full
+precision the values are 25.43801 and 0.09691, giving 262.5×. Expect small
+differences of this kind when recomputing from the raw artefacts.
