@@ -44,7 +44,7 @@ setup(
     install_requires=['setuptools', 'numpy'],
     zip_safe=True,
     maintainer='Christos Alexandris',
-    maintainer_email='contact@arguskeystone.com',
+    maintainer_email='calexandris@uniwa.gr',
     description=(
         'Mode-aware adaptive navigation for underwater vehicles under '
         'multi-modal sensing degradation.'
