@@ -1,0 +1,133 @@
+Mode-Aware Adaptive Navigation for Unmanned Underwater Vehicles
+Copyright (c) 2026 Christos Alexandris, Panagiotis Papageorgas
+University of West Attica
+
+This product is released under the MIT Licence (see LICENSE). It includes
+third-party material under the terms recorded below.
+
+Everything here is scenery for the interactive demonstrator. None of it is
+loaded by the campaign runner, which is headless and never opens a world file,
+so no reported result in the paper depends on any of it.
+
+
+================================================================================
+VEHICLE MODEL
+================================================================================
+
+BlueROV2 mesh
+  models/meshes/bluerov2.dae
+  models/meshes/bluerov2_prop_ccw.dae
+
+  From the bluerov2_description package of CentraleNantesROV/bluerov2
+  https://github.com/CentraleNantesROV/bluerov2
+  Licence: Apache Licence, Version 2.0
+           https://www.apache.org/licenses/LICENSE-2.0
+
+  Used unmodified, mounted at identity as the source package's own URDF mounts
+  it. It supplies the vehicle body only. The sensor, lamp and optical-boom
+  geometry in worlds/mode_aware_survey.sdf is this project's own, and encodes
+  the 0.02 m and 0.35 m lamp baselines that the study's optical results depend
+  on.
+
+  BlueROV2 is a product of Blue Robotics Inc. The mesh depicts a vehicle of that
+  class in simulation. No affiliation with or endorsement by Blue Robotics is
+  claimed.
+
+
+================================================================================
+SCENERY - PUBLIC DOMAIN (CC0)
+================================================================================
+
+Stylaster sanguineus
+  models/external/stylaster_sanguineus/
+  Author:  The Smithsonian Institution
+           https://sketchfab.com/Smithsonian
+  Licence: CC0 1.0 Universal (public domain dedication)
+           http://creativecommons.org/publicdomain/zero/1.0/
+  Source:  https://sketchfab.com/3d-models/stylaster-sanguineus-4f1ddd8352944d16bf3b821b3e71b473
+  Changes: metallicRoughness texture removed and replaced with scalar factors;
+           texture folder flattened. Both were required to load: Gazebo's
+           Assimp-based loader cannot split that map's channels.
+
+Harvest Fish, Pampus punctatissimus
+  models/external/cc0___harvest_fish_pampus_punctatissimus/
+  Author:  ffish.asia / floraZia.com
+           https://sketchfab.com/ffishAsia-and-floraZia
+  Licence: CC0 1.0 Universal (public domain dedication)
+           http://creativecommons.org/publicdomain/zero/1.0/
+  Source:  https://sketchfab.com/3d-models/cc0-harvest-fish-pampus-punctatissimus-3cbb84f762004b808a2d142f575c7c3d
+  Changes: texture folder flattened and glTF image URIs rewritten.
+
+
+================================================================================
+SCENERY - SKETCHFAB STANDARD LICENCE
+================================================================================
+
+The Sketchfab Standard Licence permits use worldwide, on all types of media,
+commercially or not, and in derivative works, without attribution. Attribution
+is given here regardless, because the work deserves it and it costs nothing.
+
+  https://sketchfab.com/licenses
+
+Underwater plant pack
+  models/external/underwater_plant_pack/
+  Author:  assetfactory (https://sketchfab.com/assetfactory)
+  Source:  https://sketchfab.com/3d-models/underwater-plant-pack-a6edeb75ef784189b20c5fc058ede913
+  Changes: split into plant_1.gltf, plant_2.gltf and plant_3.gltf, one specimen
+           each. The original holds all three in one file with DIFFERENT up
+           axes - plant_1 modelled Z-up, the others Y-up - so no single rotation
+           could stand them all upright. A -90 degree X rotation is baked into
+           plant_1 so the three share one convention. Texture folder flattened.
+
+Colorful jellyfish
+  models/external/colorful_jellyfish/
+  Author:  assetfactory (https://sketchfab.com/assetfactory)
+  Source:  https://sketchfab.com/3d-models/colorful-jellyfish-8534b59ebe2849efaa470394310c3204
+  Changes: texture folder flattened and glTF image URIs rewritten.
+
+Beach 001
+  models/external/beach_001/
+  Author:  DEEP C (https://sketchfab.com/deepc326)
+  Source:  https://sketchfab.com/3d-models/beach-001-49d3a0ccbad44d039556bf7c142af25b
+  Use:     its 8192x8192 photogrammetry texture, not its geometry. The mesh is
+           798,000 triangles for a 1.2 x 1.6 m patch and cannot be tiled across
+           a 120 m seabed. The texture was cropped, divided by a heavy blur of
+           itself to remove the sun gradient baked into the photograph, mirrored
+           to tile seamlessly, and used to derive normal and roughness maps.
+           Result: models/textures/sand_albedo.png, sand_normal.png,
+           sand_roughness.png.
+
+Beach Rocks 002
+  models/external/beach_rocks_002/
+  Author:  DEEP C (https://sketchfab.com/deepc326)
+  Source:  https://sketchfab.com/3d-models/beach-rocks-002-c196c8dfd9dc47f2b0c659a7d4cdddb3
+  Use:     mesh placed as five feature clusters, and its texture given the same
+           treatment as above to produce models/textures/rock_albedo.png and
+           rock_normal.png.
+
+Greek underwater broken statue 1
+  Author:  assetfactory (https://sketchfab.com/assetfactory)
+  Source:  https://sketchfab.com/3d-models/greek-underwater-broken-statue-1-7098d62953b44879bd8f1bfbdc55f4b3
+  NOT USED. Recorded because it was tried and removed, so that nobody repeats
+  the attempt. It segfaults Gazebo inside
+  gz::common::AssimpLoader::CreateMaterial, reproducible headless and isolated
+  by bisecting each model separately. Neither stripping its metallicRoughness
+  maps nor flattening its texture folder fixed it. This is a loader bug rather
+  than a fault in the asset, and it takes the whole server down. Re-exporting
+  through Blender as a plain COLLADA file would avoid the glTF material path.
+
+
+================================================================================
+GENERATED CONTENT
+================================================================================
+
+Everything else in models/ is generated by this project and carries the MIT
+licence of the repository:
+
+  scripts/make_seabed.py    the seabed mesh, from uuv_mode_aware_navigation.seabed
+  scripts/make_rocks.py     eight irregular rock meshes
+  scripts/make_scenery.py   coral, sea fans, fish, wreck, pipeline and ship
+
+The sea surface mesh, models/meshes/sea_surface.obj, is this project's own and
+carries the same licence, but no script in this tree regenerates it. It is
+committed for that reason.

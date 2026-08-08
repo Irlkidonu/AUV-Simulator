@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# ROS 2 / colcon
+install/
+log/
+.colcon/
+
+# Campaign output.
+#
+# `results/*` rather than `results/`: git does not descend into an ignored
+# directory, so a trailing-slash exclusion makes every negation below it dead
+# text. The distinction is invisible until you need it.
+#
+# What is tracked is the evidence a reader needs to check a claim: the integrity
+# baseline, the comparator campaigns the paper reports, their logs, and the
+# configuration sweeps.
+#
+# The sweeps were excluded on size once. That was wrong, and the rule it broke
+# is a pre-registered one: COMPARATOR_SPEC R8 requires the complete sweep table
+# to be *published*, best to worst, precisely so that "the baseline was weak"
+# can be checked by a reader instead of answered by assurance. It is the single
+# artefact that answers the strongest available criticism of this work, and 5 MB
+# is not a reason to withhold it.
+results/*
+!results/PRE_CAMPAIGN_BASELINE.sha256
+!results/DEVELOPMENT_NORMALISERS.json
+!results/campaign_v5.csv
+!results/campaign_v5.log
+!results/held_out.csv
+!results/held_out.log
+!results/static_sweep_development_v5.csv
+!results/static_sweep_held_out.csv
+campaigns/
+
+# `static_sweep.csv` itself is deliberately NOT tracked: it is the path the
+# campaign runner writes to, so whichever campaign ran last owns it. The named
+# snapshots above are what get published, so that a file in the repository can
+# never be ambiguous about which campaign produced it.
+results/static_sweep.csv
+*.jsonl
+*.jsonl.gz
+*.json.gz
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp

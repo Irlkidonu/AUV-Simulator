@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+"""Generate irregular rock meshes for the demonstrator scene.
+
+Gazebo renders the primitives it is given, and a sphere primitive is a perfect
+sphere: no amount of material work stops a field of them reading as marbles on a
+floor. Irregular geometry has to come from a mesh, so this writes some.
+
+Each rock is a subdivided icosahedron whose vertices are pushed in and out by
+layered value noise, then squashed on one axis so it sits rather than floats.
+Everything is drawn from a fixed seed, so the same eight rocks are produced on
+every machine and the scene is reproducible.
+
+    python3 scripts/make_rocks.py
+
+Writes models/meshes/rock_0.obj ... rock_7.obj. Nothing in the campaign reads
+these; they exist so the demonstrator looks like a seabed.
+"""
+
+from __future__ import annotations
+
+import math
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "models" / "meshes"
+COUNT = 8
+SUBDIVISIONS = 3
+
+
+def icosahedron() -> tuple[np.ndarray, list[tuple[int, int, int]]]:
+    phi = (1.0 + math.sqrt(5.0)) / 2.0
+    verts = np.array([
+        (-1, phi, 0), (1, phi, 0), (-1, -phi, 0), (1, -phi, 0),
+        (0, -1, phi), (0, 1, phi), (0, -1, -phi), (0, 1, -phi),
+        (phi, 0, -1), (phi, 0, 1), (-phi, 0, -1), (-phi, 0, 1),
+    ], dtype=float)
+    verts /= np.linalg.norm(verts, axis=1)[:, None]
+    faces = [
+        (0, 11, 5), (0, 5, 1), (0, 1, 7), (0, 7, 10), (0, 10, 11),
+        (1, 5, 9), (5, 11, 4), (11, 10, 2), (10, 7, 6), (7, 1, 8),
+        (3, 9, 4), (3, 4, 2), (3, 2, 6), (3, 6, 8), (3, 8, 9),
+        (4, 9, 5), (2, 4, 11), (6, 2, 10), (8, 6, 7), (9, 8, 1),
+    ]
+    return verts, faces
+
+
+def subdivide(verts: np.ndarray, faces: list, times: int):
+    for _ in range(times):
+        cache: dict[tuple[int, int], int] = {}
+        out: list[tuple[int, int, int]] = []
+        vlist = list(verts)
+
+        def midpoint(a: int, b: int) -> int:
+            key = (min(a, b), max(a, b))
+            if key not in cache:
+                m = (vlist[a] + vlist[b]) / 2.0
+                vlist.append(m / np.linalg.norm(m))
+                cache[key] = len(vlist) - 1
+            return cache[key]
+
+        for a, b, c in faces:
+            ab, bc, ca = midpoint(a, b), midpoint(b, c), midpoint(c, a)
+            out += [(a, ab, ca), (b, bc, ab), (c, ca, bc), (ab, bc, ca)]
+        verts, faces = np.array(vlist), out
+    return verts, faces
+
+
+def displace(verts: np.ndarray, rng: np.random.Generator) -> np.ndarray:
+    """Layered directional noise: a few broad lobes plus finer roughness."""
+    out = verts.copy()
+    amplitude, frequency = 0.34, 1.0
+    for _ in range(4):
+        axes = rng.normal(size=(6, 3))
+        axes /= np.linalg.norm(axes, axis=1)[:, None]
+        phase = rng.uniform(0.0, 2.0 * math.pi, size=6)
+        field = np.zeros(len(verts))
+        for axis, ph in zip(axes, phase):
+            field += np.sin(verts @ axis * frequency * 3.0 + ph)
+        field /= 6.0
+        out *= (1.0 + amplitude * field)[:, None]
+        amplitude *= 0.45
+        frequency *= 2.1
+    return out
+
+
+def vertex_normals(verts: np.ndarray, faces: list) -> np.ndarray:
+    """Area-weighted vertex normals.
+
+    Without these the mesh has no shading information at all: Gazebo lights it
+    flat, every rock renders as a uniform white blob, and the material assigned
+    in the world file makes no visible difference. That is what a normal-less
+    OBJ looks like, and it is worth knowing because it looks like a material
+    bug rather than a geometry one.
+    """
+    normals = np.zeros_like(verts)
+    for a, b, c in faces:
+        # Cross product magnitude is twice the triangle area, so accumulating
+        # the un-normalised face normal weights each face by its own area.
+        face = np.cross(verts[b] - verts[a], verts[c] - verts[a])
+        normals[a] += face
+        normals[b] += face
+        normals[c] += face
+    lengths = np.linalg.norm(normals, axis=1)
+    lengths[lengths < 1e-12] = 1.0
+    return normals / lengths[:, None]
+
+
+def spherical_uv(verts: np.ndarray) -> np.ndarray:
+    """Spherical projection texture coordinates.
+
+    Rocks are lumpy spheres, so projecting from the centre is the natural
+    parameterisation. The seam where longitude wraps is hidden by the noise in
+    the texture itself; a rock is not a surface where a seam reads as an error.
+    """
+    r = np.linalg.norm(verts, axis=1)
+    r[r < 1e-9] = 1.0
+    u = (np.arctan2(verts[:, 1], verts[:, 0]) / (2.0 * math.pi)) + 0.5
+    v = np.arccos(np.clip(verts[:, 2] / r, -1.0, 1.0)) / math.pi
+    # Repeat a few times so the grain is rock-sized rather than rock-shaped.
+    return np.stack([u * 3.0, v * 2.0], axis=1)
+
+
+def write_obj(path: Path, verts: np.ndarray, faces: list) -> None:
+    normals = vertex_normals(verts, faces)
+    uv = spherical_uv(verts)
+    with path.open("w") as fh:
+        fh.write("# generated by scripts/make_rocks.py - demonstrator scenery\n")
+        for v in verts:
+            fh.write(f"v {v[0]:.5f} {v[1]:.5f} {v[2]:.5f}\n")
+        for c in uv:
+            fh.write(f"vt {c[0]:.5f} {c[1]:.5f}\n")
+        for n in normals:
+            fh.write(f"vn {n[0]:.5f} {n[1]:.5f} {n[2]:.5f}\n")
+        for a, b, c in faces:
+            fh.write(f"f {a+1}/{a+1}/{a+1} {b+1}/{b+1}/{b+1} {c+1}/{c+1}/{c+1}\n")
+
+
+def main() -> int:
+    OUT.mkdir(parents=True, exist_ok=True)
+    base_v, base_f = subdivide(*icosahedron(), SUBDIVISIONS)
+    for i in range(COUNT):
+        rng = np.random.default_rng(4000 + i)
+        verts = displace(base_v, rng)
+        # Squash vertically and stretch slightly in one horizontal direction, so
+        # rocks sit low and are not radially symmetric.
+        verts[:, 2] *= rng.uniform(0.42, 0.68)
+        verts[:, 0] *= rng.uniform(0.85, 1.30)
+        write_obj(OUT / f"rock_{i}.obj", verts, base_f)
+    print(f"wrote {COUNT} rock meshes to {OUT}")
+    print(f"  {len(base_v)} vertices, {len(base_f)} faces each")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

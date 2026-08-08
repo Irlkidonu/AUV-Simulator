@@ -1,0 +1,73 @@
+# Build and install overlays (colcon)
+.build/
+.install/
+log/
+build/
+install/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+
+# LaTeX intermediates. The .tex, .bib and figures are tracked; everything the
+# compiler regenerates is not. main.pdf is deliberately NOT ignored -- a reader
+# who clones this should get the paper without needing a TeX installation.
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.log
+
+# Campaign outputs.
+#
+# These are regenerable from the source and the seed registry, and a single
+# static sweep is 5 MB, so they are not tracked by default. The pre-campaign
+# integrity baseline IS tracked, because it is what lets anyone verify the
+# source that produced a given result set.
+results/*.csv
+results/*.log
+!results/PRE_CAMPAIGN_BASELINE.sha256
+
+# The freeze record is tracked when it exists: it is the evidence that held-out
+# execution was gated, and it is meaningless if it is not published with the
+# code it certifies.
+!freeze_record.json
+
+# Editor and OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# --- demonstrator scenery -----------------------------------------------
+# The downloaded scenery IS tracked. Gazebo resolves every mesh URI when it
+# parses a world and aborts the whole thing if one cannot be found, so a clone
+# without these does not open a window at all. Shipping them is what makes the
+# repository something you can clone and run.
+#
+# NOTICE records each asset, its author, its licence and every change made to
+# it.
+
+# Generated meshes ARE tracked, deliberately.
+#
+# scripts/make_seabed.py, make_rocks.py and make_scenery.py rewrite most of them
+# deterministically from fixed seeds, so an earlier version of this file left
+# them out to save a few megabytes. That was the wrong trade: a fresh clone then
+# contains a world referencing twenty-one meshes that are not there, and Gazebo
+# opens on an empty seabed with unresolved-URI errors. Someone cloning this
+# should be able to launch it, not debug it.
+#
+# sea_surface.obj settles the argument on its own: no script in this tree
+# generates it, so it cannot be rebuilt from source at all.
+
+# Backups left by the glTF fixups
+*.gltf.orig

@@ -1,0 +1,20 @@
+{
+  "what": "Normalisation constants for the aggregate primary outcome J, derived from the development comparator campaign.",
+  "provenance": "POST-FREEZE derivation from PRE-FREEZE data. EVALUATION_METRICS_SPEC 1.1 requires these constants to be computed from development data and written into the freeze record; they were not, because nothing computed them ahead of time -- aggregate_outcome derives them from whatever rows it is given. This file records them from the development campaign that existed before the freeze, so that held-out results can be scored on the development ruler as the spec intends. It is NOT a pre-registered constant and must not be described as one.",
+  "derived_at": "2026-08-02T21:09:50.925420+00:00",
+  "source_file": "results/campaign_v5.csv",
+  "source_sha256": "f609d5cbcace228ef9845996528eab778bf41d96800e4edbcf82eb7d6a3b74ae",
+  "source_runs": 1200,
+  "weights": {
+    "failed_mission_rate": 1.0,
+    "rms_cross_track_m": 1.0,
+    "safety_violation_rate": 1.0
+  },
+  "weights_note": "The weight vector IS cryptographically fixed: it is analysis.DEFAULT_WEIGHTS, and analysis.py's digest is in the freeze record. Only the normalisation constants were left to runtime.",
+  "normalisation": {
+    "failed_mission_rate": 0.08833333333333333,
+    "rms_cross_track_m": 6.101789416197842,
+    "safety_violation_rate": 0.5280422480619862
+  },
+  "c1_invariance_check": "C1 selection was tested under both the sweep-self normalisers and these constants on the development sweep: identical winner (camera_coaxial+usbl@3.0m/0.25mps/gate/continue) and identical top four. The baseline does not depend on this choice."
+}

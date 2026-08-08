@@ -1,0 +1,100 @@
+optical feedback enabled: quality is estimated from rendered frames
+phase 1: static configuration sweep (108 configurations x 150 scenarios)
+  phase 1: 500/16200 runs (3.1%), 9 min elapsed, ~278 min remaining
+  phase 1: 1000/16200 runs (6.2%), 18 min elapsed, ~271 min remaining
+  phase 1: 1500/16200 runs (9.3%), 27 min elapsed, ~261 min remaining
+  phase 1: 2000/16200 runs (12.3%), 35 min elapsed, ~252 min remaining
+  phase 1: 2500/16200 runs (15.4%), 44 min elapsed, ~243 min remaining
+  phase 1: 3000/16200 runs (18.5%), 53 min elapsed, ~234 min remaining
+  phase 1: 3500/16200 runs (21.6%), 63 min elapsed, ~227 min remaining
+  phase 1: 4000/16200 runs (24.7%), 73 min elapsed, ~222 min remaining
+  phase 1: 4500/16200 runs (27.8%), 82 min elapsed, ~213 min remaining
+  phase 1: 5000/16200 runs (30.9%), 89 min elapsed, ~199 min remaining
+  phase 1: 5500/16200 runs (34.0%), 97 min elapsed, ~189 min remaining
+  phase 1: 6000/16200 runs (37.0%), 106 min elapsed, ~180 min remaining
+  phase 1: 6500/16200 runs (40.1%), 115 min elapsed, ~172 min remaining
+  phase 1: 7000/16200 runs (43.2%), 127 min elapsed, ~167 min remaining
+  phase 1: 7500/16200 runs (46.3%), 139 min elapsed, ~161 min remaining
+  phase 1: 8000/16200 runs (49.4%), 150 min elapsed, ~154 min remaining
+  phase 1: 8500/16200 runs (52.5%), 161 min elapsed, ~146 min remaining
+  phase 1: 9000/16200 runs (55.6%), 171 min elapsed, ~136 min remaining
+  phase 1: 9500/16200 runs (58.6%), 179 min elapsed, ~126 min remaining
+  phase 1: 10000/16200 runs (61.7%), 188 min elapsed, ~117 min remaining
+  phase 1: 10500/16200 runs (64.8%), 197 min elapsed, ~107 min remaining
+  phase 1: 11000/16200 runs (67.9%), 206 min elapsed, ~98 min remaining
+  phase 1: 11500/16200 runs (71.0%), 217 min elapsed, ~89 min remaining
+  phase 1: 12000/16200 runs (74.1%), 227 min elapsed, ~79 min remaining
+  phase 1: 12500/16200 runs (77.2%), 236 min elapsed, ~70 min remaining
+  phase 1: 13000/16200 runs (80.2%), 246 min elapsed, ~60 min remaining
+  phase 1: 13500/16200 runs (83.3%), 255 min elapsed, ~51 min remaining
+  phase 1: 14000/16200 runs (86.4%), 264 min elapsed, ~41 min remaining
+  phase 1: 14500/16200 runs (89.5%), 272 min elapsed, ~32 min remaining
+  phase 1: 15000/16200 runs (92.6%), 281 min elapsed, ~23 min remaining
+  phase 1: 15500/16200 runs (95.7%), 291 min elapsed, ~13 min remaining
+  phase 1: 16000/16200 runs (98.8%), 302 min elapsed, ~4 min remaining
+  phase 1: 16200/16200 runs (100.0%), 306 min elapsed, ~0 min remaining
+  best fixed configuration (C1): camera_coaxial+usbl@3.0m/0.25mps/gate/continue  J=1.675
+  worst configuration in the sweep: camera_offaxis+single_beacon@2.0m/0.50mps/weight/continue  J=5.804
+  full table written to results/static_sweep.csv
+
+phase 2: comparator campaign
+  hindsight oracle improved on the clairvoyant manager in 148 of 150 runs
+
+wrote 1200 comparator runs to results/campaign_v5.csv
+
+policy               failed  coverage  xtrack (m)   aggregate J
+oracle                 0.01     0.996       0.247         0.236
+fixed                  0.05     0.965       2.108         1.400
+proposed               0.06     0.968       3.441         1.994
+ablation_a2            0.06     0.968       4.707         2.176
+covariance_only        0.09     0.965       6.712         3.091
+ablation_a1            0.12     0.949       8.746         4.160
+residual_only          0.12     0.945       9.090         4.262
+dead_reckoning         0.20     0.920      13.763         6.680
+
+discrimination check (does the scenario span the comparator range?):
+  E10_current_steady   dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E11_current_building dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E12_current_rotating dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E13_acoustic_noise   dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E14_noisy_dvl_loss   dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E15_turbid_and_noisy dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E1_nominal           dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E2_dvl_short         dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E3_dvl_long          dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E4_optical_graded    dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E5_optical_loss      dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E6_acoustic_intermittent dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E7_compound          dead-reckoning fails 100%, fixed fails 70%  -> discriminates
+  E8_turbid_dvl_loss   dead-reckoning fails 100%, fixed fails 0%  -> discriminates
+  E9_current_unobservable dead-reckoning fails 100%, fixed fails 0%  -> discriminates
+
+oracle recovery, per scenario (pooling this ratio is invalid):
+  E10_current_steady      0.41
+  E11_current_building    0.29
+  E12_current_rotating    0.73
+  E13_acoustic_noise      0.43
+  E14_noisy_dvl_loss      0.53
+  E15_turbid_and_noisy    0.32
+  E1_nominal              0.42
+  E2_dvl_short            0.39
+  E3_dvl_long             0.55
+  E4_optical_graded       0.29
+  E5_optical_loss         0.16
+  E6_acoustic_intermittent    0.47
+  E7_compound            -0.74
+  E8_turbid_dvl_loss      0.40
+  E9_current_unobservable    0.69
+  mean over non-degenerate    0.35
+
+paired comparisons (direction annotated per metric):
+  proposed vs fixed on rms_cross_track_m: +1.332 [-0.370, +3.354] -- worse  (interval spans zero)
+  proposed vs covariance_only on rms_cross_track_m: -3.272 [-6.157, -0.705] -- better
+  proposed vs ablation_a1 on rms_cross_track_m: -5.306 [-8.493, -2.457] -- better
+  proposed vs fixed on coverage_fraction: +0.003 [-0.009, +0.015] -- better  (interval spans zero)
+  proposed vs covariance_only on coverage_fraction: +0.003 [-0.009, +0.017] -- better  (interval spans zero)
+  proposed vs ablation_a1 on coverage_fraction: +0.019 [+0.007, +0.034] -- better
+
+cost of the improvement:
+  mean_altitude_m    proposed=3.51  fixed=3.00
+  elapsed_s          proposed=203.25  fixed=379.88
