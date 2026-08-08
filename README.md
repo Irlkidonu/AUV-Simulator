@@ -58,11 +58,16 @@ and watch the mode escalate and the covariance grow while it happens.
 |---|---|
 | `src/uuv_mode_aware_navigation/` | The ROS 2 package: physics, optics, estimator, mode manager, campaign runner, tests |
 | `src/uuv_mode_aware_navigation/README.md` | **Full run instructions**, architecture, physics notes |
-| `experiments/` | Campaign runner, held-out analysis, release export |
-| `method/MODE_MANAGER_SPEC.md` | Specification the implementation is checked against |
-| `results/FINDINGS.md` | Development findings and the engineering record |
+| `experiments/` | Read-only analysis: development campaign, held-out comparison, configuration sweep |
+| `PUBLICATION_ARTEFACT_MANIFEST.md` | Every result file: command, seed block, SHA-256, and the claims it supports |
 | `src/uuv_mode_aware_navigation/results/` | Campaign outputs, including the full configuration sweep |
 | `NOTICE` | Third-party assets, their licences, and every change made to them |
+
+The method specifications the implementation is checked against — cited by
+section number throughout the source and tests as `MODE_MANAGER_SPEC`,
+`OPTICAL_PROPAGATION_SPEC`, `EVALUATION_METRICS_SPEC` and `COMPARATOR_SPEC` —
+and the pre-registered protocol are available from the corresponding author on
+request.
 
 ---
 
@@ -320,10 +325,12 @@ method carries the effect: restricted to measurement admission alone it loses a
 factor of 33 on the aggregate outcome, and a factor of 254 in an area with no
 acoustic infrastructure and no prior map.
 
-**Every correction is on the record.** `results/FINDINGS.md` tracks what was
-found during development and what was done about it, including the corrections
-that moved results against the proposed method. Nothing was quietly retuned
-after seeing an answer.
+**Every number is traceable.** `PUBLICATION_ARTEFACT_MANIFEST.md` maps each
+reported result to the artefact, the seed block and the command that produced it,
+with a SHA-256 for every file. Held-out execution is gated on the freeze record
+and the block was executed once. Nothing was retuned after seeing an answer, and
+the corrections that moved results against the proposed method are reported in
+the paper rather than left out of it.
 
 ## Held-out data
 

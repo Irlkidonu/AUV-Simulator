@@ -164,8 +164,11 @@ chosen but *solved*, so that a coaxial camera reaches its contrast floor exactly
 at its published limit. Off-axis and laser configurations then reach further
 purely because their geometry admits less backscatter.
 
-Full derivation, parameter provenance, and limitations:
-[`../../method/OPTICAL_PROPAGATION_SPEC.md`](../../method/OPTICAL_PROPAGATION_SPEC.md)
+Full derivation, parameter provenance and limitations are given in the paper.
+The method specifications the implementation is checked against
+(`OPTICAL_PROPAGATION_SPEC`, `MODE_MANAGER_SPEC`, `EVALUATION_METRICS_SPEC`,
+`COMPARATOR_SPEC`), cited throughout the source and tests, are available from
+the corresponding author on request.
 
 ## Gazebo world
 

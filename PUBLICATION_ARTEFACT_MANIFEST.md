@@ -162,11 +162,15 @@ twelve modules — `acoustics`, `availability`, `campaign`, `comparators`,
 
 Two of them briefly did not. When this repository was extracted from the
 development workspace, one docstring line in `modes.py` and one in `optics.py`
-were rewritten from `projects/paper2/method/...` to `method/...`, the path where
-the specifications sit here. Both lines have been restored to the frozen bytes.
-The docstrings therefore reference the development-workspace path; that is the
-provenance path, and it is preserved in preference to a tidier one because the
-digest is the point.
+was rewritten to a shorter specification path. Both lines have been restored to
+the frozen bytes, so those docstrings cite the development-workspace path. That
+is the provenance path, and it is preserved in preference to a tidier one
+because the digest is the point.
+
+The method specifications those docstrings cite — `MODE_MANAGER_SPEC`,
+`OPTICAL_PROPAGATION_SPEC`, `EVALUATION_METRICS_SPEC` and `COMPARATOR_SPEC`,
+referenced by section number throughout the source and tests — are available
+from the corresponding author on request, as is the pre-registered protocol.
 
 **`scripts/freeze.py --verify` still exits 1**, reporting 18 differences. Every
 one is a demonstrator, packaging or scenery file added or changed after the

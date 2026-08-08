@@ -43,7 +43,7 @@ setup(
     ],
     install_requires=['setuptools', 'numpy'],
     zip_safe=True,
-    maintainer='Paper 2 maintainer',
+    maintainer='Christos Alexandris',
     maintainer_email='contact@arguskeystone.com',
     description=(
         'Mode-aware adaptive navigation for underwater vehicles under '
