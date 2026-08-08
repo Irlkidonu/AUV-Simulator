@@ -1,6 +1,6 @@
 """Navigational capability modes, inference, and transition stability.
 
-Reference implementation of ``method/MODE_MANAGER_SPEC.md``
+Reference implementation of ``projects/paper2/method/MODE_MANAGER_SPEC.md``
 sections 1--2.
 
 Modes are defined by **navigational capability and the decision it forces**, not

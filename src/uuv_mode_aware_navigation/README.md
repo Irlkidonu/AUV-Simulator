@@ -3,8 +3,8 @@
 Mode-aware adaptive navigation for underwater vehicles under multi-modal sensing
 degradation.
 
-Companion software for the study *Mode-Aware Adaptive Navigation for UUVs Using
-Multi-Modal Sensing and Optical Feedback in Simulation Environment*.
+Companion software for the study *Mode-Aware AUV Navigation under Conditional
+Sensor and Infrastructure Availability: Simulation and Characterization*.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![ROS 2 Jazzy](https://img.shields.io/badge/ROS%202-Jazzy-blue)

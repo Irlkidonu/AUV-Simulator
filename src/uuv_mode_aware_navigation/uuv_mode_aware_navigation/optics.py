@@ -1,6 +1,6 @@
 """Underwater optical propagation and channel-availability model.
 
-Reference implementation of ``method/OPTICAL_PROPAGATION_SPEC.md``.
+Reference implementation of ``projects/paper2/method/OPTICAL_PROPAGATION_SPEC.md``.
 
 One physics core serves all three optical configurations carried by the vehicle --
 a camera with coaxial lighting, the same camera with off-axis lighting, and an
