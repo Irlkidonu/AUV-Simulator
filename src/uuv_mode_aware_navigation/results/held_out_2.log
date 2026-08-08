@@ -1,0 +1,76 @@
+held-out execution permitted against freeze record of 2026-08-05T06:06:18.929494+00:00 (46 files)
+optical feedback enabled: quality is estimated from rendered frames
+fixed baseline supplied: lidar+terrain_relative@1.0m/0.25mps/weight/continue
+sweep skipped; C1 was settled on development data (PROTOCOL S2.5)
+  no per-seed hindsight oracle in this run; the oracle rows are the clairvoyant policy only
+
+phase 2: comparator campaign
+
+wrote 3040 comparator runs to results/held_out_2.csv
+
+held-out block marked spent; results sha256 76c19def0b37b70d...
+
+policy               failed  coverage  xtrack (m)   aggregate J
+fixed                  0.00     1.000       0.101         0.104
+oracle                 0.00     1.000       0.120         0.153
+proposed               0.01     0.999       0.128         0.190
+ablation_a2            0.01     0.999       0.129         0.191
+covariance_only        0.09     0.977       0.599         1.906
+dead_reckoning         0.27     0.920       1.380         4.763
+ablation_a1            0.17     0.948       2.190         7.302
+residual_only          0.18     0.935       3.100         9.391
+
+discrimination check (does the scenario span the comparator range?):
+  E10_current_steady   dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E11_current_building dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E12_current_rotating dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E13_acoustic_noise   dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E14_noisy_dvl_loss   dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E15_turbid_and_noisy dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E16_featureless_plain dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E17_terrain_recoverable dead-reckoning fails 85%, fixed fails 0%  -> discriminates
+  E18_vessel_departs   dead-reckoning fails 100%, fixed fails 0%  -> discriminates
+  E19_unprepared_area  dead-reckoning fails 90%, fixed fails 0%  -> discriminates
+  E1_nominal           dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E2_dvl_short         dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E3_dvl_long          dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E4_optical_graded    dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E5_optical_loss      dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E6_acoustic_intermittent dead-reckoning fails 0%, fixed fails 0%  -> FLAT (report as such)
+  E7_compound          dead-reckoning fails 70%, fixed fails 0%  -> discriminates
+  E8_turbid_dvl_loss   dead-reckoning fails 90%, fixed fails 0%  -> discriminates
+  E9_current_unobservable dead-reckoning fails 85%, fixed fails 0%  -> discriminates
+
+oracle recovery, per scenario (pooling this ratio is invalid):
+  E12_current_rotating    1.00
+  E14_noisy_dvl_loss      0.91
+  E17_terrain_recoverable    1.00  <-- INVESTIGATE: beat the oracle
+  E3_dvl_long             1.00
+  E8_turbid_dvl_loss      1.00
+  E9_current_unobservable    0.90
+  E10_current_steady        -- degenerate bracket (no headroom)
+  E11_current_building      -- degenerate bracket (no headroom)
+  E13_acoustic_noise        -- degenerate bracket (no headroom)
+  E15_turbid_and_noisy      -- degenerate bracket (no headroom)
+  E16_featureless_plain      -- degenerate bracket (no headroom)
+  E18_vessel_departs        -- degenerate bracket (no headroom)
+  E19_unprepared_area       -- degenerate bracket (no headroom)
+  E1_nominal                -- degenerate bracket (no headroom)
+  E2_dvl_short              -- degenerate bracket (no headroom)
+  E4_optical_graded         -- degenerate bracket (no headroom)
+  E5_optical_loss           -- degenerate bracket (no headroom)
+  E6_acoustic_intermittent      -- degenerate bracket (no headroom)
+  E7_compound               -- degenerate bracket (no headroom)
+  mean over non-degenerate    0.97
+
+paired comparisons (direction annotated per metric):
+  proposed vs fixed on rms_cross_track_m: +0.027 [+0.012, +0.046] -- worse
+  proposed vs covariance_only on rms_cross_track_m: -0.470 [-0.686, -0.283] -- better
+  proposed vs ablation_a1 on rms_cross_track_m: -2.062 [-2.824, -1.395] -- better
+  proposed vs fixed on coverage_fraction: -0.001 [-0.002, +0.000] -- worse  (interval spans zero)
+  proposed vs covariance_only on coverage_fraction: +0.022 [+0.014, +0.031] -- better
+  proposed vs ablation_a1 on coverage_fraction: +0.051 [+0.039, +0.065] -- better
+
+cost of the improvement:
+  mean_altitude_m    proposed=2.92  fixed=1.02
+  elapsed_s          proposed=192.32  fixed=379.48

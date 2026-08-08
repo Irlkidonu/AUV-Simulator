@@ -29,15 +29,34 @@ log/
 # can be checked by a reader instead of answered by assurance. It is the single
 # artefact that answers the strongest available criticism of this work, and 5 MB
 # is not a reason to withhold it.
+# This negation list was written during Study 1 and, when Study 2 superseded it,
+# was not extended. The result was a published repository that contained the
+# superseded campaign and not the one every reported conclusion rests on:
+# held_out_2.csv is the block that settles F1, and it was absent. A negation
+# list that has to be remembered will eventually not be. If a further campaign
+# is ever run, its artefacts belong here in the same commit that produces them.
 results/*
 !results/PRE_CAMPAIGN_BASELINE.sha256
 !results/DEVELOPMENT_NORMALISERS.json
+!results/ARTEFACT_SHA256SUMS
+# --- Study 1: initial implementation, fifteen families -------------------
 !results/campaign_v5.csv
 !results/campaign_v5.log
 !results/held_out.csv
 !results/held_out.log
 !results/static_sweep_development_v5.csv
 !results/static_sweep_held_out.csv
+# --- Study 2: corrected implementation, nineteen families ----------------
+# The final system. Every claim about the system as it now stands rests on
+# held_out_2.csv, and static_sweep_v7.csv is what shows C1 was selected on
+# development data rather than on the block it was later tested against.
+!results/campaign_v7.csv
+!results/campaign_v7.log
+!results/held_out_2.csv
+!results/held_out_2.log
+!results/static_sweep_v7.csv
+!results/static_sweep_held_out_2.csv
+!results/heldout_sweep_partB.log
 campaigns/
 
 # `static_sweep.csv` itself is deliberately NOT tracked: it is the path the
