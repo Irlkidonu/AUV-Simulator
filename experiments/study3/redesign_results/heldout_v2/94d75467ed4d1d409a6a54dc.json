@@ -1,0 +1,2371 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 8.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_evidence_decline_quorum": 2,
+      "optical_evidence_horizon_s": 16.0,
+      "optical_evidence_minimum_slope": 0.001,
+      "optical_evidence_score_floor": 0.4,
+      "optical_evidence_window": 4,
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 48.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "predictive_shared_fixed_155",
+    "environment_seed": 36001227,
+    "family": "moderate_severe_variable_multimodal",
+    "group": "generated",
+    "index": 0,
+    "part": "generated",
+    "policy": "predictive",
+    "root": 36000000,
+    "stage": "heldout_v2"
+  },
+  "packet_sha256": "d4308f718501045cdccd1e575a07f765a293ad0ae6e242e38e4de0d42da39296",
+  "result": {
+    "acoustic_fixes": 5,
+    "acoustic_techniques_used": [
+      "lbl",
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "causal_trace": [
+      [
+        0.0,
+        0.320463,
+        "available",
+        true,
+        0.993893,
+        [],
+        {
+          "acoustic_technique": "usbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "optical_dvl",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.25,
+        0.14989
+      ],
+      [
+        2.0,
+        0.320463,
+        "available",
+        true,
+        0.985617,
+        [
+          "acoustic"
+        ],
+        {
+          "acoustic_technique": "usbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "optical_dvl",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.5,
+        0.14016
+      ],
+      [
+        4.0,
+        0.267976,
+        "available",
+        true,
+        0.99702,
+        [
+          "acoustic",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "usbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "optical_dvl",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.75,
+        0.1782
+      ],
+      [
+        6.0,
+        0.267976,
+        "available",
+        false,
+        0.987248,
+        [
+          "acoustic",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "usbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "optical_dvl",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.0,
+        0.1205
+      ],
+      [
+        8.0,
+        0.202374,
+        "available",
+        false,
+        0.997158,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": true,
+          "speed_mps": 0.5
+        },
+        -3.75,
+        0.19554
+      ],
+      [
+        10.0,
+        0.202374,
+        "available",
+        false,
+        0.987321,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": true,
+          "speed_mps": 0.5
+        },
+        -3.5,
+        0.30288
+      ],
+      [
+        12.0,
+        0.209545,
+        "available",
+        false,
+        0.997165,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": true,
+          "speed_mps": 0.5
+        },
+        -3.25,
+        0.34196
+      ],
+      [
+        14.0,
+        0.209545,
+        "available",
+        true,
+        0.987324,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": true,
+          "speed_mps": 0.5
+        },
+        -3.0,
+        0.43087
+      ],
+      [
+        16.0,
+        0.028129,
+        "rejected_inliers",
+        true,
+        0.726733,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.25,
+        0.51318
+      ],
+      [
+        18.0,
+        0.028129,
+        "rejected_inliers",
+        true,
+        0.189257,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.5,
+        0.22658
+      ],
+      [
+        20.0,
+        0.019923,
+        "rejected_inliers",
+        true,
+        0.025893,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.75,
+        0.35699
+      ],
+      [
+        22.0,
+        0.019923,
+        "rejected_inliers",
+        true,
+        0.007893,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.0,
+        0.54972
+      ],
+      [
+        24.0,
+        0.011482,
+        "rejected_inliers",
+        false,
+        0.006232,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.25,
+        0.79648
+      ],
+      [
+        26.0,
+        0.011482,
+        "rejected_inliers",
+        false,
+        0.006081,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.5,
+        1.06512
+      ],
+      [
+        28.0,
+        0.001925,
+        "rejected_inliers",
+        false,
+        0.006067,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.75,
+        1.37223
+      ],
+      [
+        30.0,
+        0.001925,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.64334
+      ],
+      [
+        32.0,
+        1.8e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.97446
+      ],
+      [
+        34.0,
+        1.8e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        2.42351
+      ],
+      [
+        36.0,
+        0.042483,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        2.95851
+      ],
+      [
+        38.0,
+        0.042483,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.40489
+      ],
+      [
+        40.0,
+        0.101597,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.08623
+      ],
+      [
+        42.0,
+        0.101597,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.46329
+      ],
+      [
+        44.0,
+        0.12668,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.74858
+      ],
+      [
+        46.0,
+        0.12668,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        4.06083
+      ],
+      [
+        48.0,
+        0.245735,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        4.28239
+      ],
+      [
+        50.0,
+        0.245735,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        4.53177
+      ],
+      [
+        52.0,
+        0.338976,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        4.84293
+      ],
+      [
+        54.0,
+        0.338976,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.21008
+      ],
+      [
+        56.0,
+        0.12933,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.31119
+      ],
+      [
+        58.0,
+        0.12933,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.43831
+      ],
+      [
+        60.0,
+        0.095168,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.5164
+      ],
+      [
+        62.0,
+        0.095168,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.6041
+      ],
+      [
+        64.0,
+        0.086799,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.75,
+        5.59719
+      ],
+      [
+        66.0,
+        0.086799,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.5,
+        5.62011
+      ],
+      [
+        68.0,
+        0.070796,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.25,
+        5.78229
+      ],
+      [
+        70.0,
+        0.070796,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.0,
+        6.38567
+      ],
+      [
+        72.0,
+        0.0734,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.25,
+        6.79205
+      ],
+      [
+        74.0,
+        0.0734,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.5,
+        0.3783
+      ],
+      [
+        76.0,
+        0.041677,
+        "rejected_consensus",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -4.75,
+        0.63879
+      ],
+      [
+        78.0,
+        0.041677,
+        "rejected_consensus",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.98832
+      ],
+      [
+        80.0,
+        0.031371,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.27614
+      ],
+      [
+        82.0,
+        0.031371,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.17538
+      ],
+      [
+        84.0,
+        0.005252,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.25781
+      ],
+      [
+        86.0,
+        0.005252,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.33695
+      ],
+      [
+        88.0,
+        0.000178,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.49532
+      ],
+      [
+        90.0,
+        0.000178,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.43024
+      ],
+      [
+        92.0,
+        3.7e-05,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.62522
+      ],
+      [
+        94.0,
+        3.7e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.73018
+      ],
+      [
+        96.0,
+        0.001996,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.86021
+      ],
+      [
+        98.0,
+        0.001996,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.9525
+      ],
+      [
+        100.0,
+        0.017677,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.00558
+      ],
+      [
+        102.0,
+        0.017677,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.89858
+      ],
+      [
+        104.0,
+        0.01688,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.91228
+      ],
+      [
+        106.0,
+        0.01688,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.9032
+      ],
+      [
+        108.0,
+        0.005863,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.9344
+      ],
+      [
+        110.0,
+        0.005863,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.0106
+      ],
+      [
+        112.0,
+        0.006664,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.091
+      ],
+      [
+        114.0,
+        0.006664,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.11443
+      ],
+      [
+        116.0,
+        0.000557,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.12489
+      ],
+      [
+        118.0,
+        0.000557,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.0899
+      ],
+      [
+        120.0,
+        0.004732,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.09201
+      ],
+      [
+        122.0,
+        0.004732,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.25727
+      ],
+      [
+        124.0,
+        0.006694,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.53528
+      ],
+      [
+        126.0,
+        0.006694,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.81376
+      ],
+      [
+        128.0,
+        9.2e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        0.93522
+      ],
+      [
+        130.0,
+        9.2e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.07999
+      ],
+      [
+        132.0,
+        0.00042,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "lbl_aided",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.24216
+      ],
+      [
+        134.0,
+        0.00042,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.45769
+      ],
+      [
+        136.0,
+        0.001953,
+        "rejected_inliers",
+        true,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.57758
+      ],
+      [
+        138.0,
+        0.001953,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        1.86851
+      ],
+      [
+        140.0,
+        0.010294,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        2.05756
+      ],
+      [
+        142.0,
+        0.010294,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        2.25687
+      ],
+      [
+        144.0,
+        0.062091,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        2.59867
+      ],
+      [
+        146.0,
+        0.062091,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        2.81999
+      ],
+      [
+        148.0,
+        0.000406,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.08553
+      ],
+      [
+        150.0,
+        0.000406,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.45355
+      ],
+      [
+        152.0,
+        0.000156,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        3.95172
+      ],
+      [
+        154.0,
+        0.000156,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        4.40114
+      ],
+      [
+        156.0,
+        9.5e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        4.72841
+      ],
+      [
+        158.0,
+        9.5e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.06919
+      ],
+      [
+        160.0,
+        0.000276,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        5.55441
+      ],
+      [
+        162.0,
+        0.000276,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        6.03176
+      ],
+      [
+        164.0,
+        6e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "hold_for_fix",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        6.7229
+      ],
+      [
+        166.0,
+        6e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        7.08237
+      ],
+      [
+        168.0,
+        2e-06,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        7.43913
+      ],
+      [
+        170.0,
+        2e-06,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        7.74774
+      ],
+      [
+        172.0,
+        5.6e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        7.96294
+      ],
+      [
+        174.0,
+        5.6e-05,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        8.12619
+      ],
+      [
+        176.0,
+        0.002766,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        8.27959
+      ],
+      [
+        178.0,
+        0.002766,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        8.30597
+      ],
+      [
+        180.0,
+        0.000417,
+        "rejected_inliers",
+        false,
+        0.006066,
+        [
+          "acoustic",
+          "optical",
+          "velocity"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 5.0,
+          "fusion_mode": "weight",
+          "mission_action": "continue",
+          "navigation_mode": "relative_dead_reckoning",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -5.0,
+        8.32592
+      ]
+    ],
+    "completed": true,
+    "configuration_id": "predictive_shared_fixed_155",
+    "environment_digest": "2957428a3ba132ad33ff0b3d865e8c5ab7b0cc8e10c9b8f82b6a7f4936569277",
+    "environment_seed": 36001227,
+    "false_optical_forecast_episodes": 0,
+    "family": "moderate_severe_variable_multimodal",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "gps_post_reset_error_m": NaN,
+    "gps_pre_reset_error_m": NaN,
+    "gps_reacquired": false,
+    "group": "generated",
+    "index": 0,
+    "longest_unaided_gap_s": 56.0,
+    "mean_policy_runtime_ms": 0.6999918574705248,
+    "mission_actions_used": [
+      "continue",
+      "hold_for_fix"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 9,
+    "mode_telemetry": {
+      "absolute_source_s": [
+        [
+          "lbl",
+          60.0
+        ],
+        [
+          "none",
+          116.0
+        ],
+        [
+          "optical",
+          6.0
+        ]
+      ],
+      "first_fallback_entry": [
+        46.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_relative_entry": [
+        30.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_terminal_entry": null,
+      "longest_dwell_mode": "relative_dead_reckoning",
+      "longest_dwell_s": 116.0,
+      "mean_dwell_s": 20.22222222222222,
+      "mode_dwell_s": [
+        [
+          "lbl_aided",
+          60.0
+        ],
+        [
+          "optical_dvl",
+          6.0
+        ],
+        [
+          "relative_dead_reckoning",
+          116.0
+        ]
+      ],
+      "mode_transition_reasons": [
+        [
+          "no_observable_horizontal_absolute_fix",
+          4
+        ],
+        [
+          "observable_lbl_fix",
+          4
+        ]
+      ],
+      "mode_transitions": 8,
+      "mode_transitions_directed": [
+        [
+          "lbl_aided->relative_dead_reckoning",
+          4
+        ],
+        [
+          "optical_dvl->lbl_aided",
+          1
+        ],
+        [
+          "relative_dead_reckoning->lbl_aided",
+          3
+        ]
+      ],
+      "modes_visited_in_order": [
+        "optical_dvl",
+        "lbl_aided",
+        "relative_dead_reckoning"
+      ],
+      "recovery_executed": [
+        [
+          "lower_altitude",
+          8
+        ]
+      ],
+      "time_without_horizontal_absolute_s": 150.0,
+      "velocity_source_s": [
+        [
+          "bottom_lock_dvl",
+          32.0
+        ],
+        [
+          "inertial",
+          80.0
+        ],
+        [
+          "water_track_dvl",
+          70.0
+        ]
+      ]
+    },
+    "navigation_modes_used": [
+      "fixed_multimodal",
+      "lbl_aided",
+      "optical_dvl",
+      "relative_dead_reckoning"
+    ],
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 4,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 3.7239608747834705,
+    "part": "generated",
+    "peak_error_m": 8.325916535573736,
+    "physical_interventions": 7,
+    "policy": "predictive",
+    "post_gps_mission_rule": "not_applicable",
+    "preemptive_actions": 1,
+    "recovery_action_counts": [
+      [
+        "continue",
+        1
+      ],
+      [
+        "hold_for_fix",
+        3
+      ],
+      [
+        "lower_altitude",
+        87
+      ]
+    ],
+    "recovery_time_s": Infinity,
+    "rmse_transition_m": 3.8041756101348883,
+    "runtime_s": 2.6849010910009383,
+    "safety_violation": true,
+    "surfaced_for_gps": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "e6d81dd06c21fcfa09bc6c3f1a86bae1629ff9a5785f468270e716a50612162d",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 150.0,
+    "unnecessary_interventions": 2
+  },
+  "schema": "study3_heldout_v2_packet_v1"
+}

@@ -1,0 +1,77 @@
+{
+ "schema": "study3_exploratory_e1_design_v1",
+ "status": "PREDECLARED. Researcher-approved 2026-08-11.",
+ "classification": "POST_FREEZE_EXPLORATORY",
+ "not_held_out": true,
+ "not_confirmatory": true,
+ "may_revise_heldout_or_freeze": false,
+ "statement": "Exploratory evaluation of the frozen Study 3 policies against the existing generated-environment framework. The completed held-out block at root 32,000,000 was Part A only: ten scripted monotone families with currents pinned at zero and acoustic noise a deterministic function of the acoustic ramp. It therefore produced no adaptation-coverage measurement. This block runs stochastic generated environments instead, on a fresh seed band, and reports numbers only.",
+ "question_answered_beyond_heldout": [
+  "Whether the frozen selector behaves comparably in stochastic, non-monotone environments where modalities fail and recover at random times, rather than along fixed ramps.",
+  "What adaptation coverage is outside the twelve V5 development seeds at root 31,900,000, which are the sole basis of the 59.8% standing limitation.",
+  "How the selector behaves when currents and acoustic noise vary as independent processes, which no registered scripted family exercises."
+ ],
+ "root": 33000000,
+ "band": "33-million exploratory. Disjoint from Study 2 (20.x M), platform_v2 (22.1-22.3 M), Study 3 development (31.x M) and Study 3 held-out (32,000,000, spent).",
+ "seed_registry_note": "STUDY3_SEED_REGISTRY.json is hash-pinned in STUDY3_FREEZE_MANIFEST_V1.json and is deliberately NOT modified. This record is the registration of the exploratory band.",
+ "environment_seeds": 60,
+ "environment_seed_list_rule": "root + 1000 + n for n in range(60), i.e. 33001000..33001059, matching the V5 Part B convention.",
+ "policies": ["fixed", "deployment_fixed", "reactive"],
+ "executions": {"per_seed": 3, "total": 180},
+ "pairing": "One environment realization is generated per seed and shared identically by all three policies, so contrasts are paired on the environment.",
+ "environment_config": {
+  "file": "examples/moderate_severe_variable_environment.json",
+  "name": "moderate_severe_variable_multimodal",
+  "modified": false,
+  "note": "Byte-identical to the file used by V5 Part B and hash-pinned in the freeze manifest."
+ },
+ "execution_parameters": {
+  "horizon_s": 180.0,
+  "dt_s": 2.0,
+  "image_period_s": 4.0,
+  "redesign_version": 3,
+  "keep_trace": true,
+  "provenance": "inherited unchanged from run_final_validation_v5.py Part B"
+ },
+ "locked_universal_baseline": {
+  "optical_channel": "lidar",
+  "altitude_m": 5.0,
+  "speed_mps": 0.5,
+  "acoustic_technique": "usbl",
+  "fusion_mode": "weight",
+  "provenance": "redesign_results/infrastructure_fixed_baseline_lock.json"
+ },
+ "metrics": {
+  "outcome": ["completed", "safety_violation", "overall_rmse_m", "rmse_transition_m",
+              "peak_error_m", "unaided_time_s", "longest_unaided_gap_s",
+              "survey_coverage_fraction", "optical_fixes", "acoustic_fixes",
+              "physical_interventions", "mode_switches"],
+  "adaptation_primary": {
+   "name": "V5 C7/C8 definition",
+   "source": "analyse_final_validation_v5.py::adaptation",
+   "definition": "Episodes are maximal runs of constant truth_side_best_viable_mode beginning after the first sample, lasting at least 6 s. An episode is matched if the selected navigation_mode equals that best viable mode at any sample within it; latency is the time to the first such sample.",
+   "reason_reported": "It is the definition that produced the 59.8% figure, so this is the only directly comparable number."
+  },
+  "adaptation_secondary": {
+   "name": "corrected pilot adequate/exact definition",
+   "source": "analyse_generated_environment_pilot_corrected.py",
+   "definition": "Episodes are runs of a constant physically acceptable mode SET persisting at least 3 samples. Adequate = the selected mode is in the acceptable set AND is observably supported. Exact = the acceptable set is a singleton and the selected mode equals it AND is observably supported.",
+   "requires_replay": true,
+   "replay_rule": "Observability is not stored in a packet, so REACTIVE runs are deterministically replayed in-process with a recording policy subclass. Each replay must reproduce the packet's trace_digest exactly; a mismatch aborts the analysis. The replay introduces no new evidence and consumes no seed."
+  }
+ },
+ "contrasts": {
+  "pairs": ["reactive_minus_fixed", "reactive_minus_deployment", "deployment_minus_fixed"],
+  "interval": "95% paired bootstrap, 10,000 draws, single stratum (one generated family)",
+  "analysis_rng_seed": 33000999,
+  "note": "The analysis RNG affects resampling only and no simulation."
+ },
+ "prohibitions": [
+  "No acceptance threshold is declared.",
+  "No freeze verdict is assigned.",
+  "No frozen file is modified; the freeze manifest is verified before execution.",
+  "The held-out root 32,000,000 is refused by the runner.",
+  "Results are reported regardless of direction and may not be used to revise the held-out result or STUDY3_FREEZE_DECISION_V1.md.",
+  "The scripted-transition block (Part E2) is not run."
+ ]
+}

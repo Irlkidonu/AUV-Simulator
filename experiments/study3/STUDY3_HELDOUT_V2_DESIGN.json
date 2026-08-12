@@ -1,0 +1,176 @@
+{
+ "analysis_code_frozen": [
+  "run_heldout_v2.py",
+  "analyse_heldout_v2.py",
+  "verify_lock_v2.py"
+ ],
+ "analysis_rng_seed": 36000999,
+ "band_justification": "36,000,000 has never appeared as a declared seed or root in the working tree or in any commit in the repository history. Verified by enumerating every root/seed/environment_seed value in every JSON record and every seed-shaped integer literal in every Python file, and by searching all commits. Occupied bands are 20 (Study 2), 22 (platform_v2), 31 (Study 3 development), 32 (original held-out, spent), 33 (exploratory E1), 34 (interactive testing and mechanism tests), 35 (final development V6) and 40 (imaging unit tests).",
+ "carried_development_findings": {
+  "original_heldout": "root 32,000,000 stands as evidence for the PRE-correction controller and is not revised or re-run",
+  "v6_adaptation_coverage": 0.5531,
+  "v6_adaptation_note": "regression from 0.6373 at E1; carried as a standing development limitation regardless of what this block returns",
+  "v6_predictive_null": "PREDICTIVE minus REACTIVE overall RMSE +0.0404 [-0.1509,+0.2533] spans zero; longest aiding gap +2.0667 [+0.0667,+4.3000] is adverse with the interval excluding zero",
+  "v6_safety_completion": {
+   "completed": {
+    "deployment_fixed": 0.1833,
+    "predictive": 0.2333,
+    "reactive": 0.2167
+   },
+   "safety_violation": {
+    "deployment_fixed": 0.25,
+    "predictive": 0.15,
+    "reactive": 0.2
+   }
+  }
+ },
+ "comparisons": {
+  "primary": "corrected REACTIVE minus deployment-informed FIXED",
+  "reported_separately_for": [
+   "scripted",
+   "generated"
+  ],
+  "secondary": "corrected PREDICTIVE minus corrected REACTIVE",
+  "supporting": "corrected PREDICTIVE minus deployment-informed FIXED"
+ },
+ "configuration_ids": {
+  "deployment_fixed": "deployment_informed_fixed_155",
+  "predictive": "predictive_shared_fixed_155",
+  "reactive": "reactive_shared_fixed_155"
+ },
+ "decision_rules": {
+  "authority": "C. Alexandris (researcher)",
+  "frozen_on": "2026-08-11",
+  "immutability": "No controller, threshold, environment, comparator, metric, analysis rule, sample size or interpretation criterion may be changed after authorization. The block is executed exactly once. No V7, no correction cycle and no additional held-out evaluation follows, regardless of outcome.",
+  "part_a_scripted": {
+   "role": "robustness and reproducibility evaluation",
+   "rule": "Part A is NOT required to show superiority over deployment-informed FIXED. It is reported separately and never pooled with Part B.",
+   "superiority_required": false
+  },
+  "pooling": "PROHIBITED. Parts A and B are never pooled to determine success.",
+  "predictive": {
+   "role": "secondary",
+   "rule": "No required success threshold. The PREDICTIVE-minus-REACTIVE comparison is reported regardless of direction.",
+   "threshold": null
+  },
+  "primary_claim": {
+   "conditions_all_required": [
+    "corrected REACTIVE has lower overall_rmse_m than deployment-informed FIXED, with the paired 95% CI excluding zero in REACTIVE's favour",
+    "adequate viable-mode adaptation exceeds 50%, using the already-defined replay-verified metric (corrected pilot definition, adequate_rate)"
+   ],
+   "metric_bindings": {
+    "adaptation": "adaptation_pilot_definition['reactive']['adequate_rate'] > 0.50",
+    "rmse": "contrasts['reactive_minus_deployment.overall_rmse_m']: mean < 0 and ci_high < 0"
+   },
+   "scope": "Part B generated changing environments ONLY",
+   "supported_if": "both conditions hold; otherwise not supported"
+  },
+  "status": "FROZEN BY THE RESEARCHER BEFORE AUTHORIZATION. Immutable.",
+  "supporting_outcomes": {
+   "reported": [
+    "rmse_transition_m",
+    "peak_error_m",
+    "longest_unaided_gap_s",
+    "unaided_time_s",
+    "completed",
+    "safety_violation",
+    "mode_switches",
+    "physical_interventions",
+    "exact adaptation rate"
+   ],
+   "rule": "Reported as supporting outcomes only. NO composite pass criterion is constructed from them and none of them can overturn or establish the primary claim."
+  }
+ },
+ "executed": false,
+ "execution_parameters": {
+  "dt_s": 2.0,
+  "horizon_s": 180.0,
+  "image_period_s": 4.0,
+  "provenance": "inherited unchanged from the frozen development runners",
+  "redesign_version": 3
+ },
+ "executions": {
+  "generated": 1200,
+  "scripted": 810,
+  "total": 2010
+ },
+ "held_out_root": 36000000,
+ "interval": "95% family-stratified paired bootstrap for Part A, 95% paired bootstrap for Part B, 10,000 draws",
+ "locked_universal_baseline": {
+  "acoustic_technique": "usbl",
+  "altitude_m": 5.0,
+  "fusion_mode": "weight",
+  "modified": false,
+  "optical_channel": "lidar",
+  "provenance": "redesign_results/infrastructure_fixed_baseline_lock.json",
+  "speed_mps": 0.5
+ },
+ "maximum_invocations": 1,
+ "metrics": {
+  "adaptation": "V5 C7/C8 definition, unchanged, plus the corrected pilot adequate/exact definition obtained by verified replay",
+  "chatter": "switch classification with the unchanged 8/16/30 s windows",
+  "outcome": [
+   "completed",
+   "safety_violation",
+   "overall_rmse_m",
+   "rmse_transition_m",
+   "peak_error_m",
+   "unaided_time_s",
+   "longest_unaided_gap_s",
+   "survey_coverage_fraction",
+   "optical_fixes",
+   "acoustic_fixes",
+   "physical_interventions",
+   "mode_switches",
+   "preemptive_actions"
+  ]
+ },
+ "pairing": "Common random streams per (family,index) for Part A and one shared generated realization per seed for Part B; all three policies see identical environments.",
+ "part_a_scripted": {
+  "control_families": [
+   "S3_NOMINAL",
+   "S3_SUDDEN",
+   "S3_NO_RECOVERY"
+  ],
+  "primary_families": [
+   "S3_OPTICAL_GRADUAL",
+   "S3_DVL_GRADUAL",
+   "S3_ACOUSTIC_GEOMETRY_ASYNC",
+   "S3_INFRASTRUCTURE_WARNING",
+   "S3_RECOVERY",
+   "S3_COMPOUND_OPTICAL_ACOUSTIC",
+   "S3_COMPOUND_DVL_ACOUSTIC"
+  ],
+  "purpose": "Same design as the original held-out block, so the corrected controller is measured on the design the pre-correction controller was measured on.",
+  "seeds_per_control_family_policy": 20,
+  "seeds_per_primary_family_policy": 30
+ },
+ "part_b_generated": {
+  "environment_config_file": "examples/moderate_severe_variable_environment.json",
+  "environment_config_modified": false,
+  "environment_config_name": "moderate_severe_variable_multimodal",
+  "environment_seeds": 400,
+  "purpose": "Genuinely changing environments, the class in which V6 measured the corrections. Sized for precision, not for an expected result.",
+  "seed_offset": 1000,
+  "seed_rule": "36,000,000 + 1000 + n for n in range(400) -> 36001000..36001399"
+ },
+ "policies": [
+  "deployment_fixed",
+  "reactive",
+  "predictive"
+ ],
+ "reporting_rule": "The result is reported regardless of direction. No metric, comparator, family, sample size or decision rule may be changed after execution. The block is executed exactly once.",
+ "sample_size_justification": {
+  "generated_n_chosen": 400,
+  "generated_n_required": 403,
+  "generated_note": "400 gives a 95% half-width of about 0.201 m, against about 0.52 m at the 60 seeds V6 used. Chosen for precision; the value was not varied to obtain any particular outcome.",
+  "generated_paired_sd_m": 2.0474,
+  "method": "Paired standard deviation of the per-pair difference in overall_rmse_m, taken from DEVELOPMENT data only (V6 at root 35,000,000 for generated; V5 Part A at root 31,900,000 for scripted). No held-out data was used to size this block.",
+  "scripted_note": "The scripted paired SD is small enough that 6 pairs would reach the same precision. 30/20 seeds are retained solely to reproduce the original held-out design exactly.",
+  "scripted_paired_sd_m": 0.1196,
+  "target_ci_half_width_m": 0.2
+ },
+ "schema": "study3_heldout_v2_design_v1",
+ "status": "PREDECLARED, NOT AUTHORIZED, NOT EXECUTED",
+ "subject": "corrected REACTIVE and corrected PREDICTIVE controllers"
+}

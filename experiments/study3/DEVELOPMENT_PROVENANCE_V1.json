@@ -1,0 +1,148 @@
+{
+ "IS_NOT_A_HELD_OUT_FREEZE": true,
+ "created_utc": "2026-08-11",
+ "declared_but_not_claimed": [
+  "change_heading"
+ ],
+ "environment": {
+  "numpy": "1.26.4",
+  "opencv": "4.6.0",
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "files": {
+  "acoustic_infrastructure_contract": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/acoustics_v2.py": "8764787ff53edbf91676a9d132684e46b22abe65837dbcde74e07963626b50e7"
+  },
+  "benchmark_registry": {
+   "benchmarks/platform_v2.json": "bd02bec8286a8a9df07906f4c4a82f384bcca8aa390f9bccf61b60cf263dc5db",
+   "benchmarks/study2_legacy.json": "81dde4db92e87ff2812bfb1cab3144dde47fde10b7a51ff2bd4260e46ca41dc0"
+  },
+  "design": {
+   "experiments/study3/STUDY3_DESIGN.json": "729a3f9ef4d004c80342a3d44320e746a6e44260f0ef33bf0aa42867f91f6bcf"
+  },
+  "design_verifier": {
+   "experiments/study3/verify_design.py": "b7781cf02eca31bfcd69da9d9f9fa7baec3500919eee263528e3abe4595323bc"
+  },
+  "fixed_155_and_policies": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/policies.py": "e426251b2e5faa1f4ae65fb8b3d403a40209c94491b2f449929526e0b3d7344f"
+  },
+  "mechanism_tests": {
+   "src/uuv_mode_aware_navigation/test/platform_v2/test_study3_label_only_ablation.py": "ea814787f2f98ef12e6eb62901df7d582933c914fb202aa76ea2326a979db5ba",
+   "src/uuv_mode_aware_navigation/test/platform_v2/test_study3_metric_semantics.py": "e8aad3ee23cd1a37dbd5368281c9dab7b3dbec2314e7301c682f08089aac8ae5",
+   "src/uuv_mode_aware_navigation/test/platform_v2/test_study3_mode_stability.py": "b84f0a16f07c6117265616fddecb37717dddd435a9911bf242c241e1e1bc5e30",
+   "src/uuv_mode_aware_navigation/test/platform_v2/test_study3_mode_telemetry.py": "709c00d35b135994f7c8c068c2d86a350a2ae22acf36bcad26f37a2200ad61c8",
+   "src/uuv_mode_aware_navigation/test/platform_v2/test_study3_range_only_and_reachability.py": "5e8dc55f727f5f14876e70dc4ff1cc0c7b73d5a41678e65c70705f161202d71b"
+  },
+  "metric_definition": {
+   "experiments/study3/STUDY3_METRIC_DEFINITION_CORRECTION.md": "91be022a225b7d4f9b26abdb1738c082ab66bce6466755b2d4bcafca3e6bf3ab"
+  },
+  "p5_v4_localizer": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/localization/optical_v4.py": "5baf48d1327cab07bcec9b995cf6b3e9911dea39ee672b171452b6a4844e1cb0"
+  },
+  "protocol": {
+   "experiments/study3/STUDY3_PROTOCOL.md": "eb6b61bee9e65b4d6c583712660b37377bb4eb80f0e64af83ed470b363482e0a"
+  },
+  "recovery_action_set": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/recovery.py": "497518fa4b31d1c557e5e0dd3f6c41a0b87a534fe982eadb12bb4b76a173bf52"
+  },
+  "run_loop": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/simulation.py": "57633638b52463ac71bc180d2dc8e40c3e1de4db7f27c3f5993a1ab1d3e06023"
+  },
+  "scenarios": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/scenarios.py": "0415d289971b2c1448a6b2ddc028f3493b2855d555cb31bc34973e1e65f8591d"
+  },
+  "seed_registry": {
+   "experiments/study3/STUDY3_SEED_REGISTRY.json": "730b9cc795f5e0fafd644245ea1ddb1e5c2bb3ab0fa19ecd1c43242d9b420f7a"
+  },
+  "six_mode_selector": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/modes.py": "ae83863c6878b34a4a5d4b20b1f4412e14a2e85a274629c5303e129f1d182d0f"
+  },
+  "telemetry": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/telemetry.py": "a05e737febcf0e040374e501b15c448855df8e5b0ddb3ba26510f5a2b96a473f"
+  }
+ },
+ "fixed_155_lock": {
+  "acoustic_technique": "single_beacon",
+  "altitude_m": 3.0,
+  "baseline_id": "fixed_155",
+  "fusion_mode": "gate",
+  "minimum_action_hold_s": 8.0,
+  "optical_channel": "camera_offaxis",
+  "speed_mps": 0.5,
+  "usable_probability_boundary": 0.35
+ },
+ "identifier": "study3_development_provenance_v1",
+ "metric_definition_version": "v2",
+ "metric_definitions": {
+  "mode_switches": "changes in the logical navigation_mode state",
+  "note": "v1 mixed the mode label into the action tuple and inflated mode_switches and unnecessary_interventions for adaptive policies only",
+  "physical_interventions": "changes in speed, altitude, optical channel, acoustic technique or mission action",
+  "unnecessary_interventions": "entry into a non-nominal physical action while the scenario is nominal"
+ },
+ "policies": [
+  "fixed",
+  "robust_fusion",
+  "reactive",
+  "predictive"
+ ],
+ "primary_comparison": "predictive_minus_reactive paired within family and seed",
+ "record_type": "DEVELOPMENT_PROVENANCE",
+ "record_version": "v1",
+ "recovery_enum_values": [
+  "change_heading",
+  "continue",
+  "hold_for_fix",
+  "lower_altitude",
+  "reduce_speed",
+  "reposition_for_acoustics",
+  "surface_for_gps"
+ ],
+ "seed_registry": {
+  "development_roots": {
+   "adaptive_tuning": 31300000,
+   "development_confirmation": 31400000,
+   "fixed_sweep": 31100000,
+   "scenario_calibration": 31200000
+  },
+  "forbidden_roots_count": 13,
+  "held_out_executed": false,
+  "held_out_reserved_unexecuted": 32000000
+ },
+ "six_mode_selector": {
+  "count": 6,
+  "modes": [
+   "optical_dvl",
+   "optical_no_bottom_lock",
+   "lbl_aided",
+   "usbl_aided",
+   "relative_dead_reckoning",
+   "terminal_degraded"
+  ],
+  "priority_order": [
+   "terminal_degraded",
+   "lbl_aided",
+   "usbl_aided",
+   "optical_dvl",
+   "optical_no_bottom_lock",
+   "relative_dead_reckoning"
+  ]
+ },
+ "source_commit_at_record_time": "5472af6b9b85fec7025fb98154b06902064e9564",
+ "statement": "Development provenance for the Study 3 six-mode architecture, telemetry, mechanism tests and metric-definition correction. This record does not authorise, and does not accompany, any held-out execution. No broad DEVELOPMENT comparison has been run against it.",
+ "study3_recovery_action_set": [
+  "continue",
+  "hold_for_fix",
+  "lower_altitude",
+  "reduce_speed",
+  "reposition_for_acoustics",
+  "surface_for_gps"
+ ],
+ "study3_status": {
+  "blocker": "fixed baseline is physically corrected; adaptive policies require fresh development reassessment under mixed infrastructure before any freeze recommendation",
+  "design_status": "infrastructure_scope_corrected_fixed_reaudited_not_ready_to_freeze",
+  "freeze_ready": false,
+  "heldout_execution_authorized": false,
+  "manuscript_edit_authorized": false
+ }
+}

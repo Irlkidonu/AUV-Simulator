@@ -1,0 +1,86 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 12.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 56.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "reactive_ab_correction",
+    "family": "S3_RECOVERY",
+    "index": 4,
+    "policy": "reactive",
+    "root": 31830000,
+    "stage": "recovery_focused"
+  },
+  "packet_sha256": "cdd6cd69f3afe8b545fd5a6ca78a7deb2d06ae61849a1f17d2f13ac8daebd0a4",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "single_beacon",
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "completed": false,
+    "configuration_id": "reactive_ab_correction",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_RECOVERY",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "index": 4,
+    "longest_unaided_gap_s": 84.0,
+    "mean_policy_runtime_ms": 0.942221561902213,
+    "mission_actions_used": [
+      "abort_leg",
+      "continue",
+      "return_to_last_good_fix"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 8,
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 25,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.7336606180730634,
+    "peak_error_m": 2.033054845963175,
+    "policy": "reactive",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "continue",
+        36
+      ],
+      [
+        "hold_for_fix",
+        2
+      ],
+      [
+        "lower_altitude",
+        53
+      ]
+    ],
+    "recovery_time_s": 2.0,
+    "rmse_transition_m": 0.9692424101279018,
+    "runtime_s": 6.890404356003273,
+    "safety_violation": false,
+    "survey_coverage_fraction": 0.985204781501078,
+    "trace_digest": "d2dbd222e31bb2fbde36aaaeb505a020ee4a55cf69a60e0a86aaf7ea5e3b63c3",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 84.0,
+    "unnecessary_interventions": 4
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

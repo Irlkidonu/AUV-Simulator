@@ -1,0 +1,142 @@
+{
+  "base_config": {
+    "acoustic_health": {
+      "failure_hazard_per_s": 0.0,
+      "initial_available": true,
+      "recovery_hazard_per_s": 0.0
+    },
+    "acoustic_noise_db": {
+      "correlation_s": 60.0,
+      "initial": 48.0,
+      "maximum": 48.0,
+      "mean": 48.0,
+      "minimum": 48.0,
+      "stationary_sigma": 0.0
+    },
+    "acoustic_noise_midpoint_db": 64.0,
+    "acoustic_noise_width_db": 5.0,
+    "bottom_lock_nominal_probability": 0.98,
+    "bottom_lock_reference_altitude_m": 4.5,
+    "bottom_lock_transition_width_m": 0.55,
+    "current_east_mps": {
+      "correlation_s": 60.0,
+      "initial": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0,
+      "minimum": 0.0,
+      "stationary_sigma": 0.0
+    },
+    "current_north_mps": {
+      "correlation_s": 60.0,
+      "initial": 0.0,
+      "maximum": 0.0,
+      "mean": 0.0,
+      "minimum": 0.0,
+      "stationary_sigma": 0.0
+    },
+    "dvl_health": {
+      "failure_hazard_per_s": 0.0,
+      "initial_available": true,
+      "recovery_hazard_per_s": 0.0
+    },
+    "lbl_geometry_scale": {
+      "correlation_s": 60.0,
+      "initial": 1.0,
+      "maximum": 1.0,
+      "mean": 1.0,
+      "minimum": 1.0,
+      "stationary_sigma": 0.0
+    },
+    "lbl_infrastructure": {
+      "failure_hazard_per_s": 0.0,
+      "initial_available": true,
+      "recovery_hazard_per_s": 0.0
+    },
+    "name": "study3_interactive_manual",
+    "optical_health": {
+      "failure_hazard_per_s": 0.0,
+      "initial_available": true,
+      "recovery_hazard_per_s": 0.0
+    },
+    "single_beacon_deployed": false,
+    "turbidity": {
+      "correlation_s": 60.0,
+      "initial": 0.1,
+      "maximum": 0.1,
+      "mean": 0.1,
+      "minimum": 0.1,
+      "stationary_sigma": 0.0
+    },
+    "usbl_infrastructure": {
+      "failure_hazard_per_s": 0.0,
+      "initial_available": true,
+      "recovery_hazard_per_s": 0.0
+    },
+    "usbl_nominal_offset_m": 8.0,
+    "water_track_probability": {
+      "correlation_s": 60.0,
+      "initial": 0.9,
+      "maximum": 0.9,
+      "mean": 0.9,
+      "minimum": 0.9,
+      "stationary_sigma": 0.0
+    }
+  },
+  "base_environment_digest": "13f124da58f382dc7c788676fd9dfaaa2dd86a4e38ddd232b83b1d5aa1f24bed",
+  "dt_s": 1.0,
+  "events": [
+    {
+      "control": "turbidity",
+      "effective_step": 91,
+      "sequence": 0,
+      "simulation_time_s": 91.0,
+      "value": 0.55
+    },
+    {
+      "control": "dvl_bottom_probability",
+      "effective_step": 141,
+      "sequence": 1,
+      "simulation_time_s": 141.0,
+      "value": 0.05
+    },
+    {
+      "control": "lbl_available",
+      "effective_step": 186,
+      "sequence": 2,
+      "simulation_time_s": 186.0,
+      "value": false
+    },
+    {
+      "control": "usbl_available",
+      "effective_step": 231,
+      "sequence": 3,
+      "simulation_time_s": 231.0,
+      "value": false
+    },
+    {
+      "control": "optical_failure",
+      "effective_step": 276,
+      "sequence": 4,
+      "simulation_time_s": 276.0,
+      "value": true
+    },
+    {
+      "control": "dvl_water_probability",
+      "effective_step": 311,
+      "sequence": 5,
+      "simulation_time_s": 311.0,
+      "value": 0.03
+    }
+  ],
+  "horizon_s": 600.0,
+  "index": 0,
+  "policy_recorded": "reactive",
+  "root": 34100007,
+  "schema": "study3_interactive_disturbance_v1",
+  "seed": 34000007,
+  "service_catalogue": [
+    "lbl",
+    "usbl"
+  ],
+  "sha256": "13482a6fa822cf85049f99814062c62af8d358cccdc086825b51ca3959716f9e"
+}

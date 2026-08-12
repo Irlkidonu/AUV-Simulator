@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68,<82"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auv-simulator"
+version = "2.0.0.dev0"
+description = "Headless AUV simulation and mode-aware navigation benchmark"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Christos Alexandris"}]
+dependencies = ["numpy>=1.24,<3"]
+
+[project.scripts]
+auv-sim = "uuv_mode_aware_navigation.cli:main"
+study3-control = "uuv_mode_aware_navigation.study3.control_window:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7,<9"]
+vision = ["opencv-python-headless>=4.8,<5"]
+ros = []
+
+[tool.setuptools]
+package-dir = {"" = "src/uuv_mode_aware_navigation"}
+
+[tool.setuptools.packages.find]
+where = ["src/uuv_mode_aware_navigation"]
+include = ["uuv_mode_aware_navigation*"]
+
+[tool.pytest.ini_options]
+testpaths = ["src/uuv_mode_aware_navigation/test"]
+addopts = "--strict-markers"
+markers = [
+  "gating: scientific gate and end-to-end regression tests",
+]

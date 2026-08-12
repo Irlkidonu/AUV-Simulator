@@ -1,0 +1,181 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 8.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_evidence_decline_quorum": 2,
+      "optical_evidence_horizon_s": 16.0,
+      "optical_evidence_minimum_slope": 0.001,
+      "optical_evidence_score_floor": 0.4,
+      "optical_evidence_window": 4,
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 48.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "fixed_155",
+    "family": "S3_RECOVERY",
+    "index": 8,
+    "policy": "fixed",
+    "root": 31870000,
+    "stage": "mode_comparison_v4"
+  },
+  "packet_sha256": "d139aa0810392a1858c46b8137689b35ee79d623a35fd0557a9fb559c29aeca1",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "completed": true,
+    "configuration_id": "fixed_155",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_RECOVERY",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "gps_post_reset_error_m": NaN,
+    "gps_pre_reset_error_m": NaN,
+    "gps_reacquired": false,
+    "index": 8,
+    "longest_unaided_gap_s": 84.0,
+    "mean_policy_runtime_ms": 0.6080903950822796,
+    "mission_actions_used": [
+      "continue"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 0,
+    "mode_telemetry": {
+      "absolute_source_s": [
+        [
+          "none",
+          82.0
+        ],
+        [
+          "optical",
+          100.0
+        ]
+      ],
+      "first_fallback_entry": [
+        100.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_relative_entry": [
+        58.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_terminal_entry": null,
+      "longest_dwell_mode": "relative_dead_reckoning",
+      "longest_dwell_s": 82.0,
+      "mean_dwell_s": 10.705882352941176,
+      "mode_dwell_s": [
+        [
+          "optical_dvl",
+          26.0
+        ],
+        [
+          "optical_no_bottom_lock",
+          74.0
+        ],
+        [
+          "relative_dead_reckoning",
+          82.0
+        ]
+      ],
+      "mode_transition_reasons": [
+        [
+          "no_observable_horizontal_absolute_fix",
+          1
+        ],
+        [
+          "optical_and_bottom_lock_usable",
+          7
+        ],
+        [
+          "optical_usable_without_bottom_lock",
+          8
+        ]
+      ],
+      "mode_transitions": 16,
+      "mode_transitions_directed": [
+        [
+          "optical_dvl->optical_no_bottom_lock",
+          7
+        ],
+        [
+          "optical_no_bottom_lock->optical_dvl",
+          7
+        ],
+        [
+          "optical_no_bottom_lock->relative_dead_reckoning",
+          1
+        ],
+        [
+          "relative_dead_reckoning->optical_no_bottom_lock",
+          1
+        ]
+      ],
+      "modes_visited_in_order": [
+        "optical_dvl",
+        "optical_no_bottom_lock",
+        "relative_dead_reckoning"
+      ],
+      "recovery_executed": [],
+      "time_without_horizontal_absolute_s": 84.0,
+      "velocity_source_s": [
+        [
+          "bottom_lock_dvl",
+          66.0
+        ],
+        [
+          "inertial",
+          14.0
+        ],
+        [
+          "water_track_dvl",
+          102.0
+        ]
+      ]
+    },
+    "navigation_modes_used": [
+      "fixed_multimodal"
+    ],
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 25,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.6406917608007262,
+    "peak_error_m": 1.7747614828886142,
+    "physical_interventions": 0,
+    "policy": "fixed",
+    "post_gps_mission_rule": "not_applicable",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "lower_altitude",
+        91
+      ]
+    ],
+    "recovery_time_s": 2.0,
+    "rmse_transition_m": 0.8450166436693365,
+    "runtime_s": 2.951487698999699,
+    "safety_violation": false,
+    "surfaced_for_gps": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "167acdc19b2ff4672026a46d5151b144fabbc13df69fa0d63b06627d9c000e34",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 84.0,
+    "unnecessary_interventions": 0
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

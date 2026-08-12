@@ -1,0 +1,23 @@
+{
+  "identifier": "platform_v2_action_space_v1",
+  "optical_channels": ["camera_coaxial", "camera_offaxis", "lidar"],
+  "altitudes_m": [1.0, 2.0, 3.0],
+  "speeds_mps": [0.25, 0.5, 0.75],
+  "acoustic_techniques": ["single_beacon", "lbl", "usbl"],
+  "fusion_modes": ["gate", "weight"],
+  "mission_actions": [
+    "continue",
+    "hold_for_fix",
+    "return_to_last_good_fix",
+    "abort_leg",
+    "surface_for_gps"
+  ],
+  "costs": {
+    "time_weight": 0.6,
+    "power_weight": 0.4,
+    "risk_weight": 1.2,
+    "blur_variance_weight_m2": 1.0,
+    "nominal_speed_mps": 0.5,
+    "maximum_speed_mps": 0.75
+  }
+}

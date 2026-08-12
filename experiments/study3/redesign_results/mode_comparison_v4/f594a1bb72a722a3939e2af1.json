@@ -1,0 +1,161 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 12.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 56.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "reactive_shared_fixed_155",
+    "family": "S3_COMPOUND_DVL_ACOUSTIC",
+    "index": 5,
+    "policy": "reactive",
+    "root": 31870000,
+    "stage": "mode_comparison_v4"
+  },
+  "packet_sha256": "c6568556cfa959db886dfa0c11e48b98daada12a99b3383d9fa12ed67670656a",
+  "result": {
+    "acoustic_fixes": 34,
+    "acoustic_techniques_used": [
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "completed": true,
+    "configuration_id": "reactive_shared_fixed_155",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_COMPOUND_DVL_ACOUSTIC",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "gps_post_reset_error_m": NaN,
+    "gps_pre_reset_error_m": NaN,
+    "gps_reacquired": false,
+    "index": 5,
+    "longest_unaided_gap_s": 28.0,
+    "mean_policy_runtime_ms": 4.797847912733822,
+    "mission_actions_used": [
+      "continue"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 4,
+    "mode_telemetry": {
+      "absolute_source_s": [
+        [
+          "none",
+          36.0
+        ],
+        [
+          "usbl",
+          146.0
+        ]
+      ],
+      "first_fallback_entry": [
+        170.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_relative_entry": [
+        142.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_terminal_entry": null,
+      "longest_dwell_mode": "usbl_aided",
+      "longest_dwell_s": 146.0,
+      "mean_dwell_s": 30.333333333333332,
+      "mode_dwell_s": [
+        [
+          "relative_dead_reckoning",
+          36.0
+        ],
+        [
+          "usbl_aided",
+          146.0
+        ]
+      ],
+      "mode_transition_reasons": [
+        [
+          "no_observable_horizontal_absolute_fix",
+          3
+        ],
+        [
+          "observable_usbl_fix",
+          2
+        ]
+      ],
+      "mode_transitions": 5,
+      "mode_transitions_directed": [
+        [
+          "relative_dead_reckoning->usbl_aided",
+          2
+        ],
+        [
+          "usbl_aided->relative_dead_reckoning",
+          3
+        ]
+      ],
+      "modes_visited_in_order": [
+        "usbl_aided",
+        "relative_dead_reckoning"
+      ],
+      "recovery_executed": [],
+      "time_without_horizontal_absolute_s": 46.0,
+      "velocity_source_s": [
+        [
+          "bottom_lock_dvl",
+          30.0
+        ],
+        [
+          "inertial",
+          18.0
+        ],
+        [
+          "water_track_dvl",
+          134.0
+        ]
+      ]
+    },
+    "navigation_modes_used": [
+      "fixed_multimodal",
+      "relative_dead_reckoning",
+      "usbl_aided"
+    ],
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 0,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.4622015202029066,
+    "peak_error_m": 1.3178839005944178,
+    "physical_interventions": 0,
+    "policy": "reactive",
+    "post_gps_mission_rule": "not_applicable",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "lower_altitude",
+        91
+      ]
+    ],
+    "recovery_time_s": Infinity,
+    "rmse_transition_m": 0.5268889445916427,
+    "runtime_s": 2.9653264740190934,
+    "safety_violation": false,
+    "surfaced_for_gps": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "58c35632ffa371f3bf5573ce0de471e5f88a1ff1139c3688aba1aca2fe52db2b",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 46.0,
+    "unnecessary_interventions": 0
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

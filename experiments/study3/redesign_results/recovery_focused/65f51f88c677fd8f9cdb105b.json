@@ -1,0 +1,88 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 8.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_evidence_decline_quorum": 2,
+      "optical_evidence_horizon_s": 16.0,
+      "optical_evidence_minimum_slope": 0.001,
+      "optical_evidence_score_floor": 0.4,
+      "optical_evidence_window": 4,
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 48.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "fixed_155",
+    "family": "S3_RECOVERY",
+    "index": 6,
+    "policy": "fixed",
+    "root": 31830000,
+    "stage": "recovery_focused"
+  },
+  "packet_sha256": "29dcbb9c935772c78c9d3309b5eab3f6e4f9b24ce2d670c025904283b7a02fab",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "completed": true,
+    "configuration_id": "fixed_155",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_RECOVERY",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "index": 6,
+    "longest_unaided_gap_s": 84.0,
+    "mean_policy_runtime_ms": 1.0093885044065805,
+    "mission_actions_used": [
+      "continue"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 0,
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 25,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.7496348581574857,
+    "peak_error_m": 1.7744405655007638,
+    "policy": "fixed",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "continue",
+        41
+      ],
+      [
+        "hold_for_fix",
+        2
+      ],
+      [
+        "lower_altitude",
+        48
+      ]
+    ],
+    "recovery_time_s": 2.0,
+    "rmse_transition_m": 0.9910522163135171,
+    "runtime_s": 5.967583754012594,
+    "safety_violation": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "98b1560df75f34048a1e8b7f9e693accabe8e3e62b60b3e5eb9afb779a985247",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 84.0,
+    "unnecessary_interventions": 0
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

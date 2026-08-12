@@ -1,0 +1,160 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 12.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 8.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 56.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 4,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "predictive_shared_fixed_155",
+    "family": "S3_DVL_GRADUAL",
+    "index": 3,
+    "policy": "predictive",
+    "root": 31870000,
+    "stage": "mode_comparison_v4"
+  },
+  "packet_sha256": "9ec28fc7dc014ff620079ad908afbacbdf5012845c7cefa222a7c71bbf00304b",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "single_beacon",
+      "usbl"
+    ],
+    "capability_preserved": true,
+    "completed": true,
+    "configuration_id": "predictive_shared_fixed_155",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_DVL_GRADUAL",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "gps_post_reset_error_m": NaN,
+    "gps_pre_reset_error_m": NaN,
+    "gps_reacquired": false,
+    "index": 3,
+    "longest_unaided_gap_s": 0.0,
+    "mean_policy_runtime_ms": 0.8220633621081955,
+    "mission_actions_used": [
+      "continue"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 6,
+    "mode_telemetry": {
+      "absolute_source_s": [
+        [
+          "optical",
+          182.0
+        ]
+      ],
+      "first_fallback_entry": null,
+      "first_relative_entry": null,
+      "first_terminal_entry": null,
+      "longest_dwell_mode": "optical_no_bottom_lock",
+      "longest_dwell_s": 162.0,
+      "mean_dwell_s": 22.75,
+      "mode_dwell_s": [
+        [
+          "optical_dvl",
+          20.0
+        ],
+        [
+          "optical_no_bottom_lock",
+          162.0
+        ]
+      ],
+      "mode_transition_reasons": [
+        [
+          "optical_and_bottom_lock_usable",
+          3
+        ],
+        [
+          "optical_usable_without_bottom_lock",
+          4
+        ]
+      ],
+      "mode_transitions": 7,
+      "mode_transitions_directed": [
+        [
+          "optical_dvl->optical_no_bottom_lock",
+          4
+        ],
+        [
+          "optical_no_bottom_lock->optical_dvl",
+          3
+        ]
+      ],
+      "modes_visited_in_order": [
+        "optical_dvl",
+        "optical_no_bottom_lock"
+      ],
+      "recovery_executed": [],
+      "time_without_horizontal_absolute_s": 0.0,
+      "velocity_source_s": [
+        [
+          "bottom_lock_dvl",
+          36.0
+        ],
+        [
+          "inertial",
+          20.0
+        ],
+        [
+          "water_track_dvl",
+          126.0
+        ]
+      ]
+    },
+    "navigation_modes_used": [
+      "fixed_multimodal",
+      "optical_dvl",
+      "optical_no_bottom_lock"
+    ],
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 46,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.16644306117170474,
+    "peak_error_m": 0.18479011684405705,
+    "physical_interventions": 1,
+    "policy": "predictive",
+    "post_gps_mission_rule": "not_applicable",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "continue",
+        29
+      ],
+      [
+        "hold_for_fix",
+        2
+      ],
+      [
+        "lower_altitude",
+        60
+      ]
+    ],
+    "recovery_time_s": Infinity,
+    "rmse_transition_m": 0.16875384125340132,
+    "runtime_s": 3.0055958750017453,
+    "safety_violation": false,
+    "surfaced_for_gps": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "271dd2c44753dfa7f365a980463fb2f4b29b87a83ffb7efcdcbd0348aaa41199",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 0.0,
+    "unnecessary_interventions": 1
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

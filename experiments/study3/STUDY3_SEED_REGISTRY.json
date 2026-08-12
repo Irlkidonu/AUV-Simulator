@@ -1,0 +1,144 @@
+{
+ "identifier": "paper2_study3_seed_registry_v1",
+ "derivation": "sha256(root:family:scenario_index:stream_name); first 64 bits big-endian, reduced modulo 2^32",
+ "development": {
+  "scenario_calibration": 31200000,
+  "fixed_sweep": 31100000,
+  "adaptive_tuning": 31300000,
+  "development_confirmation": 31400000,
+  "final_validation_v5": 31900000
+ },
+ "development_attempt_roots": {
+  "scenario_calibration": [
+   31200000,
+   31200100,
+   31200200
+  ],
+  "fixed_sweep": [
+   31100000,
+   31100100
+  ],
+  "adaptive_tuning": [
+   31300000,
+   31300100,
+   31300200,
+   31300300,
+   31300400,
+   31300500
+  ],
+  "adaptive_nominal_guard": [
+   31300400
+  ],
+  "development_confirmation": [
+   31400000,
+   31400200,
+   31400300,
+   31400500
+  ],
+  "redesign_calibration": [
+   31700000
+  ],
+  "redesign_fixed_sweep": [
+   31710000
+  ],
+  "redesign_adaptive": [
+   31720000,
+   31721000,
+   31742000,
+   31743000
+  ],
+  "redesign_confirmation": [
+   31730000,
+   31744000,
+   31745000
+  ],
+  "redesign_diagnostics": [
+   31721100,
+   31721200,
+   31741000,
+   31741100,
+   31741200,
+   31746000
+  ],
+  "optical_predictor_controls": [
+   31760000,
+   31760100,
+   31761000,
+   31762000
+  ],
+  "optical_predictor_system_diagnostics": [
+   31763000,
+   31764000
+  ],
+  "optical_predictor_system_confirmation": [
+   31770000
+  ],
+  "infrastructure_corrected_fixed_sweep": [
+   31800000
+  ],
+  "infrastructure_confirmation_invalid": [
+   31810000
+  ],
+  "infrastructure_confirmation_smoke": [
+   31819000
+  ],
+  "infrastructure_confirmation_valid": [
+   31820000
+  ],
+  "recovery_correction_focused": [
+   31830000
+  ],
+  "recovery_correction_confirmation": [
+   31840000
+  ],
+  "mode_comparison_v3": [
+   31850000
+  ],
+  "final_corrected_development_comparison": [
+   31870000
+  ],
+  "fairness_discovery_v1": [
+   31880000
+  ],
+  "generated_environment_pilot_v1": [
+   31892000,
+   31892001,
+   31892002,
+   31892003,
+   31892004
+  ],
+  "interactive_mechanism": [
+   31860000,
+   31861000,
+   31895000,
+   31895100
+  ],
+  "final_validation_v5_smoke": [
+   31899000
+  ],
+  "final_validation_v5": [
+   31900000
+  ]
+ },
+ "held_out": {
+  "final_reserved_unexecuted": 32000000,
+  "maximum_executions_after_authorization": 1
+ },
+ "forbidden_roots": [
+  20000000,
+  20400000,
+  20800000,
+  22100000,
+  22110000,
+  22120000,
+  22130000,
+  22140000,
+  22150000,
+  22200000,
+  22220000,
+  22240000,
+  22300000
+ ],
+ "status": "infrastructure_scope_corrected_fixed_reaudited_heldout_unexecuted",
+ "known_development_provenance_note": "31300400 was shared accidentally by adaptive_v5 and the nominal guard; adaptive_v5 is excluded and v6 uses 31300500. Redesign confirmations v1/v2/v3 are preserved. Root 31760000 was a no-artifact control-harness failure. The optical-predictor cycle terminates at independent system confirmation root 31770000. Root 31800000 is the fresh infrastructure-corrected FIXED successive-halving sweep."
+}

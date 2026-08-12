@@ -1,0 +1,52 @@
+{
+ "schema": "study3_heldout_design_v1",
+ "identifier": "study3_heldout_design_v1",
+ "status": "FROZEN; AWAITING SEPARATE AUTHORIZATION",
+ "supersedes_for_execution": {
+  "document": "STUDY3_PROTOCOL.md section 8",
+  "reason": "Section 8 proposed 3 policies x (7x30 + 3x20) = 810 when the protocol defined exactly three policies in section 4: FIXED, REACTIVE, PREDICTIVE. STUDY3_DESIGN.json later grew to four policies by adding ROBUST_FUSION, which is why verify_design.py computes 840+240=1080. The count conflict is documentation drift, not an arithmetic error.",
+  "resolution": "Three policies are executed, and the arithmetic returns to the original 810. The three are FIXED (fixed_155), DEPLOYMENT_FIXED and REACTIVE. PREDICTIVE and ROBUST_FUSION are excluded on recorded development null findings, not on convenience; see STUDY3_DEVELOPMENT_NULL_FINDINGS.md."
+ },
+ "policies": [
+  "fixed",
+  "deployment_fixed",
+  "reactive"
+ ],
+ "primary_families": [
+  "S3_OPTICAL_GRADUAL",
+  "S3_DVL_GRADUAL",
+  "S3_ACOUSTIC_GEOMETRY_ASYNC",
+  "S3_INFRASTRUCTURE_WARNING",
+  "S3_RECOVERY",
+  "S3_COMPOUND_OPTICAL_ACOUSTIC",
+  "S3_COMPOUND_DVL_ACOUSTIC"
+ ],
+ "control_families": [
+  "S3_NOMINAL",
+  "S3_SUDDEN",
+  "S3_NO_RECOVERY"
+ ],
+ "seeds_per_primary_family_policy": 30,
+ "seeds_per_control_family_policy": 20,
+ "executions": {
+  "primary": 630,
+  "controls": 180,
+  "total": 810
+ },
+ "held_out_root": 32000000,
+ "maximum_invocations": 1,
+ "executed": false,
+ "primary_comparison": "reactive_minus_fixed_155 paired within family and seed",
+ "supporting_comparison": "reactive_minus_deployment_fixed paired within family and seed",
+ "immutability": "Results are reported regardless of direction. No threshold, family, metric, comparator or sample count changes after inspection.",
+ "environment_pin": {
+  "python": "3.12.3",
+  "numpy": "1.26.4",
+  "opencv": "4.6.0",
+  "opencv_akaze_required": true,
+  "opencv_akaze_present": true,
+  "interpreter": "/usr/bin/python3",
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "note": "The P5-v4 front end requires cv2.AKAZE_create. OpenCV 5.x removes it from the base package; under such an interpreter the localizer raises AttributeError and the run fails loudly rather than degrading silently. Held-out execution must use an AKAZE-capable OpenCV."
+ }
+}

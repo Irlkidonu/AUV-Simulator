@@ -1,0 +1,1069 @@
+{
+  "analysis_only": true,
+  "analysis_sha256": "6564de85c0da0119630b93ee575f2cf21bc58d0dc5e702cfe958fcf0a503960b",
+  "controller_commit": "7030aa4eeb1228f447ea7729b27113aad0ecccbd",
+  "definitions": {
+    "dominance_objective": "use any viable absolute aid; otherwise relative DVL/IMU; otherwise terminal",
+    "match": "selected mode belongs to acceptable set and has contemporaneous observable support",
+    "persistence": "unchanged physical acceptable-mode set for >=3 samples (6 s)",
+    "post_terminal": "commitment sample included; later samples excluded",
+    "simultaneous_absolute_modes": "unordered ambiguous acceptable set"
+  },
+  "environment_digests": [
+    {
+      "digest": "26263ae3e3e630dd8b0a2ff5381f9e5e94a790f64d07704efb6cf8010109a538",
+      "seed": 31892000
+    },
+    {
+      "digest": "f6d8f99d156b75faf5f81ab79dbcd82db7630c9d321515c13c93506020c4f919",
+      "seed": 31892001
+    },
+    {
+      "digest": "f54f541897d36989218d22e26d62d188757aef9fa946133b2a9f919359bf6188",
+      "seed": 31892002
+    },
+    {
+      "digest": "8b6d7b605c795e66c0a84d1b49a0ea51cf48b1d1e4c9d125a7f52697036b15bb",
+      "seed": 31892003
+    },
+    {
+      "digest": "6e9707c3e50e1c0d5b6fc42def15c616ea62c8aa640d9373f3600a9a78b48f3d",
+      "seed": 31892004
+    }
+  ],
+  "policies": {
+    "predictive": {
+      "seeds": [
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 8.0,
+              "end_s": 18.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 10.0,
+              "support_at_start": false,
+              "terminal_commit_s": 98.0
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 16.0,
+              "end_s": 34.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 18.0,
+              "support_at_start": true,
+              "terminal_commit_s": 98.0
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 8.0,
+              "end_s": 48.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "lbl_aided",
+              "start_s": 40.0,
+              "support_at_start": true,
+              "terminal_commit_s": 98.0
+            },
+            {
+              "acceptable_modes": [
+                "terminal_degraded"
+              ],
+              "adequate_delay_s": 44.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 46.0,
+              "end_s": 100.0,
+              "exact_preferred_delay_s": 44.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 54.0,
+              "support_at_start": false,
+              "terminal_commit_s": 98.0
+            }
+          ],
+          "seed": 31892000,
+          "terminal_commit_s": 98.0,
+          "trace_digest": "813ba82316f4638ab2a6be9b0c3e0298c821846062ce3e9a05eefa5f4cf72c38"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 20.0,
+              "end_s": 30.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 10.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 2.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 46.0,
+              "end_s": 76.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 30.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 82.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "lbl_aided",
+              "start_s": 76.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 92.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "usbl_aided",
+              "start_s": 86.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 20.0,
+              "end_s": 112.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 92.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 2.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 66.0,
+              "end_s": 178.0,
+              "exact_preferred_delay_s": 2.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "lbl_aided",
+              "start_s": 112.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            }
+          ],
+          "seed": 31892001,
+          "terminal_commit_s": null,
+          "trace_digest": "9fb9b13a907167d20a5b806c5f44d652e8163599ec222512c5119160022ba9c5"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 6.0,
+              "end_s": 14.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 8.0,
+              "support_at_start": true,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 20.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "lbl_aided",
+              "start_s": 14.0,
+              "support_at_start": false,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 10.0,
+              "end_s": 34.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 24.0,
+              "support_at_start": true,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 4.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 10.0,
+              "end_s": 46.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 36.0,
+              "support_at_start": false,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "terminal_degraded"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 28.0,
+              "end_s": 78.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 50.0,
+              "support_at_start": false,
+              "terminal_commit_s": 78.0
+            }
+          ],
+          "seed": 31892002,
+          "terminal_commit_s": 78.0,
+          "trace_digest": "aee26c35b485de9b01e4f26c450516b96a2a8da3b48679e0fcbf2259655f2d3d"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 4.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 14.0,
+              "end_s": 18.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "optical_dvl",
+              "start_s": 4.0,
+              "support_at_start": false,
+              "terminal_commit_s": 62.0
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 34.0,
+              "end_s": 52.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 18.0,
+              "support_at_start": true,
+              "terminal_commit_s": 62.0
+            }
+          ],
+          "seed": 31892003,
+          "terminal_commit_s": 62.0,
+          "trace_digest": "2caf6f5a5b2146b48352bf292ef8b412da8309cde691a78107d5c8f1b574a19a"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 8.0,
+              "end_s": 16.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 8.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 6.0,
+              "end_s": 24.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 18.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 30.0,
+              "exact_preferred_delay_s": 0.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 24.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 8.0,
+              "end_s": 44.0,
+              "exact_preferred_delay_s": 0.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 36.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 14.0,
+              "end_s": 62.0,
+              "exact_preferred_delay_s": 6.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 48.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 6.0,
+              "end_s": 82.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 76.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 8.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 28.0,
+              "end_s": 110.0,
+              "exact_preferred_delay_s": 8.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 82.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 14.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 36.0,
+              "end_s": 148.0,
+              "exact_preferred_delay_s": 14.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 112.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "relative_dead_reckoning"
+              ],
+              "adequate_delay_s": 2.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 30.0,
+              "end_s": 178.0,
+              "exact_preferred_delay_s": 2.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 148.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            }
+          ],
+          "seed": 31892004,
+          "terminal_commit_s": null,
+          "trace_digest": "b9eeeb70be4d7ff3be928fb7f545f1c2aa9bccf1f2bdb1643dbbee6518c17f59"
+        }
+      ],
+      "summary": {
+        "adequate_delay_max_s": 44.0,
+        "adequate_delay_mean_s": 4.9523809523809526,
+        "adequate_delay_median_s": 2.0,
+        "adequate_viable_matches": 21,
+        "adequate_viable_rate": 0.8076923076923077,
+        "ambiguous_episodes": 13,
+        "evaluable_post_launch_episodes": 26,
+        "exact_delay_max_s": 44.0,
+        "exact_delay_mean_s": 9.5,
+        "exact_delay_median_s": 4.0,
+        "exact_preferred_matches": 8,
+        "exact_preferred_rate": 0.6153846153846154,
+        "unique_preferred_episodes": 13
+      }
+    },
+    "reactive": {
+      "seeds": [
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 8.0,
+              "end_s": 18.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 10.0,
+              "support_at_start": false,
+              "terminal_commit_s": 98.0
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 16.0,
+              "end_s": 34.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 18.0,
+              "support_at_start": true,
+              "terminal_commit_s": 98.0
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 8.0,
+              "end_s": 48.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "lbl_aided",
+              "start_s": 40.0,
+              "support_at_start": true,
+              "terminal_commit_s": 98.0
+            },
+            {
+              "acceptable_modes": [
+                "terminal_degraded"
+              ],
+              "adequate_delay_s": 44.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 46.0,
+              "end_s": 100.0,
+              "exact_preferred_delay_s": 44.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 54.0,
+              "support_at_start": false,
+              "terminal_commit_s": 98.0
+            }
+          ],
+          "seed": 31892000,
+          "terminal_commit_s": 98.0,
+          "trace_digest": "92ca82aea963afe40e4396b512eb8d41463c78cdbfed2b242a34efda9e3dba86"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 20.0,
+              "end_s": 30.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 10.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 2.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 46.0,
+              "end_s": 76.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 30.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 82.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "lbl_aided",
+              "start_s": 76.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 92.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "usbl_aided",
+              "start_s": 86.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 20.0,
+              "end_s": 112.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 92.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 2.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 66.0,
+              "end_s": 178.0,
+              "exact_preferred_delay_s": 2.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "lbl_aided",
+              "start_s": 112.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            }
+          ],
+          "seed": 31892001,
+          "terminal_commit_s": null,
+          "trace_digest": "0fd6b2929333435c16ab1bad8d85ea1ecf2e16430429f6d64535db3b7cf6f9a4"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 6.0,
+              "end_s": 14.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 8.0,
+              "support_at_start": true,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 20.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "lbl_aided",
+              "start_s": 14.0,
+              "support_at_start": false,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 10.0,
+              "end_s": 34.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 24.0,
+              "support_at_start": true,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 4.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 10.0,
+              "end_s": 46.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 36.0,
+              "support_at_start": false,
+              "terminal_commit_s": 78.0
+            },
+            {
+              "acceptable_modes": [
+                "terminal_degraded"
+              ],
+              "adequate_delay_s": null,
+              "adequate_match": false,
+              "ambiguous": false,
+              "duration_s": 28.0,
+              "end_s": 78.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": false,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 50.0,
+              "support_at_start": false,
+              "terminal_commit_s": 78.0
+            }
+          ],
+          "seed": 31892002,
+          "terminal_commit_s": 78.0,
+          "trace_digest": "8f8ec21fa5985bf738cd48048ca02e0d4dc15b6395a4928a8ec33e4bb4438b08"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 4.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 14.0,
+              "end_s": 18.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "optical_dvl",
+              "start_s": 4.0,
+              "support_at_start": false,
+              "terminal_commit_s": 62.0
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 34.0,
+              "end_s": 52.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 18.0,
+              "support_at_start": true,
+              "terminal_commit_s": 62.0
+            }
+          ],
+          "seed": 31892003,
+          "terminal_commit_s": 62.0,
+          "trace_digest": "2caf6f5a5b2146b48352bf292ef8b412da8309cde691a78107d5c8f1b574a19a"
+        },
+        {
+          "episodes": [
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 8.0,
+              "end_s": 16.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "lbl_aided",
+              "start_s": 8.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "lbl_aided",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 6.0,
+              "end_s": 24.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 18.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 6.0,
+              "end_s": 30.0,
+              "exact_preferred_delay_s": 0.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 24.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 8.0,
+              "end_s": 44.0,
+              "exact_preferred_delay_s": 0.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 36.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock"
+              ],
+              "adequate_delay_s": 6.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 14.0,
+              "end_s": 62.0,
+              "exact_preferred_delay_s": 6.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 48.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "optical_no_bottom_lock",
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 0.0,
+              "adequate_match": true,
+              "ambiguous": true,
+              "duration_s": 6.0,
+              "end_s": 82.0,
+              "exact_preferred_delay_s": null,
+              "exact_preferred_evaluable": false,
+              "exact_preferred_match": null,
+              "selected_at_start": "usbl_aided",
+              "start_s": 76.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 8.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 28.0,
+              "end_s": 110.0,
+              "exact_preferred_delay_s": 8.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 82.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "usbl_aided"
+              ],
+              "adequate_delay_s": 14.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 36.0,
+              "end_s": 148.0,
+              "exact_preferred_delay_s": 14.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "relative_dead_reckoning",
+              "start_s": 112.0,
+              "support_at_start": false,
+              "terminal_commit_s": null
+            },
+            {
+              "acceptable_modes": [
+                "relative_dead_reckoning"
+              ],
+              "adequate_delay_s": 2.0,
+              "adequate_match": true,
+              "ambiguous": false,
+              "duration_s": 30.0,
+              "end_s": 178.0,
+              "exact_preferred_delay_s": 2.0,
+              "exact_preferred_evaluable": true,
+              "exact_preferred_match": true,
+              "selected_at_start": "usbl_aided",
+              "start_s": 148.0,
+              "support_at_start": true,
+              "terminal_commit_s": null
+            }
+          ],
+          "seed": 31892004,
+          "terminal_commit_s": null,
+          "trace_digest": "dfadc8f76560d6f939574e6f6a637eec2045726cb754e78ade746831686f499f"
+        }
+      ],
+      "summary": {
+        "adequate_delay_max_s": 44.0,
+        "adequate_delay_mean_s": 4.9523809523809526,
+        "adequate_delay_median_s": 2.0,
+        "adequate_viable_matches": 21,
+        "adequate_viable_rate": 0.8076923076923077,
+        "ambiguous_episodes": 13,
+        "evaluable_post_launch_episodes": 26,
+        "exact_delay_max_s": 44.0,
+        "exact_delay_mean_s": 9.5,
+        "exact_delay_median_s": 4.0,
+        "exact_preferred_matches": 8,
+        "exact_preferred_rate": 0.6153846153846154,
+        "unique_preferred_episodes": 13
+      }
+    }
+  },
+  "root": 31892000,
+  "schema": "study3_generated_environment_pilot_corrected_adaptation_v1",
+  "seeds": [
+    31892000,
+    31892001,
+    31892002,
+    31892003,
+    31892004
+  ]
+}

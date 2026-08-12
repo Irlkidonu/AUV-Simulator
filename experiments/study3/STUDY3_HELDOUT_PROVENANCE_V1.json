@@ -1,0 +1,69 @@
+{
+ "artefacts": {
+  "STUDY3_HELDOUT_AUTHORIZATION_V1.json": "860bb81c0816b7f06d9acde2a606ec1afe15e5cb84204daf62d89107bf38ed67",
+  "analyse_heldout.py": "5625ba1d5c7f9b00f4ee726cd5cff92652c178b1d76fe7271c5dfcccb5e4eda7",
+  "heldout_result.json": "156b306cf75e15b471a31a1abf133c3a7ed26eb9f5fa587bd85ecc080d14ff77",
+  "redesign_results/heldout_analysis.json": "8073b9a92c69138a19b08ebe8b5363e05023e6aafc6ec3e52f4c7cad05bbf1bc",
+  "run_heldout.py": "4f07599c25aaf65a3cf1a7e289fd709b759d521f9b81c376b43f43e1edab3871"
+ },
+ "created_utc": "2026-08-11",
+ "design": {
+  "controls": 180,
+  "policies": [
+   "fixed",
+   "deployment_fixed",
+   "reactive"
+  ],
+  "primary": 630,
+  "total": 810
+ },
+ "environment": {
+  "interpreter": "/usr/bin/python3",
+  "numpy": "1.26.4",
+  "opencv": "4.6.0",
+  "opencv_akaze_present": true,
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "execution_parameters": {
+  "dt_s": 2.0,
+  "horizon_s": 180.0,
+  "image_period_s": 4.0,
+  "provenance": "inherited from the frozen development runners",
+  "redesign_version": 3
+ },
+ "held_out": {
+  "elapsed_s": 554.21,
+  "executed": true,
+  "invocations": 1,
+  "packets": 810,
+  "plan_digest": "8f0feebd821af90e7d3f12509d9488b1942784b47450439ad01b0d75ae40e7aa",
+  "result_digest": "6577337705788280eecbf10e8bb2e9b4d716e4e1dbaf87da688cc483bfbf43f7",
+  "root": 32000000
+ },
+ "implementation_commit_at_execution": "41af86d5",
+ "integrity": {
+  "all_packets_at_held_out_root": true,
+  "packet_checksums_verified": "810/810",
+  "packets_per_group": {
+   "controls": 180,
+   "primary": 630
+  },
+  "packets_per_policy": {
+   "deployment_fixed": 270,
+   "fixed": 270,
+   "reactive": 270
+  }
+ },
+ "plan_digest_matches_pre_authorization_publication": true,
+ "provenance_commit": "41af86d5596fce81b632838ae0ac69040dd161a9",
+ "record_type": "POST_EXECUTION_PROVENANCE",
+ "reporting_obligations": [
+  "The held-out result is reported regardless of direction.",
+  "V5 development adaptation coverage of 59.8% remains a standing limitation; the held-out block carried no generated-environment part and adds no adaptation-coverage evidence.",
+  "PREDICTIVE and ROBUST_FUSION development nulls are reported.",
+  "The V5 development advantage over deployment-informed FIXED did not replicate on held-out data."
+ ],
+ "schema": "study3_heldout_provenance_v1",
+ "statement": "Provenance for the completed one-shot held-out evaluation at root 32,000,000. The block is spent. A second invocation is refused by verify_lock and by the runner."
+}
