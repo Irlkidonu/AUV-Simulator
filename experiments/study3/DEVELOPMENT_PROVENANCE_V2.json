@@ -1,0 +1,73 @@
+{
+  "identifier": "study3_development_provenance_v2",
+  "record_type": "DEVELOPMENT_PROVENANCE",
+  "record_version": "v2",
+  "IS_NOT_A_HELD_OUT_FREEZE": true,
+  "created_utc": "2026-08-11",
+  "implementation_commit": "6fe2ccf54e4eeda8ad1f631042f6ef61a7606255",
+  "implementation_parent": "e7f1bca8a007498318a425df9063d14edeaa834d",
+  "supersedes_for_new_development": "DEVELOPMENT_PROVENANCE_V1.json",
+  "historical_records_preserved": [
+    "STUDY3_DESIGN.json",
+    "DEVELOPMENT_PROVENANCE_V1.json",
+    "SHA256SUMS"
+  ],
+  "corrections": [
+    "fixed_155 is taken from the authoritative infrastructure fixed-baseline lock, not FixedConfiguration defaults",
+    "the fresh six-mode DEVELOPMENT primary comparison is REACTIVE minus fixed_155",
+    "ROBUST_FUSION is supporting and PREDICTIVE minus REACTIVE is secondary"
+  ],
+  "fixed_155": {
+    "configuration_id": "fixed_155",
+    "optical_channel": "lidar",
+    "altitude_m": 5.0,
+    "speed_mps": 0.5,
+    "acoustic_technique": "usbl",
+    "fusion_mode": "weight",
+    "authoritative_lock": "experiments/study3/redesign_results/infrastructure_fixed_baseline_lock.json",
+    "authoritative_lock_sha256": "356fb06d6174d968763386a0e7e9f8d28eebbc7323f80694c1805e3d9ab6eaaa"
+  },
+  "campaign_construction": {
+    "runner": "experiments/study3/run_redesign_development.py",
+    "stage": "mode_comparison_v3",
+    "development_root": 31850000,
+    "families": 10,
+    "indices_per_family": 17,
+    "policies": ["fixed", "robust_fusion", "reactive", "predictive"],
+    "total_executions": 680,
+    "configuration_path": "authoritative lock -> infrastructure_comparison_configs -> infrastructure_tasks task config -> FixedConfiguration(**config) -> run_one"
+  },
+  "comparisons": {
+    "primary": "reactive_minus_fixed_155 paired within family and seed",
+    "supporting": [
+      "robust_fusion_minus_fixed_155",
+      "reactive_minus_robust_fusion"
+    ],
+    "secondary": "predictive_minus_reactive"
+  },
+  "metric_definition_version": "v2",
+  "held_out": {
+    "reserved_root": 32000000,
+    "executed": false,
+    "authorized": false
+  },
+  "files": {
+    "experiments/study3/STUDY3_DESIGN_V3.json": "8ab4d86c1e7bda0ad30d7503c519f24f6461352671de2847041282a597f61b15",
+    "experiments/study3/STUDY3_DEVELOPMENT_COMPARISON_V3_PROTOCOL.md": "9d7907d6eaddf9e0fa1ec519410df11e8066d6cc7718eaad12624d25c41de240",
+    "experiments/study3/run_redesign_development.py": "26e78e1b6d71ae49ffb376623f075440aa5568b9c5095d317528ce42af0b319f",
+    "experiments/study3/redesign_results/infrastructure_fixed_baseline_lock.json": "356fb06d6174d968763386a0e7e9f8d28eebbc7323f80694c1805e3d9ab6eaaa",
+    "experiments/study3/DEVELOPMENT_PROVENANCE_V1.json": "fd25de54eea5e78fd7b3ea46a7e87bc8efd0839d3f819798052f9b272c64b5e0",
+    "experiments/study3/SHA256SUMS": "745d5480707e2eadd6b8ee52f18f485d8cd8a65e99d217ec02f5b8d81f82e77b",
+    "experiments/study3/SHA256SUMS.SUPERSEDED.md": "23385b62606c7f5361026159ab05f68a85ae38911d7640f5a1ed9240ec24b31d",
+    "experiments/study3/STUDY3_SEED_REGISTRY.json": "730b9cc795f5e0fafd644245ea1ddb1e5c2bb3ab0fa19ecd1c43242d9b420f7a",
+    "experiments/study3/STUDY3_METRIC_DEFINITION_CORRECTION.md": "91be022a225b7d4f9b26abdb1738c082ab66bce6466755b2d4bcafca3e6bf3ab",
+    "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/policies.py": "e426251b2e5faa1f4ae65fb8b3d403a40209c94491b2f449929526e0b3d7344f",
+    "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/simulation.py": "57633638b52463ac71bc180d2dc8e40c3e1de4db7f27c3f5993a1ab1d3e06023",
+    "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/modes.py": "ae83863c6878b34a4a5d4b20b1f4412e14a2e85a274629c5303e129f1d182d0f",
+    "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/scenarios.py": "0415d289971b2c1448a6b2ddc028f3493b2855d555cb31bc34973e1e65f8591d",
+    "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/localization/optical_v4.py": "5baf48d1327cab07bcec9b995cf6b3e9911dea39ee672b171452b6a4844e1cb0",
+    "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/acoustics_v2.py": "8764787ff53edbf91676a9d132684e46b22abe65837dbcde74e07963626b50e7",
+    "src/uuv_mode_aware_navigation/test/platform_v2/test_study3_confirmation_dispatch.py": "1cafba161b5f3f7b7ed0567608ba8493d847b0fa89686566d937e1d125bd0873"
+  },
+  "statement": "Versioned provenance for the unexecuted fresh Study 3 six-mode DEVELOPMENT comparison. It does not authorize held-out execution."
+}

@@ -1,0 +1,91 @@
+{
+ "analysis_rng_seed": 35000999,
+ "band": "35-million, fresh. Disjoint from Study 2 (20.x M), platform_v2 (22.1-22.3 M), Study 3 development (31.x M), held-out (32,000,000, spent), exploratory E1 (33.x M) and interactive testing (34.x M).",
+ "classification": "DEVELOPMENT",
+ "contrasts": [
+  "reactive_minus_deployment",
+  "predictive_minus_deployment",
+  "predictive_minus_reactive"
+ ],
+ "corrections_under_test": [
+  "selector: stale evidence retained, withdrawal (infinite DOP/sigma) refuted at once, switching between simultaneously viable services requires sigma_candidate <= sigma_incumbent/sqrt(2) on evidence at least as recent",
+  "PREDICTIVE: pre-emption gated on 0 < time_to_loss_s <= horizon for a capability the currently selected mode depends on, no longer requiring RELATIVE_DEAD_RECKONING first"
+ ],
+ "environment_config": {
+  "file": "examples/moderate_severe_variable_environment.json",
+  "modified": false,
+  "name": "moderate_severe_variable_multimodal",
+  "note": "byte-identical to the file used by V5 Part B and by exploratory E1"
+ },
+ "environment_seed_rule": "root + 1000 + n for n in range(60) -> 35001000..35001059",
+ "environment_seeds": 60,
+ "execution_parameters": {
+  "dt_s": 2.0,
+  "horizon_s": 180.0,
+  "image_period_s": 4.0,
+  "keep_trace": true,
+  "provenance": "inherited unchanged from run_final_validation_v5.py Part B",
+  "redesign_version": 3
+ },
+ "executions": {
+  "per_seed": 3,
+  "total": 180
+ },
+ "held_out_root_accessed": false,
+ "interval": "95% paired bootstrap, 10,000 draws, single stratum",
+ "locked_universal_baseline": {
+  "acoustic_technique": "usbl",
+  "altitude_m": 5.0,
+  "fusion_mode": "weight",
+  "modified": false,
+  "optical_channel": "lidar",
+  "provenance": "redesign_results/infrastructure_fixed_baseline_lock.json",
+  "speed_mps": 0.5
+ },
+ "not_held_out": true,
+ "pairing": "one generated realization per seed, shared identically by all three policies",
+ "policies": [
+  "deployment_fixed",
+  "reactive",
+  "predictive"
+ ],
+ "prohibitions": [
+  "No acceptance threshold is declared by the agent.",
+  "No parameter is tuned after this run.",
+  "No further correction cycle is started on the basis of this result.",
+  "Adverse and null findings are reported regardless of direction.",
+  "Held-out root 32,000,000 is not accessed."
+ ],
+ "reported_metrics": {
+  "adaptation": "V5 C7/C8 definition, unchanged",
+  "chatter": "switch classification from analyse_mode_switching.py, unchanged windows (8/16/30 s)",
+  "outcome": [
+   "completed",
+   "safety_violation",
+   "overall_rmse_m",
+   "rmse_transition_m",
+   "peak_error_m",
+   "unaided_time_s",
+   "longest_unaided_gap_s",
+   "survey_coverage_fraction",
+   "optical_fixes",
+   "acoustic_fixes",
+   "physical_interventions",
+   "mode_switches",
+   "preemptive_actions"
+  ]
+ },
+ "root": 35000000,
+ "schema": "study3_final_development_v6_design_v1",
+ "statement": "One final DEVELOPMENT evaluation of the two corrections under genuinely changing environments. Fresh seeds, unmodified environment configuration, unmodified baselines and scenario severity.",
+ "status": "PREDECLARED before execution",
+ "unchanged": [
+  "evidence_ttl_s 8.0",
+  "opportunity_period_s 4.0",
+  "minimum_action_hold_s 8.0",
+  "usable_probability_boundary 0.35",
+  "recovery dwell/cooldown",
+  "scenario severity",
+  "all baselines"
+ ]
+}

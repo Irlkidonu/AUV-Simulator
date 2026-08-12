@@ -1,0 +1,1816 @@
+{
+ "decision": {
+  "block": "held-out root 36,000,000, corrected controller, executed once",
+  "condition_1_rmse": {
+   "ci_high": -0.2608246917540152,
+   "ci_low": -0.6052422003092364,
+   "mean": -0.42623160085657075,
+   "met": true,
+   "metric": "reactive_minus_deployment.overall_rmse_m (Part B only)",
+   "pairs": 400
+  },
+  "condition_2_adaptation": {
+   "met": true,
+   "metric": "replay-verified adequate viable-mode adaptation, REACTIVE, Part B",
+   "threshold": 0.5,
+   "value": 0.7074704142011834
+  },
+  "decision_rules": {
+   "authority": "C. Alexandris (researcher)",
+   "frozen_on": "2026-08-11",
+   "immutability": "No controller, threshold, environment, comparator, metric, analysis rule, sample size or interpretation criterion may be changed after authorization. The block is executed exactly once. No V7, no correction cycle and no additional held-out evaluation follows, regardless of outcome.",
+   "part_a_scripted": {
+    "role": "robustness and reproducibility evaluation",
+    "rule": "Part A is NOT required to show superiority over deployment-informed FIXED. It is reported separately and never pooled with Part B.",
+    "superiority_required": false
+   },
+   "pooling": "PROHIBITED. Parts A and B are never pooled to determine success.",
+   "predictive": {
+    "role": "secondary",
+    "rule": "No required success threshold. The PREDICTIVE-minus-REACTIVE comparison is reported regardless of direction.",
+    "threshold": null
+   },
+   "primary_claim": {
+    "conditions_all_required": [
+     "corrected REACTIVE has lower overall_rmse_m than deployment-informed FIXED, with the paired 95% CI excluding zero in REACTIVE's favour",
+     "adequate viable-mode adaptation exceeds 50%, using the already-defined replay-verified metric (corrected pilot definition, adequate_rate)"
+    ],
+    "metric_bindings": {
+     "adaptation": "adaptation_pilot_definition['reactive']['adequate_rate'] > 0.50",
+     "rmse": "contrasts['reactive_minus_deployment.overall_rmse_m']: mean < 0 and ci_high < 0"
+    },
+    "scope": "Part B generated changing environments ONLY",
+    "supported_if": "both conditions hold; otherwise not supported"
+   },
+   "status": "FROZEN BY THE RESEARCHER BEFORE AUTHORIZATION. Immutable.",
+   "supporting_outcomes": {
+    "reported": [
+     "rmse_transition_m",
+     "peak_error_m",
+     "longest_unaided_gap_s",
+     "unaided_time_s",
+     "completed",
+     "safety_violation",
+     "mode_switches",
+     "physical_interventions",
+     "exact adaptation rate"
+    ],
+    "rule": "Reported as supporting outcomes only. NO composite pass criterion is constructed from them and none of them can overturn or establish the primary claim."
+   }
+  },
+  "part_a_role": "robustness and reproducibility; superiority not required",
+  "pooling": "prohibited; Parts A and B never combined",
+  "predictive": "secondary, no threshold, reported regardless of direction",
+  "primary_claim_supported": true,
+  "schema": "study3_final_decision_record_v1"
+ },
+ "heldout_32M_precorrection": {
+  "control_pairs": 60,
+  "controls_means": {
+   "acoustic_fixes": {
+    "deployment_fixed": 14.2,
+    "fixed": 0.0,
+    "reactive": 13.383333333333333
+   },
+   "completed": {
+    "deployment_fixed": 0.3333333333333333,
+    "fixed": 0.3333333333333333,
+    "reactive": 0.3333333333333333
+   },
+   "longest_unaided_gap_s": {
+    "deployment_fixed": 38.0,
+    "fixed": 38.0,
+    "reactive": 38.03333333333333
+   },
+   "mode_switches": {
+    "deployment_fixed": 0.0,
+    "fixed": 0.0,
+    "reactive": 8.133333333333333
+   },
+   "optical_fixes": {
+    "deployment_fixed": 27.4,
+    "fixed": 27.4,
+    "reactive": 27.366666666666667
+   },
+   "overall_rmse_m": {
+    "deployment_fixed": 0.5204409549788802,
+    "fixed": 0.5204373248052278,
+    "reactive": 0.5696746645533286
+   },
+   "peak_error_m": {
+    "deployment_fixed": 1.3711846438523672,
+    "fixed": 1.3711689185041496,
+    "reactive": 1.504747600173968
+   },
+   "physical_interventions": {
+    "deployment_fixed": 0.6666666666666666,
+    "fixed": 0.6666666666666666,
+    "reactive": 2.8833333333333333
+   },
+   "rmse_transition_m": {
+    "deployment_fixed": 0.6470618877448878,
+    "fixed": 0.6470582575712351,
+    "reactive": 0.732983324785772
+   },
+   "safety_violation": {
+    "deployment_fixed": 0.016666666666666666,
+    "fixed": 0.016666666666666666,
+    "reactive": 0.016666666666666666
+   },
+   "survey_coverage_fraction": {
+    "deployment_fixed": 1.0,
+    "fixed": 1.0,
+    "reactive": 0.9881670912535109
+   },
+   "unaided_time_s": {
+    "deployment_fixed": 38.0,
+    "fixed": 38.0,
+    "reactive": 38.03333333333333
+   }
+  },
+  "families": {
+   "S3_ACOUSTIC_GEOMETRY_ASYNC": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 25.466666666666665,
+      "overall_rmse_m": 0.2790080924261355,
+      "rmse_transition_m": 0.2996081804209187,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 180.13333333333333,
+      "overall_rmse_m": 2.4426289991873853,
+      "rmse_transition_m": 2.824607699138999,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 26.933333333333334,
+      "overall_rmse_m": 0.25473677095384406,
+      "rmse_transition_m": 0.272930167581398,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.016139379786110224,
+     "ci_low": -0.07009362805154427,
+     "losses": 14,
+     "mean": -0.024271321472291402,
+     "pairs": 30,
+     "ties": 0,
+     "wins": 16
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": -2.076914330293436,
+     "ci_low": -2.293313962446759,
+     "losses": 0,
+     "mean": -2.1878922282335416,
+     "pairs": 30,
+     "ties": 0,
+     "wins": 30
+    }
+   },
+   "S3_COMPOUND_DVL_ACOUSTIC": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 25.333333333333332,
+      "overall_rmse_m": 0.5631529182074083,
+      "rmse_transition_m": 0.6453783840329103,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 25.333333333333332,
+      "overall_rmse_m": 0.5631529182074083,
+      "rmse_transition_m": 0.6453783840329103,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 25.333333333333332,
+      "overall_rmse_m": 0.559755830628502,
+      "rmse_transition_m": 0.6413436266100813,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.006958345843959081,
+     "ci_low": -0.017005065369885816,
+     "losses": 6,
+     "mean": -0.0033970875789063586,
+     "pairs": 30,
+     "ties": 17,
+     "wins": 7
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.006817771405767755,
+     "ci_low": -0.016982822650750563,
+     "losses": 6,
+     "mean": -0.0033970875789063586,
+     "pairs": 30,
+     "ties": 17,
+     "wins": 7
+    }
+   },
+   "S3_COMPOUND_OPTICAL_ACOUSTIC": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 26.0,
+      "overall_rmse_m": 0.24290064513722986,
+      "rmse_transition_m": 0.2655626402329883,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 117.6,
+      "overall_rmse_m": 1.0927463688671204,
+      "rmse_transition_m": 1.2696538466176894,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 27.333333333333332,
+      "overall_rmse_m": 0.2694151038874308,
+      "rmse_transition_m": 0.2982941548509006,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.06941394525605099,
+     "ci_low": -0.01287640098473144,
+     "losses": 19,
+     "mean": 0.02651445875020087,
+     "pairs": 30,
+     "ties": 0,
+     "wins": 11
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": -0.6996956405324246,
+     "ci_low": -0.9517419934219067,
+     "losses": 0,
+     "mean": -0.8233312649796894,
+     "pairs": 30,
+     "ties": 0,
+     "wins": 30
+    }
+   },
+   "S3_DVL_GRADUAL": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 0.0,
+      "overall_rmse_m": 0.16504118389523398,
+      "rmse_transition_m": 0.16779328657145248,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 0.0,
+      "overall_rmse_m": 0.16504118389523398,
+      "rmse_transition_m": 0.16779328657145248,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 0.0,
+      "overall_rmse_m": 0.16504118389523398,
+      "rmse_transition_m": 0.16779328657145248,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 30,
+     "ties": 30,
+     "wins": 0
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 30,
+     "ties": 30,
+     "wins": 0
+    }
+   },
+   "S3_INFRASTRUCTURE_WARNING": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 56.0,
+      "overall_rmse_m": 1.0203780623451424,
+      "rmse_transition_m": 1.181674528188187,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 56.0,
+      "overall_rmse_m": 1.0203780623451424,
+      "rmse_transition_m": 1.181674528188187,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 56.0,
+      "overall_rmse_m": 1.0120189788445193,
+      "rmse_transition_m": 1.1718447757680757,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.009333742506700425,
+     "ci_low": -0.026754314768542856,
+     "losses": 9,
+     "mean": -0.008359083500623163,
+     "pairs": 30,
+     "ties": 10,
+     "wins": 11
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.009379524236504382,
+     "ci_low": -0.026462307765277266,
+     "losses": 9,
+     "mean": -0.008359083500623163,
+     "pairs": 30,
+     "ties": 10,
+     "wins": 11
+    }
+   },
+   "S3_NOMINAL": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 0.0,
+      "overall_rmse_m": 0.15716517224968896,
+      "rmse_transition_m": 0.15716517224968896,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 0.0,
+      "overall_rmse_m": 0.15715428172873122,
+      "rmse_transition_m": 0.15715428172873122,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 0.0,
+      "overall_rmse_m": 0.15715914695144312,
+      "rmse_transition_m": 0.15715914695144312,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 20,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 1.188888868912849e-05,
+     "ci_low": -2.3914610608038526e-05,
+     "losses": 9,
+     "mean": -6.025298245804222e-06,
+     "pairs": 20,
+     "ties": 0,
+     "wins": 11
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 2.144296305924379e-05,
+     "ci_low": -1.2715161146664988e-05,
+     "losses": 12,
+     "mean": 4.865222711938899e-06,
+     "pairs": 20,
+     "ties": 0,
+     "wins": 8
+    }
+   },
+   "S3_NO_RECOVERY": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 0.0,
+      "longest_unaided_gap_s": 87.6,
+      "overall_rmse_m": 1.1835487278494647,
+      "rmse_transition_m": 1.4340587673028993,
+      "safety_violation": 0.05
+     },
+     "fixed": {
+      "completed": 0.0,
+      "longest_unaided_gap_s": 87.6,
+      "overall_rmse_m": 1.1835487278494647,
+      "rmse_transition_m": 1.4340587673028993,
+      "safety_violation": 0.05
+     },
+     "reactive": {
+      "completed": 0.0,
+      "longest_unaided_gap_s": 87.6,
+      "overall_rmse_m": 1.265056882553695,
+      "rmse_transition_m": 1.5335529345415153,
+      "safety_violation": 0.05
+     }
+    },
+    "pairs": 20,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.1695489221517315,
+     "ci_low": -0.006488048107772801,
+     "losses": 13,
+     "mean": 0.08150815470423037,
+     "pairs": 20,
+     "ties": 0,
+     "wins": 7
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.16816457998358433,
+     "ci_low": -0.004146693839005514,
+     "losses": 13,
+     "mean": 0.08150815470423037,
+     "pairs": 20,
+     "ties": 0,
+     "wins": 7
+    }
+   },
+   "S3_OPTICAL_GRADUAL": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 118.8,
+      "overall_rmse_m": 1.0045891813720162,
+      "rmse_transition_m": 1.1668617125409597,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 118.8,
+      "overall_rmse_m": 1.0045891813720162,
+      "rmse_transition_m": 1.1668617125409597,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 118.8,
+      "overall_rmse_m": 0.9814349873076257,
+      "rmse_transition_m": 1.1397472229134398,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.016694290572870297,
+     "ci_low": -0.06322629510069447,
+     "losses": 8,
+     "mean": -0.02315419406439054,
+     "pairs": 30,
+     "ties": 3,
+     "wins": 19
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.01794277969487082,
+     "ci_low": -0.0629302810039989,
+     "losses": 8,
+     "mean": -0.02315419406439054,
+     "pairs": 30,
+     "ties": 3,
+     "wins": 19
+    }
+   },
+   "S3_RECOVERY": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 90.66666666666667,
+      "overall_rmse_m": 0.7218160186645567,
+      "rmse_transition_m": 0.8705708267587604,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 90.66666666666667,
+      "overall_rmse_m": 0.7218160186645567,
+      "rmse_transition_m": 0.8705708267587604,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 1.0,
+      "longest_unaided_gap_s": 90.8,
+      "overall_rmse_m": 0.7058090386972616,
+      "rmse_transition_m": 0.8391342780192769,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 30,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.03946754140102842,
+     "ci_low": -0.061565539713974944,
+     "losses": 6,
+     "mean": -0.016006979967295134,
+     "pairs": 30,
+     "ties": 8,
+     "wins": 16
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.03750239828064547,
+     "ci_low": -0.06107495653270218,
+     "losses": 6,
+     "mean": -0.016006979967295134,
+     "pairs": 30,
+     "ties": 8,
+     "wins": 16
+    }
+   },
+   "S3_SUDDEN": {
+    "means": {
+     "deployment_fixed": {
+      "completed": 0.0,
+      "longest_unaided_gap_s": 26.4,
+      "overall_rmse_m": 0.22060896483748715,
+      "rmse_transition_m": 0.34996172368207523,
+      "safety_violation": 0.0
+     },
+     "fixed": {
+      "completed": 0.0,
+      "longest_unaided_gap_s": 26.4,
+      "overall_rmse_m": 0.22060896483748715,
+      "rmse_transition_m": 0.34996172368207523,
+      "safety_violation": 0.0
+     },
+     "reactive": {
+      "completed": 0.0,
+      "longest_unaided_gap_s": 26.5,
+      "overall_rmse_m": 0.2868079641548476,
+      "rmse_transition_m": 0.5082378928643573,
+      "safety_violation": 0.0
+     }
+    },
+    "pairs": 20,
+    "reactive_minus_deployment_rmse": {
+     "ci_high": 0.08422908196529233,
+     "ci_low": 0.050214619605795874,
+     "losses": 20,
+     "mean": 0.0661989993173605,
+     "pairs": 20,
+     "ties": 0,
+     "wins": 0
+    },
+    "reactive_minus_fixed_rmse": {
+     "ci_high": 0.08443421059329757,
+     "ci_low": 0.05019496291611974,
+     "losses": 20,
+     "mean": 0.0661989993173605,
+     "pairs": 20,
+     "ties": 0,
+     "wins": 0
+    }
+   }
+  },
+  "note": "One-shot held-out result, reported regardless of direction.",
+  "packets": 810,
+  "primary_contrasts": {
+   "reactive_minus_deployment.acoustic_fixes": {
+    "ci_high": -0.638095238095238,
+    "ci_low": -0.9952380952380953,
+    "losses": 3,
+    "mean": -0.8142857142857143,
+    "pairs": 210,
+    "ties": 158,
+    "wins": 49
+   },
+   "reactive_minus_deployment.completed": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "losses": 0,
+    "mean": 0.0,
+    "pairs": 210,
+    "ties": 210,
+    "wins": 0
+   },
+   "reactive_minus_deployment.longest_unaided_gap_s": {
+    "ci_high": 1.0666666666666667,
+    "ci_low": -0.1909523809523805,
+    "losses": 29,
+    "mean": 0.41904761904761906,
+    "pairs": 210,
+    "ties": 158,
+    "wins": 23
+   },
+   "reactive_minus_deployment.mode_switches": {
+    "ci_high": 7.704761904761905,
+    "ci_low": 7.261904761904762,
+    "losses": 210,
+    "mean": 7.485714285714286,
+    "pairs": 210,
+    "ties": 0,
+    "wins": 0
+   },
+   "reactive_minus_deployment.optical_fixes": {
+    "ci_high": 0.023809523809523808,
+    "ci_low": -0.08095238095238096,
+    "losses": 4,
+    "mean": -0.01904761904761905,
+    "pairs": 210,
+    "ties": 202,
+    "wins": 4
+   },
+   "reactive_minus_deployment.overall_rmse_m": {
+    "ci_high": 0.0060656061401822454,
+    "ci_low": -0.019730067219268163,
+    "losses": 62,
+    "mean": -0.006953458261900818,
+    "pairs": 210,
+    "ties": 68,
+    "wins": 80
+   },
+   "reactive_minus_deployment.peak_error_m": {
+    "ci_high": 0.029459163580399,
+    "ci_low": -0.06396719140829063,
+    "losses": 64,
+    "mean": -0.017177497013920327,
+    "pairs": 210,
+    "ties": 69,
+    "wins": 77
+   },
+   "reactive_minus_deployment.physical_interventions": {
+    "ci_high": 1.561904761904762,
+    "ci_low": 1.2952380952380953,
+    "losses": 147,
+    "mean": 1.4285714285714286,
+    "pairs": 210,
+    "ties": 63,
+    "wins": 0
+   },
+   "reactive_minus_deployment.rmse_transition_m": {
+    "ci_high": 0.005092180796533066,
+    "ci_low": -0.0241941567568914,
+    "losses": 65,
+    "mean": -0.009480292347364628,
+    "pairs": 210,
+    "ties": 68,
+    "wins": 77
+   },
+   "reactive_minus_deployment.safety_violation": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "losses": 0,
+    "mean": 0.0,
+    "pairs": 210,
+    "ties": 210,
+    "wins": 0
+   },
+   "reactive_minus_deployment.survey_coverage_fraction": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "losses": 0,
+    "mean": 0.0,
+    "pairs": 210,
+    "ties": 210,
+    "wins": 0
+   },
+   "reactive_minus_deployment.unaided_time_s": {
+    "ci_high": 2.066666666666667,
+    "ci_low": 0.7238095238095238,
+    "losses": 35,
+    "mean": 1.3714285714285714,
+    "pairs": 210,
+    "ties": 158,
+    "wins": 17
+   },
+   "reactive_minus_fixed.acoustic_fixes": {
+    "ci_high": 9.276190476190477,
+    "ci_low": 9.033333333333333,
+    "losses": 60,
+    "mean": 9.157142857142857,
+    "pairs": 210,
+    "ties": 150,
+    "wins": 0
+   },
+   "reactive_minus_fixed.completed": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "losses": 0,
+    "mean": 0.0,
+    "pairs": 210,
+    "ties": 210,
+    "wins": 0
+   },
+   "reactive_minus_fixed.longest_unaided_gap_s": {
+    "ci_high": -34.170952380952386,
+    "ci_low": -35.333333333333336,
+    "losses": 1,
+    "mean": -34.76190476190476,
+    "pairs": 210,
+    "ties": 146,
+    "wins": 63
+   },
+   "reactive_minus_fixed.mode_switches": {
+    "ci_high": 7.704761904761905,
+    "ci_low": 7.266666666666667,
+    "losses": 210,
+    "mean": 7.485714285714286,
+    "pairs": 210,
+    "ties": 0,
+    "wins": 0
+   },
+   "reactive_minus_fixed.optical_fixes": {
+    "ci_high": 0.023809523809523808,
+    "ci_low": -0.08571428571428572,
+    "losses": 5,
+    "mean": -0.023809523809523808,
+    "pairs": 210,
+    "ties": 199,
+    "wins": 6
+   },
+   "reactive_minus_fixed.overall_rmse_m": {
+    "ci_high": -0.4121805898067116,
+    "ci_low": -0.4627929882315577,
+    "losses": 29,
+    "mean": -0.43744869118920654,
+    "pairs": 210,
+    "ties": 68,
+    "wins": 113
+   },
+   "reactive_minus_fixed.peak_error_m": {
+    "ci_high": -0.7297945060999047,
+    "ci_low": -0.8460656791558554,
+    "losses": 35,
+    "mean": -0.7869905452971553,
+    "pairs": 210,
+    "ties": 69,
+    "wins": 106
+   },
+   "reactive_minus_fixed.physical_interventions": {
+    "ci_high": 1.561904761904762,
+    "ci_low": 1.2952380952380953,
+    "losses": 147,
+    "mean": 1.4285714285714286,
+    "pairs": 210,
+    "ties": 63,
+    "wins": 0
+   },
+   "reactive_minus_fixed.rmse_transition_m": {
+    "ci_high": -0.48436058770006357,
+    "ci_low": -0.541793659311736,
+    "losses": 29,
+    "mean": -0.5136361102191904,
+    "pairs": 210,
+    "ties": 68,
+    "wins": 113
+   },
+   "reactive_minus_fixed.safety_violation": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "losses": 0,
+    "mean": 0.0,
+    "pairs": 210,
+    "ties": 210,
+    "wins": 0
+   },
+   "reactive_minus_fixed.survey_coverage_fraction": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "losses": 0,
+    "mean": 0.0,
+    "pairs": 210,
+    "ties": 210,
+    "wins": 0
+   },
+   "reactive_minus_fixed.unaided_time_s": {
+    "ci_high": -29.504761904761907,
+    "ci_low": -30.542857142857144,
+    "losses": 1,
+    "mean": -30.02857142857143,
+    "pairs": 210,
+    "ties": 146,
+    "wins": 63
+   }
+  },
+  "primary_means": {
+   "acoustic_fixes": {
+    "deployment_fixed": 19.166666666666668,
+    "fixed": 9.195238095238095,
+    "reactive": 18.35238095238095
+   },
+   "completed": {
+    "deployment_fixed": 1.0,
+    "fixed": 1.0,
+    "reactive": 1.0
+   },
+   "longest_unaided_gap_s": {
+    "deployment_fixed": 48.89523809523809,
+    "fixed": 84.07619047619048,
+    "reactive": 49.31428571428572
+   },
+   "mode_switches": {
+    "deployment_fixed": 0.0,
+    "fixed": 0.0,
+    "reactive": 7.485714285714286
+   },
+   "optical_fixes": {
+    "deployment_fixed": 14.628571428571428,
+    "fixed": 14.633333333333333,
+    "reactive": 14.60952380952381
+   },
+   "overall_rmse_m": {
+    "deployment_fixed": 0.5709837288639605,
+    "fixed": 1.0014789617912663,
+    "reactive": 0.5640302706020597
+   },
+   "peak_error_m": {
+    "deployment_fixed": 1.49542319056048,
+    "fixed": 2.265236238843715,
+    "reactive": 1.47824569354656
+   },
+   "physical_interventions": {
+    "deployment_fixed": 0.0,
+    "fixed": 0.0,
+    "reactive": 1.4285714285714286
+   },
+   "rmse_transition_m": {
+    "deployment_fixed": 0.6567785083923111,
+    "fixed": 1.1609343262641367,
+    "reactive": 0.6472982160449465
+   },
+   "safety_violation": {
+    "deployment_fixed": 0.0,
+    "fixed": 0.0,
+    "reactive": 0.0
+   },
+   "survey_coverage_fraction": {
+    "deployment_fixed": 1.0,
+    "fixed": 1.0,
+    "reactive": 1.0
+   },
+   "unaided_time_s": {
+    "deployment_fixed": 56.076190476190476,
+    "fixed": 87.47619047619048,
+    "reactive": 57.44761904761905
+   }
+  },
+  "primary_pairs": 210,
+  "root": 32000000,
+  "schema": "study3_heldout_analysis_v1"
+ },
+ "heldout_36M_corrected": {
+  "part_a_scripted": {
+   "adaptation_pilot_definition": {},
+   "adaptation_v5_definition": {},
+   "classification": "HELD_OUT",
+   "contrasts": {
+    "predictive_minus_deployment.acoustic_fixes": {
+     "ci_high": -0.6074074074074074,
+     "ci_low": -1.0222222222222221,
+     "losses": 6,
+     "mean": -0.8074074074074075,
+     "pairs": 270,
+     "ties": 196,
+     "wins": 68
+    },
+    "predictive_minus_deployment.completed": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 270,
+     "ties": 270,
+     "wins": 0
+    },
+    "predictive_minus_deployment.longest_unaided_gap_s": {
+     "ci_high": 0.7407407407407407,
+     "ci_low": -0.5407407407407407,
+     "losses": 41,
+     "mean": 0.1111111111111111,
+     "pairs": 270,
+     "ties": 191,
+     "wins": 38
+    },
+    "predictive_minus_deployment.mode_switches": {
+     "ci_high": 6.325925925925926,
+     "ci_low": 5.5814814814814815,
+     "losses": 270,
+     "mean": 5.955555555555556,
+     "pairs": 270,
+     "ties": 0,
+     "wins": 0
+    },
+    "predictive_minus_deployment.optical_fixes": {
+     "ci_high": 0.16296296296296298,
+     "ci_low": -0.025925925925925925,
+     "losses": 29,
+     "mean": 0.05555555555555555,
+     "pairs": 270,
+     "ties": 218,
+     "wins": 23
+    },
+    "predictive_minus_deployment.overall_rmse_m": {
+     "ci_high": 0.036407311508246394,
+     "ci_low": -0.009207389381453832,
+     "losses": 104,
+     "mean": 0.013097616343438935,
+     "pairs": 270,
+     "ties": 2,
+     "wins": 164
+    },
+    "predictive_minus_deployment.peak_error_m": {
+     "ci_high": 0.06703688277213092,
+     "ci_low": -0.04734526200229487,
+     "losses": 107,
+     "mean": 0.009148808951117715,
+     "pairs": 270,
+     "ties": 21,
+     "wins": 142
+    },
+    "predictive_minus_deployment.physical_interventions": {
+     "ci_high": 3.72962962962963,
+     "ci_low": 3.2962962962962963,
+     "losses": 268,
+     "mean": 3.5074074074074075,
+     "pairs": 270,
+     "ties": 2,
+     "wins": 0
+    },
+    "predictive_minus_deployment.preemptive_actions": {
+     "ci_high": 1.211111111111111,
+     "ci_low": 0.9999074074074075,
+     "losses": 237,
+     "mean": 1.1,
+     "pairs": 270,
+     "ties": 33,
+     "wins": 0
+    },
+    "predictive_minus_deployment.rmse_transition_m": {
+     "ci_high": 0.05157900986222972,
+     "ci_low": -0.002256549128933953,
+     "losses": 117,
+     "mean": 0.02383046184826387,
+     "pairs": 270,
+     "ties": 2,
+     "wins": 151
+    },
+    "predictive_minus_deployment.safety_violation": {
+     "ci_high": 0.011111111111111112,
+     "ci_low": 0.0,
+     "losses": 1,
+     "mean": 0.003703703703703704,
+     "pairs": 270,
+     "ties": 269,
+     "wins": 0
+    },
+    "predictive_minus_deployment.survey_coverage_fraction": {
+     "ci_high": -0.0023138168542832438,
+     "ci_low": -0.005619787924314666,
+     "losses": 0,
+     "mean": -0.0038633773887546134,
+     "pairs": 270,
+     "ties": 248,
+     "wins": 22
+    },
+    "predictive_minus_deployment.unaided_time_s": {
+     "ci_high": 1.8592592592592592,
+     "ci_low": 0.3109259259259261,
+     "losses": 52,
+     "mean": 1.0888888888888888,
+     "pairs": 270,
+     "ties": 189,
+     "wins": 29
+    },
+    "predictive_minus_reactive.acoustic_fixes": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 270,
+     "ties": 270,
+     "wins": 0
+    },
+    "predictive_minus_reactive.completed": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 270,
+     "ties": 270,
+     "wins": 0
+    },
+    "predictive_minus_reactive.longest_unaided_gap_s": {
+     "ci_high": 0.3037037037037037,
+     "ci_low": -0.4444444444444444,
+     "losses": 17,
+     "mean": -0.014814814814814815,
+     "pairs": 270,
+     "ties": 240,
+     "wins": 13
+    },
+    "predictive_minus_reactive.mode_switches": {
+     "ci_high": -0.09259259259259259,
+     "ci_low": -0.2962962962962963,
+     "losses": 18,
+     "mean": -0.1925925925925926,
+     "pairs": 270,
+     "ties": 202,
+     "wins": 50
+    },
+    "predictive_minus_reactive.optical_fixes": {
+     "ci_high": 0.16296296296296298,
+     "ci_low": -0.037037037037037035,
+     "losses": 26,
+     "mean": 0.04814814814814815,
+     "pairs": 270,
+     "ties": 222,
+     "wins": 22
+    },
+    "predictive_minus_reactive.overall_rmse_m": {
+     "ci_high": 0.027255635195286593,
+     "ci_low": -0.013662671093444897,
+     "losses": 71,
+     "mean": 0.0063689524702662615,
+     "pairs": 270,
+     "ties": 33,
+     "wins": 166
+    },
+    "predictive_minus_reactive.peak_error_m": {
+     "ci_high": 0.057208373111506526,
+     "ci_low": -0.030710087803845,
+     "losses": 84,
+     "mean": 0.011057025361638677,
+     "pairs": 270,
+     "ties": 69,
+     "wins": 117
+    },
+    "predictive_minus_reactive.physical_interventions": {
+     "ci_high": 2.1,
+     "ci_low": 1.6814814814814816,
+     "losses": 200,
+     "mean": 1.8925925925925926,
+     "pairs": 270,
+     "ties": 68,
+     "wins": 2
+    },
+    "predictive_minus_reactive.preemptive_actions": {
+     "ci_high": 1.211111111111111,
+     "ci_low": 1.0,
+     "losses": 237,
+     "mean": 1.1,
+     "pairs": 270,
+     "ties": 33,
+     "wins": 0
+    },
+    "predictive_minus_reactive.rmse_transition_m": {
+     "ci_high": 0.03567871981178849,
+     "ci_low": -0.010062177369740648,
+     "losses": 90,
+     "mean": 0.011303147249705353,
+     "pairs": 270,
+     "ties": 33,
+     "wins": 147
+    },
+    "predictive_minus_reactive.safety_violation": {
+     "ci_high": 0.011111111111111112,
+     "ci_low": 0.0,
+     "losses": 1,
+     "mean": 0.003703703703703704,
+     "pairs": 270,
+     "ties": 269,
+     "wins": 0
+    },
+    "predictive_minus_reactive.survey_coverage_fraction": {
+     "ci_high": 0.00027001183036847446,
+     "ci_low": -0.0021149505374471146,
+     "losses": 8,
+     "mean": -0.0009166721100877565,
+     "pairs": 270,
+     "ties": 243,
+     "wins": 19
+    },
+    "predictive_minus_reactive.unaided_time_s": {
+     "ci_high": 0.3037037037037037,
+     "ci_low": -0.42962962962962964,
+     "losses": 17,
+     "mean": -0.007407407407407408,
+     "pairs": 270,
+     "ties": 238,
+     "wins": 15
+    },
+    "reactive_minus_deployment.acoustic_fixes": {
+     "ci_high": -0.6074074074074074,
+     "ci_low": -1.0222222222222221,
+     "losses": 6,
+     "mean": -0.8074074074074075,
+     "pairs": 270,
+     "ties": 196,
+     "wins": 68
+    },
+    "reactive_minus_deployment.completed": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 270,
+     "ties": 270,
+     "wins": 0
+    },
+    "reactive_minus_deployment.longest_unaided_gap_s": {
+     "ci_high": 0.6594444444444417,
+     "ci_low": -0.3851851851851852,
+     "losses": 28,
+     "mean": 0.1259259259259259,
+     "pairs": 270,
+     "ties": 211,
+     "wins": 31
+    },
+    "reactive_minus_deployment.mode_switches": {
+     "ci_high": 6.533333333333333,
+     "ci_low": 5.7592592592592595,
+     "losses": 270,
+     "mean": 6.148148148148148,
+     "pairs": 270,
+     "ties": 0,
+     "wins": 0
+    },
+    "reactive_minus_deployment.optical_fixes": {
+     "ci_high": 0.040740740740740744,
+     "ci_low": -0.025925925925925925,
+     "losses": 11,
+     "mean": 0.007407407407407408,
+     "pairs": 270,
+     "ties": 250,
+     "wins": 9
+    },
+    "reactive_minus_deployment.overall_rmse_m": {
+     "ci_high": 0.021224477185954712,
+     "ci_low": -0.007303337233172054,
+     "losses": 106,
+     "mean": 0.006728663873172674,
+     "pairs": 270,
+     "ties": 70,
+     "wins": 94
+    },
+    "reactive_minus_deployment.peak_error_m": {
+     "ci_high": 0.044356141847224716,
+     "ci_low": -0.04727254962988565,
+     "losses": 93,
+     "mean": -0.0019082164105209696,
+     "pairs": 270,
+     "ties": 72,
+     "wins": 105
+    },
+    "reactive_minus_deployment.physical_interventions": {
+     "ci_high": 1.7777777777777777,
+     "ci_low": 1.462962962962963,
+     "losses": 202,
+     "mean": 1.614814814814815,
+     "pairs": 270,
+     "ties": 68,
+     "wins": 0
+    },
+    "reactive_minus_deployment.preemptive_actions": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 270,
+     "ties": 270,
+     "wins": 0
+    },
+    "reactive_minus_deployment.rmse_transition_m": {
+     "ci_high": 0.031208363066085293,
+     "ci_low": -0.005996405565757793,
+     "losses": 105,
+     "mean": 0.012527314598558522,
+     "pairs": 270,
+     "ties": 70,
+     "wins": 95
+    },
+    "reactive_minus_deployment.safety_violation": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 270,
+     "ties": 270,
+     "wins": 0
+    },
+    "reactive_minus_deployment.survey_coverage_fraction": {
+     "ci_high": -0.001695444219449699,
+     "ci_low": -0.00436132340453326,
+     "losses": 0,
+     "mean": -0.0029467052786668574,
+     "pairs": 270,
+     "ties": 249,
+     "wins": 21
+    },
+    "reactive_minus_deployment.unaided_time_s": {
+     "ci_high": 1.8296296296296297,
+     "ci_low": 0.4444444444444444,
+     "losses": 39,
+     "mean": 1.0962962962962963,
+     "pairs": 270,
+     "ties": 211,
+     "wins": 20
+    }
+   },
+   "means": {
+    "acoustic_fixes": {
+     "deployment_fixed": 17.996296296296297,
+     "predictive": 17.18888888888889,
+     "reactive": 17.18888888888889
+    },
+    "completed": {
+     "deployment_fixed": 0.8518518518518519,
+     "predictive": 0.8518518518518519,
+     "reactive": 0.8518518518518519
+    },
+    "longest_unaided_gap_s": {
+     "deployment_fixed": 46.666666666666664,
+     "predictive": 46.77777777777778,
+     "reactive": 46.79259259259259
+    },
+    "mode_switches": {
+     "deployment_fixed": 0.0,
+     "predictive": 5.955555555555556,
+     "reactive": 6.148148148148148
+    },
+    "optical_fixes": {
+     "deployment_fixed": 17.44074074074074,
+     "predictive": 17.496296296296297,
+     "reactive": 17.44814814814815
+    },
+    "overall_rmse_m": {
+     "deployment_fixed": 0.5521076294369256,
+     "predictive": 0.5652052457803646,
+     "reactive": 0.5588362933100983
+    },
+    "peak_error_m": {
+     "deployment_fixed": 1.477239139513594,
+     "predictive": 1.486387948464712,
+     "reactive": 1.475330923103073
+    },
+    "physical_interventions": {
+     "deployment_fixed": 0.14814814814814814,
+     "predictive": 3.6555555555555554,
+     "reactive": 1.762962962962963
+    },
+    "preemptive_actions": {
+     "deployment_fixed": 0.0,
+     "predictive": 1.1,
+     "reactive": 0.0
+    },
+    "rmse_transition_m": {
+     "deployment_fixed": 0.6514207788623885,
+     "predictive": 0.6752512407106521,
+     "reactive": 0.6639480934609467
+    },
+    "safety_violation": {
+     "deployment_fixed": 0.0,
+     "predictive": 0.003703703703703704,
+     "reactive": 0.0
+    },
+    "survey_coverage_fraction": {
+     "deployment_fixed": 0.9997510542092161,
+     "predictive": 0.9958876768204614,
+     "reactive": 0.9968043489305493
+    },
+    "unaided_time_s": {
+     "deployment_fixed": 52.12592592592593,
+     "predictive": 53.214814814814815,
+     "reactive": 53.22222222222222
+    }
+   },
+   "metadata_correction": {
+    "date": "2026-08-12",
+    "numeric_content_changed": false,
+    "previous_labels": {
+     "classification": "HELD_OUT",
+     "not_confirmatory": true,
+     "not_held_out": true,
+     "note": "Exploratory. No threshold applied, no verdict assigned. Cannot revise the held-out result or the freeze decision."
+    },
+    "reason": "The analyser was adapted from the exploratory E1 script and inherited its labels, which asserted not_held_out=true on a held-out record. Metadata only."
+   },
+   "not_confirmatory": false,
+   "not_held_out": false,
+   "note": "Final held-out evaluation of the CORRECTED controller at root 36,000,000, executed once. Decision rules were frozen before authorization and are in STUDY3_HELDOUT_V2_DESIGN.json.",
+   "packets": 810,
+   "paired_environments": 270,
+   "part": "scripted",
+   "root": 36000000,
+   "schema": "study3_heldout_v2_analysis_v1"
+  },
+  "part_b_generated": {
+   "adaptation_pilot_definition": {
+    "predictive": {
+     "adequate_delay_max_s": 48.0,
+     "adequate_delay_mean_s": 2.687596500257334,
+     "adequate_delay_median_s": 0.0,
+     "adequate_matches": 1943,
+     "adequate_rate": 0.6834329933169188,
+     "ambiguous_episodes": 993,
+     "definition": "corrected pilot adequate/exact",
+     "episodes": 2843,
+     "exact_delay_mean_s": 4.052274927395934,
+     "exact_delay_median_s": 2.0,
+     "exact_evaluable_episodes": 1850,
+     "exact_matches": 1033,
+     "exact_rate": 0.5583783783783783,
+     "policy": "predictive",
+     "replays_verified": 400
+    },
+    "reactive": {
+     "adequate_delay_max_s": 44.0,
+     "adequate_delay_mean_s": 2.550967067433351,
+     "adequate_delay_median_s": 0.0,
+     "adequate_matches": 1913,
+     "adequate_rate": 0.7074704142011834,
+     "ambiguous_episodes": 1011,
+     "definition": "corrected pilot adequate/exact",
+     "episodes": 2704,
+     "exact_delay_mean_s": 4.063655030800821,
+     "exact_delay_median_s": 2.0,
+     "exact_evaluable_episodes": 1693,
+     "exact_matches": 974,
+     "exact_rate": 0.5753101004134672,
+     "policy": "reactive",
+     "replays_verified": 400
+    }
+   },
+   "adaptation_v5_definition": {
+    "deployment_fixed": {
+     "coverage": 0.0,
+     "definition": "V5 C7/C8",
+     "episodes": 2112,
+     "matched": 0,
+     "max_latency_s": NaN,
+     "mean_latency_s": NaN,
+     "median_latency_s": NaN,
+     "policy": "deployment_fixed"
+    },
+    "predictive": {
+     "coverage": 0.5744859420898027,
+     "definition": "V5 C7/C8",
+     "episodes": 2383,
+     "matched": 1369,
+     "max_latency_s": 48.0,
+     "mean_latency_s": 3.4653031409788166,
+     "median_latency_s": 0.0,
+     "policy": "predictive"
+    },
+    "reactive": {
+     "coverage": 0.591743119266055,
+     "definition": "V5 C7/C8",
+     "episodes": 2180,
+     "matched": 1290,
+     "max_latency_s": 52.0,
+     "mean_latency_s": 3.488372093023256,
+     "median_latency_s": 0.0,
+     "policy": "reactive"
+    }
+   },
+   "classification": "HELD_OUT",
+   "contrasts": {
+    "predictive_minus_deployment.acoustic_fixes": {
+     "ci_high": 0.8575,
+     "ci_low": 0.1975,
+     "losses": 151,
+     "mean": 0.5225,
+     "pairs": 400,
+     "ties": 98,
+     "wins": 151
+    },
+    "predictive_minus_deployment.completed": {
+     "ci_high": 0.0575,
+     "ci_low": -0.035,
+     "losses": 45,
+     "mean": 0.01,
+     "pairs": 400,
+     "ties": 314,
+     "wins": 41
+    },
+    "predictive_minus_deployment.longest_unaided_gap_s": {
+     "ci_high": -1.5648750000000018,
+     "ci_low": -6.91,
+     "losses": 132,
+     "mean": -4.215,
+     "pairs": 400,
+     "ties": 73,
+     "wins": 195
+    },
+    "predictive_minus_deployment.mode_switches": {
+     "ci_high": 9.065,
+     "ci_low": 8.3975,
+     "losses": 400,
+     "mean": 8.735,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 0
+    },
+    "predictive_minus_deployment.optical_fixes": {
+     "ci_high": 1.6125,
+     "ci_low": 0.865,
+     "losses": 204,
+     "mean": 1.2275,
+     "pairs": 400,
+     "ties": 139,
+     "wins": 57
+    },
+    "predictive_minus_deployment.overall_rmse_m": {
+     "ci_high": -0.19441605011905755,
+     "ci_low": -0.5520895786718021,
+     "losses": 182,
+     "mean": -0.3704407574354156,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 218
+    },
+    "predictive_minus_deployment.peak_error_m": {
+     "ci_high": -0.4190017543105835,
+     "ci_low": -1.1959497915624417,
+     "losses": 171,
+     "mean": -0.8067659933143981,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 229
+    },
+    "predictive_minus_deployment.physical_interventions": {
+     "ci_high": 7.2,
+     "ci_low": 6.645,
+     "losses": 400,
+     "mean": 6.92,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 0
+    },
+    "predictive_minus_deployment.preemptive_actions": {
+     "ci_high": 0.5725,
+     "ci_low": 0.475,
+     "losses": 209,
+     "mean": 0.5225,
+     "pairs": 400,
+     "ties": 191,
+     "wins": 0
+    },
+    "predictive_minus_deployment.rmse_transition_m": {
+     "ci_high": -0.1768397630188737,
+     "ci_low": -0.552406756999995,
+     "losses": 186,
+     "mean": -0.3611297696459732,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 214
+    },
+    "predictive_minus_deployment.safety_violation": {
+     "ci_high": -0.015,
+     "ci_low": -0.105,
+     "losses": 31,
+     "mean": -0.06,
+     "pairs": 400,
+     "ties": 314,
+     "wins": 55
+    },
+    "predictive_minus_deployment.survey_coverage_fraction": {
+     "ci_high": 0.013191480501665657,
+     "ci_low": -0.024829671271800916,
+     "losses": 61,
+     "mean": -0.006438859494415061,
+     "pairs": 400,
+     "ties": 208,
+     "wins": 131
+    },
+    "predictive_minus_deployment.unaided_time_s": {
+     "ci_high": 5.140124999999998,
+     "ci_low": -1.02,
+     "losses": 156,
+     "mean": 2.075,
+     "pairs": 400,
+     "ties": 40,
+     "wins": 204
+    },
+    "predictive_minus_reactive.acoustic_fixes": {
+     "ci_high": 0.62,
+     "ci_low": 0.185,
+     "losses": 67,
+     "mean": 0.3975,
+     "pairs": 400,
+     "ties": 307,
+     "wins": 26
+    },
+    "predictive_minus_reactive.completed": {
+     "ci_high": 0.0375,
+     "ci_low": -0.0475,
+     "losses": 37,
+     "mean": -0.005,
+     "pairs": 400,
+     "ties": 324,
+     "wins": 39
+    },
+    "predictive_minus_reactive.longest_unaided_gap_s": {
+     "ci_high": 3.715,
+     "ci_low": 0.46,
+     "losses": 105,
+     "mean": 2.055,
+     "pairs": 400,
+     "ties": 219,
+     "wins": 76
+    },
+    "predictive_minus_reactive.mode_switches": {
+     "ci_high": 0.64,
+     "ci_low": 0.21,
+     "losses": 113,
+     "mean": 0.42,
+     "pairs": 400,
+     "ties": 221,
+     "wins": 66
+    },
+    "predictive_minus_reactive.optical_fixes": {
+     "ci_high": 1.06,
+     "ci_low": 0.535,
+     "losses": 200,
+     "mean": 0.7925,
+     "pairs": 400,
+     "ties": 134,
+     "wins": 66
+    },
+    "predictive_minus_reactive.overall_rmse_m": {
+     "ci_high": 0.1491265715379484,
+     "ci_low": -0.03516632493969999,
+     "losses": 204,
+     "mean": 0.055790843421155124,
+     "pairs": 400,
+     "ties": 4,
+     "wins": 192
+    },
+    "predictive_minus_reactive.peak_error_m": {
+     "ci_high": 0.2804932796578158,
+     "ci_low": -0.1215297520520326,
+     "losses": 207,
+     "mean": 0.07925434722786162,
+     "pairs": 400,
+     "ties": 4,
+     "wins": 189
+    },
+    "predictive_minus_reactive.physical_interventions": {
+     "ci_high": 1.305,
+     "ci_low": 0.825,
+     "losses": 240,
+     "mean": 1.0575,
+     "pairs": 400,
+     "ties": 53,
+     "wins": 107
+    },
+    "predictive_minus_reactive.preemptive_actions": {
+     "ci_high": 0.5725,
+     "ci_low": 0.4725,
+     "losses": 209,
+     "mean": 0.5225,
+     "pairs": 400,
+     "ties": 191,
+     "wins": 0
+    },
+    "predictive_minus_reactive.rmse_transition_m": {
+     "ci_high": 0.17524042630388417,
+     "ci_low": -0.013501972743251376,
+     "losses": 223,
+     "mean": 0.07935811605418189,
+     "pairs": 400,
+     "ties": 4,
+     "wins": 173
+    },
+    "predictive_minus_reactive.safety_violation": {
+     "ci_high": 0.055,
+     "ci_low": -0.01,
+     "losses": 26,
+     "mean": 0.0225,
+     "pairs": 400,
+     "ties": 357,
+     "wins": 17
+    },
+    "predictive_minus_reactive.survey_coverage_fraction": {
+     "ci_high": 0.042818868802665076,
+     "ci_low": 0.008334153929061328,
+     "losses": 93,
+     "mean": 0.025130315500685868,
+     "pairs": 400,
+     "ties": 209,
+     "wins": 98
+    },
+    "predictive_minus_reactive.unaided_time_s": {
+     "ci_high": 7.1851249999999975,
+     "ci_low": 1.9,
+     "losses": 140,
+     "mean": 4.515,
+     "pairs": 400,
+     "ties": 87,
+     "wins": 173
+    },
+    "reactive_minus_deployment.acoustic_fixes": {
+     "ci_high": 0.4325,
+     "ci_low": -0.1725,
+     "losses": 124,
+     "mean": 0.125,
+     "pairs": 400,
+     "ties": 116,
+     "wins": 160
+    },
+    "reactive_minus_deployment.completed": {
+     "ci_high": 0.0525,
+     "ci_low": -0.0225,
+     "losses": 33,
+     "mean": 0.015,
+     "pairs": 400,
+     "ties": 340,
+     "wins": 27
+    },
+    "reactive_minus_deployment.longest_unaided_gap_s": {
+     "ci_high": -3.75,
+     "ci_low": -8.88,
+     "losses": 102,
+     "mean": -6.27,
+     "pairs": 400,
+     "ties": 90,
+     "wins": 208
+    },
+    "reactive_minus_deployment.mode_switches": {
+     "ci_high": 8.6625,
+     "ci_low": 7.9725,
+     "losses": 400,
+     "mean": 8.315,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 0
+    },
+    "reactive_minus_deployment.optical_fixes": {
+     "ci_high": 0.76,
+     "ci_low": 0.1175,
+     "losses": 112,
+     "mean": 0.435,
+     "pairs": 400,
+     "ties": 208,
+     "wins": 80
+    },
+    "reactive_minus_deployment.overall_rmse_m": {
+     "ci_high": -0.2608246917540152,
+     "ci_low": -0.6052422003092364,
+     "losses": 168,
+     "mean": -0.42623160085657075,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 232
+    },
+    "reactive_minus_deployment.peak_error_m": {
+     "ci_high": -0.5137766844656385,
+     "ci_low": -1.2768202864844684,
+     "losses": 173,
+     "mean": -0.8860203405422599,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 227
+    },
+    "reactive_minus_deployment.physical_interventions": {
+     "ci_high": 6.1225,
+     "ci_low": 5.6025,
+     "losses": 400,
+     "mean": 5.8625,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 0
+    },
+    "reactive_minus_deployment.preemptive_actions": {
+     "ci_high": 0.0,
+     "ci_low": 0.0,
+     "losses": 0,
+     "mean": 0.0,
+     "pairs": 400,
+     "ties": 400,
+     "wins": 0
+    },
+    "reactive_minus_deployment.rmse_transition_m": {
+     "ci_high": -0.2632130315921647,
+     "ci_low": -0.6231168235201435,
+     "losses": 168,
+     "mean": -0.4404878857001552,
+     "pairs": 400,
+     "ties": 0,
+     "wins": 232
+    },
+    "reactive_minus_deployment.safety_violation": {
+     "ci_high": -0.045,
+     "ci_low": -0.1225,
+     "losses": 18,
+     "mean": -0.0825,
+     "pairs": 400,
+     "ties": 331,
+     "wins": 51
+    },
+    "reactive_minus_deployment.survey_coverage_fraction": {
+     "ci_high": -0.015065304722712145,
+     "ci_low": -0.047591453556731333,
+     "losses": 38,
+     "mean": -0.03156917499510093,
+     "pairs": 400,
+     "ties": 209,
+     "wins": 153
+    },
+    "reactive_minus_deployment.unaided_time_s": {
+     "ci_high": 0.24024999999999636,
+     "ci_low": -5.135,
+     "losses": 131,
+     "mean": -2.44,
+     "pairs": 400,
+     "ties": 48,
+     "wins": 221
+    }
+   },
+   "means": {
+    "acoustic_fixes": {
+     "deployment_fixed": 6.47,
+     "predictive": 6.9925,
+     "reactive": 6.595
+    },
+    "completed": {
+     "deployment_fixed": 0.4175,
+     "predictive": 0.4275,
+     "reactive": 0.4325
+    },
+    "longest_unaided_gap_s": {
+     "deployment_fixed": 46.98,
+     "predictive": 42.765,
+     "reactive": 40.71
+    },
+    "mode_switches": {
+     "deployment_fixed": 0.0,
+     "predictive": 8.735,
+     "reactive": 8.315
+    },
+    "optical_fixes": {
+     "deployment_fixed": 10.0475,
+     "predictive": 11.275,
+     "reactive": 10.4825
+    },
+    "overall_rmse_m": {
+     "deployment_fixed": 2.3507599245843114,
+     "predictive": 1.9803191671488958,
+     "reactive": 1.9245283237277406
+    },
+    "peak_error_m": {
+     "deployment_fixed": 5.744414412489491,
+     "predictive": 4.937648419175092,
+     "reactive": 4.858394071947231
+    },
+    "physical_interventions": {
+     "deployment_fixed": 0.5825,
+     "predictive": 7.5025,
+     "reactive": 6.445
+    },
+    "preemptive_actions": {
+     "deployment_fixed": 0.0,
+     "predictive": 0.5225,
+     "reactive": 0.0
+    },
+    "rmse_transition_m": {
+     "deployment_fixed": 2.440919683452198,
+     "predictive": 2.0797899138062252,
+     "reactive": 2.0004317977520434
+    },
+    "safety_violation": {
+     "deployment_fixed": 0.2325,
+     "predictive": 0.1725,
+     "reactive": 0.15
+    },
+    "survey_coverage_fraction": {
+     "deployment_fixed": 0.8478444052518127,
+     "predictive": 0.8414055457573976,
+     "reactive": 0.8162752302567117
+    },
+    "unaided_time_s": {
+     "deployment_fixed": 78.3,
+     "predictive": 80.375,
+     "reactive": 75.86
+    }
+   },
+   "metadata_correction": {
+    "date": "2026-08-12",
+    "numeric_content_changed": false,
+    "previous_labels": {
+     "classification": "HELD_OUT",
+     "not_confirmatory": true,
+     "not_held_out": true,
+     "note": "Exploratory. No threshold applied, no verdict assigned. Cannot revise the held-out result or the freeze decision."
+    },
+    "reason": "The analyser was adapted from the exploratory E1 script and inherited its labels, which asserted not_held_out=true on a held-out record. Metadata only."
+   },
+   "not_confirmatory": false,
+   "not_held_out": false,
+   "note": "Final held-out evaluation of the CORRECTED controller at root 36,000,000, executed once. Decision rules were frozen before authorization and are in STUDY3_HELDOUT_V2_DESIGN.json.",
+   "packets": 1200,
+   "paired_environments": 400,
+   "part": "generated",
+   "root": 36000000,
+   "schema": "study3_heldout_v2_analysis_v1"
+  }
+ },
+ "schema": "study3_final_tables_v1"
+}

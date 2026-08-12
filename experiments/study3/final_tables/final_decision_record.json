@@ -1,0 +1,65 @@
+{
+ "block": "held-out root 36,000,000, corrected controller, executed once",
+ "condition_1_rmse": {
+  "ci_high": -0.2608246917540152,
+  "ci_low": -0.6052422003092364,
+  "mean": -0.42623160085657075,
+  "met": true,
+  "metric": "reactive_minus_deployment.overall_rmse_m (Part B only)",
+  "pairs": 400
+ },
+ "condition_2_adaptation": {
+  "met": true,
+  "metric": "replay-verified adequate viable-mode adaptation, REACTIVE, Part B",
+  "threshold": 0.5,
+  "value": 0.7074704142011834
+ },
+ "decision_rules": {
+  "authority": "C. Alexandris (researcher)",
+  "frozen_on": "2026-08-11",
+  "immutability": "No controller, threshold, environment, comparator, metric, analysis rule, sample size or interpretation criterion may be changed after authorization. The block is executed exactly once. No V7, no correction cycle and no additional held-out evaluation follows, regardless of outcome.",
+  "part_a_scripted": {
+   "role": "robustness and reproducibility evaluation",
+   "rule": "Part A is NOT required to show superiority over deployment-informed FIXED. It is reported separately and never pooled with Part B.",
+   "superiority_required": false
+  },
+  "pooling": "PROHIBITED. Parts A and B are never pooled to determine success.",
+  "predictive": {
+   "role": "secondary",
+   "rule": "No required success threshold. The PREDICTIVE-minus-REACTIVE comparison is reported regardless of direction.",
+   "threshold": null
+  },
+  "primary_claim": {
+   "conditions_all_required": [
+    "corrected REACTIVE has lower overall_rmse_m than deployment-informed FIXED, with the paired 95% CI excluding zero in REACTIVE's favour",
+    "adequate viable-mode adaptation exceeds 50%, using the already-defined replay-verified metric (corrected pilot definition, adequate_rate)"
+   ],
+   "metric_bindings": {
+    "adaptation": "adaptation_pilot_definition['reactive']['adequate_rate'] > 0.50",
+    "rmse": "contrasts['reactive_minus_deployment.overall_rmse_m']: mean < 0 and ci_high < 0"
+   },
+   "scope": "Part B generated changing environments ONLY",
+   "supported_if": "both conditions hold; otherwise not supported"
+  },
+  "status": "FROZEN BY THE RESEARCHER BEFORE AUTHORIZATION. Immutable.",
+  "supporting_outcomes": {
+   "reported": [
+    "rmse_transition_m",
+    "peak_error_m",
+    "longest_unaided_gap_s",
+    "unaided_time_s",
+    "completed",
+    "safety_violation",
+    "mode_switches",
+    "physical_interventions",
+    "exact adaptation rate"
+   ],
+   "rule": "Reported as supporting outcomes only. NO composite pass criterion is constructed from them and none of them can overturn or establish the primary claim."
+  }
+ },
+ "part_a_role": "robustness and reproducibility; superiority not required",
+ "pooling": "prohibited; Parts A and B never combined",
+ "predictive": "secondary, no threshold, reported regardless of direction",
+ "primary_claim_supported": true,
+ "schema": "study3_final_decision_record_v1"
+}

@@ -1,0 +1,76 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 12.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 56.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "reactive_ab_correction",
+    "family": "S3_ACOUSTIC_GEOMETRY_ASYNC",
+    "index": 8,
+    "policy": "reactive",
+    "root": 31830000,
+    "stage": "recovery_focused"
+  },
+  "packet_sha256": "01f1cf5a99519ba4c41f86fe4ba83bccf57644066c51badd80641d8ee00898be",
+  "result": {
+    "acoustic_fixes": 41,
+    "acoustic_techniques_used": [
+      "lbl",
+      "usbl"
+    ],
+    "capability_preserved": true,
+    "completed": true,
+    "configuration_id": "reactive_ab_correction",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_ACOUSTIC_GEOMETRY_ASYNC",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "index": 8,
+    "longest_unaided_gap_s": 4.0,
+    "mean_policy_runtime_ms": 10.590118308395535,
+    "mission_actions_used": [
+      "continue"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 1,
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 1,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.18151603098535363,
+    "peak_error_m": 0.3326322122460838,
+    "policy": "reactive",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "lower_altitude",
+        91
+      ]
+    ],
+    "recovery_time_s": Infinity,
+    "rmse_transition_m": 0.1901816156443718,
+    "runtime_s": 6.96591791100218,
+    "safety_violation": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "080cb80697c0d69ad1717e7549ed8caa7f261d1a271836dbb24e9f966466985c",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 14.0,
+    "unnecessary_interventions": 1
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

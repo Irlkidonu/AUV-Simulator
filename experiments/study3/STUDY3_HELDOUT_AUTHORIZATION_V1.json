@@ -1,0 +1,44 @@
+{
+  "MUST_READ_BEFORE_EXECUTION": {
+    "development_nulls": "PREDICTIVE took zero pre-emptive actions and was identical to REACTIVE on all outcome metrics in V3 and V4; ROBUST_FUSION was byte-identical to FIXED. Both are excluded from the held-out set and both must be reported.",
+    "failed_criterion": "C7 adaptation coverage 59.8% (52/87 episodes) against a 70% threshold",
+    "researcher_acceptance_level": "Adaptation coverage above 50% is sufficient for this work; 59.8% exceeds it. This is a forward-looking acceptance decision and does not alter V5's recorded classification.",
+    "standing_limitation": "Development adaptation coverage was 59.8%: roughly two in five post-launch changes of the best viable mode were never matched. This must be reported.",
+    "threshold_provenance": "The 70% value was selected by the agent from probe-interval timing and was never approved by the researcher as a scientific freeze requirement.",
+    "v5_classification": "7 of 8 predeclared gating criteria passed",
+    "v5_verdict": "NO-FREEZE"
+  },
+  "authority": "C. Alexandris (researcher)",
+  "authorization_commit": "6692cf8f6ad2ea86270510b2d12839caa575b235",
+  "authorized": true,
+  "basis_documents": {
+    "STUDY3_DEVELOPMENT_NULL_FINDINGS.md": "604196dc0079a30f1869c2c9f83f80e29e12808cf6bd2703c3347520ce231feb",
+    "STUDY3_FINAL_VALIDATION_V5_PROTOCOL.md": "fafb223002696bcbc620afddf7df63b9afe38de8decff52aeaff37abe1c40b69",
+    "STUDY3_FREEZE_DECISION_V1.md": "b4654f154680f01873f5ddd8e00800fff89c56c9b720807092778b4ca4bec106",
+    "STUDY3_FREEZE_MANIFEST_V1.json": "76460bb73981c5f0a10cda1dbb47bce4db8c39404744dbbc74c5c81c7cc6163e",
+    "STUDY3_HELDOUT_DESIGN_V1.json": "20fcf7a223971258015b9c81af087553da6ca2c8b19796465b801b270675ae0c",
+    "verify_lock.py": "b4d2e541c3e88d669a93b9efd73be0d7b40011a131c4ad7ead07903aaf022d7e"
+  },
+  "created_utc": "2026-08-11",
+  "executed": true,
+  "execution_record": {
+    "elapsed_s": 554.21,
+    "invocation": 1,
+    "packets": 810,
+    "result_digest": "6577337705788280eecbf10e8bb2e9b4d716e4e1dbaf87da688cc483bfbf43f7"
+  },
+  "identifier": "study3_heldout_authorization_v1",
+  "maximum_invocations": 1,
+  "on_completion": "Set executed to true and record the invocation, packet count and result digest in execution_record. A second invocation is forbidden and must be refused.",
+  "preconditions": [
+    "verify_lock.py --require-authorization must exit 0 immediately before execution",
+    "the interpreter must provide cv2.AKAZE_create",
+    "no held-out output file may already exist",
+    "results are reported regardless of direction",
+    "no threshold, family, metric, comparator or sample count may change after inspection"
+  ],
+  "record_type": "HELD_OUT_EXECUTION_AUTHORIZATION",
+  "root": 32000000,
+  "schema": "study3_heldout_authorization_v1",
+  "statement": "Separate authorization record required by STUDY3_PROTOCOL.md section 10: 'the runner must reject ... held-out execution without a separate authorization record. Held-out runs once.' This record authorizes exactly one invocation of the held-out campaign at root 32,000,000 under the frozen design."
+}

@@ -1,0 +1,168 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 12.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 56.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "reactive_shared_fixed_155",
+    "family": "S3_OPTICAL_GRADUAL",
+    "index": 2,
+    "policy": "reactive",
+    "root": 31850000,
+    "stage": "mode_comparison_v3"
+  },
+  "packet_sha256": "e0526bafbdebfe4c5d4987a1f206d0cb0183da935606671a5053d2204e68f62f",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "completed": true,
+    "configuration_id": "reactive_shared_fixed_155",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_OPTICAL_GRADUAL",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "index": 2,
+    "longest_unaided_gap_s": 118.0,
+    "mean_policy_runtime_ms": 0.6115404494966452,
+    "mission_actions_used": [
+      "abort_leg",
+      "continue",
+      "return_to_last_good_fix"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 3,
+    "mode_telemetry": {
+      "absolute_source_s": [
+        [
+          "none",
+          168.0
+        ],
+        [
+          "optical",
+          14.0
+        ]
+      ],
+      "first_fallback_entry": [
+        14.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_relative_entry": [
+        14.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_terminal_entry": null,
+      "longest_dwell_mode": "relative_dead_reckoning",
+      "longest_dwell_s": 168.0,
+      "mean_dwell_s": 60.666666666666664,
+      "mode_dwell_s": [
+        [
+          "optical_dvl",
+          2.0
+        ],
+        [
+          "optical_no_bottom_lock",
+          12.0
+        ],
+        [
+          "relative_dead_reckoning",
+          168.0
+        ]
+      ],
+      "mode_transition_reasons": [
+        [
+          "no_observable_horizontal_absolute_fix",
+          1
+        ],
+        [
+          "optical_usable_without_bottom_lock",
+          1
+        ]
+      ],
+      "mode_transitions": 2,
+      "mode_transitions_directed": [
+        [
+          "optical_dvl->optical_no_bottom_lock",
+          1
+        ],
+        [
+          "optical_no_bottom_lock->relative_dead_reckoning",
+          1
+        ]
+      ],
+      "modes_visited_in_order": [
+        "optical_dvl",
+        "optical_no_bottom_lock",
+        "relative_dead_reckoning"
+      ],
+      "recovery_executed": [],
+      "time_without_horizontal_absolute_s": 118.0,
+      "velocity_source_s": [
+        [
+          "bottom_lock_dvl",
+          64.0
+        ],
+        [
+          "water_track_dvl",
+          118.0
+        ]
+      ]
+    },
+    "navigation_modes_used": [
+      "fixed_multimodal",
+      "optical_dvl",
+      "optical_no_bottom_lock",
+      "relative_dead_reckoning"
+    ],
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 16,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 1.709478856309046,
+    "peak_error_m": 3.3981679420426065,
+    "physical_interventions": 2,
+    "policy": "reactive",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "continue",
+        26
+      ],
+      [
+        "hold_for_fix",
+        2
+      ],
+      [
+        "lower_altitude",
+        63
+      ]
+    ],
+    "recovery_time_s": Infinity,
+    "rmse_transition_m": 1.9899641054462922,
+    "runtime_s": 3.5292674570227973,
+    "safety_violation": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "7f8732780c42cece412f8c803e39009844dc796d637ee837820ac24d59625176",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 118.0,
+    "unnecessary_interventions": 0
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

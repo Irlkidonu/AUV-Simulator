@@ -1,0 +1,154 @@
+{
+  "adaptation": {
+    "episodes": 87,
+    "matched": 52,
+    "mean_latency_s": 2.6538461538461537,
+    "median_latency_s": 0.0,
+    "rate": 0.5977011494252874
+  },
+  "contrasts": {
+    "reactive_minus_deployment.completed": {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "mean": 0.0,
+      "pairs": 119
+    },
+    "reactive_minus_deployment.longest_unaided_gap_s": {
+      "ci_high": 0.6386554621848739,
+      "ci_low": -1.0084033613445378,
+      "mean": -0.20168067226890757,
+      "pairs": 119
+    },
+    "reactive_minus_deployment.overall_rmse_m": {
+      "ci_high": -0.004057046513303181,
+      "ci_low": -0.03568293671430297,
+      "mean": -0.019848160814215504,
+      "pairs": 119
+    },
+    "reactive_minus_deployment.rmse_transition_m": {
+      "ci_high": -0.004601257503014894,
+      "ci_low": -0.04231583816095203,
+      "mean": -0.02336301683456988,
+      "pairs": 119
+    },
+    "reactive_minus_deployment.safety_violation": {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "mean": 0.0,
+      "pairs": 119
+    },
+    "reactive_minus_deployment.unaided_time_s": {
+      "ci_high": 1.6470588235294117,
+      "ci_low": -0.13445378151260504,
+      "mean": 0.7226890756302521,
+      "pairs": 119
+    },
+    "reactive_minus_fixed.completed": {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "mean": 0.0,
+      "pairs": 119
+    },
+    "reactive_minus_fixed.longest_unaided_gap_s": {
+      "ci_high": -35.12605042016807,
+      "ci_low": -36.57142857142857,
+      "mean": -35.865546218487395,
+      "pairs": 119
+    },
+    "reactive_minus_fixed.overall_rmse_m": {
+      "ci_high": -0.4134545810465858,
+      "ci_low": -0.4708642351152088,
+      "mean": -0.4414449816253374,
+      "pairs": 119
+    },
+    "reactive_minus_fixed.rmse_transition_m": {
+      "ci_high": -0.4837607377035558,
+      "ci_low": -0.5522649489696645,
+      "mean": -0.5171517085577536,
+      "pairs": 119
+    },
+    "reactive_minus_fixed.safety_violation": {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "mean": 0.0,
+      "pairs": 119
+    },
+    "reactive_minus_fixed.unaided_time_s": {
+      "ci_high": -29.613445378151262,
+      "ci_low": -31.025210084033613,
+      "mean": -30.319327731092436,
+      "pairs": 119
+    }
+  },
+  "control_pairs": 51,
+  "criteria": {
+    "C1_safety": true,
+    "C2_completion": true,
+    "C3_overall_rmse_superiority": true,
+    "C4_transition_rmse_superiority": true,
+    "C5_aiding_gap_superiority": true,
+    "C6_non_inferiority": true,
+    "C7_adaptation_rate": false,
+    "C8_adaptation_latency": true
+  },
+  "failed_criteria": [
+    "C7_adaptation_rate"
+  ],
+  "generated_pairs": 12,
+  "packets": 546,
+  "primary_means": {
+    "completed": {
+      "deployment_fixed": 1.0,
+      "fixed": 1.0,
+      "reactive": 1.0
+    },
+    "longest_unaided_gap_s": {
+      "deployment_fixed": 48.65546218487395,
+      "fixed": 84.31932773109244,
+      "reactive": 48.45378151260504
+    },
+    "mode_switches": {
+      "deployment_fixed": 0.0,
+      "fixed": 0.0,
+      "reactive": 7.453781512605042
+    },
+    "overall_rmse_m": {
+      "deployment_fixed": 0.5265768300370046,
+      "fixed": 0.9481736508481261,
+      "reactive": 0.506728669222789
+    },
+    "peak_error_m": {
+      "deployment_fixed": 1.3393577372695435,
+      "fixed": 2.0560007409544476,
+      "reactive": 1.2930040709848187
+    },
+    "physical_interventions": {
+      "deployment_fixed": 0.0,
+      "fixed": 0.0,
+      "reactive": 1.3445378151260505
+    },
+    "rmse_transition_m": {
+      "deployment_fixed": 0.6113794772548067,
+      "fixed": 1.1051681689779902,
+      "reactive": 0.5880164604202367
+    },
+    "safety_violation": {
+      "deployment_fixed": 0.0,
+      "fixed": 0.0,
+      "reactive": 0.0
+    },
+    "survey_coverage_fraction": {
+      "deployment_fixed": 1.0,
+      "fixed": 1.0,
+      "reactive": 1.0
+    },
+    "unaided_time_s": {
+      "deployment_fixed": 56.53781512605042,
+      "fixed": 87.5798319327731,
+      "reactive": 57.260504201680675
+    }
+  },
+  "primary_pairs": 119,
+  "schema": "study3_final_validation_v5_analysis_v1",
+  "verdict": "NO-FREEZE"
+}

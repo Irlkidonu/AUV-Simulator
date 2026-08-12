@@ -1,0 +1,194 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "usbl",
+      "altitude_m": 5.0,
+      "fusion_mode": "weight",
+      "minimum_action_hold_s": 12.0,
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 8.0,
+      "recovery_altitude_floor_m": 2.0,
+      "recovery_cooldown_s": 56.0,
+      "recovery_dwell_s": 8.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 4,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "predictive_shared_fixed_155",
+    "family": "S3_RECOVERY",
+    "index": 8,
+    "policy": "predictive",
+    "root": 31850000,
+    "stage": "mode_comparison_v3"
+  },
+  "packet_sha256": "a280d4c033f7fab38785d0d52f7ec610aef8cd8488d56090320e57add0257d6f",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "single_beacon",
+      "usbl"
+    ],
+    "capability_preserved": false,
+    "completed": true,
+    "configuration_id": "predictive_shared_fixed_155",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_RECOVERY",
+    "fusion_modes_used": [
+      "weight"
+    ],
+    "index": 8,
+    "longest_unaided_gap_s": 92.0,
+    "mean_policy_runtime_ms": 0.6994778577591405,
+    "mission_actions_used": [
+      "abort_leg",
+      "continue",
+      "return_to_last_good_fix"
+    ],
+    "mission_duration_s": 180.0,
+    "mode_switches": 6,
+    "mode_telemetry": {
+      "absolute_source_s": [
+        [
+          "none",
+          120.0
+        ],
+        [
+          "optical",
+          62.0
+        ]
+      ],
+      "first_fallback_entry": [
+        34.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_relative_entry": [
+        34.0,
+        "no_observable_horizontal_absolute_fix"
+      ],
+      "first_terminal_entry": null,
+      "longest_dwell_mode": "relative_dead_reckoning",
+      "longest_dwell_s": 120.0,
+      "mean_dwell_s": 16.545454545454547,
+      "mode_dwell_s": [
+        [
+          "optical_dvl",
+          18.0
+        ],
+        [
+          "optical_no_bottom_lock",
+          44.0
+        ],
+        [
+          "relative_dead_reckoning",
+          120.0
+        ]
+      ],
+      "mode_transition_reasons": [
+        [
+          "no_observable_horizontal_absolute_fix",
+          3
+        ],
+        [
+          "optical_and_bottom_lock_usable",
+          3
+        ],
+        [
+          "optical_usable_without_bottom_lock",
+          4
+        ]
+      ],
+      "mode_transitions": 10,
+      "mode_transitions_directed": [
+        [
+          "optical_dvl->optical_no_bottom_lock",
+          2
+        ],
+        [
+          "optical_dvl->relative_dead_reckoning",
+          1
+        ],
+        [
+          "optical_no_bottom_lock->optical_dvl",
+          2
+        ],
+        [
+          "optical_no_bottom_lock->relative_dead_reckoning",
+          2
+        ],
+        [
+          "relative_dead_reckoning->optical_dvl",
+          1
+        ],
+        [
+          "relative_dead_reckoning->optical_no_bottom_lock",
+          2
+        ]
+      ],
+      "modes_visited_in_order": [
+        "optical_dvl",
+        "optical_no_bottom_lock",
+        "relative_dead_reckoning"
+      ],
+      "recovery_executed": [
+        [
+          "lower_altitude",
+          6
+        ]
+      ],
+      "time_without_horizontal_absolute_s": 92.0,
+      "velocity_source_s": [
+        [
+          "bottom_lock_dvl",
+          90.0
+        ],
+        [
+          "water_track_dvl",
+          92.0
+        ]
+      ]
+    },
+    "navigation_modes_used": [
+      "fixed_multimodal",
+      "optical_dvl",
+      "optical_no_bottom_lock",
+      "relative_dead_reckoning"
+    ],
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 23,
+    "optical_forecast_episodes": 1,
+    "optical_prediction_lead_s": 4.0,
+    "overall_rmse_m": 1.2023093165236625,
+    "peak_error_m": 2.6285763592884694,
+    "physical_interventions": 10,
+    "policy": "predictive",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "continue",
+        43
+      ],
+      [
+        "hold_for_fix",
+        2
+      ],
+      [
+        "lower_altitude",
+        46
+      ]
+    ],
+    "recovery_time_s": 2.0,
+    "rmse_transition_m": 1.5993692534860027,
+    "runtime_s": 3.3800692629883997,
+    "safety_violation": false,
+    "survey_coverage_fraction": 1.0,
+    "trace_digest": "21941231822d77d6467aa5c47a9439e5b5f99f5c87d12dd96eae7be7bb089040",
+    "true_optical_forecast_episodes": 1,
+    "unaided_time_s": 92.0,
+    "unnecessary_interventions": 5
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

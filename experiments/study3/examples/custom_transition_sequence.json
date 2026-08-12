@@ -1,0 +1,55 @@
+{
+  "name": "custom_optical_acoustic_handover",
+  "horizon_s": 120.0,
+  "service_catalogue": ["lbl", "usbl"],
+  "initial": {
+    "turbidity": 0.05,
+    "dvl_lock_probability": 0.98,
+    "dvl_water_track_probability": 0.85,
+    "acoustic_response_probability": 1.0,
+    "acoustic_noise_db": 45.0,
+    "infrastructure_available": true,
+    "vessel_offset_m": 5.0,
+    "degradation_active": false,
+    "infrastructure_context": "infrastructure_transition",
+    "deployed_acoustic_services": ["lbl"],
+    "current_east_mps": 0.0,
+    "current_north_mps": 0.0,
+    "dvl_noise_scale": 1.0,
+    "imu_drift_mps2": 0.0,
+    "lbl_geometry_scale": 1.0,
+    "service_response_probability": [["lbl", 1.0], ["usbl", 1.0]]
+  },
+  "phases": [
+    {
+      "name": "visibility_loss",
+      "start_s": 24.0,
+      "end_s": 48.0,
+      "target": {"turbidity": 0.85}
+    },
+    {
+      "name": "lbl_loss_usbl_arrival",
+      "start_s": 52.0,
+      "end_s": 64.0,
+      "target": {
+        "lbl_geometry_scale": 0.18,
+        "deployed_acoustic_services": ["lbl", "usbl"],
+        "service_response_probability": [["lbl", 0.05], ["usbl", 1.0]]
+      }
+    },
+    {
+      "name": "optical_recovery",
+      "start_s": 78.0,
+      "end_s": 98.0,
+      "target": {
+        "turbidity": 0.05,
+        "service_response_probability": [["lbl", 0.05], ["usbl", 0.05]]
+      }
+    }
+  ],
+  "expectations": [
+    {"after_s": 0.0, "expected_mode": "lbl_aided", "rationale": "initial deployed LBL"},
+    {"after_s": 52.0, "expected_mode": "usbl_aided", "rationale": "USBL replaces non-responding LBL"},
+    {"after_s": 91.0, "expected_mode": "optical_dvl", "rationale": "optical recovery"}
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "identity": {
+    "configuration": {
+      "acoustic_technique": "lbl",
+      "altitude_m": 3.0,
+      "fusion_mode": "gate",
+      "minimum_cumulative_quality_decline": 0.18,
+      "optical_channel": "lidar",
+      "optical_quality_floor": 0.25,
+      "prediction_horizon_s": 10.0,
+      "speed_mps": 0.5,
+      "trend_confirmation_frames": 3,
+      "usable_probability_boundary": 0.35
+    },
+    "configuration_id": "fixed",
+    "family": "S3_COMPOUND_DVL_ACOUSTIC",
+    "index": 2,
+    "policy": "fixed",
+    "root": 31810000,
+    "stage": "infrastructure_confirmation"
+  },
+  "packet_sha256": "190751c58e55279796281e6c7d0033c9b0dd7a4b39f711189b483f4054d2feef",
+  "result": {
+    "acoustic_fixes": 0,
+    "acoustic_techniques_used": [
+      "lbl"
+    ],
+    "capability_preserved": false,
+    "causal_trace": [
+      [
+        0.0,
+        0.339109,
+        "rejected_consensus",
+        true,
+        0.551683,
+        [
+          "acoustic"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "gate",
+          "mission_action": "continue",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.0,
+        0.15
+      ],
+      [
+        2.0,
+        0.339109,
+        "rejected_consensus",
+        true,
+        0.102432,
+        [
+          "acoustic"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "gate",
+          "mission_action": "continue",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.0,
+        0.16216
+      ],
+      [
+        4.0,
+        0.340629,
+        "rejected_consensus",
+        true,
+        0.01561,
+        [
+          "acoustic"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "gate",
+          "mission_action": "continue",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.0,
+        0.17491
+      ],
+      [
+        6.0,
+        0.340629,
+        "rejected_consensus",
+        true,
+        0.006937,
+        [
+          "acoustic"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "gate",
+          "mission_action": "continue",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.0,
+        0.18813
+      ],
+      [
+        8.0,
+        0.343112,
+        "rejected_consensus",
+        true,
+        0.006145,
+        [
+          "acoustic"
+        ],
+        {
+          "acoustic_technique": "lbl",
+          "altitude_m": 3.0,
+          "fusion_mode": "gate",
+          "mission_action": "surface_for_gps",
+          "optical_channel": "lidar",
+          "preemptive": false,
+          "speed_mps": 0.5
+        },
+        -3.0,
+        0.20173
+      ]
+    ],
+    "completed": false,
+    "configuration_id": "fixed",
+    "false_optical_forecast_episodes": 0,
+    "family": "S3_COMPOUND_DVL_ACOUSTIC",
+    "fusion_modes_used": [
+      "gate"
+    ],
+    "index": 2,
+    "longest_unaided_gap_s": 10.0,
+    "mean_policy_runtime_ms": 1.303655799711123,
+    "mission_actions_used": [
+      "continue",
+      "surface_for_gps"
+    ],
+    "mission_duration_s": 8.0,
+    "mode_switches": 1,
+    "optical_channels_used": [
+      "lidar"
+    ],
+    "optical_fixes": 0,
+    "optical_forecast_episodes": 0,
+    "optical_prediction_lead_s": NaN,
+    "overall_rmse_m": 0.17633940075308083,
+    "peak_error_m": 0.2017262771329404,
+    "policy": "fixed",
+    "preemptive_actions": 0,
+    "recovery_action_counts": [
+      [
+        "continue",
+        2
+      ],
+      [
+        "hold_for_fix",
+        2
+      ],
+      [
+        "surface_for_gps",
+        1
+      ]
+    ],
+    "recovery_time_s": Infinity,
+    "rmse_transition_m": 0.17633940075308083,
+    "runtime_s": 2.978231988992775,
+    "safety_violation": false,
+    "survey_coverage_fraction": 0.05878894767783657,
+    "trace_digest": "efb3a3f0de6489599413de08ba41d7355706b16776f3543f921554172df02195",
+    "true_optical_forecast_episodes": 0,
+    "unaided_time_s": 10.0,
+    "unnecessary_interventions": 1
+  },
+  "schema": "study3_redesign_development_packet_v1"
+}

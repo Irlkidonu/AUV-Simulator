@@ -1,0 +1,122 @@
+{
+ "artefacts": {
+  "STUDY3_FREEZE_MANIFEST_V2.json": "4b2f749965406240af056af96f71eea4a10d79586bcd081fc21412b0734b20e5",
+  "STUDY3_HELDOUT_V2_AUTHORIZATION.json": "1f374108c919a90677fe7f7c1e1c61f4e22be5768517a06bacc5a330d5209f9e",
+  "STUDY3_HELDOUT_V2_DESIGN.json": "423b4761a9dc464ab29631ec771a716bcdd3c525aa80f7523ab19a95ab922083",
+  "analyse_heldout_v2.py": "9081025045c88f6a6c913ec2fbc4e634f242bcc4ac3e01f7b77438e6b5069b5d",
+  "heldout_v2_result.json": "cd941f2cb7090460d4280582d6ab51ba9ed204bd2bae71c6421eb3d6e3cc7561",
+  "run_heldout_v2.py": "403e8da46a9d1d945d7865cecae3cdbc6fa817c4d2a59fec6d593db316c040ac",
+  "verify_lock_v2.py": "51e32c3e4608b49561ab7fe3031a0ce8db08423df9f6234fe32a4101994e430f"
+ },
+ "created_utc": "2026-08-11",
+ "decision_rules": {
+  "authority": "C. Alexandris (researcher)",
+  "frozen_on": "2026-08-11",
+  "immutability": "No controller, threshold, environment, comparator, metric, analysis rule, sample size or interpretation criterion may be changed after authorization. The block is executed exactly once. No V7, no correction cycle and no additional held-out evaluation follows, regardless of outcome.",
+  "part_a_scripted": {
+   "role": "robustness and reproducibility evaluation",
+   "rule": "Part A is NOT required to show superiority over deployment-informed FIXED. It is reported separately and never pooled with Part B.",
+   "superiority_required": false
+  },
+  "pooling": "PROHIBITED. Parts A and B are never pooled to determine success.",
+  "predictive": {
+   "role": "secondary",
+   "rule": "No required success threshold. The PREDICTIVE-minus-REACTIVE comparison is reported regardless of direction.",
+   "threshold": null
+  },
+  "primary_claim": {
+   "conditions_all_required": [
+    "corrected REACTIVE has lower overall_rmse_m than deployment-informed FIXED, with the paired 95% CI excluding zero in REACTIVE's favour",
+    "adequate viable-mode adaptation exceeds 50%, using the already-defined replay-verified metric (corrected pilot definition, adequate_rate)"
+   ],
+   "metric_bindings": {
+    "adaptation": "adaptation_pilot_definition['reactive']['adequate_rate'] > 0.50",
+    "rmse": "contrasts['reactive_minus_deployment.overall_rmse_m']: mean < 0 and ci_high < 0"
+   },
+   "scope": "Part B generated changing environments ONLY",
+   "supported_if": "both conditions hold; otherwise not supported"
+  },
+  "status": "FROZEN BY THE RESEARCHER BEFORE AUTHORIZATION. Immutable.",
+  "supporting_outcomes": {
+   "reported": [
+    "rmse_transition_m",
+    "peak_error_m",
+    "longest_unaided_gap_s",
+    "unaided_time_s",
+    "completed",
+    "safety_violation",
+    "mode_switches",
+    "physical_interventions",
+    "exact adaptation rate"
+   ],
+   "rule": "Reported as supporting outcomes only. NO composite pass criterion is constructed from them and none of them can overturn or establish the primary claim."
+  }
+ },
+ "decision_rules_frozen_before_authorization": true,
+ "design": {
+  "generated": 1200,
+  "policies": [
+   "deployment_fixed",
+   "reactive",
+   "predictive"
+  ],
+  "scripted": 810,
+  "total": 2010
+ },
+ "environment": {
+  "interpreter": "/usr/bin/python3",
+  "numpy": "1.26.4",
+  "opencv": "4.6.0",
+  "opencv_akaze_present": true,
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "execution_interruption": {
+  "authorization_spent_at_interruption": false,
+  "cause": "The first --execute invocation was killed by a 10-minute harness command-timeout, not by any fault in the run.",
+  "completion_marker_written": false,
+  "occurred": true,
+  "orphan_processes": 0,
+  "packets_at_interruption": 697,
+  "partial_or_temporary_files_left": 0,
+  "results_observed_before_resume": false,
+  "resume_semantics": "Packets are written atomically and are immutable. On resume the runner verifies each stored packet's checksum and identity and recomputes only what is missing, so the completed block is identical to an uninterrupted one.",
+  "why_this_is_still_one_evaluation": "No result was observed between the interruption and the resume, nothing was re-rolled, and the plan digest is unchanged from the value published before authorization. The one-shot guarantee concerns selection on observed outcomes, and none occurred."
+ },
+ "execution_parameters": {
+  "dt_s": 2.0,
+  "horizon_s": 180.0,
+  "image_period_s": 4.0,
+  "provenance": "inherited from the frozen development runners",
+  "redesign_version": 3
+ },
+ "held_out": {
+  "elapsed_s": 769.713,
+  "executed": true,
+  "invocations_of_the_evaluation": 1,
+  "packets_on_disk": 2010,
+  "packets_reported": 2010,
+  "plan_digest": "27373395a1e1e6386a35f36bb6d1b2048c744d0dc7a3ea11ada3cd53ec44298b",
+  "result_digest": "539391dca9efcbc678906a8ea77e8fd74da5d15ae920ff1cc8dcd40a7a98cbda",
+  "root": 36000000
+ },
+ "original_heldout_preserved": {
+  "accessed_during_v2": false,
+  "interpretation": "evidence for the PRE-correction controller",
+  "re_run": false,
+  "revised": false,
+  "root": 32000000
+ },
+ "plan_digest_matches_pre_authorization_record": true,
+ "provenance_commit": "47ca7a0ec993d90257b6a0ce5480650fd1036a4d",
+ "record_type": "POST_EXECUTION_PROVENANCE",
+ "reporting_obligations": [
+  "The result is reported regardless of direction.",
+  "Parts A and B are reported separately and are never pooled.",
+  "The V6 adaptation regression to 0.5531, the PREDICTIVE null with its adverse aiding-gap result, and the V6 safety and completion figures remain standing development findings.",
+  "PREDICTIVE has no success threshold and is reported either way."
+ ],
+ "schema": "study3_heldout_v2_provenance_v1",
+ "statement": "Provenance for the single final held-out evaluation of the corrected controller at root 36,000,000. The block is spent.",
+ "terminal": "This is the final held-out evaluation of Study 3. No V7, no correction cycle and no further held-out block follows, whatever the result."
+}

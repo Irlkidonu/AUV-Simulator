@@ -1,0 +1,34 @@
+{
+  "identifier": "paper2_study3_six_mode_development_comparison_v3",
+  "record_type": "VERSIONED_DEVELOPMENT_DESIGN",
+  "status": "ready_for_fresh_development_comparison_not_heldout",
+  "historical_design_preserved": "STUDY3_DESIGN.json",
+  "reason_for_version": "six-mode architecture and metric-definition v2 have not undergone a fresh scientific comparison; historical design names predictive-minus-reactive as primary",
+  "development_root": 31850000,
+  "executed": false,
+  "policies": ["fixed", "robust_fusion", "reactive", "predictive"],
+  "families": 10,
+  "indices_per_family": 17,
+  "total_executions": 680,
+  "fixed_baseline": {
+    "configuration_id": "fixed_155",
+    "lock": "redesign_results/infrastructure_fixed_baseline_lock.json",
+    "lock_sha256": "356fb06d6174d968763386a0e7e9f8d28eebbc7323f80694c1805e3d9ab6eaaa",
+    "optical_channel": "lidar",
+    "altitude_m": 5.0,
+    "speed_mps": 0.5,
+    "acoustic_technique": "usbl",
+    "fusion_mode": "weight"
+  },
+  "primary_comparison": "reactive_minus_fixed_155 paired within family and seed",
+  "supporting_comparisons": [
+    "robust_fusion_minus_fixed_155",
+    "reactive_minus_robust_fusion"
+  ],
+  "secondary_comparison": "predictive_minus_reactive",
+  "metric_definition_version": "v2",
+  "held_out_root": 32000000,
+  "held_out_executed": false,
+  "held_out_execution_authorized": false,
+  "freeze_ready": false
+}

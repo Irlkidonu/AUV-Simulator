@@ -1,0 +1,4407 @@
+{
+  "classification": "INTERACTIVE_TESTING_NOT_CAMPAIGN_EVIDENCE",
+  "dt_s": 1.0,
+  "horizon_s": 600.0,
+  "replay_policies": [
+    "deployment_fixed",
+    "reactive",
+    "predictive"
+  ],
+  "reversion_window_note": "descriptive only; not an acceptance threshold",
+  "reversion_window_s": 15.0,
+  "schema": "study3_interactive_test_v1",
+  "sessions": {
+    "S1_optical_degrade_recover": {
+      "declared_schedule": [
+        {
+          "control": "turbidity",
+          "time_s": 60,
+          "value": 0.28
+        },
+        {
+          "control": "turbidity",
+          "time_s": 95,
+          "value": 0.44
+        },
+        {
+          "control": "turbidity",
+          "time_s": 130,
+          "value": 0.62
+        },
+        {
+          "control": "turbidity",
+          "time_s": 175,
+          "value": 0.81
+        },
+        {
+          "control": "optical_failure",
+          "time_s": 240,
+          "value": true
+        },
+        {
+          "control": "optical_failure",
+          "time_s": 300,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "time_s": 300,
+          "value": 0.55
+        },
+        {
+          "control": "turbidity",
+          "time_s": 355,
+          "value": 0.3
+        },
+        {
+          "control": "turbidity",
+          "time_s": 410,
+          "value": 0.12
+        },
+        {
+          "control": "turbidity",
+          "time_s": 470,
+          "value": 0.08
+        }
+      ],
+      "events": [
+        {
+          "control": "turbidity",
+          "effective_step": 61,
+          "sequence": 0,
+          "simulation_time_s": 61.0,
+          "value": 0.28
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 96,
+          "sequence": 1,
+          "simulation_time_s": 96.0,
+          "value": 0.44
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 131,
+          "sequence": 2,
+          "simulation_time_s": 131.0,
+          "value": 0.62
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 176,
+          "sequence": 3,
+          "simulation_time_s": 176.0,
+          "value": 0.81
+        },
+        {
+          "control": "optical_failure",
+          "effective_step": 241,
+          "sequence": 4,
+          "simulation_time_s": 241.0,
+          "value": true
+        },
+        {
+          "control": "optical_failure",
+          "effective_step": 301,
+          "sequence": 5,
+          "simulation_time_s": 301.0,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 301,
+          "sequence": 6,
+          "simulation_time_s": 301.0,
+          "value": 0.55
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 356,
+          "sequence": 7,
+          "simulation_time_s": 356.0,
+          "value": 0.3
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 411,
+          "sequence": 8,
+          "simulation_time_s": 411.0,
+          "value": 0.12
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 471,
+          "sequence": 9,
+          "simulation_time_s": 471.0,
+          "value": 0.08
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": null,
+        "adaptation_episodes": 0,
+        "adaptation_matched": 0,
+        "adaptation_max_latency_s": null,
+        "adaptation_median_latency_s": null,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "relative_dead_reckoning",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 22.0,
+        "mode_changes": 22,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 105.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 113.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 121.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 129.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 137.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 145.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 201.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 209.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 217.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 225.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 233.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 241.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 257.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 265.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 353.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 361.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 409.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 417.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 449.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 457.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 465.0
+          }
+        ],
+        "mode_switches": 23,
+        "overall_rmse_m": 0.19659508755864777,
+        "peak_error_m": 0.973265771393588,
+        "physical_interventions": 18,
+        "reversions_within_window": 11,
+        "rmse_transition_m": 0.21932662446716472,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 0.9031677048557067,
+        "telemetry_rmse_m": 0.18227846074831014,
+        "telemetry_samples": 601,
+        "trace_digest": "fef90f430a4b34310753a49231cd55ebc50c64f84eb1105a774b4566011bd083",
+        "unaided_time_s": 375.0
+      },
+      "recording": "S1_optical_degrade_recover.json",
+      "recording_sha256": "a418b403f3f2d75d579a42f6e0624806f41f60562ff8dccfc1da92764932e582",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 14.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.16998196490139644,
+          "peak_error_m": 0.8111868933262588,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.21184376956236675,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.000575547329844,
+          "telemetry_rmse_m": 0.32339679513591957,
+          "telemetry_samples": 601,
+          "trace_digest": "2583e625e82b75d5d34af9e3c2ef11f0d43371f60814e80015a69c163a278a56",
+          "unaided_time_s": 362.0
+        },
+        "predictive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "relative_dead_reckoning",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 22.0,
+          "mode_changes": 22,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 105.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 121.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 129.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 137.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 145.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 201.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 209.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 217.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 225.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 233.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 241.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 257.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 265.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 353.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 361.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 409.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 417.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 449.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 457.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 465.0
+            }
+          ],
+          "mode_switches": 23,
+          "overall_rmse_m": 0.19659508755864777,
+          "peak_error_m": 0.973265771393588,
+          "physical_interventions": 18,
+          "reversions_within_window": 11,
+          "rmse_transition_m": 0.21932662446716472,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.9031677048557067,
+          "telemetry_rmse_m": 0.18227846074831014,
+          "telemetry_samples": 601,
+          "trace_digest": "7f79e95ef1b0b8755bdbfaa5ed4b1f582f60bc901fa9dee225c230ccbb981c77",
+          "unaided_time_s": 375.0
+        },
+        "reactive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "relative_dead_reckoning",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 22.0,
+          "mode_changes": 22,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 105.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 121.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 129.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 137.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 145.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 201.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 209.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 217.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 225.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 233.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 241.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 257.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 265.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 353.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 361.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 409.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 417.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 449.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 457.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 465.0
+            }
+          ],
+          "mode_switches": 23,
+          "overall_rmse_m": 0.19659508755864777,
+          "peak_error_m": 0.973265771393588,
+          "physical_interventions": 18,
+          "reversions_within_window": 11,
+          "rmse_transition_m": 0.21932662446716472,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.9031677048557067,
+          "telemetry_rmse_m": 0.18227846074831014,
+          "telemetry_samples": 601,
+          "trace_digest": "fef90f430a4b34310753a49231cd55ebc50c64f84eb1105a774b4566011bd083",
+          "unaided_time_s": 375.0
+        }
+      },
+      "root": 34100000,
+      "seed": 34000000
+    },
+    "S2_dvl_bottom_then_water": {
+      "declared_schedule": [
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 70,
+          "value": 0.55
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 110,
+          "value": 0.22
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 150,
+          "value": 0.04
+        },
+        {
+          "control": "dvl_water_probability",
+          "time_s": 235,
+          "value": 0.4
+        },
+        {
+          "control": "dvl_water_probability",
+          "time_s": 290,
+          "value": 0.06
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 380,
+          "value": 0.85
+        },
+        {
+          "control": "dvl_water_probability",
+          "time_s": 430,
+          "value": 0.88
+        },
+        {
+          "control": "dvl_noise_scale",
+          "time_s": 500,
+          "value": 3.5
+        }
+      ],
+      "events": [
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 71,
+          "sequence": 0,
+          "simulation_time_s": 71.0,
+          "value": 0.55
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 111,
+          "sequence": 1,
+          "simulation_time_s": 111.0,
+          "value": 0.22
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 151,
+          "sequence": 2,
+          "simulation_time_s": 151.0,
+          "value": 0.04
+        },
+        {
+          "control": "dvl_water_probability",
+          "effective_step": 236,
+          "sequence": 3,
+          "simulation_time_s": 236.0,
+          "value": 0.4
+        },
+        {
+          "control": "dvl_water_probability",
+          "effective_step": 291,
+          "sequence": 4,
+          "simulation_time_s": 291.0,
+          "value": 0.06
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 381,
+          "sequence": 5,
+          "simulation_time_s": 381.0,
+          "value": 0.85
+        },
+        {
+          "control": "dvl_water_probability",
+          "effective_step": 431,
+          "sequence": 6,
+          "simulation_time_s": 431.0,
+          "value": 0.88
+        },
+        {
+          "control": "dvl_noise_scale",
+          "effective_step": 501,
+          "sequence": 7,
+          "simulation_time_s": 501.0,
+          "value": 3.5
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": null,
+        "adaptation_episodes": 0,
+        "adaptation_matched": 0,
+        "adaptation_max_latency_s": null,
+        "adaptation_median_latency_s": null,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 2.0,
+        "mode_changes": 16,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 16.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 24.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 121.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 129.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 185.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 201.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 417.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 425.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 473.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 481.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 497.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 505.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 561.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 581.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 589.0
+          }
+        ],
+        "mode_switches": 17,
+        "overall_rmse_m": 0.08169739326700813,
+        "peak_error_m": 0.1044902228663034,
+        "physical_interventions": 13,
+        "reversions_within_window": 6,
+        "rmse_transition_m": 0.08323912410764067,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 0.08371692610547732,
+        "telemetry_rmse_m": 0.007056761243361376,
+        "telemetry_samples": 601,
+        "trace_digest": "8a1259d351a720efab2760663bfbc489164a9b1f0f70aaf11e2ec42aaeb5defb",
+        "unaided_time_s": 232.0
+      },
+      "recording": "S2_dvl_bottom_then_water.json",
+      "recording_sha256": "c70c5a66e04e3a4dba1e45bb5abd4e2ffc766b0475bb7c843cd2624527351343",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.08171941243196097,
+          "peak_error_m": 0.1044902228663034,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.08316869156898374,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.001936057955308,
+          "telemetry_rmse_m": 0.2857033082818716,
+          "telemetry_samples": 601,
+          "trace_digest": "9453c40058075169a9293570c60e526ddcc0805de4534125b246c5f7f636d377",
+          "unaided_time_s": 234.0
+        },
+        "predictive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 16,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 16.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 24.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 121.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 129.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 185.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 201.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 417.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 425.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 473.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 481.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 497.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 505.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 561.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 581.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 589.0
+            }
+          ],
+          "mode_switches": 17,
+          "overall_rmse_m": 0.08169739326700813,
+          "peak_error_m": 0.1044902228663034,
+          "physical_interventions": 13,
+          "reversions_within_window": 6,
+          "rmse_transition_m": 0.08323912410764067,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.08371692610547732,
+          "telemetry_rmse_m": 0.007056761243361376,
+          "telemetry_samples": 601,
+          "trace_digest": "a183277c5012b72aa5b0b1c214845c1debcd49c1fd985ccd052fce9e805afd1c",
+          "unaided_time_s": 232.0
+        },
+        "reactive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 16,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 16.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 24.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 121.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 129.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 185.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 201.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 417.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 425.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 473.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 481.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 497.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 505.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 561.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 581.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 589.0
+            }
+          ],
+          "mode_switches": 17,
+          "overall_rmse_m": 0.08169739326700813,
+          "peak_error_m": 0.1044902228663034,
+          "physical_interventions": 13,
+          "reversions_within_window": 6,
+          "rmse_transition_m": 0.08323912410764067,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.08371692610547732,
+          "telemetry_rmse_m": 0.007056761243361376,
+          "telemetry_samples": 601,
+          "trace_digest": "8a1259d351a720efab2760663bfbc489164a9b1f0f70aaf11e2ec42aaeb5defb",
+          "unaided_time_s": 232.0
+        }
+      },
+      "root": 34100001,
+      "seed": 34000001
+    },
+    "S3_currents_building_and_veering": {
+      "declared_schedule": [
+        {
+          "control": "current_east_mps",
+          "time_s": 55,
+          "value": 0.06
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 100,
+          "value": 0.14
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 145,
+          "value": -0.11
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 200,
+          "value": 0.24
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 260,
+          "value": -0.22
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 330,
+          "value": -0.18
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 400,
+          "value": 0.15
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 480,
+          "value": 0.02
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 480,
+          "value": 0.0
+        }
+      ],
+      "events": [
+        {
+          "control": "current_east_mps",
+          "effective_step": 56,
+          "sequence": 0,
+          "simulation_time_s": 56.0,
+          "value": 0.06
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 101,
+          "sequence": 1,
+          "simulation_time_s": 101.0,
+          "value": 0.14
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 146,
+          "sequence": 2,
+          "simulation_time_s": 146.0,
+          "value": -0.11
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 201,
+          "sequence": 3,
+          "simulation_time_s": 201.0,
+          "value": 0.24
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": null,
+        "adaptation_episodes": 0,
+        "adaptation_matched": 0,
+        "adaptation_max_latency_s": null,
+        "adaptation_median_latency_s": null,
+        "completed": null,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": null,
+        "mode_changes": 3,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 217.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 225.0
+          }
+        ],
+        "mode_switches": null,
+        "overall_rmse_m": null,
+        "peak_error_m": null,
+        "physical_interventions": null,
+        "reversions_within_window": 1,
+        "rmse_transition_m": null,
+        "safety_violation": null,
+        "status": "error",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": null,
+        "telemetry_peak_error_m": 0.1940325833342481,
+        "telemetry_rmse_m": 0.028949570488492858,
+        "telemetry_samples": 244,
+        "trace_digest": null,
+        "unaided_time_s": null
+      },
+      "recording": "S3_currents_building_and_veering.json",
+      "recording_sha256": "23255393c1661843e844ff071cbaf5509ada470e6210bb25db89ebdeaeb17e19",
+      "replay_reproduces_live_reactive": false,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": null,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": null,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": null,
+          "overall_rmse_m": null,
+          "peak_error_m": null,
+          "physical_interventions": null,
+          "reversions_within_window": 0,
+          "rmse_transition_m": null,
+          "safety_violation": null,
+          "status": "error",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": null,
+          "telemetry_peak_error_m": 7.002690835344737,
+          "telemetry_rmse_m": 0.4492356210293279,
+          "telemetry_samples": 244,
+          "trace_digest": null,
+          "unaided_time_s": null
+        },
+        "predictive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": null,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": null,
+          "mode_changes": 3,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 217.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 225.0
+            }
+          ],
+          "mode_switches": null,
+          "overall_rmse_m": null,
+          "peak_error_m": null,
+          "physical_interventions": null,
+          "reversions_within_window": 1,
+          "rmse_transition_m": null,
+          "safety_violation": null,
+          "status": "error",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": null,
+          "telemetry_peak_error_m": 0.1940325833342481,
+          "telemetry_rmse_m": 0.028949570488492858,
+          "telemetry_samples": 244,
+          "trace_digest": null,
+          "unaided_time_s": null
+        },
+        "reactive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": null,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": null,
+          "mode_changes": 3,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 217.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 225.0
+            }
+          ],
+          "mode_switches": null,
+          "overall_rmse_m": null,
+          "peak_error_m": null,
+          "physical_interventions": null,
+          "reversions_within_window": 1,
+          "rmse_transition_m": null,
+          "safety_violation": null,
+          "status": "error",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": null,
+          "telemetry_peak_error_m": 0.1940325833342481,
+          "telemetry_rmse_m": 0.028949570488492858,
+          "telemetry_samples": 244,
+          "trace_digest": null,
+          "unaided_time_s": null
+        }
+      },
+      "root": 34100002,
+      "seed": 34000002
+    },
+    "S3b_currents_reversing_in_map": {
+      "declared_schedule": [
+        {
+          "control": "current_east_mps",
+          "time_s": 40,
+          "value": 0.18
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 85,
+          "value": -0.2
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 130,
+          "value": 0.16
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 175,
+          "value": -0.18
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 220,
+          "value": 0.22
+        },
+        {
+          "control": "dvl_water_probability",
+          "time_s": 240,
+          "value": 0.35
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 265,
+          "value": -0.22
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 310,
+          "value": 0.2
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 355,
+          "value": -0.2
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 400,
+          "value": 0.12
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 400,
+          "value": 0.12
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 450,
+          "value": -0.14
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 450,
+          "value": -0.14
+        },
+        {
+          "control": "current_east_mps",
+          "time_s": 510,
+          "value": 0.0
+        },
+        {
+          "control": "current_north_mps",
+          "time_s": 510,
+          "value": 0.0
+        }
+      ],
+      "events": [
+        {
+          "control": "current_east_mps",
+          "effective_step": 41,
+          "sequence": 0,
+          "simulation_time_s": 41.0,
+          "value": 0.18
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 86,
+          "sequence": 1,
+          "simulation_time_s": 86.0,
+          "value": -0.2
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 131,
+          "sequence": 2,
+          "simulation_time_s": 131.0,
+          "value": 0.16
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 176,
+          "sequence": 3,
+          "simulation_time_s": 176.0,
+          "value": -0.18
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 221,
+          "sequence": 4,
+          "simulation_time_s": 221.0,
+          "value": 0.22
+        },
+        {
+          "control": "dvl_water_probability",
+          "effective_step": 241,
+          "sequence": 5,
+          "simulation_time_s": 241.0,
+          "value": 0.35
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 266,
+          "sequence": 6,
+          "simulation_time_s": 266.0,
+          "value": -0.22
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 311,
+          "sequence": 7,
+          "simulation_time_s": 311.0,
+          "value": 0.2
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 356,
+          "sequence": 8,
+          "simulation_time_s": 356.0,
+          "value": -0.2
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 401,
+          "sequence": 9,
+          "simulation_time_s": 401.0,
+          "value": 0.12
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 401,
+          "sequence": 10,
+          "simulation_time_s": 401.0,
+          "value": 0.12
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 451,
+          "sequence": 11,
+          "simulation_time_s": 451.0,
+          "value": -0.14
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 451,
+          "sequence": 12,
+          "simulation_time_s": 451.0,
+          "value": -0.14
+        },
+        {
+          "control": "current_east_mps",
+          "effective_step": 511,
+          "sequence": 13,
+          "simulation_time_s": 511.0,
+          "value": 0.0
+        },
+        {
+          "control": "current_north_mps",
+          "effective_step": 511,
+          "sequence": 14,
+          "simulation_time_s": 511.0,
+          "value": 0.0
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": null,
+        "adaptation_episodes": 0,
+        "adaptation_matched": 0,
+        "adaptation_max_latency_s": null,
+        "adaptation_median_latency_s": null,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 2.0,
+        "mode_changes": 12,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 25.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 41.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 177.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 185.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 193.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 321.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 329.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 457.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 465.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 585.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 593.0
+          }
+        ],
+        "mode_switches": 13,
+        "overall_rmse_m": 0.25535861130636195,
+        "peak_error_m": 1.3914115328144758,
+        "physical_interventions": 8,
+        "reversions_within_window": 3,
+        "rmse_transition_m": 0.26329419123011916,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 1.2090842881526684,
+        "telemetry_rmse_m": 0.1289226348258164,
+        "telemetry_samples": 601,
+        "trace_digest": "eb30d47cd410e124b5d1dd996f9c8f397e674825088e65431715677b4b2c3a2f",
+        "unaided_time_s": 230.0
+      },
+      "recording": "S3b_currents_reversing_in_map.json",
+      "recording_sha256": "88cd0be1c4e1a521965f7dff4c6a87ae603b005f0fb6c75cd788f84d28a792e3",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.2554561484197174,
+          "peak_error_m": 1.3908808346167834,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.2633945827322498,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.0037735040876985,
+          "telemetry_rmse_m": 0.3134823607958899,
+          "telemetry_samples": 601,
+          "trace_digest": "bb6a2c6b73cc3c94af349b16e5ec7591b038220d3f6bffed6077adbfd60f191a",
+          "unaided_time_s": 231.0
+        },
+        "predictive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 12,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 25.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 41.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 177.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 185.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 193.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 321.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 329.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 457.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 465.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 585.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 593.0
+            }
+          ],
+          "mode_switches": 13,
+          "overall_rmse_m": 0.25535861130636195,
+          "peak_error_m": 1.3914115328144758,
+          "physical_interventions": 8,
+          "reversions_within_window": 3,
+          "rmse_transition_m": 0.26329419123011916,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 1.2090842881526684,
+          "telemetry_rmse_m": 0.1289226348258164,
+          "telemetry_samples": 601,
+          "trace_digest": "5ffa6321688c42754aa8143236cf87ce2a46ed35696ed513e367e5fb6ed170c0",
+          "unaided_time_s": 230.0
+        },
+        "reactive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 12,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 25.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 41.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 177.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 185.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 193.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 321.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 329.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 457.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 465.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 585.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 593.0
+            }
+          ],
+          "mode_switches": 13,
+          "overall_rmse_m": 0.25535861130636195,
+          "peak_error_m": 1.3914115328144758,
+          "physical_interventions": 8,
+          "reversions_within_window": 3,
+          "rmse_transition_m": 0.26329419123011916,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 1.2090842881526684,
+          "telemetry_rmse_m": 0.1289226348258164,
+          "telemetry_samples": 601,
+          "trace_digest": "eb30d47cd410e124b5d1dd996f9c8f397e674825088e65431715677b4b2c3a2f",
+          "unaided_time_s": 230.0
+        }
+      },
+      "root": 34100008,
+      "seed": 34000008
+    },
+    "S4_acoustic_noise_and_lbl_geometry": {
+      "declared_schedule": [
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 65,
+          "value": 56.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 120,
+          "value": 0.62
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 165,
+          "value": 66.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 220,
+          "value": 0.28
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 275,
+          "value": 74.0
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 340,
+          "value": 61.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 395,
+          "value": 0.85
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 455,
+          "value": 49.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 520,
+          "value": 1.0
+        }
+      ],
+      "events": [
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 66,
+          "sequence": 0,
+          "simulation_time_s": 66.0,
+          "value": 56.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 121,
+          "sequence": 1,
+          "simulation_time_s": 121.0,
+          "value": 0.62
+        },
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 166,
+          "sequence": 2,
+          "simulation_time_s": 166.0,
+          "value": 66.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 221,
+          "sequence": 3,
+          "simulation_time_s": 221.0,
+          "value": 0.28
+        },
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 276,
+          "sequence": 4,
+          "simulation_time_s": 276.0,
+          "value": 74.0
+        },
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 341,
+          "sequence": 5,
+          "simulation_time_s": 341.0,
+          "value": 61.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 396,
+          "sequence": 6,
+          "simulation_time_s": 396.0,
+          "value": 0.85
+        },
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 456,
+          "sequence": 7,
+          "simulation_time_s": 456.0,
+          "value": 49.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 521,
+          "sequence": 8,
+          "simulation_time_s": 521.0,
+          "value": 1.0
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": 1.0,
+        "adaptation_episodes": 3,
+        "adaptation_matched": 3,
+        "adaptation_max_latency_s": 31.0,
+        "adaptation_median_latency_s": 15.0,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 2.0,
+        "mode_changes": 39,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 105.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 113.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 169.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 177.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 185.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 197.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 205.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 215.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 223.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 232.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 240.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 248.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 256.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 270.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 285.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 298.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 306.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 318.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 326.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 340.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 348.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 356.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 381.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 393.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 401.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 409.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 417.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 425.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 433.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 441.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 457.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 473.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 481.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 505.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 529.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 577.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 585.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 593.0
+          }
+        ],
+        "mode_switches": 40,
+        "overall_rmse_m": 0.0798647897007785,
+        "peak_error_m": 0.21367196342706568,
+        "physical_interventions": 9,
+        "reversions_within_window": 16,
+        "rmse_transition_m": 0.07936107276813302,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 0.1554744556388008,
+        "telemetry_rmse_m": 0.009068873304492618,
+        "telemetry_samples": 601,
+        "trace_digest": "9a30b3e8af0cfae72fa349c255707e33e2193616c06b445dc9d17a3c596f52ad",
+        "unaided_time_s": 251.0
+      },
+      "recording": "S4_acoustic_noise_and_lbl_geometry.json",
+      "recording_sha256": "d16fcba5af2173ef81879ba42e34a61dd8a5f52b500d27abe906cdce3d88833a",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": 0.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.07976680743405486,
+          "peak_error_m": 0.21367196342706568,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.079252396631666,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.002535614025792,
+          "telemetry_rmse_m": 0.2857826384771177,
+          "telemetry_samples": 601,
+          "trace_digest": "0ebaeaa1fbcda227795a934713d8146aee5549cd3fa50fccdfa93bbb5ec502f5",
+          "unaided_time_s": 266.0
+        },
+        "predictive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 3,
+          "adaptation_max_latency_s": 31.0,
+          "adaptation_median_latency_s": 15.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 39,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 105.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 169.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 177.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 185.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 197.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 205.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 215.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 223.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 232.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 240.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 248.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 256.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 270.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 285.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 298.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 306.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 318.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 326.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 340.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 348.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 356.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 381.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 393.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 401.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 409.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 417.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 425.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 433.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 441.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 457.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 473.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 481.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 505.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 529.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 577.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 585.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 593.0
+            }
+          ],
+          "mode_switches": 40,
+          "overall_rmse_m": 0.0798647897007785,
+          "peak_error_m": 0.21367196342706568,
+          "physical_interventions": 9,
+          "reversions_within_window": 16,
+          "rmse_transition_m": 0.07936107276813302,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.1554744556388008,
+          "telemetry_rmse_m": 0.009068873304492618,
+          "telemetry_samples": 601,
+          "trace_digest": "a5f223933c19ffcd2e756da68c0f3d3c009cfad82c13ba8356697d6c362c76fe",
+          "unaided_time_s": 251.0
+        },
+        "reactive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 3,
+          "adaptation_max_latency_s": 31.0,
+          "adaptation_median_latency_s": 15.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 2.0,
+          "mode_changes": 39,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 105.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 169.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 177.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 185.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 197.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 205.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 215.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 223.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 232.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 240.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 248.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 256.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 270.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 285.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 298.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 306.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 318.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 326.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 340.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 348.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 356.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 381.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 393.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 401.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 409.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 417.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 425.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 433.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 441.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 457.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 473.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 481.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 505.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 529.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 577.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 585.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 593.0
+            }
+          ],
+          "mode_switches": 40,
+          "overall_rmse_m": 0.0798647897007785,
+          "peak_error_m": 0.21367196342706568,
+          "physical_interventions": 9,
+          "reversions_within_window": 16,
+          "rmse_transition_m": 0.07936107276813302,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.1554744556388008,
+          "telemetry_rmse_m": 0.009068873304492618,
+          "telemetry_samples": 601,
+          "trace_digest": "9a30b3e8af0cfae72fa349c255707e33e2193616c06b445dc9d17a3c596f52ad",
+          "unaided_time_s": 251.0
+        }
+      },
+      "root": 34100003,
+      "seed": 34000003
+    },
+    "S5_lbl_loss_then_usbl_departure": {
+      "declared_schedule": [
+        {
+          "control": "lbl_available",
+          "time_s": 80,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "time_s": 140,
+          "value": 0.2
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 190,
+          "value": false
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 300,
+          "value": true
+        },
+        {
+          "control": "lbl_available",
+          "time_s": 420,
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "control": "lbl_available",
+          "effective_step": 81,
+          "sequence": 0,
+          "simulation_time_s": 81.0,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 141,
+          "sequence": 1,
+          "simulation_time_s": 141.0,
+          "value": 0.2
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 191,
+          "sequence": 2,
+          "simulation_time_s": 191.0,
+          "value": false
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 301,
+          "sequence": 3,
+          "simulation_time_s": 301.0,
+          "value": true
+        },
+        {
+          "control": "lbl_available",
+          "effective_step": 421,
+          "sequence": 4,
+          "simulation_time_s": 421.0,
+          "value": true
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": 1.0,
+        "adaptation_episodes": 4,
+        "adaptation_matched": 4,
+        "adaptation_max_latency_s": 22.0,
+        "adaptation_median_latency_s": 7.0,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 5.0,
+        "mode_changes": 21,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 25.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 33.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 89.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 165.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 173.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 181.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 197.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 205.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 219.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 227.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 241.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 249.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 259.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 267.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 280.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 288.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 301.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 309.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 323.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 425.0
+          }
+        ],
+        "mode_switches": 22,
+        "overall_rmse_m": 0.08097245336384874,
+        "peak_error_m": 0.2791474006389266,
+        "physical_interventions": 4,
+        "reversions_within_window": 11,
+        "rmse_transition_m": 0.07590379139867395,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 0.3578571040963263,
+        "telemetry_rmse_m": 0.028703584884421485,
+        "telemetry_samples": 601,
+        "trace_digest": "a7515415e23a6f05823ff767d4bdac5981f41a1d78913f4ec7638b40c0dff924",
+        "unaided_time_s": 250.0
+      },
+      "recording": "S5_lbl_loss_then_usbl_departure.json",
+      "recording_sha256": "bcce0631136f7424ff0409b9bddb7452dc975de156efb32356ac38fb5d80aa50",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": 0.0,
+          "adaptation_episodes": 4,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 6.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.0785644119596081,
+          "peak_error_m": 0.11991051204112067,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.07649700119157543,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 6.999946926192874,
+          "telemetry_rmse_m": 0.28590068924048784,
+          "telemetry_samples": 601,
+          "trace_digest": "42aed494d88ef851300b484f3aa358632b0f1a72ed107e8bd7466d62fd0374e3",
+          "unaided_time_s": 276.0
+        },
+        "predictive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 4,
+          "adaptation_matched": 4,
+          "adaptation_max_latency_s": 22.0,
+          "adaptation_median_latency_s": 7.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 5.0,
+          "mode_changes": 21,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 25.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 33.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 89.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 165.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 173.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 181.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 197.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 205.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 219.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 227.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 241.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 249.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 259.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 267.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 280.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 288.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 301.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 309.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 323.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 425.0
+            }
+          ],
+          "mode_switches": 22,
+          "overall_rmse_m": 0.08097245336384874,
+          "peak_error_m": 0.2791474006389266,
+          "physical_interventions": 4,
+          "reversions_within_window": 11,
+          "rmse_transition_m": 0.07590379139867395,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.3578571040963263,
+          "telemetry_rmse_m": 0.028703584884421485,
+          "telemetry_samples": 601,
+          "trace_digest": "763e48b12307fc6e3ff07c1f3378102292b6b4aae24328d8496e719885fb2bbf",
+          "unaided_time_s": 250.0
+        },
+        "reactive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 4,
+          "adaptation_matched": 4,
+          "adaptation_max_latency_s": 22.0,
+          "adaptation_median_latency_s": 7.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 5.0,
+          "mode_changes": 21,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 25.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 33.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 89.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 165.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 173.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 181.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 197.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 205.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 219.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 227.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 241.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 249.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 259.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 267.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 280.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 288.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 301.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 309.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 323.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 425.0
+            }
+          ],
+          "mode_switches": 22,
+          "overall_rmse_m": 0.08097245336384874,
+          "peak_error_m": 0.2791474006389266,
+          "physical_interventions": 4,
+          "reversions_within_window": 11,
+          "rmse_transition_m": 0.07590379139867395,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 0.3578571040963263,
+          "telemetry_rmse_m": 0.028703584884421485,
+          "telemetry_samples": 601,
+          "trace_digest": "a7515415e23a6f05823ff767d4bdac5981f41a1d78913f4ec7638b40c0dff924",
+          "unaided_time_s": 250.0
+        }
+      },
+      "root": 34100004,
+      "seed": 34000004
+    },
+    "S6_usbl_departure_under_turbidity": {
+      "declared_schedule": [
+        {
+          "control": "turbidity",
+          "time_s": 50,
+          "value": 0.3
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 90,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "time_s": 140,
+          "value": 0.58
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 210,
+          "value": 0.35
+        },
+        {
+          "control": "turbidity",
+          "time_s": 270,
+          "value": 0.86
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 340,
+          "value": 0.3
+        },
+        {
+          "control": "turbidity",
+          "time_s": 430,
+          "value": 0.25
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 500,
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "control": "turbidity",
+          "effective_step": 51,
+          "sequence": 0,
+          "simulation_time_s": 51.0,
+          "value": 0.3
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 91,
+          "sequence": 1,
+          "simulation_time_s": 91.0,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 141,
+          "sequence": 2,
+          "simulation_time_s": 141.0,
+          "value": 0.58
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 211,
+          "sequence": 3,
+          "simulation_time_s": 211.0,
+          "value": 0.35
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 271,
+          "sequence": 4,
+          "simulation_time_s": 271.0,
+          "value": 0.86
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 341,
+          "sequence": 5,
+          "simulation_time_s": 341.0,
+          "value": 0.3
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 431,
+          "sequence": 6,
+          "simulation_time_s": 431.0,
+          "value": 0.25
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 501,
+          "sequence": 7,
+          "simulation_time_s": 501.0,
+          "value": true
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": 0.6666666666666666,
+        "adaptation_episodes": 3,
+        "adaptation_matched": 2,
+        "adaptation_max_latency_s": 26.0,
+        "adaptation_median_latency_s": 16.0,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "relative_dead_reckoning",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 322.0,
+        "mode_changes": 7,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 105.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 113.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 129.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 137.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 217.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 527.0
+          }
+        ],
+        "mode_switches": 8,
+        "overall_rmse_m": 3.2574986205175787,
+        "peak_error_m": 7.980305967415605,
+        "physical_interventions": 9,
+        "reversions_within_window": 2,
+        "rmse_transition_m": 3.722732995879202,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 7.943613563602411,
+        "telemetry_rmse_m": 3.2433581297509204,
+        "telemetry_samples": 601,
+        "trace_digest": "1ed9b0bf67be7c8980b4216b4e585fcac6030327b81f6f850b26a87b47f3bf03",
+        "unaided_time_s": 499.0
+      },
+      "recording": "S6_usbl_departure_under_turbidity.json",
+      "recording_sha256": "5f496a5da6db2959905732ebb2eb9b79294e9ccc69a600fbdf96cd169d4af6ba",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": 0.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 390.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 4.994133606797963,
+          "peak_error_m": 12.50705318448961,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 5.708002552881801,
+          "safety_violation": true,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 12.47915561015357,
+          "telemetry_rmse_m": 4.984134052929182,
+          "telemetry_samples": 601,
+          "trace_digest": "14c1fb2482fb1d531cc06159416c3b1d30b06ffa6b44c2cbef2d7dabeb4bc29a",
+          "unaided_time_s": 532.0
+        },
+        "predictive": {
+          "adaptation_coverage": 0.6666666666666666,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 2,
+          "adaptation_max_latency_s": 26.0,
+          "adaptation_median_latency_s": 16.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "relative_dead_reckoning",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 322.0,
+          "mode_changes": 7,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 105.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 129.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 137.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 217.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 527.0
+            }
+          ],
+          "mode_switches": 8,
+          "overall_rmse_m": 3.2574986205175787,
+          "peak_error_m": 7.980305967415605,
+          "physical_interventions": 9,
+          "reversions_within_window": 2,
+          "rmse_transition_m": 3.722732995879202,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.943613563602411,
+          "telemetry_rmse_m": 3.2433581297509204,
+          "telemetry_samples": 601,
+          "trace_digest": "9eb545c3f3f5da56f23b4eed5ca89a7c1a34a3363a27ecd5c2f5762c09187472",
+          "unaided_time_s": 499.0
+        },
+        "reactive": {
+          "adaptation_coverage": 0.6666666666666666,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 2,
+          "adaptation_max_latency_s": 26.0,
+          "adaptation_median_latency_s": 16.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "relative_dead_reckoning",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 322.0,
+          "mode_changes": 7,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 105.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 129.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 137.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 217.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 527.0
+            }
+          ],
+          "mode_switches": 8,
+          "overall_rmse_m": 3.2574986205175787,
+          "peak_error_m": 7.980305967415605,
+          "physical_interventions": 9,
+          "reversions_within_window": 2,
+          "rmse_transition_m": 3.722732995879202,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.943613563602411,
+          "telemetry_rmse_m": 3.2433581297509204,
+          "telemetry_samples": 601,
+          "trace_digest": "1ed9b0bf67be7c8980b4216b4e585fcac6030327b81f6f850b26a87b47f3bf03",
+          "unaided_time_s": 499.0
+        }
+      },
+      "root": 34100005,
+      "seed": 34000005
+    },
+    "S7_compound_optical_dvl_then_acoustic": {
+      "declared_schedule": [
+        {
+          "control": "turbidity",
+          "time_s": 75,
+          "value": 0.7
+        },
+        {
+          "control": "dvl_crashout",
+          "time_s": 120,
+          "value": true
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 190,
+          "value": 70.0
+        },
+        {
+          "control": "lbl_available",
+          "time_s": 250,
+          "value": false
+        },
+        {
+          "control": "acoustic_failure",
+          "time_s": 330,
+          "value": true
+        },
+        {
+          "control": "acoustic_failure",
+          "time_s": 420,
+          "value": false
+        },
+        {
+          "control": "lbl_available",
+          "time_s": 420,
+          "value": true
+        },
+        {
+          "control": "dvl_crashout",
+          "time_s": 480,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "time_s": 480,
+          "value": 0.15
+        }
+      ],
+      "events": [
+        {
+          "control": "turbidity",
+          "effective_step": 76,
+          "sequence": 0,
+          "simulation_time_s": 76.0,
+          "value": 0.7
+        },
+        {
+          "control": "dvl_crashout",
+          "effective_step": 121,
+          "sequence": 1,
+          "simulation_time_s": 121.0,
+          "value": true
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": null,
+        "adaptation_episodes": 0,
+        "adaptation_matched": 0,
+        "adaptation_max_latency_s": null,
+        "adaptation_median_latency_s": null,
+        "completed": false,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "relative_dead_reckoning",
+          "terminal_degraded",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 14.0,
+        "mode_changes": 8,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 57.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 65.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 73.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 129.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 137.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 145.0
+          },
+          {
+            "mode": "terminal_degraded",
+            "time_s": 152.0
+          }
+        ],
+        "mode_switches": 9,
+        "overall_rmse_m": 0.12942021040945403,
+        "peak_error_m": 0.38201455069942447,
+        "physical_interventions": 4,
+        "reversions_within_window": 0,
+        "rmse_transition_m": 0.15933026463490557,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": 152.0,
+        "survey_coverage_fraction": 0.43327454438565544,
+        "telemetry_peak_error_m": 0.37226599040359776,
+        "telemetry_rmse_m": 0.10273074405642814,
+        "telemetry_samples": 162,
+        "trace_digest": "23b2ab268f321c89edea38c58e2ba4d93e465c4635cff9a422ebd72b310f2a2e",
+        "unaided_time_s": 95.0
+      },
+      "recording": "S7_compound_optical_dvl_then_acoustic.json",
+      "recording_sha256": "37869a45c2d736cd302da2e672a6d6d3bca30eedd94de4ac8850465973ee0d7e",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": false,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 14.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.12246109233811694,
+          "peak_error_m": 0.35856023907843076,
+          "physical_interventions": 1,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.1486075774338563,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": 152.0,
+          "survey_coverage_fraction": 0.4426807760141093,
+          "telemetry_peak_error_m": 7.003462646031302,
+          "telemetry_rmse_m": 0.5571069423443449,
+          "telemetry_samples": 162,
+          "trace_digest": "632054387c3f0f713547bc39230583591e4a810be7eb12a629623936c575dfef",
+          "unaided_time_s": 95.0
+        },
+        "predictive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": false,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "relative_dead_reckoning",
+            "terminal_degraded",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 14.0,
+          "mode_changes": 8,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 57.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 65.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 73.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 129.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 137.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 145.0
+            },
+            {
+              "mode": "terminal_degraded",
+              "time_s": 152.0
+            }
+          ],
+          "mode_switches": 9,
+          "overall_rmse_m": 0.12942021040945403,
+          "peak_error_m": 0.38201455069942447,
+          "physical_interventions": 4,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.15933026463490557,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": 152.0,
+          "survey_coverage_fraction": 0.43327454438565544,
+          "telemetry_peak_error_m": 0.37226599040359776,
+          "telemetry_rmse_m": 0.10273074405642814,
+          "telemetry_samples": 162,
+          "trace_digest": "2e2e361ecbc084b277f4ccacd02a3038c3c3e0ad088c68ab9f0fc655bf918877",
+          "unaided_time_s": 95.0
+        },
+        "reactive": {
+          "adaptation_coverage": null,
+          "adaptation_episodes": 0,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": false,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "relative_dead_reckoning",
+            "terminal_degraded",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 14.0,
+          "mode_changes": 8,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 57.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 65.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 73.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 129.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 137.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 145.0
+            },
+            {
+              "mode": "terminal_degraded",
+              "time_s": 152.0
+            }
+          ],
+          "mode_switches": 9,
+          "overall_rmse_m": 0.12942021040945403,
+          "peak_error_m": 0.38201455069942447,
+          "physical_interventions": 4,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.15933026463490557,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": 152.0,
+          "survey_coverage_fraction": 0.43327454438565544,
+          "telemetry_peak_error_m": 0.37226599040359776,
+          "telemetry_rmse_m": 0.10273074405642814,
+          "telemetry_samples": 162,
+          "trace_digest": "23b2ab268f321c89edea38c58e2ba4d93e465c4635cff9a422ebd72b310f2a2e",
+          "unaided_time_s": 95.0
+        }
+      },
+      "root": 34100006,
+      "seed": 34000006
+    },
+    "S8_total_loss_to_surfacing": {
+      "declared_schedule": [
+        {
+          "control": "turbidity",
+          "time_s": 90,
+          "value": 0.55
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 140,
+          "value": 0.05
+        },
+        {
+          "control": "lbl_available",
+          "time_s": 185,
+          "value": false
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 230,
+          "value": false
+        },
+        {
+          "control": "optical_failure",
+          "time_s": 275,
+          "value": true
+        },
+        {
+          "control": "dvl_water_probability",
+          "time_s": 310,
+          "value": 0.03
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 460,
+          "value": 0.95
+        },
+        {
+          "control": "dvl_water_probability",
+          "time_s": 460,
+          "value": 0.9
+        },
+        {
+          "control": "lbl_available",
+          "time_s": 460,
+          "value": true
+        },
+        {
+          "control": "optical_failure",
+          "time_s": 460,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "time_s": 460,
+          "value": 0.1
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 460,
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "control": "turbidity",
+          "effective_step": 91,
+          "sequence": 0,
+          "simulation_time_s": 91.0,
+          "value": 0.55
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 141,
+          "sequence": 1,
+          "simulation_time_s": 141.0,
+          "value": 0.05
+        },
+        {
+          "control": "lbl_available",
+          "effective_step": 186,
+          "sequence": 2,
+          "simulation_time_s": 186.0,
+          "value": false
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 231,
+          "sequence": 3,
+          "simulation_time_s": 231.0,
+          "value": false
+        },
+        {
+          "control": "optical_failure",
+          "effective_step": 276,
+          "sequence": 4,
+          "simulation_time_s": 276.0,
+          "value": true
+        },
+        {
+          "control": "dvl_water_probability",
+          "effective_step": 311,
+          "sequence": 5,
+          "simulation_time_s": 311.0,
+          "value": 0.03
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": 1.0,
+        "adaptation_episodes": 3,
+        "adaptation_matched": 3,
+        "adaptation_max_latency_s": 8.0,
+        "adaptation_median_latency_s": 7.0,
+        "completed": false,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "relative_dead_reckoning",
+          "terminal_degraded",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 98.0,
+        "mode_changes": 6,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 113.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 121.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 193.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 237.0
+          },
+          {
+            "mode": "terminal_degraded",
+            "time_s": 319.0
+          }
+        ],
+        "mode_switches": 7,
+        "overall_rmse_m": 0.49050468677024495,
+        "peak_error_m": 2.5427076617259976,
+        "physical_interventions": 7,
+        "reversions_within_window": 1,
+        "rmse_transition_m": 0.574637649925455,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": 319.0,
+        "survey_coverage_fraction": 0.903586125808348,
+        "telemetry_peak_error_m": 2.540021704571647,
+        "telemetry_rmse_m": 0.4797747496702665,
+        "telemetry_samples": 329,
+        "trace_digest": "4b6b06f94d5323953250d78843ea0fbefee756a585ea88adbb94e9fc7e7ef324",
+        "unaided_time_s": 239.0
+      },
+      "recording": "S8_total_loss_to_surfacing.json",
+      "recording_sha256": "13482a6fa822cf85049f99814062c62af8d358cccdc086825b51ca3959716f9e",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": 0.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": false,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 142.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.800384538049298,
+          "peak_error_m": 1.896688569979571,
+          "physical_interventions": 1,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.9397755198705238,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": 319.0,
+          "survey_coverage_fraction": 0.9335684891240448,
+          "telemetry_peak_error_m": 7.003214327025379,
+          "telemetry_rmse_m": 0.8633761535600086,
+          "telemetry_samples": 329,
+          "trace_digest": "feda14476164346d2cdd4786d8cccd21b0e9fc2f5d67886abc06b35b4f5134c8",
+          "unaided_time_s": 249.0
+        },
+        "predictive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 3,
+          "adaptation_max_latency_s": 8.0,
+          "adaptation_median_latency_s": 7.0,
+          "completed": false,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "relative_dead_reckoning",
+            "terminal_degraded",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 98.0,
+          "mode_changes": 6,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 121.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 193.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 237.0
+            },
+            {
+              "mode": "terminal_degraded",
+              "time_s": 319.0
+            }
+          ],
+          "mode_switches": 7,
+          "overall_rmse_m": 0.49050468677024495,
+          "peak_error_m": 2.5427076617259976,
+          "physical_interventions": 7,
+          "reversions_within_window": 1,
+          "rmse_transition_m": 0.574637649925455,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": 319.0,
+          "survey_coverage_fraction": 0.903586125808348,
+          "telemetry_peak_error_m": 2.540021704571647,
+          "telemetry_rmse_m": 0.4797747496702665,
+          "telemetry_samples": 329,
+          "trace_digest": "6aef1fab630fc495146958ab98185aac06c29c7a664aaac88c2fd58e3003dd8a",
+          "unaided_time_s": 239.0
+        },
+        "reactive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 3,
+          "adaptation_matched": 3,
+          "adaptation_max_latency_s": 8.0,
+          "adaptation_median_latency_s": 7.0,
+          "completed": false,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "relative_dead_reckoning",
+            "terminal_degraded",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 98.0,
+          "mode_changes": 6,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 113.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 121.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 193.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 237.0
+            },
+            {
+              "mode": "terminal_degraded",
+              "time_s": 319.0
+            }
+          ],
+          "mode_switches": 7,
+          "overall_rmse_m": 0.49050468677024495,
+          "peak_error_m": 2.5427076617259976,
+          "physical_interventions": 7,
+          "reversions_within_window": 1,
+          "rmse_transition_m": 0.574637649925455,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": 319.0,
+          "survey_coverage_fraction": 0.903586125808348,
+          "telemetry_peak_error_m": 2.540021704571647,
+          "telemetry_rmse_m": 0.4797747496702665,
+          "telemetry_samples": 329,
+          "trace_digest": "4b6b06f94d5323953250d78843ea0fbefee756a585ea88adbb94e9fc7e7ef324",
+          "unaided_time_s": 239.0
+        }
+      },
+      "root": 34100007,
+      "seed": 34000007
+    },
+    "S9_compound_recover_before_terminal": {
+      "declared_schedule": [
+        {
+          "control": "turbidity",
+          "time_s": 70,
+          "value": 0.62
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 110,
+          "value": 0.2
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 150,
+          "value": 0.3
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 190,
+          "value": 68.0
+        },
+        {
+          "control": "turbidity",
+          "time_s": 230,
+          "value": 0.28
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "time_s": 270,
+          "value": 0.9
+        },
+        {
+          "control": "acoustic_noise_db",
+          "time_s": 320,
+          "value": 52.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "time_s": 360,
+          "value": 0.95
+        },
+        {
+          "control": "turbidity",
+          "time_s": 420,
+          "value": 0.75
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 470,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "time_s": 520,
+          "value": 0.15
+        },
+        {
+          "control": "usbl_available",
+          "time_s": 520,
+          "value": true
+        }
+      ],
+      "events": [
+        {
+          "control": "turbidity",
+          "effective_step": 71,
+          "sequence": 0,
+          "simulation_time_s": 71.0,
+          "value": 0.62
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 111,
+          "sequence": 1,
+          "simulation_time_s": 111.0,
+          "value": 0.2
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 151,
+          "sequence": 2,
+          "simulation_time_s": 151.0,
+          "value": 0.3
+        },
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 191,
+          "sequence": 3,
+          "simulation_time_s": 191.0,
+          "value": 68.0
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 231,
+          "sequence": 4,
+          "simulation_time_s": 231.0,
+          "value": 0.28
+        },
+        {
+          "control": "dvl_bottom_probability",
+          "effective_step": 271,
+          "sequence": 5,
+          "simulation_time_s": 271.0,
+          "value": 0.9
+        },
+        {
+          "control": "acoustic_noise_db",
+          "effective_step": 321,
+          "sequence": 6,
+          "simulation_time_s": 321.0,
+          "value": 52.0
+        },
+        {
+          "control": "lbl_geometry_scale",
+          "effective_step": 361,
+          "sequence": 7,
+          "simulation_time_s": 361.0,
+          "value": 0.95
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 421,
+          "sequence": 8,
+          "simulation_time_s": 421.0,
+          "value": 0.75
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 471,
+          "sequence": 9,
+          "simulation_time_s": 471.0,
+          "value": false
+        },
+        {
+          "control": "turbidity",
+          "effective_step": 521,
+          "sequence": 10,
+          "simulation_time_s": 521.0,
+          "value": 0.15
+        },
+        {
+          "control": "usbl_available",
+          "effective_step": 521,
+          "sequence": 11,
+          "simulation_time_s": 521.0,
+          "value": true
+        }
+      ],
+      "live_reactive": {
+        "adaptation_coverage": 1.0,
+        "adaptation_episodes": 6,
+        "adaptation_matched": 6,
+        "adaptation_max_latency_s": 32.0,
+        "adaptation_median_latency_s": 8.0,
+        "completed": true,
+        "distinct_modes": [
+          "lbl_aided",
+          "optical_dvl",
+          "optical_no_bottom_lock",
+          "relative_dead_reckoning",
+          "usbl_aided"
+        ],
+        "longest_unaided_gap_s": 35.0,
+        "mode_changes": 27,
+        "mode_sequence": [
+          {
+            "mode": "lbl_aided",
+            "time_s": 8.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 81.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 89.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 161.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 197.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 221.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 245.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 263.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 272.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 280.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 288.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 296.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 325.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 377.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 425.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 433.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 441.0
+          },
+          {
+            "mode": "relative_dead_reckoning",
+            "time_s": 449.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 457.0
+          },
+          {
+            "mode": "lbl_aided",
+            "time_s": 465.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 537.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 545.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 553.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 565.0
+          },
+          {
+            "mode": "optical_dvl",
+            "time_s": 574.0
+          },
+          {
+            "mode": "optical_no_bottom_lock",
+            "time_s": 582.0
+          },
+          {
+            "mode": "usbl_aided",
+            "time_s": 590.0
+          }
+        ],
+        "mode_switches": 28,
+        "overall_rmse_m": 0.4184772906833632,
+        "peak_error_m": 1.872408349685158,
+        "physical_interventions": 11,
+        "reversions_within_window": 8,
+        "rmse_transition_m": 0.48820142854068527,
+        "safety_violation": false,
+        "status": "complete",
+        "surfacing_time_s": null,
+        "survey_coverage_fraction": 1.0,
+        "telemetry_peak_error_m": 1.9485201857097858,
+        "telemetry_rmse_m": 0.42474581380884147,
+        "telemetry_samples": 601,
+        "trace_digest": "6a2c70b40d6a2f36063c6d83dcf4c838ff346b1e976a5832a31415917b6d058a",
+        "unaided_time_s": 420.0
+      },
+      "recording": "S9_compound_recover_before_terminal.json",
+      "recording_sha256": "ffb2ac2a8cfd6290de471cc6aef7e70c16087366f2e3b0703978ff1dc05e498a",
+      "replay_reproduces_live_reactive": true,
+      "replays": {
+        "deployment_fixed": {
+          "adaptation_coverage": 0.0,
+          "adaptation_episodes": 6,
+          "adaptation_matched": 0,
+          "adaptation_max_latency_s": null,
+          "adaptation_median_latency_s": null,
+          "completed": true,
+          "distinct_modes": [
+            "fixed_multimodal"
+          ],
+          "longest_unaided_gap_s": 83.0,
+          "mode_changes": 0,
+          "mode_sequence": [],
+          "mode_switches": 0,
+          "overall_rmse_m": 0.3447998338626073,
+          "peak_error_m": 1.4230927864326826,
+          "physical_interventions": 0,
+          "reversions_within_window": 0,
+          "rmse_transition_m": 0.3741428558376273,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 7.000187707554109,
+          "telemetry_rmse_m": 0.44550898174717096,
+          "telemetry_samples": 601,
+          "trace_digest": "4f6b7dd2dd33498a434015a093b6361a06f35bd8419baccc0688e338f16db8f1",
+          "unaided_time_s": 453.0
+        },
+        "predictive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 6,
+          "adaptation_matched": 6,
+          "adaptation_max_latency_s": 32.0,
+          "adaptation_median_latency_s": 8.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "relative_dead_reckoning",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 35.0,
+          "mode_changes": 27,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 81.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 89.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 161.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 197.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 221.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 245.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 263.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 272.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 280.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 288.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 296.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 325.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 377.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 425.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 433.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 441.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 449.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 457.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 465.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 537.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 545.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 553.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 565.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 574.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 582.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 590.0
+            }
+          ],
+          "mode_switches": 28,
+          "overall_rmse_m": 0.4184772906833632,
+          "peak_error_m": 1.872408349685158,
+          "physical_interventions": 11,
+          "reversions_within_window": 8,
+          "rmse_transition_m": 0.48820142854068527,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 1.9485201857097858,
+          "telemetry_rmse_m": 0.42474581380884147,
+          "telemetry_samples": 601,
+          "trace_digest": "392ce9a2b8c4a876d590f6c1cc489fecc8f8c9ae8cfe0a8a9a7f59782811d5d9",
+          "unaided_time_s": 420.0
+        },
+        "reactive": {
+          "adaptation_coverage": 1.0,
+          "adaptation_episodes": 6,
+          "adaptation_matched": 6,
+          "adaptation_max_latency_s": 32.0,
+          "adaptation_median_latency_s": 8.0,
+          "completed": true,
+          "distinct_modes": [
+            "lbl_aided",
+            "optical_dvl",
+            "optical_no_bottom_lock",
+            "relative_dead_reckoning",
+            "usbl_aided"
+          ],
+          "longest_unaided_gap_s": 35.0,
+          "mode_changes": 27,
+          "mode_sequence": [
+            {
+              "mode": "lbl_aided",
+              "time_s": 8.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 81.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 89.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 161.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 197.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 221.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 245.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 263.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 272.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 280.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 288.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 296.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 325.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 377.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 425.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 433.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 441.0
+            },
+            {
+              "mode": "relative_dead_reckoning",
+              "time_s": 449.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 457.0
+            },
+            {
+              "mode": "lbl_aided",
+              "time_s": 465.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 537.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 545.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 553.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 565.0
+            },
+            {
+              "mode": "optical_dvl",
+              "time_s": 574.0
+            },
+            {
+              "mode": "optical_no_bottom_lock",
+              "time_s": 582.0
+            },
+            {
+              "mode": "usbl_aided",
+              "time_s": 590.0
+            }
+          ],
+          "mode_switches": 28,
+          "overall_rmse_m": 0.4184772906833632,
+          "peak_error_m": 1.872408349685158,
+          "physical_interventions": 11,
+          "reversions_within_window": 8,
+          "rmse_transition_m": 0.48820142854068527,
+          "safety_violation": false,
+          "status": "complete",
+          "surfacing_time_s": null,
+          "survey_coverage_fraction": 1.0,
+          "telemetry_peak_error_m": 1.9485201857097858,
+          "telemetry_rmse_m": 0.42474581380884147,
+          "telemetry_samples": 601,
+          "trace_digest": "6a2c70b40d6a2f36063c6d83dcf4c838ff346b1e976a5832a31415917b6d058a",
+          "unaided_time_s": 420.0
+        }
+      },
+      "root": 34100009,
+      "seed": 34000009
+    }
+  }
+}

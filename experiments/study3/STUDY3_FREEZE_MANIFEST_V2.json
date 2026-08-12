@@ -1,0 +1,140 @@
+{
+ "amendments_carried": {
+  "amendment_v1": "map-boundary robustness, behaviour-preserving in map",
+  "amendment_v2": "controller corrections, NOT behaviour-preserving"
+ },
+ "created_utc": "2026-08-11",
+ "decision_rules_frozen": true,
+ "environment": {
+  "interpreter": "/usr/bin/python3",
+  "numpy": "1.26.4",
+  "opencv": "4.6.0",
+  "opencv_akaze_present": true,
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "expected_result_schema": "study3_heldout_v2_packet_v1",
+ "file_count": 49,
+ "files": {
+  "action_space": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/selection/action_space.py": "cc3a6a3a3c1d984beb7dd35f5ea291c3fe08d9de60a5e89a45535499995ac88d"
+  },
+  "environment_lock": {
+   "pyproject.toml": "e46ffa0e55b86f5716c5ad610930f61370b4a44fead52e513ee2346f5e5b6f30"
+  },
+  "estimator_acoustic_timing": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/acoustics_v2.py": "8764787ff53edbf91676a9d132684e46b22abe65837dbcde74e07963626b50e7",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/delayed_estimator.py": "6c8c33aef7fd4d5e054bd64b3d5947e53435ecbf11844d3585e78915458ecd03",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/estimator.py": "a982e5067f4af4d06d6781ea80c64db93f3f8653a5feadd781f3a1bd02733fac"
+  },
+  "fixed_winner": {
+   "experiments/study3/redesign_results/infrastructure_fixed_baseline_lock.json": "356fb06d6174d968763386a0e7e9f8d28eebbc7323f80694c1805e3d9ab6eaaa"
+  },
+  "heldout_v2_protocol_and_analysis": {
+   "experiments/study3/STUDY3_CORRECTION_SPECIFICATION_V1.md": "b6662bd6089ec693fc4bff3c402f075920e0db55241ebf0b56ff147c8d7cdc3f",
+   "experiments/study3/STUDY3_FREEZE_AMENDMENT_V1.md": "14b4953e7533f649d954a297b3192531a780ed89f38497f3a19cf1b7b8e36546",
+   "experiments/study3/STUDY3_HELDOUT_V2_DESIGN.json": "423b4761a9dc464ab29631ec771a716bcdd3c525aa80f7523ab19a95ab922083",
+   "experiments/study3/analyse_heldout_v2.py": "9081025045c88f6a6c913ec2fbc4e634f242bcc4ac3e01f7b77438e6b5069b5d",
+   "experiments/study3/run_heldout_v2.py": "403e8da46a9d1d945d7865cecae3cdbc6fa817c4d2a59fec6d593db316c040ac",
+   "experiments/study3/verify_lock_v2.py": "51e32c3e4608b49561ab7fe3031a0ce8db08423df9f6234fe32a4101994e430f"
+  },
+  "inference_prediction_recovery_parameters": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/capability/inference.py": "7a74302df50a07c097f9ee7bbc562920753e0627200940870cf3b5025a521e04",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/recovery.py": "d40c0298c64a870a6b3f3115bd61e3bc3cdece9d1b41f8b570775456bd8b23bc",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/policies.py": "3291e9d5d18f3eb2833fce6344ef108be733c9576dfcf92adfd9bd8d164df066"
+  },
+  "outcome_and_statistics_code": {
+   "experiments/study3/analyse_final_validation_v5.py": "c85cc8e13d1a6bc1776b181e922a63204ebf3e8a3d0f4f1a2d910f33f8135027",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/simulation.py": "8458211022c57b9173b89b6c16900944cab140639c4d434d6b7390ebdb0df766",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/telemetry.py": "a05e737febcf0e040374e501b15c448855df8e5b0ddb3ba26510f5a2b96a473f"
+  },
+  "p5_v4_equivalence_test": {
+   "src/uuv_mode_aware_navigation/test/platform_v2/test_p5_v4_packaged_equivalence.py": "7fc2a11d89e5812e5cd5a174cdaf6b15a25fd6d29f68681b9949e14d9472adc7"
+  },
+  "p5_v4_packaged_implementation": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/localization/optical_v4.py": "5baf48d1327cab07bcec9b995cf6b3e9911dea39ee672b171452b6a4844e1cb0"
+  },
+  "platform_v2_package_source": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/acoustics_v2.py": "8764787ff53edbf91676a9d132684e46b22abe65837dbcde74e07963626b50e7",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/capability/inference.py": "7a74302df50a07c097f9ee7bbc562920753e0627200940870cf3b5025a521e04",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/capability/prediction.py": "0bd464018e6d8516ee6e1f252f45cf8cdec69827cc024b8b4fd960567f5a5323",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/delayed_estimator.py": "6c8c33aef7fd4d5e054bd64b3d5947e53435ecbf11844d3585e78915458ecd03",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/dynamics/models.py": "43751ea0cd7094c5ebc9a6fb398b096dd7b7459f60c2870112516a1b9831b42e",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/energy.py": "e8366df6be8d3917c7b351ac71af8f52c8363ffe1af9ef0f32172a043070c55c",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/maps/bathymetry.py": "872916ccdca9926f5b9900b163831a8cb92c3c7c0da0820d2d818c4eb3a7b90f",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/platform_v2.py": "a3cc0eca3b81e4bc0af9c862e769cdb6aca9d341929efbd4d954de6349df9db0",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/provenance.py": "feda2d447cd6d62cba1ac653654c865a2cf209712189d915c5789c7bab5a54a6",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/recovery.py": "d40c0298c64a870a6b3f3115bd61e3bc3cdece9d1b41f8b570775456bd8b23bc",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/rendering/base.py": "678ea03f1a8cb4ab316412241ff6a191f5b1fd6d2e2b05850b23836ddf9ba019",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/rendering/georeferenced.py": "3e6df3b439cee2fa4a8a0b42e661c3c0fbb06f4557298bf5f9f69b57afa50dac",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/selection/action_space.py": "cc3a6a3a3c1d984beb7dd35f5ea291c3fe08d9de60a5e89a45535499995ac88d",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/sensor_models/altimeter.py": "9a15f748eb67fa0b7a5b2dac79737716d283d8fa389a9a25d8df1d1f5156ec51",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/sensor_models/coupling.py": "e6165cbc587018782c4f706a278d047858276a24a2cb63555f0abbdff7a781aa"
+  },
+  "policy_definitions": {
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/modes.py": "0f844bcf5c8862560e4023c08ff285c4823cae17e6fc983d68cb808b5fc2b501",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/policies.py": "3291e9d5d18f3eb2833fce6344ef108be733c9576dfcf92adfd9bd8d164df066"
+  },
+  "protocol_and_decision": {
+   "experiments/study3/STUDY3_DEVELOPMENT_NULL_FINDINGS.md": "604196dc0079a30f1869c2c9f83f80e29e12808cf6bd2703c3347520ce231feb",
+   "experiments/study3/STUDY3_FINAL_VALIDATION_V5_PROTOCOL.md": "fafb223002696bcbc620afddf7df63b9afe38de8decff52aeaff37abe1c40b69",
+   "experiments/study3/STUDY3_FREEZE_DECISION_V1.md": "b4654f154680f01873f5ddd8e00800fff89c56c9b720807092778b4ca4bec106",
+   "experiments/study3/STUDY3_HELDOUT_DESIGN_V1.json": "20fcf7a223971258015b9c81af087553da6ca2c8b19796465b801b270675ae0c",
+   "experiments/study3/STUDY3_PROTOCOL.md": "eb6b61bee9e65b4d6c583712660b37377bb4eb80f0e64af83ed470b363482e0a"
+  },
+  "scenario_generator_and_family_manifest": {
+   "experiments/study3/examples/moderate_severe_variable_environment.json": "3d7a066fdc5f268685159fed37cb158ed8bd63d170da2108711e13b1ac601856",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/environment_generator.py": "a9e8ccf736775fcb7a1934f28360709ece84ff72b7a4ebab454d0af3c956ba86",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/scenarios.py": "32622da17223b2c75fbd798e92e473cc6039cf1d705c0dfd5387c59fdc428550",
+   "src/uuv_mode_aware_navigation/uuv_mode_aware_navigation/study3/transition_driver.py": "dcb3c7c1aa3a2b3391604cfafe7f4a37bd799bc543c064b4edf302569974875b"
+  },
+  "seed_registry": {
+   "experiments/study3/STUDY3_SEED_REGISTRY.json": "9186ecf03c0036b47e227e4040a687f5a038f1eeb660a7d119f2f0dd8748d6dd"
+  },
+  "study3_runner": {
+   "experiments/study3/run_final_validation_v5.py": "375aacdebfcf82bf869a9d1e8d9417d037190e74d23059bb29759c8ff28fcbb1",
+   "experiments/study3/run_redesign_development.py": "7b49ea05b72d098b80cde3ae417b1f7a4ac2020f12aee5be3336d4e79c57ee22"
+  }
+ },
+ "freeze_commit": "dfa341fad2ed2494094c3a342ae7e42d18c65983",
+ "held_out": {
+  "executed": false,
+  "maximum_invocations": 1,
+  "root": 36000000
+ },
+ "identifier": "paper2_study3_corrected_controller_freeze_v2",
+ "includes_map_boundary_amendment": true,
+ "missing_from_allowlist": [],
+ "original_heldout": {
+  "interpretation": "evidence for the PRE-correction controller; not revised, not re-run",
+  "root": 32000000,
+  "status": "SPENT, PRESERVED"
+ },
+ "post_authorization_analysis_code_repair": {
+  "changes": [
+   "parenthesised the generator expression",
+   "filtered packets and rows to the selected part before any downstream computation",
+   "computed the two adaptation definitions for the generated part only, and printed a note instead for the scripted part"
+  ],
+  "disclosure": "The agent froze analysis code it had never executed. That was an error. The repairs restore execution only; no rule, metric, threshold or datum was altered. Recorded here rather than silently re-hashed.",
+  "file": "experiments/study3/analyse_heldout_v2.py",
+  "occurred": true,
+  "reason": "The frozen analyser did not run. Two defects prevented execution: a SyntaxError from an unparenthesised generator expression passed to sorted(), and a failure to restrict rows to the selected part, which crashed the adaptation code on scripted rows because they carry environment_seed=None.",
+  "sha256_after_repair": "9081025045c88f6a6c913ec2fbc4e634f242bcc4ac3e01f7b77438e6b5069b5d",
+  "sha256_at_authorization": "f01ed6e3be7255798a23a16015a7062054822ae749ccff1af882382b67a6b2b9",
+  "unchanged": [
+   "every metric definition",
+   "both adaptation definitions",
+   "the bootstrap procedure and draw count",
+   "the analysis RNG seed",
+   "the comparator set",
+   "the decision rules",
+   "the sample size",
+   "the packets"
+  ]
+ },
+ "record_type": "FREEZE MANIFEST FOR THE CORRECTED CONTROLLER",
+ "schema": "study3_freeze_manifest_v2",
+ "statement": "Allowlist and SHA-256 of every file that determines held-out v2 behaviour: the corrected controller, the simulator including the map-boundary amendment, the environment generator, comparator definitions, metrics, the runner, the analyser and the lock. verify_lock_v2 fails if any of these changes.",
+ "supersedes": "STUDY3_FREEZE_MANIFEST_V1.json (pre-correction controller)"
+}

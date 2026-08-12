@@ -19,7 +19,7 @@ package_name = 'uuv_mode_aware_navigation'
 
 setup(
     name=package_name,
-    version='0.1.0',
+    version='1.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -53,6 +53,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'auv-sim = uuv_mode_aware_navigation.cli:main',
             'water_column = uuv_mode_aware_navigation.nodes.water_column_node:main',
             'optical_feedback = '
             'uuv_mode_aware_navigation.nodes.optical_feedback_node:main',
@@ -62,6 +63,7 @@ setup(
             'teleop = uuv_mode_aware_navigation.nodes.teleop_node:main',
             'scenario_director = uuv_mode_aware_navigation.nodes.scenario_node:main',
             'control_panel = uuv_mode_aware_navigation.nodes.control_panel:main',
+            'study3_control = uuv_mode_aware_navigation.study3.control_window:main',
             'fish_school = uuv_mode_aware_navigation.nodes.fish_school:main',
         ],
     },

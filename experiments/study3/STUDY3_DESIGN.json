@@ -1,0 +1,46 @@
+{
+  "identifier": "paper2_study3_redesign_v2",
+  "status": "infrastructure_scope_corrected_fixed_reaudited_not_ready_to_freeze",
+  "policies": ["fixed", "robust_fusion", "reactive", "predictive"],
+  "primary_families": [
+    "S3_OPTICAL_GRADUAL",
+    "S3_DVL_GRADUAL",
+    "S3_ACOUSTIC_GEOMETRY_ASYNC",
+    "S3_INFRASTRUCTURE_WARNING",
+    "S3_RECOVERY",
+    "S3_COMPOUND_OPTICAL_ACOUSTIC",
+    "S3_COMPOUND_DVL_ACOUSTIC"
+  ],
+  "control_families": ["S3_NOMINAL", "S3_SUDDEN", "S3_NO_RECOVERY"],
+  "infrastructure_contexts": {
+    "infrastructure_free": ["S3_OPTICAL_GRADUAL", "S3_SUDDEN", "S3_NO_RECOVERY"],
+    "lbl_enabled": ["S3_ACOUSTIC_GEOMETRY_ASYNC", "S3_COMPOUND_OPTICAL_ACOUSTIC", "S3_NOMINAL"],
+    "usbl_enabled": ["S3_COMPOUND_DVL_ACOUSTIC"],
+    "limited_acoustic": ["S3_DVL_GRADUAL", "S3_RECOVERY"],
+    "infrastructure_transition": ["S3_INFRASTRUCTURE_WARNING"]
+  },
+  "corrected_fixed_development_root": 31800000,
+  "corrected_strongest_fixed_baseline_id": "fixed_155",
+  "development_runs": {
+    "scenario_calibration": 320,
+    "fixed_successive_halving": 2820,
+    "adaptive_tuning": 420,
+    "development_confirmation": 600,
+    "selected_path_total": 4160,
+    "all_retained_redesign_packet_executions": 6380
+  },
+  "heldout_runs": {
+    "seeds_per_primary_family_policy": 30,
+    "seeds_per_control_family_policy": 20,
+    "primary": 840,
+    "controls": 240,
+    "total": 1080,
+    "executed": false
+  },
+  "primary_comparison": "predictive_minus_reactive paired within family and seed",
+  "common_random_numbers": true,
+  "manuscript_edit_authorized": false,
+  "heldout_execution_authorized": false,
+  "freeze_ready": false,
+  "blocker": "fixed baseline is physically corrected; adaptive policies require fresh development reassessment under mixed infrastructure before any freeze recommendation"
+}

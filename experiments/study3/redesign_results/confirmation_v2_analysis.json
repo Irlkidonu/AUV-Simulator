@@ -1,0 +1,1484 @@
+{
+  "causal_trace_evidence": [
+    {
+      "family": "S3_OPTICAL_GRADUAL",
+      "preemptive_action": false
+    },
+    {
+      "action": {
+        "acoustic_technique": "lbl",
+        "altitude_m": 3.0,
+        "fusion_mode": "gate",
+        "mission_action": "continue",
+        "optical_channel": "lidar",
+        "preemptive": true,
+        "speed_mps": 0.5
+      },
+      "action_time_s": 104.0,
+      "altitude_after_m": -3.0,
+      "altitude_before_m": -3.0,
+      "error_after_predictive_m": 0.16221,
+      "error_after_reactive_m": 0.16221,
+      "family": "S3_DVL_GRADUAL",
+      "forecast_at_action": [
+        "acoustic",
+        "velocity"
+      ],
+      "preemptive_action": true,
+      "quality_after": 1.0,
+      "quality_before": 1.0
+    },
+    {
+      "family": "S3_ACOUSTIC_GEOMETRY_ASYNC",
+      "preemptive_action": false
+    },
+    {
+      "family": "S3_INFRASTRUCTURE_WARNING",
+      "preemptive_action": false
+    },
+    {
+      "action": {
+        "acoustic_technique": "lbl",
+        "altitude_m": 2.0,
+        "fusion_mode": "gate",
+        "mission_action": "continue",
+        "optical_channel": "lidar",
+        "preemptive": true,
+        "speed_mps": 0.5
+      },
+      "action_time_s": 60.0,
+      "altitude_after_m": -2.25,
+      "altitude_before_m": -3.0,
+      "error_after_predictive_m": 0.15657,
+      "error_after_reactive_m": 0.14954,
+      "family": "S3_RECOVERY",
+      "forecast_at_action": [
+        "acoustic",
+        "optical"
+      ],
+      "preemptive_action": true,
+      "quality_after": 0.376727,
+      "quality_before": 0.488988
+    },
+    {
+      "action": {
+        "acoustic_technique": "lbl",
+        "altitude_m": 2.0,
+        "fusion_mode": "gate",
+        "mission_action": "continue",
+        "optical_channel": "lidar",
+        "preemptive": true,
+        "speed_mps": 0.5
+      },
+      "action_time_s": 64.0,
+      "altitude_after_m": -2.25,
+      "altitude_before_m": -3.0,
+      "error_after_predictive_m": 0.14798,
+      "error_after_reactive_m": 0.14538,
+      "family": "S3_COMPOUND_OPTICAL_ACOUSTIC",
+      "forecast_at_action": [
+        "acoustic",
+        "optical"
+      ],
+      "preemptive_action": true,
+      "quality_after": 0.752699,
+      "quality_before": 0.661667
+    },
+    {
+      "family": "S3_COMPOUND_DVL_ACOUSTIC",
+      "preemptive_action": false
+    }
+  ],
+  "comparisons": {
+    "predictive_vs_fixed": {
+      "capability_preserved": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "completed": {
+        "benefit_positive_effect": -0.009523809523809523,
+        "ci95": [
+          -0.03809523809523809,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -0.06666666666666667,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "longest_unaided_gap_s": {
+        "benefit_positive_effect": 0.05714285714285715,
+        "ci95": [
+          -0.11428571428571428,
+          0.2857142857142857
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -0.13333333333333333,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.5333333333333333,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "mission_duration_s": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "peak_error_m": {
+        "benefit_positive_effect": 0.007487199838146592,
+        "ci95": [
+          0.00037961618135372966,
+          0.01989912028783529
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.009014918448813962,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.03268405036974513,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 8.716816954135176e-07,
+          "S3_DVL_GRADUAL": 2.6950404802827956e-07,
+          "S3_INFRASTRUCTURE_WARNING": 0.008717333748594683,
+          "S3_OPTICAL_GRADUAL": -5.530369800253639e-05,
+          "S3_RECOVERY": 0.002048258812131459
+        }
+      },
+      "rmse_transition_m": {
+        "benefit_positive_effect": 0.0023664296237572353,
+        "ci95": [
+          0.0008081064540003046,
+          0.004878210780805393
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0035996159334391003,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.007755166629865703,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0007698307772446715,
+          "S3_DVL_GRADUAL": 0.000738498278195073,
+          "S3_INFRASTRUCTURE_WARNING": 0.0021636292179094724,
+          "S3_OPTICAL_GRADUAL": 0.0006970735911143334,
+          "S3_RECOVERY": 0.0008411929385322925
+        }
+      },
+      "safety_violation": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "survey_coverage_fraction": {
+        "benefit_positive_effect": -0.00022955684331344982,
+        "ci95": [
+          -0.0009183673469387461,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -0.0015677052714089996,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -3.9192631785149126e-05,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "unaided_time_s": {
+        "benefit_positive_effect": 0.41904761904761906,
+        "ci95": [
+          0.0,
+          1.0666666666666667
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.13333333333333333,
+          "S3_COMPOUND_DVL_ACOUSTIC": 1.6,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.8,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.26666666666666666,
+          "S3_OPTICAL_GRADUAL": -0.13333333333333333,
+          "S3_RECOVERY": 0.26666666666666666
+        }
+      },
+      "unnecessary_interventions": {
+        "benefit_positive_effect": -0.11428571428571428,
+        "ci95": [
+          -0.23809523809523808,
+          -0.019047619047619046
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -0.13333333333333333,
+          "S3_DVL_GRADUAL": -0.3333333333333333,
+          "S3_INFRASTRUCTURE_WARNING": -0.13333333333333333,
+          "S3_OPTICAL_GRADUAL": -0.13333333333333333,
+          "S3_RECOVERY": -0.06666666666666667
+        }
+      }
+    },
+    "predictive_vs_reactive": {
+      "capability_preserved": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "completed": {
+        "benefit_positive_effect": -0.009523809523809523,
+        "ci95": [
+          -0.03809523809523809,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -0.06666666666666667,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        },
+        "holm_p": 1.0,
+        "raw_p": 1.0
+      },
+      "longest_unaided_gap_s": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "mission_duration_s": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "peak_error_m": {
+        "benefit_positive_effect": 0.0009472274304112806,
+        "ci95": [
+          -1.5730043212474645e-05,
+          0.0028317004710515683
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -4.595768158122127e-06,
+          "S3_DVL_GRADUAL": 0.0009000921878927851,
+          "S3_INFRASTRUCTURE_WARNING": 0.003742708762688844,
+          "S3_OPTICAL_GRADUAL": -5.5361925243024857e-05,
+          "S3_RECOVERY": 0.002047748755698483
+        }
+      },
+      "rmse_transition_m": {
+        "benefit_positive_effect": 0.00031835365634266436,
+        "ci95": [
+          4.147283051180579e-05,
+          0.0006510889046186371
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0006638824069338319,
+          "S3_DVL_GRADUAL": -9.384774732314656e-06,
+          "S3_INFRASTRUCTURE_WARNING": 9.856080391035805e-05,
+          "S3_OPTICAL_GRADUAL": 0.0007414799622726084,
+          "S3_RECOVERY": 0.0007339371960141672
+        },
+        "holm_p": 0.002999850007499625,
+        "raw_p": 0.0007499625018749063
+      },
+      "safety_violation": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        },
+        "holm_p": 1.0,
+        "raw_p": 1.0
+      },
+      "survey_coverage_fraction": {
+        "benefit_positive_effect": -5.598947397878447e-06,
+        "ci95": [
+          -2.2395789591513786e-05,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -3.9192631785149126e-05,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "unaided_time_s": {
+        "benefit_positive_effect": 0.1142857142857143,
+        "ci95": [
+          -0.05714285714285715,
+          0.39999999999999997
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.8,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": -0.13333333333333333,
+          "S3_RECOVERY": 0.13333333333333333
+        },
+        "holm_p": 0.45507724613769307,
+        "raw_p": 0.15169241537923103
+      },
+      "unnecessary_interventions": {
+        "benefit_positive_effect": -0.10476190476190475,
+        "ci95": [
+          -0.2285714285714286,
+          -0.019047619047619046
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -0.13333333333333333,
+          "S3_DVL_GRADUAL": -0.3333333333333333,
+          "S3_INFRASTRUCTURE_WARNING": -0.13333333333333333,
+          "S3_OPTICAL_GRADUAL": -0.13333333333333333,
+          "S3_RECOVERY": 0.0
+        }
+      }
+    },
+    "reactive_vs_robust_fusion": {
+      "capability_preserved": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "completed": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "longest_unaided_gap_s": {
+        "benefit_positive_effect": 0.07619047619047618,
+        "ci95": [
+          -0.07619047619047618,
+          0.26666666666666666
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.4,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.13333333333333333,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "mission_duration_s": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "peak_error_m": {
+        "benefit_positive_effect": 0.0003679197121605218,
+        "ci95": [
+          -0.01007080774090991,
+          0.014410309093908889
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -0.0007883878150749313,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.02777058377237346,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -1.0271433796586275e-05,
+          "S3_DVL_GRADUAL": -0.002648781690213644,
+          "S3_INFRASTRUCTURE_WARNING": -0.02159149460655418,
+          "S3_OPTICAL_GRADUAL": -0.00011900797486542602,
+          "S3_RECOVERY": -3.720226674503816e-05
+        }
+      },
+      "rmse_transition_m": {
+        "benefit_positive_effect": 0.0019915341038465885,
+        "ci95": [
+          0.0001759709801296236,
+          0.004616595573278664
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.00350407569882323,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.007943072913535071,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -0.00012981363140441478,
+          "S3_DVL_GRADUAL": 0.0007522602573955317,
+          "S3_INFRASTRUCTURE_WARNING": 0.002176968538302023,
+          "S3_OPTICAL_GRADUAL": -0.0002846575420208275,
+          "S3_RECOVERY": -2.1167507704492975e-05
+        }
+      },
+      "safety_violation": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "survey_coverage_fraction": {
+        "benefit_positive_effect": -0.00022395789591557138,
+        "ci95": [
+          -0.0008958315836622855,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -0.0015677052714089996,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "unaided_time_s": {
+        "benefit_positive_effect": 0.3619047619047619,
+        "ci95": [
+          -0.019047619047619046,
+          0.8571428571428571
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.4,
+          "S3_COMPOUND_DVL_ACOUSTIC": 1.0666666666666667,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -0.13333333333333333,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.9333333333333333,
+          "S3_OPTICAL_GRADUAL": 0.13333333333333333,
+          "S3_RECOVERY": 0.13333333333333333
+        }
+      },
+      "unnecessary_interventions": {
+        "benefit_positive_effect": 0.9904761904761905,
+        "ci95": [
+          0.9523809523809524,
+          1.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 1.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 1.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 1.0,
+          "S3_DVL_GRADUAL": 1.0,
+          "S3_INFRASTRUCTURE_WARNING": 1.0,
+          "S3_OPTICAL_GRADUAL": 1.0,
+          "S3_RECOVERY": 0.9333333333333333
+        }
+      }
+    },
+    "robust_fusion_vs_fixed": {
+      "capability_preserved": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "completed": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "longest_unaided_gap_s": {
+        "benefit_positive_effect": -0.019047619047619046,
+        "ci95": [
+          -0.15238095238095237,
+          0.09523809523809523
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -0.13333333333333333,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.13333333333333333,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": -0.13333333333333333,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "mission_duration_s": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "peak_error_m": {
+        "benefit_positive_effect": 0.006172052695574788,
+        "ci95": [
+          -0.0018413168768375643,
+          0.015823695247495558
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.009803306263888893,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.00491346659737167,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 1.573888365012192e-05,
+          "S3_DVL_GRADUAL": 0.0017489590063688868,
+          "S3_INFRASTRUCTURE_WARNING": 0.026566119592460018,
+          "S3_OPTICAL_GRADUAL": 0.00011906620210591448,
+          "S3_RECOVERY": 3.7712323178014834e-05
+        }
+      },
+      "rmse_transition_m": {
+        "benefit_positive_effect": 5.6541863567982104e-05,
+        "ci95": [
+          -0.0007805366081635639,
+          0.0008129073894099621
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 9.554023461587069e-05,
+          "S3_COMPOUND_DVL_ACOUSTIC": -0.00018790628366936827,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.00023576200171525433,
+          "S3_DVL_GRADUAL": -4.377204468144121e-06,
+          "S3_INFRASTRUCTURE_WARNING": -0.00011190012430290867,
+          "S3_OPTICAL_GRADUAL": 0.00024025117086255246,
+          "S3_RECOVERY": 0.00012842325022261827
+        }
+      },
+      "safety_violation": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "survey_coverage_fraction": {
+        "benefit_positive_effect": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": 0.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.0,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": 0.0,
+          "S3_OPTICAL_GRADUAL": 0.0,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "unaided_time_s": {
+        "benefit_positive_effect": -0.05714285714285715,
+        "ci95": [
+          -0.419047619047619,
+          0.30476190476190473
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -0.26666666666666666,
+          "S3_COMPOUND_DVL_ACOUSTIC": 0.5333333333333333,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": 0.13333333333333333,
+          "S3_DVL_GRADUAL": 0.0,
+          "S3_INFRASTRUCTURE_WARNING": -0.6666666666666666,
+          "S3_OPTICAL_GRADUAL": -0.13333333333333333,
+          "S3_RECOVERY": 0.0
+        }
+      },
+      "unnecessary_interventions": {
+        "benefit_positive_effect": -1.0,
+        "ci95": [
+          -1.0,
+          -1.0
+        ],
+        "family_effects": {
+          "S3_ACOUSTIC_GEOMETRY_ASYNC": -1.0,
+          "S3_COMPOUND_DVL_ACOUSTIC": -1.0,
+          "S3_COMPOUND_OPTICAL_ACOUSTIC": -1.0,
+          "S3_DVL_GRADUAL": -1.0,
+          "S3_INFRASTRUCTURE_WARNING": -1.0,
+          "S3_OPTICAL_GRADUAL": -1.0,
+          "S3_RECOVERY": -1.0
+        }
+      }
+    }
+  },
+  "executions": 600,
+  "family_metrics": {
+    "S3_ACOUSTIC_GEOMETRY_ASYNC": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 0.9333333333333333,
+        "longest_unaided_gap_s": 3.466666666666667,
+        "mean_policy_runtime_ms": 5.321284317044038,
+        "mission_duration_s": 177.73333333333332,
+        "peak_error_m": 0.34391151899827055,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.17186625998556126,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 0.9913384283754655,
+        "unaided_time_s": 6.933333333333334,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 0.9333333333333333,
+        "longest_unaided_gap_s": 3.6,
+        "mean_policy_runtime_ms": 5.230992443394031,
+        "mission_duration_s": 177.73333333333332,
+        "peak_error_m": 0.33489660054945664,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.16826664405212216,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 0.9897707231040566,
+        "unaided_time_s": 6.8,
+        "unnecessary_interventions": 0.0
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 0.9333333333333333,
+        "longest_unaided_gap_s": 3.6,
+        "mean_policy_runtime_ms": 5.3621365787776645,
+        "mission_duration_s": 177.73333333333332,
+        "peak_error_m": 0.33489660054945664,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1682666440521222,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 0.9897707231040566,
+        "unaided_time_s": 6.8,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 0.9333333333333333,
+        "longest_unaided_gap_s": 3.6,
+        "mean_policy_runtime_ms": 8.099149539721255,
+        "mission_duration_s": 177.73333333333332,
+        "peak_error_m": 0.3341082127343817,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.17177071975094538,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 0.9913384283754655,
+        "unaided_time_s": 7.2,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_COMPOUND_DVL_ACOUSTIC": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 4.133333333333334,
+        "mean_policy_runtime_ms": 5.1228815169651885,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.4375405672499947,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1885156259533764,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 8.666666666666666,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.6,
+        "mean_policy_runtime_ms": 5.1225121244754055,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.40485651688024954,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1807604593235107,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 7.066666666666666,
+        "unnecessary_interventions": 0.0
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.6,
+        "mean_policy_runtime_ms": 5.093767054548706,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.40485651688024954,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1807604593235107,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 7.066666666666666,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 4.0,
+        "mean_policy_runtime_ms": 7.300686006836812,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.432627100652623,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18870353223704578,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 8.133333333333333,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_COMPOUND_OPTICAL_ACOUSTIC": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 5.877999116021853,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3718542902655693,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1823928608161057,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 5.333333333333333,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 0.9333333333333333,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 5.649013743943096,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3718534185838739,
+        "preemptive_actions": 0.06666666666666667,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18162303003886102,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 0.9999608073682148,
+        "unaided_time_s": 4.533333333333333,
+        "unnecessary_interventions": 0.13333333333333333
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 5.5763247012222115,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3718488228157158,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18228691244579487,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 5.333333333333333,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 8.207905296689999,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3718385513819191,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18215709881439046,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 5.2,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_DVL_GRADUAL": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 5.672681418562226,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.17907812004078544,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.16213879800412614,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 5.630934442672367,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.17907785053673742,
+        "preemptive_actions": 0.06666666666666667,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1614002997259311,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 0.3333333333333333
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 5.708121155937042,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.17997794272463022,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.16139091495119876,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 8.114851768266737,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.17732916103441657,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.16214317520859434,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_INFRASTRUCTURE_WARNING": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.3333333333333335,
+        "mean_policy_runtime_ms": 5.341411380360804,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3157633588389898,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.162731621185106,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 5.866666666666666,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.3333333333333335,
+        "mean_policy_runtime_ms": 5.30628161323632,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3070460250903951,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.16056799196719657,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 5.6,
+        "unnecessary_interventions": 0.13333333333333333
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.3333333333333335,
+        "mean_policy_runtime_ms": 5.3757797478699905,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.31078873385308403,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1606665527711069,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 5.6,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.466666666666667,
+        "mean_policy_runtime_ms": 8.224978737661875,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.28919723924652985,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.16284352130940896,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 6.533333333333333,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_NOMINAL": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 6.035451608711697,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.18485717977786878,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.14970008214281122,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 5.8176740885655915,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.18485717977786878,
+        "preemptive_actions": 0.3333333333333333,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.14970149558411067,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 1.0
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 6.062378294509238,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.18485717977786875,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.14970236679777582,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 0.4
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 0.0,
+        "mean_policy_runtime_ms": 8.637151041881765,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.1827857014838519,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.14967721040515974,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 0.0,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_NO_RECOVERY": {
+      "fixed": {
+        "capability_preserved": 0.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 56.266666666666666,
+        "mean_policy_runtime_ms": 2.8705594812148,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 1.2397356766152468,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.4786425765746998,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 58.8,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 0.0,
+        "completed": 0.8666666666666667,
+        "longest_unaided_gap_s": 56.266666666666666,
+        "mean_policy_runtime_ms": 2.80930006216901,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 1.2361757836218201,
+        "preemptive_actions": 0.13333333333333333,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.4743753994464332,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 0.9999216147364297,
+        "unaided_time_s": 59.6,
+        "unnecessary_interventions": 0.26666666666666666
+      },
+      "reactive": {
+        "capability_preserved": 0.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 56.0,
+        "mean_policy_runtime_ms": 2.8931772335510932,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 1.2398725704026519,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.4766618155211361,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 58.8,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 0.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 56.266666666666666,
+        "mean_policy_runtime_ms": 3.969467937841418,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 1.3503408702518844,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.49713537935825236,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 58.8,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_OPTICAL_GRADUAL": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 5.897010160135037,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.39227179968767506,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18612654200185358,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 6.533333333333333,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 5.490630846184886,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.39232710338567756,
+        "preemptive_actions": 0.13333333333333333,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18542946841073932,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 6.666666666666667,
+        "unnecessary_interventions": 0.13333333333333333
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 5.622811823991219,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.39227174146043453,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18617094837301193,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 6.533333333333333,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 3.2,
+        "mean_policy_runtime_ms": 8.501410470540284,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3921527334855691,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18588629083099112,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 6.666666666666667,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_RECOVERY": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 1.8666666666666667,
+        "mean_policy_runtime_ms": 5.64765660053856,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3099721247068475,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 1.0,
+        "recovery_time_s_finite_mean": 2.0,
+        "rmse_transition_m": 0.1699391684386202,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 2.1333333333333333,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 1.8666666666666667,
+        "mean_policy_runtime_ms": 5.717620394284745,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.30792386589471604,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 1.0,
+        "recovery_time_s_finite_mean": 2.0,
+        "rmse_transition_m": 0.16909797550008795,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 1.8666666666666667,
+        "unnecessary_interventions": 0.06666666666666667
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 1.8666666666666667,
+        "mean_policy_runtime_ms": 5.7903212353360285,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3099716146504145,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 1.0,
+        "recovery_time_s_finite_mean": 2.0,
+        "rmse_transition_m": 0.16983191269610212,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 2.0,
+        "unnecessary_interventions": 0.06666666666666667
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 1.8666666666666667,
+        "mean_policy_runtime_ms": 8.628463526124188,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3099344123836695,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 1.0,
+        "recovery_time_s_finite_mean": 2.0,
+        "rmse_transition_m": 0.16981074518839762,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 2.1333333333333333,
+        "unnecessary_interventions": 1.0
+      }
+    },
+    "S3_SUDDEN": {
+      "fixed": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 2.0,
+        "mean_policy_runtime_ms": 5.539133548911408,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.30747497167915666,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18744222215081927,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 3.8666666666666667,
+        "unnecessary_interventions": 0.0
+      },
+      "predictive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 2.4,
+        "mean_policy_runtime_ms": 5.544989860694234,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.30143218817647344,
+        "preemptive_actions": 0.06666666666666667,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1859731393369547,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 4.4,
+        "unnecessary_interventions": 0.13333333333333333
+      },
+      "reactive": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 2.2666666666666666,
+        "mean_policy_runtime_ms": 5.604605723343851,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.3010279339846123,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.18680537223878096,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 3.066666666666667,
+        "unnecessary_interventions": 0.0
+      },
+      "robust_fusion": {
+        "capability_preserved": 1.0,
+        "completed": 1.0,
+        "longest_unaided_gap_s": 2.0,
+        "mean_policy_runtime_ms": 8.054048294050537,
+        "mission_duration_s": 180.0,
+        "peak_error_m": 0.30745682174983074,
+        "preemptive_actions": 0.0,
+        "recovery_observed_fraction": 0.0,
+        "recovery_time_s_finite_mean": null,
+        "rmse_transition_m": 0.1874405265586359,
+        "safety_violation": 0.0,
+        "survey_coverage_fraction": 1.0,
+        "unaided_time_s": 3.8666666666666667,
+        "unnecessary_interventions": 1.0
+      }
+    }
+  },
+  "packet_set_digest": "426abad4cb10efe63908e2032e5dd88d1e23b3558bc42381ce4ca4375211cc52",
+  "paired_unaided_effect_sd_s": 0.6695906573061249,
+  "primary_family_equal_metrics": {
+    "fixed": {
+      "capability_preserved": 1.0,
+      "completed": 0.9904761904761905,
+      "longest_unaided_gap_s": 2.742857142857143,
+      "mean_policy_runtime_ms": 5.554417787089673,
+      "mission_duration_s": 179.67619047619047,
+      "peak_error_m": 0.33577025425544754,
+      "preemptive_actions": 0.0,
+      "recovery_observed_fraction": 0.14285714285714285,
+      "recovery_time_s_finite_mean": 2.0,
+      "rmse_transition_m": 0.17481583948353563,
+      "safety_violation": 0.0,
+      "survey_coverage_fraction": 0.9987626326250665,
+      "unaided_time_s": 5.066666666666666,
+      "unnecessary_interventions": 0.0
+    },
+    "predictive": {
+      "capability_preserved": 1.0,
+      "completed": 0.9809523809523809,
+      "longest_unaided_gap_s": 2.6857142857142855,
+      "mean_policy_runtime_ms": 5.449712229741551,
+      "mission_duration_s": 179.67619047619047,
+      "peak_error_m": 0.3282830544173009,
+      "preemptive_actions": 0.0380952380952381,
+      "recovery_observed_fraction": 0.14285714285714285,
+      "recovery_time_s_finite_mean": 2.0,
+      "rmse_transition_m": 0.17244940985977844,
+      "safety_violation": 0.0,
+      "survey_coverage_fraction": 0.9985330757817531,
+      "unaided_time_s": 4.647619047619048,
+      "unnecessary_interventions": 0.11428571428571428
+    },
+    "reactive": {
+      "capability_preserved": 1.0,
+      "completed": 0.9904761904761905,
+      "longest_unaided_gap_s": 2.6857142857142855,
+      "mean_policy_runtime_ms": 5.504180328240409,
+      "mission_duration_s": 179.67619047619047,
+      "peak_error_m": 0.32923028184771214,
+      "preemptive_actions": 0.0,
+      "recovery_observed_fraction": 0.14285714285714285,
+      "recovery_time_s_finite_mean": 2.0,
+      "rmse_transition_m": 0.17276776351612105,
+      "safety_violation": 0.0,
+      "survey_coverage_fraction": 0.9985386747291509,
+      "unaided_time_s": 4.761904761904762,
+      "unnecessary_interventions": 0.009523809523809525
+    },
+    "robust_fusion": {
+      "capability_preserved": 1.0,
+      "completed": 0.9904761904761905,
+      "longest_unaided_gap_s": 2.761904761904762,
+      "mean_policy_runtime_ms": 8.153920763691593,
+      "mission_duration_s": 179.67619047619047,
+      "peak_error_m": 0.32959820155987274,
+      "preemptive_actions": 0.0,
+      "recovery_observed_fraction": 0.14285714285714285,
+      "recovery_time_s_finite_mean": 2.0,
+      "rmse_transition_m": 0.17475929761996767,
+      "safety_violation": 0.0,
+      "survey_coverage_fraction": 0.9987626326250665,
+      "unaided_time_s": 5.123809523809523,
+      "unnecessary_interventions": 1.0
+    }
+  },
+  "proposed_heldout_members_per_primary_family": 30,
+  "root": 31744000,
+  "schema": "study3_redesign_development_confirmation_analysis_v1"
+}
