@@ -5,7 +5,7 @@ import sys
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT))
-from paper1_sim_extension.dvl_semantics import *
+from uuv_navigation_extension.dvl_semantics import *
 
 R_DB=rpy_rotation_dvl_from_body(*np.radians([1.5,-2.0,3.0]))
 LEVER=np.array([0.02,0.0,-0.235])

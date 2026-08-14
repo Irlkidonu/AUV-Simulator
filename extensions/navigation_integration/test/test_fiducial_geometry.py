@@ -6,9 +6,9 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from paper1_sim_extension.fiducial_geometry import (camera_matrix, detector_image,
-                                                     marker_world_corners,
-                                                     solve_mapped_fix)
+from uuv_navigation_extension.fiducial_geometry import (camera_matrix, detector_image,
+                                                         marker_world_corners,
+                                                         solve_mapped_fix)
 
 
 def test_detector_image_encoding_conversion():
