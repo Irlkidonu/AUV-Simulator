@@ -1,0 +1,110 @@
+# Docking station -- geometry and reference frames.
+#
+# Copied verbatim from the frozen reference world (lines 88-207). Static model
+# at (0, 0, -15). Its funnel, collar and LED constellation are the optical and
+# acoustic features a later perception stage will use, so they are kept even
+# though M2 itself does not perceive anything.
+
+name: docking_station
+static: true
+pose: [0.0, 0.0, -15.0, 0.0, 0.0, 0.0]
+
+# --- THE FINDING ------------------------------------------------------------
+# The reference docking station has NO collision geometry on any of its six
+# links. Every element is <visual> only. The vehicle passes straight through the
+# funnel, the collar and the support post.
+#
+# Reproduced as-is under the M2 rule "reproduce before correcting". It is
+# recorded here, and as `known_discrepancies.dock_has_no_collision`, because it
+# blocks M2.5 P14 (contact with the docking structure) -- that test cannot be
+# written against a dock that cannot be touched.
+collision:
+  present: false
+  affected_links: [support, collar, funnel, led_markers, guidance_lasers, beacons]
+
+links:
+  support:
+    visuals:
+      - {name: post, pose: [-0.35, 0, -2.5, 0, 0, 0], shape: cylinder, radius: 0.06, length: 5.0}
+      - {name: baseplate, pose: [-0.35, 0, -5.0, 0, 0, 0], shape: box, size: [0.9, 0.9, 0.06]}
+
+  collar:
+    visuals:
+      - {name: ring, pose: [-0.02, 0, 0, 0, 1.5708, 0], shape: cylinder, radius: 0.30, length: 0.06}
+
+  funnel:
+    # Four flared plates forming the capture cone, opening toward +X.
+    visuals:
+      - {name: flare_top,    pose: [0.75, 0, 0.44, 0, -0.569, 0], shape: box, size: [0.594, 0.72, 0.02]}
+      - {name: flare_bottom, pose: [0.75, 0, -0.44, 0, 0.569, 0], shape: box, size: [0.594, 0.72, 0.02]}
+      - {name: flare_left,   pose: [0.75, 0.44, 0, 0, 0, 0.569],  shape: box, size: [0.594, 0.02, 0.72]}
+      - {name: flare_right,  pose: [0.75, -0.44, 0, 0, 0, -0.569], shape: box, size: [0.594, 0.02, 0.72]}
+
+  led_markers:
+    # The four-point constellation. Symmetric about the dock axis, 0.40 m
+    # square, 0.05 m ahead of the throat.
+    radius: 0.045
+    visuals:
+      - {name: led_tl, pose: [0.05, 0.20, 0.20, 0, 0, 0]}
+      - {name: led_tr, pose: [0.05, -0.20, 0.20, 0, 0, 0]}
+      - {name: led_bl, pose: [0.05, 0.20, -0.20, 0, 0, 0]}
+      - {name: led_br, pose: [0.05, -0.20, -0.20, 0, 0, 0]}
+
+  guidance_lasers:
+    visuals:
+      - {name: beam_tl, pose: [1.55, 0.20, 0.20, 0, 1.5708, 0], shape: cylinder, radius: 0.008, length: 3.0}
+      - {name: beam_tr, pose: [1.55, -0.20, 0.20, 0, 1.5708, 0], shape: cylinder, radius: 0.008, length: 3.0}
+      - {name: beam_bl, pose: [1.55, 0.20, -0.20, 0, 1.5708, 0], shape: cylinder, radius: 0.008, length: 3.0}
+      - {name: beam_br, pose: [1.55, -0.20, -0.20, 0, 1.5708, 0], shape: cylinder, radius: 0.008, length: 3.0}
+      - {name: axis_laser, pose: [2.05, 0, 0, 0, 1.5708, 0], shape: cylinder, radius: 0.012, length: 4.0}
+
+  beacons:
+    visuals:
+      - {name: transponder, pose: [-0.05, 0, 0.34, 0, 0, 0], shape: sphere, radius: 0.05}
+      - {name: strobe_l, pose: [1.0, 0.58, 0, 0, 0, 0], shape: sphere, radius: 0.04}
+      - {name: strobe_r, pose: [1.0, -0.58, 0, 0, 0, 0], shape: sphere, radius: 0.04}
+
+# --- docking reference frames -----------------------------------------------
+# Derived from the geometry above, declared once here so that guidance, logging
+# and any later perception stage all measure against the same points instead of
+# each re-deriving them.
+reference_frames:
+  dock_origin:
+    parent: world
+    pose: [0.0, 0.0, -15.0, 0.0, 0.0, 0.0]
+    note: model origin; the collar plane
+
+  dock_throat:
+    parent: dock_origin
+    pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    note: >-
+      Capture point. Coincides with dock_origin: the collar ring sits at
+      x = -0.02 and the funnel flares span x in [0.45, 1.05], so the throat is
+      the narrow end at x = 0.
+
+  dock_mouth:
+    parent: dock_origin
+    pose: [1.05, 0.0, 0.0, 0.0, 0.0, 0.0]
+    note: outer rim of the funnel; where a capture cone would begin
+
+  dock_approach_axis:
+    parent: dock_origin
+    direction: [1.0, 0.0, 0.0]
+    note: >-
+      The vehicle approaches from +X travelling in -X. Its spawn yaw of pi is
+      what makes its body +X (camera boresight) face the dock.
+
+  led_constellation_centroid:
+    parent: dock_origin
+    pose: [0.05, 0.0, 0.0, 0.0, 0.0, 0.0]
+    note: centroid of the four LEDs; the optical target origin
+
+known_discrepancies:
+  dock_has_no_collision:
+    what: no <collision> element on any docking_station link
+    consequence: >-
+      The dock is intangible. Contact docking, funnel-guided capture and any
+      collision-based success criterion are all unavailable, and a controller
+      can "dock" by flying through the structure.
+    reproduced: true
+    correction_deferred_to: M2.5 (P14 cannot be authored until this is resolved)

@@ -71,3 +71,32 @@ results/*.log
 
 # Backups left by the glTF fixups
 *.gltf.orig
+
+# --- development history, local only -------------------------------------
+#
+# baselines/ is the chronological record of how the physics release was built:
+# milestone reports, console captures, superseded intermediate runs. It is kept
+# on disk and deliberately not published. The repository should present the
+# released simulator, not the diary of its construction.
+#
+# What a user or reviewer actually needs to verify the release lives in
+# validation/ : the integrity baselines, the golden-row fixture, the measured
+# results and the figures. Those are tracked.
+baselines/
+
+# --- superseded validation artefacts -------------------------------------
+#
+# The regression contract IS tracked: the .sha256 baselines, the golden-row
+# fixture, freeze_integrity.json, environment.json, corrections.yaml, the
+# milestone reports and the validation figures. Without those, every number in
+# those reports is an assertion nobody can recheck.
+#
+# What is NOT tracked is the console noise that produced them. A pytest capture
+# or a raw Gazebo log is regenerable, carries no evidence the JSON results and
+# the reports do not already carry, and only grows.
+baselines/**/pytest_*.txt
+baselines/**/gz_run.log
+baselines/M2.5/*_run.txt
+baselines/M2.5/*_final.txt
+baselines/M2.5/*_fast.txt
+baselines/**/variant.sdf

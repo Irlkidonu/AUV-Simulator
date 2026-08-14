@@ -1,0 +1,252 @@
+# M2.5 corrections: the VALIDATED configuration, expressed as overrides.
+#
+# The three files beside this one (physics.yaml, vehicle_bluerov2_phys.yaml,
+# dock_station.yaml) are the immutable REFERENCE -- the inherited model,
+# reproduced exactly at M2 and never edited again. This file is the only place
+# a validated value differs from it, so `diff` between the two states is this
+# document.
+#
+# Every entry carries: the failing observation, the physical explanation, the
+# change, its justification, and the revalidation result. An entry without all
+# five is not a correction, it is tuning.
+
+schema: 1
+derived_from:
+  physics: config/physics.yaml
+  vehicle: config/vehicle_bluerov2_phys.yaml
+  dock: config/dock_station.yaml
+
+corrections:
+
+  C1_system_neutral_buoyancy:
+    status: applied
+    observation: >-
+      P3 FAIL. Displaced mass 25.4610 kg against a total system mass of
+      25.5000 kg, a net weight of +0.3822 N. P1 then measured a steady sink of
+      -0.010898 m/s against a predicted -0.010898 m/s: the implementation is
+      exactly right, the vehicle simply is not neutral.
+    explanation: >-
+      Only base_link carries collision geometry, and gz-sim-buoyancy-system
+      integrates displaced volume from collision geometry alone. The four
+      propeller links contribute 4 x 0.01 = 0.04 kg of mass and displace
+      nothing. The hull mass of 25.46 kg matches the hull's displacement of
+      25.461 kg to five significant figures, which is not a coincidence -- the
+      reference clearly intended a neutral vehicle and the propeller links
+      defeated that intent by 0.039 kg.
+    change:
+      path: vehicle_bluerov2_phys.base_link.mass_kg
+      from: 25.46
+      to: 25.421
+    justification: >-
+      Restores the evident design intent: total system mass 25.4610 kg now
+      equals displaced mass 25.4610 kg exactly. The hull mass is adjusted rather
+      than the collision box because the box is also the contact shape, and
+      changing it would alter contact behaviour to fix a mass-budget problem.
+      Adjusting the propeller masses instead would have to make them
+      near-zero, which DART tolerates poorly on revolute joints.
+      Magnitude of change: 0.15%.
+    revalidation: P3 ratio 1.00000; P1 residual sink below 0.5 mm/s. See report.
+
+  C2_dock_collision_geometry:
+    status: applied
+    observation: >-
+      P14 NOT EXECUTABLE. No <collision> element on any docking_station link,
+      so the vehicle passes through the funnel, collar and support post.
+    explanation: >-
+      The reference dock was authored for a kinematic demonstrator in which the
+      vehicle was teleported along a scripted trajectory and contact never
+      arose. Carried into a dynamic world unchanged, it leaves the docking
+      structure intangible.
+    change:
+      path: dock_station.collision
+      from: absent
+      to: >-
+        Convex primitives mirroring the visual geometry: 4 funnel plates (boxes,
+        matching the visual flares), an 8-segment annular collar (boxes, inner
+        radius 0.24 m so the 0.46 x 0.18 m hull can enter the throat but
+        contacts when laterally offset by more than about 0.065 m), the support
+        post (cylinder) and the baseplate (box).
+    justification: >-
+      Convex primitives rather than visual meshes: they are what DART handles
+      stably at a 1 ms step, and the funnel's guidance behaviour comes from its
+      gross shape, not from surface detail. The collar is segmented because a
+      solid cylinder would seal the throat the vehicle is supposed to enter.
+      Dimensions are taken from the visual geometry, not invented.
+    revalidation: P14 5/5 scenarios; no tunnelling, bounded contact, finite states.
+
+  C3_atomic_thruster_commands:
+    status: applied
+    observation: >-
+      M2 finding C. Identical open-loop surge commands produced world
+      displacements of (+3.65, -0.02, -0.24) m and (-0.87, -1.58, -0.41) m,
+      differing only in how the two thrust commands were timed.
+    explanation: >-
+      Publishing the surge pair through two sequential subprocesses leaves of
+      order 100 ms of pure differential thrust: 40 N at a 0.16 m lever on a
+      0.862 kg.m^2 yaw inertia, about 7.4 rad/s^2. Command timing was
+      determining vehicle heading.
+    change:
+      path: uuv_sim_physics.validation.harness / future allocator
+      from: sequential per-thruster publication with wall-clock gaps
+      to: >-
+        The complete thruster vector is computed first and published from one
+        process with no sleep, subprocess or wait between publishes.
+    justification: >-
+      A body wrench is one control decision; splitting it across wall-clock time
+      injects a moment that exists in no equation of the model. This is an
+      interface defect, not a physics parameter.
+    revalidation: repeated-run variance reported in the M2.5 report.
+
+  C4_thruster_visual_geometry:
+    status: applied
+    observation: >-
+      M2 finding, thruster_visual_actuation_mismatch. base_link carried four
+      cosmetic motor visuals at (+/-0.17, +/-0.17) rotated +/-45 degrees,
+      implying a vectored layout, while the four actuated joints are
+      prop_left/right on the X axis plus prop_sway and prop_vert. The rendered
+      vehicle showed eight thrusters and behaved as four.
+    explanation: >-
+      The visuals were inherited from the kinematic model's appearance and were
+      never reconciled with the dynamic actuation added later.
+    change:
+      path: vehicle_bluerov2_phys visual set
+      from: 4 cosmetic vectored motor visuals + 4 actuated propeller links
+      to: >-
+        Cosmetic vectored visuals removed. The four actuated propellers keep
+        their visuals, at their true actuation positions.
+    justification: >-
+      The decoupled surge/yaw + sway + heave arrangement is retained rather than
+      rebuilt as a vectored layout, because the inherited hydrodynamic
+      coefficients, the 0.16 m yaw lever and every measurement in this protocol
+      describe that vehicle. Rebuilding the actuation to match a decorative
+      picture would invalidate the coefficients and the validation with them.
+      The cheaper and more honest fix is to make the picture match the physics.
+      Visual geometry, joint axes, allocator and equations now describe one
+      vehicle.
+    revalidation: P16 frame audit; visual inspection of the generated world.
+
+  C5_surge_sign_finding_withdrawn:
+    status: withdrawn
+    observation: >-
+      The M2 report stated that positive surge thrust drives the vehicle astern
+      (body -X), inverted relative to sway and heave.
+    explanation: >-
+      That conclusion was wrong. It was inferred from world-frame displacement
+      on a vehicle whose heading was changing throughout the run. Measured in
+      the body frame at t = 0.49 s, before attitude has moved appreciably,
+      positive surge gives body vx = +0.753 m/s while world vx = -0.747 m/s:
+      the thrust acts along body +X, forward, exactly as declared. P13 confirms
+      all six degrees of freedom follow their declared signs.
+    change: none
+    justification: >-
+      No sign inversion exists, so no correction is applied. What the M2
+      measurement actually detected was the directional instability recorded as
+      L1 in unresolved_limitations.
+    revalidation: P13 PASS, 6/6 axes correct.
+
+  C6_validated_timestep:
+    status: applied
+    observation: >-
+      P15 initially FAILED: terminal surge 0.7701 m/s at 1 ms against 0.7819 m/s
+      at 0.5 ms, a 1.53% difference against a 1% criterion.
+    explanation: >-
+      A two-point comparison cannot distinguish truncation error from run
+      variation, and this one did not. A four-step convergence study
+      (2.0 / 1.0 / 0.5 / 0.25 ms) shows the free-water dynamics are already
+      converged at 1 ms: successive change in terminal surge is 0.940% from
+      2.0 to 1.0 ms, 0.020% from 1.0 to 0.5 ms and 0.002% from 0.5 to 0.25 ms,
+      while heave terminal and yaw rate are identical to five decimals at every
+      step. The original 1.53% was measurement variation in a single 1 ms run,
+      not solver truncation.
+    change:
+      path: physics.engine.max_step_size_s
+      from: 0.001
+      to: 0.0005
+    justification: >-
+      Adopted not because 1 ms was failing -- it converges -- but because 0.5 ms
+      sits inside the converged regime with three orders of magnitude of margin
+      on the free-water quantities, and resolves contact more finely, at a cost
+      the host absorbs. REFERENCE stays at 1 ms so the inherited configuration
+      is unchanged.
+    revalidation: >-
+      Free-water quantities converged. Contact closest-approach still changes
+      1.271% between 0.5 and 0.25 ms; see unresolved_limitations L5.
+
+  C7_sensor_suite_on_the_dynamic_vehicle:
+    status: applied
+    observation: >-
+      M2 finding L4. The dynamic vehicle carried a camera only; the FLS
+      (gpu_lidar), DVL and IMU lived on the KINEMATIC vehicle in
+      underwater_docking.sdf, which has no hydrodynamics, no thrusters and no
+      rigid-body actuation. Physics and sensing were on two different vehicles.
+    explanation: >-
+      The two worlds were authored for different purposes and never merged. Any
+      perception work would otherwise have had to choose between a vehicle that
+      moves correctly and one that senses.
+    change:
+      path: vehicle_bluerov2_phys.sensors
+      from: camera only
+      to: >-
+        camera (unchanged) + fls (gpu_lidar, 128 x 1 rays, +/-0.52 rad, 0.2-12 m,
+        10 Hz) + imu (100 Hz) + dvl (4-beam Janus, 30 deg tilt, 10 Hz). Sensor
+        definitions are copied from the frozen kinematic reference; the frozen
+        assets are not modified.
+    justification: >-
+      Sensing and dynamics must be properties of one vehicle before any
+      perception can consume simulated observations while the vehicle is under
+      closed-loop control. Parameters are transcribed from the reference rather
+      than re-chosen, so the sensors are the ones already exercised by the
+      existing docking work.
+    revalidation: M4 sensor validation suite; see the M4 report.
+
+# --- measured, characterised, and deliberately NOT changed ------------------
+not_corrected:
+
+  yV_and_kP_zero_linear_damping:
+    measured: >-
+      P7 sway terminal 0.47979 m/s against 0.48002 m/s predicted (0.05%).
+      P7b low-speed sway at 2 N: 0.095968 m/s against 0.096003 m/s predicted
+      (0.04%), with a 1/e decay of 2.68 s after thrust removal.
+    finding: >-
+      The implementation reproduces its stated equation to better than 0.1% in
+      both the high- and low-speed regimes. There is no implementation error.
+    why_not_changed: >-
+      The coefficient set, including the zero linear sway and roll damping, is
+      the widely circulated BlueROV2 Fossen parameter set; the reference labels
+      it "representative BlueROV2-scale coefficients". Overriding published
+      values to obtain nicer open-loop behaviour would be tuning, and would
+      also decouple this simulator from whatever source the numbers came from.
+      The consequence -- that the vehicle needs closed-loop heading control --
+      is a true property of a bare-frame ROV with no fins, not a modelling
+      error.
+    caveat: >-
+      The provenance is undocumented in the repository. Before publication the
+      author must either cite the source of these coefficients or re-derive
+      them. See unresolved_limitations L3.
+
+  nR_yaw_damping:
+    measured: >-
+      Raising yV to -30 alone reduced open-loop yaw drift from 496 to 398 deg
+      over 14 s. Raising nR to -8 as well reduced it to 23.5 deg, with body
+      velocity (+0.795, -0.013) m/s -- matching the analytic surge prediction
+      of 0.795 m/s exactly.
+    finding: >-
+      Yaw damping dominates the directional instability; sway damping is
+      secondary. The Munk-moment hypothesis was tested by setting yDotV equal
+      to xDotU and was REJECTED: yaw drift changed by less than 1 deg.
+    why_not_changed: same reasoning as yV/kP above.
+
+unresolved_limitations:
+  L1_open_loop_directional_instability: >-
+    Under symmetric surge thrust the vehicle enters a sustained turn of about
+    0.8 rad/s and does not track a straight line open-loop. Characterised, not
+    corrected. M3 must supply closed-loop heading control; no open-loop
+    straight-line experiment is meaningful on this platform.
+  L2_no_ambient_current: >-
+    P12 not executable. gz-sim-hydrodynamics-system accepts no flow input, so
+    current disturbance cannot be tested without extending the model.
+  L3_coefficient_provenance: >-
+    The 18 hydrodynamic coefficients have no citation in the repository.
+  L4_sensor_suite_split: >-
+    The dynamic vehicle carries a camera only; FLS, DVL and IMU remain on the
+    kinematic vehicle. Deferred to M4 by instruction.

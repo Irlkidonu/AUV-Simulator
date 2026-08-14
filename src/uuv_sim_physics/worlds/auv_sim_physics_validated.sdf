@@ -1,0 +1,484 @@
+<?xml version="1.0" ?>
+<!--
+  auv_sim_physics_validated.sdf : GENERATED. Do not edit by hand.
+
+  Built from config/physics.yaml, config/vehicle_bluerov2_phys.yaml and
+  config/dock_station.yaml by uuv_sim_physics.world_builder. Edit the YAML
+  and regenerate; test_world_builder.py fails if this file is edited
+  directly.
+
+  Physics parameters are reproduced verbatim from the frozen reference
+  src/uuv_adaptive_nav/worlds/underwater_docking_physics.sdf. No value has
+  been corrected. Known inconsistencies are recorded in the YAML under
+  known_discrepancies and are addressed at M2.5, not here.
+-->
+<sdf version="1.9" xmlns:gz="http://gazebosim.org/schema">
+  <world name="auv_sim_physics_validated">
+
+    <physics name="0.5ms" type="dart">
+      <max_step_size>0.0005</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-buoyancy-system" name="gz::sim::systems::Buoyancy">
+      <uniform_fluid_density>1025</uniform_fluid_density>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <plugin filename="gz-sim-dvl-system" name="gz::sim::systems::DopplerVelocityLogSystem"/>
+
+    <scene>
+      <ambient>0.18 0.28 0.36 1</ambient>
+      <background>0.03 0.08 0.15 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <light type="directional" name="surface_light">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 0 0 0 0</pose>
+      <diffuse>0.55 0.8 0.95 1</diffuse>
+      <specular>0.2 0.28 0.35 1</specular>
+      <direction>0.05 0.05 -1</direction>
+      <intensity>1</intensity>
+    </light>
+
+    <light type="directional" name="caustic_fill">
+      <cast_shadows>false</cast_shadows>
+      <pose>10 0 -10 0 0 0</pose>
+      <diffuse>0.1 0.18 0.25 1</diffuse>
+      <specular>0 0 0 1</specular>
+      <direction>-0.5 0.2 -0.3</direction>
+      <intensity>0.5</intensity>
+    </light>
+
+    <model name="seabed">
+      <static>true</static>
+      <pose>0 0 -20 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+        </collision>
+        <visual name="sand">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+          <material><ambient>0.55 0.5 0.38 1</ambient><diffuse>0.6 0.52 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rock_a">
+      <static>true</static>
+      <pose>2.5 1 -19 0.1 0.2 0.5</pose>
+      <link name="link">
+        <collision name="c">
+          <geometry><sphere><radius>1.4</radius></sphere></geometry>
+        </collision>
+        <visual name="v">
+          <geometry><sphere><radius>1.4</radius></sphere></geometry>
+          <material><ambient>0.30 0.29 0.27 1</ambient><diffuse>0.38 0.36 0.33 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="rock_b">
+      <static>true</static>
+      <pose>4.5 0.5 -19.2 0 0.1 1</pose>
+      <link name="link">
+        <collision name="c">
+          <geometry><box><size>2.2 1.6 1</size></box></geometry>
+        </collision>
+        <visual name="v">
+          <geometry><box><size>2.2 1.6 1</size></box></geometry>
+          <material><ambient>0.30 0.29 0.27 1</ambient><diffuse>0.38 0.36 0.33 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="rock_c">
+      <static>true</static>
+      <pose>5.5 3 -18.8 0.3 0 0.7</pose>
+      <link name="link">
+        <collision name="c">
+          <geometry><sphere><radius>0.9</radius></sphere></geometry>
+        </collision>
+        <visual name="v">
+          <geometry><sphere><radius>0.9</radius></sphere></geometry>
+          <material><ambient>0.30 0.29 0.27 1</ambient><diffuse>0.38 0.36 0.33 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="rock_d">
+      <static>true</static>
+      <pose>1 5.5 -19.1 0.2 0.3 0.3</pose>
+      <link name="link">
+        <collision name="c">
+          <geometry><sphere><radius>1.1</radius></sphere></geometry>
+        </collision>
+        <visual name="v">
+          <geometry><sphere><radius>1.1</radius></sphere></geometry>
+          <material><ambient>0.30 0.29 0.27 1</ambient><diffuse>0.38 0.36 0.33 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="rock_e">
+      <static>true</static>
+      <pose>-1.5 2.5 -19.5 0.1 0.1 1.2</pose>
+      <link name="link">
+        <collision name="c">
+          <geometry><box><size>1.8 1.2 0.8</size></box></geometry>
+        </collision>
+        <visual name="v">
+          <geometry><box><size>1.8 1.2 0.8</size></box></geometry>
+          <material><ambient>0.30 0.29 0.27 1</ambient><diffuse>0.38 0.36 0.33 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Docking station. NOTE: no collision geometry, reproduced from
+         the reference. See dock_station.yaml known_discrepancies. -->
+    <model name="docking_station">
+      <static>true</static>
+      <pose>0 0 -15 0 0 0</pose>
+      <link name="support">
+        <visual name="post">
+          <pose>-0.35 0 -2.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.06</radius><length>5</length></cylinder></geometry>
+          <material><ambient>0.20 0.20 0.22 1</ambient><diffuse>0.30 0.30 0.32 1</diffuse></material>
+        </visual>
+        <visual name="baseplate">
+          <pose>-0.35 0 -5 0 0 0</pose>
+          <geometry><box><size>0.9 0.9 0.06</size></box></geometry>
+          <material><ambient>0.20 0.20 0.22 1</ambient><diffuse>0.30 0.30 0.32 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="collar">
+        <visual name="ring">
+          <pose>-0.02 0 0 0 1.5708 0</pose>
+          <geometry><cylinder><radius>0.3</radius><length>0.06</length></cylinder></geometry>
+          <material><ambient>0.90 0.35 0 1</ambient><diffuse>1 0.40 0 1</diffuse><emissive>0.55 0.18 0 1</emissive></material>
+        </visual>
+      </link>
+      <link name="funnel">
+        <visual name="flare_top">
+          <pose>0.75 0 0.44 0 -0.569 0</pose>
+          <geometry><box><size>0.594 0.72 0.02</size></box></geometry>
+          <material><ambient>0.78 0.66 0.08 1</ambient><diffuse>0.98 0.85 0.12 1</diffuse></material>
+        </visual>
+        <visual name="flare_bottom">
+          <pose>0.75 0 -0.44 0 0.569 0</pose>
+          <geometry><box><size>0.594 0.72 0.02</size></box></geometry>
+          <material><ambient>0.78 0.66 0.08 1</ambient><diffuse>0.98 0.85 0.12 1</diffuse></material>
+        </visual>
+        <visual name="flare_left">
+          <pose>0.75 0.44 0 0 0 0.569</pose>
+          <geometry><box><size>0.594 0.02 0.72</size></box></geometry>
+          <material><ambient>0.78 0.66 0.08 1</ambient><diffuse>0.98 0.85 0.12 1</diffuse></material>
+        </visual>
+        <visual name="flare_right">
+          <pose>0.75 -0.44 0 0 0 -0.569</pose>
+          <geometry><box><size>0.594 0.02 0.72</size></box></geometry>
+          <material><ambient>0.78 0.66 0.08 1</ambient><diffuse>0.98 0.85 0.12 1</diffuse></material>
+        </visual>
+      </link>
+      <link name="led_markers">
+        <visual name="led_tl">
+          <pose>0.05 0.2 0.2 0 0 0</pose>
+          <geometry><sphere><radius>0.045</radius></sphere></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.15 1 0.25 1</diffuse><emissive>0.1 1 0.2 1</emissive></material>
+        </visual>
+        <visual name="led_tr">
+          <pose>0.05 -0.2 0.2 0 0 0</pose>
+          <geometry><sphere><radius>0.045</radius></sphere></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.15 1 0.25 1</diffuse><emissive>0.1 1 0.2 1</emissive></material>
+        </visual>
+        <visual name="led_bl">
+          <pose>0.05 0.2 -0.2 0 0 0</pose>
+          <geometry><sphere><radius>0.045</radius></sphere></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.15 1 0.25 1</diffuse><emissive>0.1 1 0.2 1</emissive></material>
+        </visual>
+        <visual name="led_br">
+          <pose>0.05 -0.2 -0.2 0 0 0</pose>
+          <geometry><sphere><radius>0.045</radius></sphere></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.15 1 0.25 1</diffuse><emissive>0.1 1 0.2 1</emissive></material>
+        </visual>
+      </link>
+      <link name="guidance_lasers">
+        <visual name="beam_tl">
+          <pose>1.55 0.2 0.2 0 1.5708 0</pose>
+          <geometry><cylinder><radius>0.008</radius><length>3</length></cylinder></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.1 1 0.2 1</diffuse><emissive>0.15 1 0.25 1</emissive></material>
+        </visual>
+        <visual name="beam_tr">
+          <pose>1.55 -0.2 0.2 0 1.5708 0</pose>
+          <geometry><cylinder><radius>0.008</radius><length>3</length></cylinder></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.1 1 0.2 1</diffuse><emissive>0.15 1 0.25 1</emissive></material>
+        </visual>
+        <visual name="beam_bl">
+          <pose>1.55 0.2 -0.2 0 1.5708 0</pose>
+          <geometry><cylinder><radius>0.008</radius><length>3</length></cylinder></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.1 1 0.2 1</diffuse><emissive>0.15 1 0.25 1</emissive></material>
+        </visual>
+        <visual name="beam_br">
+          <pose>1.55 -0.2 -0.2 0 1.5708 0</pose>
+          <geometry><cylinder><radius>0.008</radius><length>3</length></cylinder></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.1 1 0.2 1</diffuse><emissive>0.15 1 0.25 1</emissive></material>
+        </visual>
+        <visual name="axis_laser">
+          <pose>2.05 0 0 0 1.5708 0</pose>
+          <geometry><cylinder><radius>0.012</radius><length>4</length></cylinder></geometry>
+          <material><ambient>0.1 1 0.2 1</ambient><diffuse>0.1 1 0.2 1</diffuse><emissive>0.15 1 0.25 1</emissive></material>
+        </visual>
+      </link>
+      <link name="beacons">
+        <visual name="transponder">
+          <pose>-0.05 0 0.34 0 0 0</pose>
+          <geometry><sphere><radius>0.05</radius></sphere></geometry>
+          <material><ambient>0.9 0.9 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 1 1</emissive></material>
+        </visual>
+        <visual name="strobe_l">
+          <pose>1 0.58 0 0 0 0</pose>
+          <geometry><sphere><radius>0.04</radius></sphere></geometry>
+          <material><ambient>0.9 0.9 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 1 1</emissive></material>
+        </visual>
+        <visual name="strobe_r">
+          <pose>1 -0.58 0 0 0 0</pose>
+          <geometry><sphere><radius>0.04</radius></sphere></geometry>
+          <material><ambient>0.9 0.9 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 1 1</emissive></material>
+        </visual>
+      </link>
+      <link name="funnel_collision">
+        <collision name="col_flare_top">
+          <pose>0.75 0 0.44 0 -0.569 0</pose>
+          <geometry><box><size>0.594 0.72 0.02</size></box></geometry>
+        </collision>
+        <collision name="col_flare_bottom">
+          <pose>0.75 0 -0.44 0 0.569 0</pose>
+          <geometry><box><size>0.594 0.72 0.02</size></box></geometry>
+        </collision>
+        <collision name="col_flare_left">
+          <pose>0.75 0.44 0 0 0 0.569</pose>
+          <geometry><box><size>0.594 0.02 0.72</size></box></geometry>
+        </collision>
+        <collision name="col_flare_right">
+          <pose>0.75 -0.44 0 0 0 -0.569</pose>
+          <geometry><box><size>0.594 0.02 0.72</size></box></geometry>
+        </collision>
+      </link>
+      <link name="collar_collision">
+        <collision name="col_collar_0">
+          <pose>-0.02 0.27 0 0 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_1">
+          <pose>-0.02 0.190919 0.190919 0.785398 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_2">
+          <pose>-0.02 1.65327e-17 0.27 1.5708 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_3">
+          <pose>-0.02 -0.190919 0.190919 2.35619 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_4">
+          <pose>-0.02 -0.27 3.30655e-17 3.14159 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_5">
+          <pose>-0.02 -0.190919 -0.190919 3.92699 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_6">
+          <pose>-0.02 -4.95982e-17 -0.27 4.71239 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+        <collision name="col_collar_7">
+          <pose>-0.02 0.190919 -0.190919 5.49779 0 0</pose>
+          <geometry><box><size>0.06 0.22266 0.06</size></box></geometry>
+        </collision>
+      </link>
+      <link name="support_collision">
+        <collision name="col_post">
+          <pose>-0.35 0 -2.5 0 0 0</pose>
+          <geometry><cylinder><radius>0.06</radius><length>5</length></cylinder></geometry>
+        </collision>
+        <collision name="col_baseplate">
+          <pose>-0.35 0 -5 0 0 0</pose>
+          <geometry><box><size>0.9 0.9 0.06</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="bluerov2_phys">
+      <pose>4 0 -15 0 0 3.14159</pose>
+      <self_collide>false</self_collide>
+
+      <link name="base_link">
+        <inertial>
+          <pose>0 0 -0.03 0 0 0</pose>
+          <mass>25.421</mass>
+          <inertia>
+            <ixx>0.26</ixx><iyy>0.52</iyy><izz>0.64</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="hull_col">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry><box><size>0.46 0.3 0.18</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>0.448 0.338 0.126</size></box></geometry>
+          <material><ambient>0.15 0.15 0.75 1</ambient><diffuse>0.18 0.18 0.85 1</diffuse></material>
+        </visual>
+        <light name="headlight_l" type="spot">
+          <pose>0.24 0.08 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <diffuse>1 0.96 0.85 1</diffuse>
+          <specular>0.3 0.3 0.25 1</specular>
+          <attenuation><range>7</range><linear>0.15</linear><constant>0.25</constant><quadratic>0.02</quadratic></attenuation>
+          <direction>1 0 0</direction>
+          <spot><inner_angle>0.3</inner_angle><outer_angle>0.6</outer_angle><falloff>1</falloff></spot>
+        </light>
+        <light name="headlight_r" type="spot">
+          <pose>0.24 -0.08 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <diffuse>1 0.96 0.85 1</diffuse>
+          <specular>0.3 0.3 0.25 1</specular>
+          <attenuation><range>7</range><linear>0.15</linear><constant>0.25</constant><quadratic>0.02</quadratic></attenuation>
+          <direction>1 0 0</direction>
+          <spot><inner_angle>0.3</inner_angle><outer_angle>0.6</outer_angle><falloff>1</falloff></spot>
+        </light>
+        <sensor name="camera" type="camera">
+          <always_on>1</always_on>
+          <update_rate>20</update_rate>
+          <visualize>true</visualize>
+          <topic>/bluerov2_phys/camera</topic>
+          <pose>0.23 0 -0.01 0 0.05 0</pose>
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+            <clip><near>0.02</near><far>60</far></clip>
+          </camera>
+        </sensor>
+        <sensor name="fls" type="gpu_lidar">
+          <always_on>1</always_on>
+          <update_rate>10</update_rate>
+          <topic>/bluerov2_phys/fls/raw</topic>
+          <pose>0.24 0 0 0 0 0</pose>
+          <lidar><scan><horizontal>
+            <samples>128</samples><resolution>1</resolution>
+            <min_angle>-0.52</min_angle><max_angle>0.52</max_angle>
+          </horizontal><vertical>
+            <samples>1</samples><resolution>1</resolution><min_angle>0</min_angle><max_angle>0</max_angle>
+          </vertical></scan>
+          <range><min>0.2</min><max>12</max><resolution>0.01</resolution></range>
+          </lidar>
+        </sensor>
+        <sensor name="imu" type="imu">
+          <always_on>1</always_on>
+          <update_rate>100</update_rate>
+          <topic>/bluerov2_phys/imu</topic>
+          <pose>0 0 0 0 0 0</pose>
+        </sensor>
+        <sensor name="dvl" type="custom" gz:type="dvl">
+          <always_on>1</always_on>
+          <update_rate>10</update_rate>
+          <topic>/bluerov2_phys/dvl</topic>
+          <pose>0 0 -0.09 0 0 0</pose>
+          <gz:dvl>
+            <arrangement degrees="true"><beam id="1"><aperture>2</aperture><rotation>45</rotation><tilt>30</tilt></beam><beam id="2"><aperture>2</aperture><rotation>135</rotation><tilt>30</tilt></beam><beam id="3"><aperture>2</aperture><rotation>225</rotation><tilt>30</tilt></beam><beam id="4"><aperture>2</aperture><rotation>315</rotation><tilt>30</tilt></beam></arrangement>
+            <tracking><bottom_mode><when>best</when>
+              <noise type="gaussian"><stddev>0.0005</stddev></noise>
+              <visualize>false</visualize>
+            </bottom_mode></tracking>
+          </gz:dvl>
+        </sensor>
+      </link>
+
+      <link name="prop_left">
+        <pose>-0.2 0.16 0 0 0 0</pose>
+        <inertial><mass>0.01</mass><inertia><ixx>1e-05</ixx><iyy>1e-05</iyy><izz>1e-05</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+        <visual name="v">
+          <geometry><cylinder><radius>0.03</radius><length>0.05</length></cylinder></geometry>
+          <material><ambient>0.9 0.5 0.1 1</ambient><diffuse>1 0.6 0.1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="prop_left_joint" type="revolute">
+        <parent>base_link</parent><child>prop_left</child>
+        <axis><xyz>1 0 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit><dynamics><damping>0</damping></dynamics></axis>
+      </joint>
+      <link name="prop_right">
+        <pose>-0.2 -0.16 0 0 0 0</pose>
+        <inertial><mass>0.01</mass><inertia><ixx>1e-05</ixx><iyy>1e-05</iyy><izz>1e-05</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+        <visual name="v">
+          <geometry><cylinder><radius>0.03</radius><length>0.05</length></cylinder></geometry>
+          <material><ambient>0.9 0.5 0.1 1</ambient><diffuse>1 0.6 0.1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="prop_right_joint" type="revolute">
+        <parent>base_link</parent><child>prop_right</child>
+        <axis><xyz>1 0 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit><dynamics><damping>0</damping></dynamics></axis>
+      </joint>
+      <link name="prop_sway">
+        <pose>0 0 -0.02 0 0 0</pose>
+        <inertial><mass>0.01</mass><inertia><ixx>1e-05</ixx><iyy>1e-05</iyy><izz>1e-05</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+        <visual name="v">
+          <geometry><cylinder><radius>0.03</radius><length>0.05</length></cylinder></geometry>
+          <material><ambient>0.9 0.5 0.1 1</ambient><diffuse>1 0.6 0.1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="prop_sway_joint" type="revolute">
+        <parent>base_link</parent><child>prop_sway</child>
+        <axis><xyz>0 1 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit><dynamics><damping>0</damping></dynamics></axis>
+      </joint>
+      <link name="prop_vert">
+        <pose>0 0 0.1 0 0 0</pose>
+        <inertial><mass>0.01</mass><inertia><ixx>1e-05</ixx><iyy>1e-05</iyy><izz>1e-05</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+        <visual name="v">
+          <geometry><cylinder><radius>0.03</radius><length>0.05</length></cylinder></geometry>
+          <material><ambient>0.9 0.5 0.1 1</ambient><diffuse>1 0.6 0.1 1</diffuse></material>
+        </visual>
+      </link>
+      <joint name="prop_vert_joint" type="revolute">
+        <parent>base_link</parent><child>prop_vert</child>
+        <axis><xyz>0 0 1</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit><dynamics><damping>0</damping></dynamics></axis>
+      </joint>
+
+      <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics">
+        <link_name>base_link</link_name>
+        <xDotU>-6.36</xDotU><yDotV>-7.12</yDotV><zDotW>-18.68</zDotW><kDotP>-0.189</kDotP><mDotQ>-0.135</mDotQ><nDotR>-0.222</nDotR>
+        <xU>-13.7</xU><yV>-0</yV><zW>-33</zW><kP>-0</kP><mQ>-0.8</mQ><nR>-0.8</nR>
+        <xUabsU>-141</xUabsU><yVabsV>-217</yVabsV><zWabsW>-190</zWabsW><kPabsP>-1.19</kPabsP><mQabsQ>-0.47</mQabsQ><nRabsR>-1.5</nRabsR>
+      </plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>bluerov2_phys</namespace><joint_name>prop_left_joint</joint_name>
+        <thrust_coefficient>0.004422</thrust_coefficient><fluid_density>1025</fluid_density>
+        <propeller_diameter>0.1</propeller_diameter>
+        <max_thrust_cmd>50</max_thrust_cmd><min_thrust_cmd>-50</min_thrust_cmd>
+      </plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>bluerov2_phys</namespace><joint_name>prop_right_joint</joint_name>
+        <thrust_coefficient>0.004422</thrust_coefficient><fluid_density>1025</fluid_density>
+        <propeller_diameter>0.1</propeller_diameter>
+        <max_thrust_cmd>50</max_thrust_cmd><min_thrust_cmd>-50</min_thrust_cmd>
+      </plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>bluerov2_phys</namespace><joint_name>prop_sway_joint</joint_name>
+        <thrust_coefficient>0.004422</thrust_coefficient><fluid_density>1025</fluid_density>
+        <propeller_diameter>0.1</propeller_diameter>
+        <max_thrust_cmd>50</max_thrust_cmd><min_thrust_cmd>-50</min_thrust_cmd>
+      </plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>bluerov2_phys</namespace><joint_name>prop_vert_joint</joint_name>
+        <thrust_coefficient>0.004422</thrust_coefficient><fluid_density>1025</fluid_density>
+        <propeller_diameter>0.1</propeller_diameter>
+        <max_thrust_cmd>50</max_thrust_cmd><min_thrust_cmd>-50</min_thrust_cmd>
+      </plugin>
+    </model>
+
+  </world>
+</sdf>

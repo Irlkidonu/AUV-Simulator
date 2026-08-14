@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>uuv_sim_physics</name>
+  <version>2.0.0</version>
+  <description>
+    Physics-capable execution path for the AUV Simulator. Adds a rigid-body
+    Gazebo/DART backend alongside the existing deterministic reduced-order
+    simulation, without modifying it. General simulator infrastructure: the
+    docking environment is one scenario within it, not its purpose.
+  </description>
+
+  <maintainer email="calexandris@uniwa.gr">Christos Alexandris</maintainer>
+  <license>MIT</license>
+
+  <!-- The reduced backend needs only NumPy and the existing package, and that
+       stays true: nothing in `import uuv_sim_physics` touches ROS or Gazebo.
+       The dependencies below are for the M2 launch path, which a caller opts
+       into explicitly. `test_dependency_isolation.py` enforces the separation. -->
+  <exec_depend>uuv_mode_aware_navigation</exec_depend>
+  <depend>python3-numpy</depend>
+  <depend>python3-yaml</depend>
+
+  <!-- M2: launching the physics world. Pinned stack is gz-sim 8.11.0 (ROS
+       vendored); see baselines/PC2/PC2_REPORT.md. The pin is enforced at
+       runtime by uuv_sim_physics.toolchain, not by these declarations. -->
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_interfaces</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

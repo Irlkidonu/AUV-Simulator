@@ -1,0 +1,219 @@
+# bluerov2_phys -- rigid-body vehicle configuration.
+#
+# Every value copied verbatim from the frozen reference world
+#   src/uuv_adaptive_nav/worlds/underwater_docking_physics.sdf   (lines 388-575)
+# Nothing has been corrected. Where the reference is internally inconsistent,
+# the inconsistency is recorded under `known_discrepancies` and reproduced as-is,
+# so that M2.5 measures the inherited model rather than a quietly improved one.
+
+name: bluerov2_phys
+spawn_pose: [4.0, 0.0, -15.0, 0.0, 0.0, 3.14159]   # x y z roll pitch yaw; faces -X, toward the dock
+self_collide: false
+
+base_link:
+  # --- mass properties ---
+  mass_kg: 25.46
+  center_of_mass_m: [0.0, 0.0, -0.03]              # relative to base_link origin
+  inertia_kgm2:
+    ixx: 0.26
+    iyy: 0.52
+    izz: 0.64
+    ixy: 0.0
+    ixz: 0.0
+    iyz: 0.0
+
+  # --- collision ---
+  # Also the buoyancy volume: gz-sim-buoyancy-system with uniform_fluid_density
+  # integrates displaced volume from collision geometry, so this box is both the
+  # contact shape and the hull volume.
+  collision:
+    name: hull_col
+    shape: box
+    size_m: [0.46, 0.30, 0.18]
+    pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+  visual_body:
+    shape: box
+    size_m: [0.448, 0.338, 0.126]
+
+# --- derived buoyancy quantities -------------------------------------------
+# Not inputs: Gazebo computes these. Recorded so M2.5 has an analytic reference
+# it did not have to re-derive, and so a change in the collision box cannot
+# silently change the buoyancy.
+derived_buoyancy:
+  displaced_volume_m3: 0.024840                    # 0.46 * 0.30 * 0.18
+  displaced_mass_kg: 25.461                        # volume * 1025
+  net_weight_in_water_N: -0.0098                   # (25.46 - 25.461) * 9.8
+  center_of_buoyancy_m: [0.0, 0.0, 0.0]            # centroid of the collision box
+  bg_separation_m: 0.03                            # CoB above CoM -> righting moment
+  note: >-
+    Neutral to 4 parts in 1e5. This looks deliberate rather than incidental.
+
+# --- hydrodynamics (Fossen) --------------------------------------------------
+# gz-sim-hydrodynamics-system, applied to base_link. Signs and magnitudes exactly
+# as in the reference.
+hydrodynamics:
+  link_name: base_link
+  added_mass:
+    xDotU: -6.36
+    yDotV: -7.12
+    zDotW: -18.68
+    kDotP: -0.189
+    mDotQ: -0.135
+    nDotR: -0.222
+  linear_damping:
+    xU: -13.7
+    yV: -0.0        # see known_discrepancies.zero_linear_sway_and_roll_damping
+    zW: -33.0
+    kP: -0.0        # idem
+    mQ: -0.8
+    nR: -0.8
+  quadratic_damping:
+    xUabsU: -141.0
+    yVabsV: -217.0
+    zWabsW: -190.0
+    kPabsP: -1.19
+    mQabsQ: -0.47
+    nRabsR: -1.5
+
+# --- actuation ---------------------------------------------------------------
+# Four independent thrusters in an orthogonal/differential arrangement. Each is a
+# revolute joint driven by gz-sim-thruster-system in force mode: the command
+# topic is .../cmd_thrust and the unit is Newtons.
+thrusters:
+  common:
+    thrust_coefficient: 0.004422
+    fluid_density_kgm3: 1025
+    propeller_diameter_m: 0.1
+    max_thrust_cmd_N: 50
+    min_thrust_cmd_N: -50
+    namespace: bluerov2_phys
+  units:
+    - name: prop_left
+      joint: prop_left_joint
+      position_m: [-0.20, 0.16, 0.0]
+      axis: [1, 0, 0]                # surge (common mode) + yaw (differential)
+      mass_kg: 0.01
+    - name: prop_right
+      joint: prop_right_joint
+      position_m: [-0.20, -0.16, 0.0]
+      axis: [1, 0, 0]
+      mass_kg: 0.01
+    - name: prop_sway
+      joint: prop_sway_joint
+      position_m: [0.0, 0.0, -0.02]
+      axis: [0, 1, 0]                # sway
+      mass_kg: 0.01
+    - name: prop_vert
+      joint: prop_vert_joint
+      position_m: [0.0, 0.0, 0.10]
+      axis: [0, 0, 1]                # heave
+      mass_kg: 0.01
+  propeller_inertia_kgm2: 1.0e-5     # isotropic, per unit
+  joint_damping: 0.0
+
+# --- derived actuation authority --------------------------------------------
+# Analytic predictions from the coefficients above, for M2.5 P5-P8. Recorded now
+# so the predictions cannot be reverse-fitted to whatever the simulator produces.
+derived_authority:
+  surge_terminal_mps: 0.795          # 141 u^2 + 13.7 u = 100 N  (two thrusters)
+  sway_terminal_mps: 0.480           # 217 v^2 + 0 v   = 50 N
+  heave_terminal_mps: 0.433          # 190 w^2 + 33 w  = 50 N
+  roll_natural_period_s: 1.538       # 2*pi / sqrt(m g BG / (Ixx + |kDotP|))
+  added_mass_surge_ratio: 0.800      # 25.46 / (25.46 + 6.36), initial accel with vs without
+
+# --- sensors -----------------------------------------------------------------
+# Present on the reference vehicle. M2 only proves they instantiate; M4 wires
+# them to perception.
+sensors:
+  camera:
+    type: camera
+    pose: [0.23, 0.0, -0.01, 0.0, 0.05, 0.0]     # +X forward, pitched 0.05 rad down
+    horizontal_fov_rad: 1.047
+    width: 640
+    height: 480
+    format: R8G8B8
+    near_clip_m: 0.02
+    far_clip_m: 60
+    update_rate_hz: 20
+    topic: /bluerov2_phys/camera
+
+headlights:
+  - {name: headlight_l, pose: [0.24, 0.08, 0.0, 0.0, 0.0, 0.0], range_m: 7}
+  - {name: headlight_r, pose: [0.24, -0.08, 0.0, 0.0, 0.0, 0.0], range_m: 7}
+
+# --- inherited inconsistencies ----------------------------------------------
+# Reproduced faithfully, NOT corrected. Each is a candidate M2.5 finding.
+known_discrepancies:
+  zero_linear_sway_and_roll_damping:
+    what: yV = -0.0 and kP = -0.0
+    consequence: >-
+      Sway and roll are damped only quadratically, so at low speed they are
+      resisted almost solely by added mass. Docking happens at low speed, which
+      is exactly this regime.
+    test: M2.5 P7 (sway terminal velocity), P9 (roll free decay)
+
+  thruster_visual_actuation_mismatch:
+    what: >-
+      base_link carries four cosmetic motor visuals (thr_fr/fl/br/bl) at
+      (+/-0.17, +/-0.17) rotated +/-45 deg, suggesting a vectored layout. The
+      four ACTUATED joints are a different set entirely -- prop_left/right at
+      (-0.20, +/-0.16) on the X axis, prop_sway, prop_vert. The rendered vehicle
+      shows eight thrusters and behaves as four.
+    consequence: >-
+      No dynamic effect: the visuals carry neither mass nor force. It is a
+      figure-integrity problem -- a screenshot would misrepresent the actuation.
+    test: M2.5 P13 (thrust allocation), plus a visual audit
+
+  surge_thrust_sign_inverted:
+    what: >-
+      Measured at M2 on both the new world and the frozen reference, identically:
+      a positive cmd_thrust on prop_left/prop_right drives the vehicle ASTERN
+      (body -X), while positive commands on prop_sway and prop_vert drive it
+      along body +Y and body +Z as declared. The surge pair is sign-inverted
+      relative to the other two.
+    measured:
+      surge_plus_40N_both: world dx = +3.65 m over 8 s  (yaw = pi, so body -X)
+      surge_minus_40N_both: world dx = -3.79 m
+      sway_plus_40N: world dy = -3.39 m  (body +Y, port -- as declared)
+      heave_plus_40N: world dz = +2.95 m  (body +Z, up -- as declared)
+    reference_comparison: >-
+      The frozen reference produces +3.66 / -3.79 / -3.39 / +2.94 on the same
+      four cases. Reproduction is exact; the inversion is INHERITED, not
+      introduced by the copy.
+    consequence: >-
+      A thrust allocator written on the assumption of one uniform sign
+      convention will drive the vehicle backwards when commanded forward. This
+      is the single most important thing for M3 to get right, and it cannot be
+      inferred from the SDF -- only measured.
+    reproduced: true
+    test: M2.5 P13 (thrust allocation), M2.5 P5 (surge terminal velocity)
+
+  open_loop_heading_is_not_reproducible:
+    what: >-
+      The vehicle has no heading hold and weak yaw damping (nR = -0.8 linear,
+      nRabsR = -1.5 quadratic, Izz + |nDotR| = 0.862 kg.m^2). A few milliseconds
+      of asymmetry between prop_left and prop_right applies 40 N at a 0.16 m
+      lever, about 7.4 rad/s^2, and the resulting heading change never decays
+      because nothing restores it.
+    measured: >-
+      Identical open-loop surge commands produced world displacements of
+      (+3.65, -0.02, -0.24) m on one run and (-0.87, -1.58, -0.41) m on another,
+      differing only in how the two thrust commands were timed.
+    consequence: >-
+      Two things follow. (1) M2.5 P5-P8 must measure in the body frame, or with
+      attitude constrained -- a world-frame open-loop measurement is not
+      repeatable. (2) M3's allocator must issue the surge pair atomically;
+      publishing them sequentially is enough to spin the vehicle.
+    reproduced: true
+    note: >-
+      Inherited, not introduced: the reference has the same coefficients and the
+      same absence of heading control.
+    test: M2.5 P8 (yaw step response), P13 (thrust allocation)
+
+  yaw_authority_geometry:
+    what: >-
+      Yaw comes only from differential thrust on prop_left/prop_right at a
+      +/-0.16 m lever arm, giving a maximum yaw moment of 2 * 50 * 0.16 = 16 N.m.
+    consequence: Yaw authority is modest relative to surge; to be quantified.
+    test: M2.5 P8 (yaw step response)
