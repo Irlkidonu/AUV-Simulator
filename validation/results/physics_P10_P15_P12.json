@@ -1,0 +1,41 @@
+[
+  {
+    "name": "P10",
+    "title": "added-mass influence on surge",
+    "status": "fail",
+    "predicted": 0.8001319883096069,
+    "measured": 1.1537533728177,
+    "unit": "ratio",
+    "tolerance": "0.05 absolute",
+    "detail": "initial acceleration 1.2132 m/s2 with added mass, 1.0515 m/s2 without",
+    "data": {
+      "accel_with": 1.2131712501776162,
+      "accel_without": 1.051499634809132
+    }
+  },
+  {
+    "name": "P15",
+    "title": "timestep sensitivity (1 ms vs 0.5 ms)",
+    "status": "fail",
+    "predicted": 0.0,
+    "measured": 1.5297031980963611,
+    "unit": "% difference",
+    "tolerance": "< 1%",
+    "detail": "terminal surge 0.7701 m/s at 1 ms, 0.7819 m/s at 0.5 ms",
+    "data": {
+      "terminal_1ms": 0.7701318074121777,
+      "terminal_0p5ms": 0.7819125382997191
+    }
+  },
+  {
+    "name": "P12",
+    "title": "current disturbance response",
+    "status": "not_executable",
+    "predicted": null,
+    "measured": null,
+    "unit": "",
+    "tolerance": "",
+    "detail": "The model has no ambient current. gz-sim-hydrodynamics-system accepts no flow input and the reference world never defined one, so there is nothing to measure. Adding a current is a model extension, deferred beyond M2.5.",
+    "data": {}
+  }
+]

@@ -1,0 +1,336 @@
+[
+  {
+    "name": "timing/camera",
+    "title": "camera rate and timestamps",
+    "status": "pass",
+    "measured": {
+      "measured_hz": 20.0,
+      "nominal_hz": 20.0,
+      "monotonic": true,
+      "duplicates": 0,
+      "messages": 240
+    },
+    "detail": ""
+  },
+  {
+    "name": "timing/fls",
+    "title": "fls rate and timestamps",
+    "status": "pass",
+    "measured": {
+      "measured_hz": 10.0,
+      "nominal_hz": 10.0,
+      "monotonic": true,
+      "duplicates": 0,
+      "messages": 120
+    },
+    "detail": ""
+  },
+  {
+    "name": "timing/imu",
+    "title": "imu rate and timestamps",
+    "status": "pass",
+    "measured": {
+      "measured_hz": 100.0,
+      "nominal_hz": 100.0,
+      "monotonic": true,
+      "duplicates": 0,
+      "messages": 1200
+    },
+    "detail": ""
+  },
+  {
+    "name": "timing/dvl",
+    "title": "dvl rate and timestamps",
+    "status": "pass",
+    "measured": {
+      "measured_hz": 10.0,
+      "nominal_hz": 10.0,
+      "monotonic": true,
+      "duplicates": 0,
+      "messages": 120
+    },
+    "detail": ""
+  },
+  {
+    "name": "imu/stationary",
+    "title": "IMU at rest",
+    "status": "pass",
+    "measured": {
+      "max_gyro_radps": 1e-05,
+      "accel_xyz": [
+        0.0515,
+        0.0,
+        9.7999
+      ]
+    },
+    "detail": "specific force: +Z reads +g for a stationary +Z-up sensor"
+  },
+  {
+    "name": "dvl/stationary",
+    "title": "DVL at rest",
+    "status": "pass",
+    "measured": {
+      "max_abs_mps": 0.00163,
+      "tracking_types": [
+        1
+      ]
+    },
+    "detail": "type 1 = bottom lock"
+  },
+  {
+    "name": "fls/geometry",
+    "title": "FLS field and sampling",
+    "status": "pass",
+    "measured": {
+      "rays": 128,
+      "angle_min_rad": -0.52,
+      "span_rad": 1.04,
+      "finite_returns": 52,
+      "min_range_m": 2.781,
+      "max_range_m": 3.759
+    },
+    "detail": ""
+  },
+  {
+    "name": "optical/rms_contrast",
+    "title": "rms_contrast decreases with severity",
+    "status": "pass",
+    "measured": {
+      "c_values": [
+        0.0,
+        0.2,
+        0.6,
+        1.2,
+        2.0
+      ],
+      "series": [
+        0.185656,
+        0.100747,
+        0.030589,
+        0.004984,
+        0.000209
+      ]
+    },
+    "detail": ""
+  },
+  {
+    "name": "optical/michelson_contrast",
+    "title": "michelson_contrast decreases with severity",
+    "status": "pass",
+    "measured": {
+      "c_values": [
+        0.0,
+        0.2,
+        0.6,
+        1.2,
+        2.0
+      ],
+      "series": [
+        0.487339,
+        0.358196,
+        0.149055,
+        0.025845,
+        0.001684
+      ]
+    },
+    "detail": ""
+  },
+  {
+    "name": "optical/edge_strength",
+    "title": "edge_strength decreases with severity",
+    "status": "pass",
+    "measured": {
+      "c_values": [
+        0.0,
+        0.2,
+        0.6,
+        1.2,
+        2.0
+      ],
+      "series": [
+        0.004938,
+        0.002639,
+        0.000708,
+        0.000103,
+        4e-06
+      ]
+    },
+    "detail": ""
+  },
+  {
+    "name": "optical/raw_preserved",
+    "title": "camera/raw is not mutated",
+    "status": "pass",
+    "measured": {
+      "identical": true
+    },
+    "detail": ""
+  },
+  {
+    "name": "optical/deterministic",
+    "title": "repeated processing identical",
+    "status": "pass",
+    "measured": {
+      "identical_over_3_runs": true
+    },
+    "detail": ""
+  },
+  {
+    "name": "fls/optical_independence",
+    "title": "FLS unchanged by the optical parameter",
+    "status": "pass",
+    "measured": {
+      "identical": true
+    },
+    "detail": "simulator architecture property; NOT a claim that real acoustic sensing is turbidity-invariant"
+  },
+  {
+    "name": "dvl/surge",
+    "title": "-surge command -> -DVL x",
+    "status": "pass",
+    "measured": {
+      "dvl_xyz": [
+        -0.696,
+        0.1668,
+        -0.0052
+      ],
+      "true_body_xyz": [
+        -0.6947,
+        0.166,
+        -0.0054
+      ],
+      "abs_error": 0.0013
+    },
+    "detail": ""
+  },
+  {
+    "name": "dvl/sway",
+    "title": "+sway command -> +DVL y",
+    "status": "pass",
+    "measured": {
+      "dvl_xyz": [
+        0.0013,
+        0.4295,
+        -0.0
+      ],
+      "true_body_xyz": [
+        0.0012,
+        0.4293,
+        -0.0
+      ],
+      "abs_error": 0.0002
+    },
+    "detail": ""
+  },
+  {
+    "name": "dvl/heave",
+    "title": "+heave command -> +DVL z",
+    "status": "pass",
+    "measured": {
+      "dvl_xyz": [
+        0.0002,
+        -0.0001,
+        0.3801
+      ],
+      "true_body_xyz": [
+        -0.0,
+        -0.0,
+        0.3801
+      ],
+      "abs_error": 0.0
+    },
+    "detail": ""
+  },
+  {
+    "name": "imu/yaw_sign",
+    "title": "+yaw command -> +gyro_z",
+    "status": "pass",
+    "measured": {
+      "gyro_z_radps": 2.6667,
+      "true_yaw_rate_radps": 2.6667
+    },
+    "detail": ""
+  },
+  {
+    "name": "fls/range_response",
+    "title": "FLS range tracks closure",
+    "status": "pass",
+    "measured": {
+      "closer_m": 1.006,
+      "farther_m": 3.669
+    },
+    "detail": ""
+  },
+  {
+    "name": "observability/centered/far",
+    "title": "dock observable",
+    "status": "pass",
+    "measured": {
+      "fls_returns": 22,
+      "fls_min_m": 6.749,
+      "cam_rms_contrast": 0.1689,
+      "cam_edges": 0.00221
+    },
+    "detail": ""
+  },
+  {
+    "name": "observability/centered/mid",
+    "title": "dock observable",
+    "status": "pass",
+    "measured": {
+      "fls_returns": 52,
+      "fls_min_m": 2.781,
+      "cam_rms_contrast": 0.1857,
+      "cam_edges": 0.00494
+    },
+    "detail": ""
+  },
+  {
+    "name": "observability/centered/near",
+    "title": "dock observable",
+    "status": "pass",
+    "measured": {
+      "fls_returns": 118,
+      "fls_min_m": 1.022,
+      "cam_rms_contrast": 0.2002,
+      "cam_edges": 0.00686
+    },
+    "detail": ""
+  },
+  {
+    "name": "observability/lateral offset",
+    "title": "dock observable",
+    "status": "pass",
+    "measured": {
+      "fls_returns": 56,
+      "fls_min_m": 1.591,
+      "cam_rms_contrast": 0.1771,
+      "cam_edges": 0.00594
+    },
+    "detail": ""
+  },
+  {
+    "name": "observability/vertical offset",
+    "title": "dock observable",
+    "status": "pass",
+    "measured": {
+      "fls_returns": 30,
+      "fls_min_m": 2.756,
+      "cam_rms_contrast": 0.1773,
+      "cam_edges": 0.0048
+    },
+    "detail": ""
+  },
+  {
+    "name": "observability/yaw error 15 deg",
+    "title": "dock observable",
+    "status": "pass",
+    "measured": {
+      "fls_returns": 55,
+      "fls_min_m": 0.208,
+      "cam_rms_contrast": 0.1839,
+      "cam_edges": 0.00521
+    },
+    "detail": ""
+  }
+]

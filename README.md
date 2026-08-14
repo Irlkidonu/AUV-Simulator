@@ -82,6 +82,125 @@ only in what they may do with it — which is what makes the comparison fair.
 
 ---
 
+## Two simulation modes
+
+The simulator has two execution modes. They answer different questions and are
+kept deliberately separate.
+
+| | **Reduced / headless mode** | **Physics mode** |
+|---|---|---|
+| Dynamics | first-order kinematic propagation | rigid-body 6-DOF, Gazebo/DART |
+| Determinism | seeded, bitwise reproducible | not bitwise; empirically repeatable |
+| Dependencies | NumPy only, no ROS, no Gazebo | ROS 2 Jazzy + pinned Gazebo stack |
+| Sensors | analytic models | rendered camera, FLS, IMU, DVL |
+| Purpose | the original evidence path | new dynamic and docking experiments |
+| Status | **unchanged** | added in this release |
+
+**The reduced mode is untouched by this release.** Every campaign, every result
+and every hash it produced before the physics package existed still verifies:
+the 251 files of `uuv_mode_aware_navigation` are byte-identical, the Study-3
+freeze manifests still pass, and the full 437-test suite still runs with neither
+ROS nor Gazebo installed.
+
+Physics mode lives entirely in the sibling package `src/uuv_sim_physics`. The
+dependency runs one way — `uuv_sim_physics` imports `uuv_mode_aware_navigation`,
+never the reverse — and a test enforces it.
+
+### Running physics mode
+
+```bash
+# The pinned stack is verified before anything launches; a mismatch aborts.
+export PYTHONPATH=src/uuv_mode_aware_navigation:src/uuv_sim_physics
+python3 -m uuv_sim_physics.toolchain            # print/verify the pinned stack
+python3 -m uuv_sim_physics.world_builder        # regenerate both worlds
+ros2 launch uuv_sim_physics physics.launch.py   # base physics environment
+ros2 launch uuv_sim_physics physics.launch.py gui:=true
+
+python3 -m uuv_sim_physics.validation.protocol           # P1-P16 physics validation
+python3 -m uuv_sim_physics.control.maneuvers             # T1-T7 closed-loop control
+python3 -m uuv_sim_physics.validation.sensor_validation  # sensor suite validation
+```
+
+### Pinned toolchain
+
+Physics mode supports exactly one stack and **fails closed** on any other:
+
+```
+ROS 2 Jazzy · ROS-vendored gz-sim 8.11.0 · ros_gz 1.0.22 · vendored DART 6.13.2
+gz  /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz
+```
+
+Three Gazebo versions may be installed side by side, and `gz` on `PATH`
+resolves differently depending on whether ROS is sourced. `uuv_sim_physics.toolchain`
+resolves the executable by absolute path and refuses to run on anything else.
+
+### A note on the root package version
+
+`pyproject.toml` declares `2.0.0.dev0` and stays there deliberately. That file is
+part of the **frozen Study 3 environment lock** — it is hashed into the freeze
+manifests that certify the software which produced the Paper 2 evidence, and
+altering it would invalidate that certification for a cosmetic reason.
+
+The physics-capable simulator release is therefore identified by the **Git tag
+`v2.0.0`** and by the **`uuv_sim_physics` package version `2.0.0`**. The
+reproducibility constraint wins over metadata symmetry; this is a deliberate
+choice, not an oversight.
+
+## REFERENCE and VALIDATED physics configurations
+
+Two configuration states are kept, and both are published.
+
+**REFERENCE** is the inherited vehicle model, transcribed exactly from the
+pre-existing docking testbed and never edited afterwards. **VALIDATED** is
+REFERENCE plus the corrections that quantitative validation justified. The
+entire difference is `src/uuv_sim_physics/config/corrections.yaml`, so what
+changed — and why — is one file rather than an archaeology exercise.
+
+| | Correction |
+|---|---|
+| C1 | hull mass 25.46 → 25.421 kg, so total system mass equals displaced mass exactly |
+| C2 | docking-station collision primitives (the reference dock was intangible) |
+| C3 | atomic thruster commands — a body wrench is one control decision |
+| C4 | removed cosmetic vectored-thruster visuals that misrepresented the actuation |
+| C5 | *withdrawn*: an earlier "surge sign inversion" finding was wrong |
+| C6 | validated timestep 1.0 → 0.5 ms, chosen from a four-point convergence study |
+| C7 | camera, FLS, IMU and DVL moved onto the dynamic vehicle |
+
+Every correction records the failing observation, the physical explanation, the
+change, its justification and the revalidation result.
+
+## Known limitations
+
+These are load-bearing; please read them before using the physics mode.
+
+* **Hydrodynamic-coefficient provenance is unknown.** The 18 coefficients are
+  labelled "representative BlueROV2-scale" in the source they came from, with no
+  citation, and no matching published set was found. They are inherited
+  simulation parameters, not literature-derived values.
+* **The FLS is a ray-based acoustic proxy, not imaging sonar.** A Gazebo
+  `gpu_lidar`: 128 × 1 rays, ±0.52 rad, 0.2–12 m.
+* **Acoustic sensing is unaffected by the optical turbidity parameter.** That is
+  a property of this simulator's architecture — not a claim about real sonar.
+* **Optical degradation uses a uniform standoff** unless a depth buffer is
+  supplied. Per-pixel range is supported but is not wired to a Gazebo depth
+  image, so this is not volumetric underwater rendering.
+* **There is no live `camera/underwater` topic.** Degradation is a library
+  function applied to captured frames; downstream applications publish if they
+  need to.
+* **No independent camera calibration** was performed; intrinsics are
+  simulator-configured and verified operationally.
+* **IMU dynamic validation covers yaw only** — roll and pitch are not actuated
+  on this vehicle, so their rate signs are configured, not measured.
+* **Contact-metric timestep convergence is incomplete**: 1.271% between 0.5 and
+  0.25 ms on a single-sample extremal metric. Free-water dynamics converge by
+  1 ms.
+* **The collision collar is an octagon**, not a torus.
+* **No ambient current.** `gz-sim-hydrodynamics-system` accepts no flow input.
+
+Validation evidence for all of the above is in [`validation/`](validation/):
+integrity baselines, the measured results behind every number quoted here, and
+the figures. `validation/README.md` lists the commands that regenerate them.
+
 ## Installation
 
 Ubuntu 24.04, Python 3.12.

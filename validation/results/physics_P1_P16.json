@@ -1,0 +1,195 @@
+[
+  {
+    "name": "P2",
+    "title": "mass and inertia consistency",
+    "status": "fail",
+    "predicted": null,
+    "measured": null,
+    "unit": "",
+    "tolerance": "",
+    "detail": "config == generated SDF for hull mass, 6 inertia terms and 4 propeller masses; total system mass 25.4610 kg; MISMATCH: ['hull mass']",
+    "data": {
+      "total_mass_kg": 25.461,
+      "mismatches": [
+        "hull mass"
+      ]
+    }
+  },
+  {
+    "name": "P3",
+    "title": "displaced volume vs system mass",
+    "status": "pass",
+    "predicted": 1.0,
+    "measured": 1.0000000000000002,
+    "unit": "ratio",
+    "tolerance": "0.1%",
+    "detail": "displaced 25.4610 kg vs total 25.4610 kg -> net -0.0000 N. Only base_link carries collision geometry, so the four propeller links add mass without displacement.",
+    "data": {
+      "displaced_mass_kg": 25.461000000000002,
+      "total_mass_kg": 25.461,
+      "net_weight_N": -3.481659405224491e-14
+    }
+  },
+  {
+    "name": "P16",
+    "title": "frame conventions",
+    "status": "pass",
+    "predicted": null,
+    "measured": null,
+    "unit": "",
+    "tolerance": "",
+    "detail": "gravity -Z, CoB above CoM, 4 thruster axes and spawn yaw all match the declared convention",
+    "data": {
+      "problems": []
+    }
+  },
+  {
+    "name": "P1",
+    "title": "zero-input vertical equilibrium",
+    "status": "pass",
+    "predicted": 1.0471156105938318e-15,
+    "measured": 7.068257475841558e-09,
+    "unit": "m/s",
+    "tolerance": "5% or 0.5 mm/s",
+    "detail": "net weight -0.0000 N (total mass 25.4610 kg, displaced 25.4610 kg); depth drift -0.0000 m over 14.0 s",
+    "data": {
+      "net_weight_N": -3.481659405224491e-14,
+      "total_mass_kg": 25.461,
+      "displaced_mass_kg": 25.461000000000002,
+      "depth_drift_m": -3.010964455540943e-08
+    }
+  },
+  {
+    "name": "P5",
+    "title": "surge terminal velocity",
+    "status": "fail",
+    "predicted": 0.7949704690278573,
+    "measured": 5.748275337604382e-17,
+    "unit": "m/s",
+    "tolerance": "5%",
+    "detail": "100 N total; sign + body-X (see P13 for the sign convention)",
+    "data": {
+      "heading_drift_deg": -57.39866430165645
+    }
+  },
+  {
+    "name": "P6",
+    "title": "heave terminal velocity",
+    "status": "pass",
+    "predicted": 0.4334457438966891,
+    "measured": 0.43344559257980486,
+    "unit": "m/s",
+    "tolerance": "5%",
+    "detail": "50 N up, less net weight -0.0000 N",
+    "data": {}
+  },
+  {
+    "name": "P7",
+    "title": "sway terminal velocity",
+    "status": "pass",
+    "predicted": 0.4800153607373193,
+    "measured": 0.48001794948217047,
+    "unit": "m/s",
+    "tolerance": "5%",
+    "detail": "linear sway damping is zero in the inherited model, so this is purely quadratic",
+    "data": {}
+  },
+  {
+    "name": "P7b",
+    "title": "low-speed sway (docking regime)",
+    "status": "pass",
+    "predicted": 0.09600307214746387,
+    "measured": 0.0960017917559126,
+    "unit": "m/s",
+    "tolerance": "10%",
+    "detail": "2 N lateral; 1/e decay after thrust removal 2.69 s. With yV = -0 the only resistance at low speed is quadratic, which vanishes as v -> 0.",
+    "data": {
+      "decay_1_over_e_s": 2.6850000000000023,
+      "thrust_N": 2.0
+    }
+  },
+  {
+    "name": "P13",
+    "title": "command sign map (6 DOF)",
+    "status": "fail",
+    "predicted": null,
+    "measured": null,
+    "unit": "",
+    "tolerance": "",
+    "detail": "inverted: +yaw, -yaw",
+    "data": {
+      "body_response": {
+        "+surge": 0.5539308938870755,
+        "-surge": -0.7051485186785706,
+        "+sway": 0.4293542023002618,
+        "-sway": -0.4293657242473129,
+        "+heave": 0.3801218033961681,
+        "-heave": -0.3801215243155261,
+        "+yaw": -2.6666854186776576,
+        "-yaw": 2.666685595898299
+      },
+      "inverted": [
+        "+yaw",
+        "-yaw"
+      ]
+    }
+  },
+  {
+    "name": "P14",
+    "title": "dock contact and funnel guidance",
+    "status": "pass",
+    "predicted": null,
+    "measured": null,
+    "unit": "",
+    "tolerance": "",
+    "detail": "5/5 scenarios: contact held, no tunnelling, bounded speeds",
+    "data": {
+      "scenarios": {
+        "frontal": {
+          "closest_x_m": 0.2825790774848454,
+          "max_speed_mps": 0.3128726185460175,
+          "finite": true,
+          "tunnelled": false
+        },
+        "lateral offset": {
+          "closest_x_m": 1.644551824406186,
+          "max_speed_mps": 0.3387758812544109,
+          "finite": true,
+          "tunnelled": false
+        },
+        "angular misalignment": {
+          "closest_x_m": 2.9511925434235353,
+          "max_speed_mps": 0.31546620320726826,
+          "finite": true,
+          "tunnelled": false
+        },
+        "funnel edge": {
+          "closest_x_m": 2.702105001372746,
+          "max_speed_mps": 0.32591096777042783,
+          "finite": true,
+          "tunnelled": false
+        },
+        "low-speed seating": {
+          "closest_x_m": 0.13432260303379906,
+          "max_speed_mps": 0.20885927183791153,
+          "finite": true,
+          "tunnelled": false
+        }
+      }
+    }
+  },
+  {
+    "name": "P11",
+    "title": "surge step response shape",
+    "status": "fail",
+    "predicted": 0.0,
+    "measured": 4.0027049534053075e+17,
+    "unit": "% overshoot",
+    "tolerance": "< 5%",
+    "detail": "steady 0.0000 m/s, 90% rise at 0.00 s",
+    "data": {
+      "steady_mps": 1.9938094026113872e-16,
+      "rise_90_s": 0.0
+    }
+  }
+]
