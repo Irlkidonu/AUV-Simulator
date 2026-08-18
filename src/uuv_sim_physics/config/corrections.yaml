@@ -73,6 +73,35 @@ corrections:
       solid cylinder would seal the throat the vehicle is supposed to enter.
       Dimensions are taken from the visual geometry, not invented.
     revalidation: P14 5/5 scenarios; no tunnelling, bounded contact, finite states.
+    defect_found_in_v2_0_0: >-
+      The emitted collar collision boxes had their radial and tangential extents
+      transposed. The segment pose applies roll = angle about X, so the box's
+      local +y is radial and local +z tangential, but the size vector supplied
+      the tangential arc width (0.2227 m) as the local-y extent. The emitted
+      throat therefore had an inner radius of 0.1587 m, not the 0.240 m recorded
+      in `change` above. The hull's y-z half-diagonal is 0.1749 m, so a
+      perfectly centred vehicle was physically blocked and docking capture was
+      impossible. Confirmed in closed loop: with an oracle-perception controller
+      the vehicle stalls at x = 0.218 m, and still stalls at x = 0.197 m when
+      commanded to a waypoint 1 m beyond the dock.
+    why_revalidation_missed_it: >-
+      P14 asserted that contact was well behaved -- no tunnelling, bounded
+      speeds, finite states. All three remain true when the vehicle simply stops
+      against a wall. No criterion asserted the functional property the
+      correction exists to provide: that a correctly aligned vehicle can pass
+      through the throat.
+    fixed_in: v2.0.1
+    fix: >-
+      world_builder._dock_collision now emits size [0.06, thickness,
+      width * 1.05] so the radial extent is the 0.06 m annulus thickness. The
+      emitted inner radius is 0.2400 m, matching COLLAR_INNER_R, and the
+      worst-direction capture clearance is 0.0703 m against the documented
+      ~0.065 m (the difference is the 8-segment octagonal discretisation).
+    revalidation_v2_0_1: >-
+      P14 5/5 with a new throat-entry criterion: low-speed seating reaches
+      x = -0.0586 m, i.e. the vehicle centre passes the collar plane. Eight
+      geometric regression tests (P14a-d) in test/test_dock_throat_geometry.py
+      measure the emitted SDF and fail against the transposed geometry.
 
   C3_atomic_thruster_commands:
     status: applied

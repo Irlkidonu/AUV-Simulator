@@ -132,6 +132,18 @@ def _dock_collision(dock: dict) -> list[str]:
     out.append(f"{I*3}</link>")
 
     # Collar: an annulus approximated by boxes on a ring.
+    #
+    # The segment pose applies roll = angle about X, so the box's local +y axis
+    # maps to the RADIAL direction and local +z to the TANGENTIAL direction.
+    # The size vector must therefore be [axial, radial, tangential] =
+    # [0.06, thickness, width]. Supplying it as [0.06, width, thickness]
+    # transposes the two and emits a throat of inner radius
+    #   mid - width/2 = 0.27 - 0.111 = 0.159 m
+    # instead of the intended
+    #   mid - thickness/2 = 0.27 - 0.03 = 0.240 m,
+    # which is narrower than the hull's 0.1749 m half-diagonal and makes centred
+    # entry physically impossible. That was the v2.0.0 defect; see correction C2
+    # and the P14a-d throat-entry tests that now pin this.
     import math
     thickness = COLLAR_OUTER_R - COLLAR_INNER_R
     mid = 0.5 * (COLLAR_INNER_R + COLLAR_OUTER_R)
@@ -144,7 +156,7 @@ def _dock_collision(dock: dict) -> list[str]:
             f'{I*4}<collision name="col_collar_{index}">',
             f"{I*5}<pose>-0.02 {y:.6g} {z:.6g} {angle:.6g} 0 0</pose>",
             _geometry({"shape": "box",
-                       "size": [0.06, width * 1.05, thickness]}, I * 5),
+                       "size": [0.06, thickness, width * 1.05]}, I * 5),
             f"{I*4}</collision>",
         ]
     out.append(f"{I*3}</link>")

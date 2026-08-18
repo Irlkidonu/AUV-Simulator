@@ -146,6 +146,10 @@ The physics-capable simulator release is therefore identified by the **Git tag
 reproducibility constraint wins over metadata symmetry; this is a deliberate
 choice, not an oversight.
 
+The same exception applies to the **v2.0.1** patch release: `pyproject.toml`
+remains at `2.0.0.dev0`, and the patch is identified by the Git tag `v2.0.1` and
+the `uuv_sim_physics` package version `2.0.1`.
+
 ## REFERENCE and VALIDATED physics configurations
 
 Two configuration states are kept, and both are published.

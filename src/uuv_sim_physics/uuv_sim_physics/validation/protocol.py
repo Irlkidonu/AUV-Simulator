@@ -494,6 +494,17 @@ def p14_dock_contact(cfg: dict) -> Result:
     return _p14_measure(cfg)
 
 
+#: A centred low-speed approach must be able to put the vehicle's centre past
+#: the collar plane. v2.0.0 emitted a 0.1587 m throat against a 0.1749 m hull
+#: half-diagonal, so entry was impossible -- and P14 still passed, because every
+#: criterion it checked (no tunnelling, bounded speed, finite state) remains true
+#: when the vehicle simply stops against a wall. Contact being well behaved is
+#: not the same as the dock being usable, and only the second property is what
+#: correction C2 exists to provide.
+THROAT_ENTRY_SCENARIO = "low-speed seating"
+THROAT_ENTRY_MAX_X_M = 0.0
+
+
 def _p14_measure(cfg: dict) -> Result:
     """Five contact scenarios at docking-representative speed."""
     limit = 18.0                       # gentle approach, not a crash test
@@ -520,12 +531,25 @@ def _p14_measure(cfg: dict) -> Result:
                            "finite": finite, "tunnelled": tunnelled}
         if tunnelled or not finite or speed.max() > 10.0:
             failures.append(label)
+
+    # Functional property: the dock must be enterable, not merely solid.
+    entry = outcomes.get(THROAT_ENTRY_SCENARIO, {})
+    entered = bool(entry.get("closest_x_m", 1e9) < THROAT_ENTRY_MAX_X_M)
+    if not entered:
+        failures.append(f"{THROAT_ENTRY_SCENARIO}: no throat entry")
+
+    detail = ("5/5 scenarios: contact held, no tunnelling, bounded speeds; "
+              f"throat entry reached x = {entry.get('closest_x_m', float('nan')):.4f} m"
+              if not failures else f"failed: {failures}")
     return Result(
-        "P14", "dock contact and funnel guidance",
+        "P14", "dock contact, funnel guidance and throat entry",
         "pass" if not failures else "fail",
-        detail=("5/5 scenarios: contact held, no tunnelling, bounded speeds"
-                if not failures else f"failed: {failures}"),
-        data={"scenarios": outcomes})
+        detail=detail,
+        data={"scenarios": outcomes, "throat_entry": {
+            "scenario": THROAT_ENTRY_SCENARIO,
+            "closest_x_m": entry.get("closest_x_m"),
+            "threshold_m": THROAT_ENTRY_MAX_X_M,
+            "entered": entered}})
 
 
 def p15_timestep_sensitivity(cfg: dict) -> Result:
