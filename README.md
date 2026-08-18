@@ -150,6 +150,37 @@ The same exception applies to the **v2.0.1** patch release: `pyproject.toml`
 remains at `2.0.0.dev0`, and the patch is identified by the Git tag `v2.0.1` and
 the `uuv_sim_physics` package version `2.0.1`.
 
+### Release tags and reproducing a specific version
+
+**A Git tag identifies a complete snapshot of this repository, not a patch.**
+Checking a tag out gives the entire simulator exactly as it stood for that
+release — sources, configuration, generated worlds and validation evidence:
+
+```bash
+git checkout v2.0.1     # the whole repository at the 2.0.1 release
+git checkout v2.0.0     # the whole repository at the 2.0.0 release
+```
+
+| tag | release commit | what it is |
+|---|---|---|
+| `v2.0.0` | `120c364f` | first physics-capable release |
+| `v2.0.1` | `2c965c36dc24a35aa88e8a5ec125479d83d248b1` | docking collar collision geometry fix |
+
+`v2.0.1` corrects the validated dock's collar collision aperture, whose radial
+and tangential box extents were transposed, from an unintended ~0.1587 m inner
+radius to the intended 0.2400 m. Under `v2.0.0` a correctly centred vehicle was
+physically unable to enter the docking throat. The patch changes no vehicle
+dynamics, hydrodynamics, sensor model, controller or perception code, and leaves
+the REFERENCE configuration untouched. See correction `C2` in
+`src/uuv_sim_physics/config/corrections.yaml` and the throat-entry regression
+tests in `src/uuv_sim_physics/test/test_dock_throat_geometry.py`.
+
+Work built on this simulator should cite the tag it actually ran against.
+Experiments that ran under `v2.0.0` should continue to cite `v2.0.0`: the
+collision correction affects only physical contact with the dock collar, and it
+does not alter camera or forward-looking-sonar observations, which are rendered
+from visual geometry rather than collision primitives.
+
 ## REFERENCE and VALIDATED physics configurations
 
 Two configuration states are kept, and both are published.
